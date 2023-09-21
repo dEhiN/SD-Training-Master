@@ -1,4 +1,4 @@
-# Udemy--GitComplete--exercise_starter-web
+# UdemyCourse--GitComplete--exercise_starter-web
 
 Created for the Udemy course _Git Complete_ by copying the starter files provided for this repository
 
