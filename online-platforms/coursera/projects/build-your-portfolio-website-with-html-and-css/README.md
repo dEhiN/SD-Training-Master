@@ -1,3 +1,3 @@
-# CourseraProject--PortfolioWebsite
+# CourseraProject--BuildPortfolioWebsiteHTMLCSS
 
-A repo for the Coursera Project _Build Your Portfolio Website with HTML and CSS_.
+Created for the Coursera Project _Build Your Portfolio Website with HTML and CSS_.
