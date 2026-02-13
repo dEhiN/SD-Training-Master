@@ -1,0 +1,24 @@
+body{
+
+    background-color: rgb(200,200,200);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+}
+
+h1
+{
+  background-color: DarkCyan;  
+  padding: 20px;
+}
+
+h3
+{
+ background-color: #ee3e80;
+ padding: 20px;
+
+}
+p
+{
+    background-color: white;
+    padding: 20px;
+}
