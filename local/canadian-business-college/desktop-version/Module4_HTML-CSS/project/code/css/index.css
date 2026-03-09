@@ -1,0 +1,28 @@
+.section-title h1 {
+    margin: 0;
+}
+
+.section-title h4 {
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.section-cta-div {
+    /* background-color: #F5DEB3; */
+    padding: 20px;
+    margin: 20px 0;
+    color: #5C4A31;
+}
+
+.section-cta {
+    margin: 5em;
+}
+
+.section-cta p {
+    font-size: 1.1em;
+}
+
+.section-cta-question {
+    margin: 0;
+    font-size: 1.2em;
+}
