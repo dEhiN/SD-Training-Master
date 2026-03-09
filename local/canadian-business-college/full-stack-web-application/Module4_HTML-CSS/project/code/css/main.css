@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: blanchedalmond;
+    font-size: 18px;
 }
 
 /** Set up the header to be a flex container with default main axis, centered on cross axis, padding, space in between the app name and nav bar and a different background color */
@@ -17,7 +18,6 @@ header {
 /** Set up the app name in the header to stand out */
 .app-name {
     font-style: italic;
-    font-size: 18px;
     color: #DEF5FF;
 }
 
@@ -29,7 +29,6 @@ header {
 }
 
 .nav-list li {
-    font-size: 18px;
     padding: 5px 10px;
 }
 
