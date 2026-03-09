@@ -1,4 +1,4 @@
-/** Set up the body with a background color and remove default margins and padding */
+/** Set up the body with a background color, no default margins and padding, and a default font size */
 body {
     margin: 0;
     padding: 0;
