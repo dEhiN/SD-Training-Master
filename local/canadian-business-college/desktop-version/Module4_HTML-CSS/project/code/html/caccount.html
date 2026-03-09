@@ -11,7 +11,7 @@
         <title>Create Account (Tachette)</title>
         <!-- Link the main CSS for common styling and the specific page CSS-->
         <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/caccount.css">
+        <link rel="stylesheet" href="../css/forms.css">
     </head>
 
     <body>
@@ -55,26 +55,28 @@
                     Create Account
                 </h1>
             </section>
-            <section>
+            <section class="section-form">
                 <!-- Second body section which contains a form to create an account-->
-                <form>
-                    <div>
+                <form class="form-create-account">
+                    <div class="form-element">
                         <label for="email_username">Please enter your email address:</label>
                         <input type="email" id="email_username" name="email_username">
                     </div>
-                    <div>
+                    <div class="form-element">
                         <label for="password">Please enter your password:</label>
                         <input type="password" id="password" name="password">
                     </div>
-                    <div>
+                    <div element class="form-element">
                         <label for="password_confirm">Please enter your password again:</label>
                         <input type="password" id="password_confirm" name="password_confirm">
                     </div>
-                    <div>
+                    <div class="form-element">
                         <label for="user_fullname">Please enter your name:</label>
                         <input type="text" id="user_fullname" name="user_fullname">
                     </div>
-                    <button type="submit">Create Account</button>
+                    <div class="form-element submit-btn-div">
+                        <button type="submit" class="create-account-btn">Create Account</button>
+                    </div>
                 </form>
                 <div>
                     <!-- A separate div container with links for the user if they already have an account -->
