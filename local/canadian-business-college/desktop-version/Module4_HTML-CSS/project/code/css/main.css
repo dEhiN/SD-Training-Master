@@ -1,9 +1,11 @@
+/** Set up the body with a background color and remove default margins and padding */
 body {
     margin: 0;
     padding: 0;
-    background-color: blanchedalmond
+    background-color: blanchedalmond;
 }
 
+/** Set up the header to be a flex container with default main axis, centered on cross axis, padding, space in between the app name and nav bar and a different background color */
 header {
     display: flex;
     justify-content: space-between;
@@ -12,12 +14,14 @@ header {
     background-color: burlywood;
 }
 
-.header-title {
+/** Set up the app name in the header to stand out */
+.app-name {
     font-style: italic;
     font-size: 18px;
     color: #DEF5FF;
 }
 
+/** Set up the navigation list to not have any dots and be flex diplay with a gap to make the links horizontal*/
 .nav-list {
     list-style-type: none;
     display: flex;
@@ -29,7 +33,16 @@ header {
     padding: 5px 10px;
 }
 
+/** Adjusted the specific nav links to look better against the header backdrop */
 .nav-link {
     text-decoration: none;
-    color: aliceblue
+    color: aliceblue;
+}
+
+/** Added decoration for on hover of nav links */
+.nav-link:hover {
+    background-color: aliceblue;
+    color: #4682B4;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
