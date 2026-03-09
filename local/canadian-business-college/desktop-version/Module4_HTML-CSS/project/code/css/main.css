@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: blanchedalmond
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: burlywood;
+}
+
+.header-title {
+    font-style: italic;
+    font-size: 18px;
+    color: #DEF5FF;
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li {
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: aliceblue
+}
