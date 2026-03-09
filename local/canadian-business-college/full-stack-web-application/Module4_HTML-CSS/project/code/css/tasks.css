@@ -1,0 +1,29 @@
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 20px;
+}
+
+.task-card {
+    background-color: #F5DEB3;
+    color: #5C4A31;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+    .task-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .task-grid {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+}
