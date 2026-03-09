@@ -15,6 +15,16 @@ header {
     background-color: burlywood;
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #B0C4DE;
+}
+
+footer p {
+    color: #5C4A31;
+}
+
 /** Set up the app name in the header to stand out */
 .app-name {
     font-style: italic;
