@@ -11,6 +11,7 @@
         <title>Login (Tachette)</title>
         <!-- Link the main CSS for common styling and the specific page CSS-->
         <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/forms.css">
         <link rel="stylesheet" href="../css/login.css">
     </head>
 
@@ -55,20 +56,21 @@
                     Sign In
                 </h1>
             </section>
-            <section>
+            <section class="section-form">
                 <!-- Second body section which contains the login form-->
-                <form>
-                    <div>
+                <form class="form-create-account">
+                    <div class="form-element">
                         <label for="email_username">Email:</label>
                         <input type="email" id="email_username" name="email_username" required>
                     </div>
-                    <div>
+                    <div class="form-element">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit">Login</button>
+                    <div class="form-element submit-btn-div">
+                    <button type="submit" class="create-account-btn">Login</button></div>
                 </form>
-                <div>
+                <div class="form-links-div">
                     <!-- A separate div container with links for the user if they forgot their password or need to create an account.
                     Currently, the forgot password link isn't set up. 
                 -->
