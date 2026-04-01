@@ -1,0 +1,170 @@
+<!-- This is Assignment Two for the Intro to HTML & CSS module of the Full Stack Web Application Development program.-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta tags to set the character set, the viewport, the description, keywords for SEO, and the page author -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Module 4 Assignment Two">
+        <meta name="keywords" content="HTML, Assignment, Module 4">
+        <meta name="author" content="David H. Watson">
+        <title>Assignment Two</title>
+    </head>
+
+    <body>
+        <!-- The main content is put inside 3 nested div elements: a container for the whole page, a single row within the container, and a single column within the row. -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- Initial content, similar to what was on assignment one. -->
+                    <h1>
+                        Welcome to Web Development 101
+                    </h1>
+                    <hr>
+                    <p>
+                        This page demonstrates the foundational elements of HTML. Students can use this as a reference
+                        for structure, media embedding, and form data collection.
+                    </p>
+                    <h3>
+                        Course Topics
+                    </h3>
+                    <ul>
+                        <li>Front-end Development</li>
+                        <ul>
+                            <li>HTML5 Structure</li>
+                            <li>CSS3 Styling</li>
+                            <li>JavaScript Logic</li>
+                        </ul>
+                        <li>Back-end Development</li>
+                    </ul>
+                    <hr>
+                    <table>
+                        <caption>Class Schedule</caption>
+                        <thead>
+                            <th>
+                                Day
+                            </th>
+                            <th>
+                                Topic
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Monday
+                                </td>
+                                <td>
+                                    HTML
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Wednesday
+                                </td>
+                                <td>
+                                    Forms
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Thursday
+                                <td>
+                                    Anchor
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    Friday
+                                </td>
+                                <td>
+                                    Assignment
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <p>
+                        For more help, visit <a href="https://www.google.com">Google</a>.
+                    </p>
+                    <h3>
+                        Sample Image
+                    </h3>
+                    <img src="phone.png" alt="Sample Phone Image" width="100px">
+                    <!-- This section is new for assignment two. It demonstrates an iframe embed and a form with various input types. -->
+                    <hr>
+                    <h4>
+                        Embedded Resource (Wikipedia)
+                    </h4>
+                    <iframe src="https://en.wikipedia.org/wiki/HTML" height="200px" width="100%"></iframe>
+                    <hr>
+                    <h3>
+                        Student Registration Form
+                    </h3>
+                    <form action="#" method="POST">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" class="srf_form" required>
+                        <br>
+                        <br>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" class="srf_form" required>
+                        <br>
+                        <br>
+                        <label for="emailaddress">Email Adress:</label>
+                        <input type="email" id="emailaddress" class="srf_form" required>
+                        <br>
+                        <br>
+                        <label for="portfoliolink">Portfolio URL:</label>
+                        <input type="url" id="portfoliolink" class="srf_form">
+                        <br>
+                        <br>
+                        <label for="searchsite">Search Site:</label>
+                        <input type="search" id="searchsite" class="srf_form">
+                        <br>
+                        <br>
+                        <label for="dateofbirth">Date of Birth:</label>
+                        <input type="date" id="dateofbirth" class="srf_form" max="2008-02-02">
+                        <br>
+                        <br>
+                        <label for="preflearnstyle">Preferred Learning Style:</label>
+                        <input type="radio" id="preflearnstyle_visual" class="srf_form" name="preflearnstyle_group"
+                            value="visual">
+                        <label for="preflearnstyle_visual">Visual</label>
+                        <input type="radio" id="preflearnstyle_auditory" class="srf_form" name="preflearnstyle_group"
+                            value="auditory">
+                        <label for="preflearnstyle_auditory">Auditory</label>
+                        <br>
+                        <br>
+                        <label for="">Languages Known:</label>
+                        <input type="checkbox" id="langsknown_html" class="srf_form" name="langsknown_group"
+                            value="html">
+                        <label for="langsknown_html">HTML</label>
+                        <input type="checkbox" id="langsknown_css" class="srf_form" name="langsknown_group" value="css">
+                        <label for="langsknown_css">CSS</label>
+                        <br>
+                        <br>
+                        <label for="country">Country:</label>
+                        <select id="country" class="srf_form">
+                            <option value="usa">USA</option>
+                            <option value="canada">Canada</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="resumefile">Upload Resume:</label>
+                        <input type="file" id="resumefile" class="srf_form">
+                        <br>
+                        <br>
+                        <label for="shortbio">Short Bio:</label>
+                        <textarea id="shortbio" class="srf_form" rows="4" cols="50" wrap="soft"></textarea>
+                        <br>
+                        <br>
+                        <input type="submit" value="Register Now">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
