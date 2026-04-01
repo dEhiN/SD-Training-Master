@@ -1,0 +1,33 @@
+/* This is the main CSS file for overall page styling */
+
+
+/** Remove all padding and margin.
+    Set a default font-size.
+*/
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+/** Set a column-based flex for the whole body (all 3 main divs). 
+    Set a border-box sizing calculation for the whole body.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f0f8ff;
+}
+
+/** Center the section heading and push it down from the document title. */
+.section-heading {
+    text-align: center;
+    padding-top: 2%;
+    color: #8fa5c7;
+}
+
+/** Increase the size of the section heading text. */
+.section-heading h4 {
+    font-size: 1.5rem;
+}
