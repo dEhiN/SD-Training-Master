@@ -1,10 +1,17 @@
-// Global variables
+/** Global object to represent the API call */
+const api_obj = {
+  base_url: "http://universities.hipolabs.com/",
+  s_keyword: "search?",
+  country_property: "country=",
+  country_name: "",
+};
 
-const api_url = "http://universities.hipolabs.com/search";
-let country = "";
-
+/**
+ * Fetch function to make the API call and get the returned data.
+ * @param {string} country_name: A valid country name passed in as a string
+ */
 async function fetchData(country_name) {
-  country = country_name;
-  const full_url = (api_url, "?", "country=", country);
+  api_obj.country_name = country_name;
+  const full_url = Object.values(api_obj).join("");
   console.log(full_url);
 }
