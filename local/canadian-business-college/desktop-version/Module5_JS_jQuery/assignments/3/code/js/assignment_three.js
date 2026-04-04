@@ -9,6 +9,9 @@ const api_obj = {
 /** Global variable to hold all the universities */
 let uni_data_arr = [];
 
+/** Global variable to hold the div container for the university list data */
+const section_uni_list = document.querySelector(".section-university-list");
+
 /**
  * Function to grab the country name that the user selected from the drop-down list
  * @returns The name of the country as a string
@@ -25,6 +28,12 @@ function getCountryName() {
 async function fetchData(url) {
   let response_data;
   let university_list;
+
+  /** Check to see if there's an existing university list that's displayed and if so, remove all the child elements as well as reinitialize the uni_data_arr array. */
+  if (uni_data_arr.length > 0) {
+    uni_data_arr = [];
+    section_uni_list.replaceChildren();
+  }
 
   try {
     response_data = await fetch(url);
@@ -56,7 +65,6 @@ function processUniversities(university_list) {
  * Function to add each university in the uni_data_arr array to the HTML page.
  */
 function addUnisToPage() {
-  const section_uni_list = document.querySelector(".section-university-list");
   let new_div;
   let new_para;
   let uni_data = "";
@@ -86,6 +94,9 @@ function addUnisToPage() {
   }
 }
 
+/**
+ * Add the click event listener to the submit button. When it's clicked, get the country name selected, use the Object.values() and Array.join() methods to create the full API URL, and then call fetchData() to get and process the API results.
+ */
 let submit_btn = document.querySelector("#submit-btn");
 submit_btn.addEventListener("click", function () {
   api_obj.country_name = getCountryName();
