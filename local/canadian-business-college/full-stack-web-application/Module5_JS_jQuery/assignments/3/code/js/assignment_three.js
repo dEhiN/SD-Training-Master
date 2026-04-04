@@ -6,13 +6,6 @@ const api_obj = {
   country_name: "",
 };
 
-/** Global object to represent each university */
-let university_info = {
-  name: "",
-  state_province: "",
-  domains: [],
-};
-
 /** Global variable to hold all the universities */
 let uni_data_arr = [];
 
@@ -50,9 +43,11 @@ async function fetchData(url) {
  */
 function processUniversities(university_list) {
   for (let university of university_list) {
-    university_info.name = university["name"];
-    university_info.state_province = university["state-province"];
-    university_info.domains = university["domains"];
+    let university_info = {
+      name: university["name"],
+      state_province: university["state-province"],
+      domains: university["domains"],
+    };
     uni_data_arr.push(university_info);
   }
 }
