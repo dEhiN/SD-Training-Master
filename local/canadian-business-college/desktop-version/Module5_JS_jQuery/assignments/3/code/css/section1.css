@@ -3,7 +3,7 @@
 /** List of relevant classes:
 - assignment-section-1
 - section-heading (styled in main.css)
-- user-select
+- section-user-select
 - drop-down-list
 - button
 */
@@ -19,7 +19,7 @@
 /** Set a column-based flex for the user selection area.
     Ensure the child items are spaced evenly.
 */
-.user-select {
+.section-user-select {
     display: flex;
     flex-direction: column;
     align-items: center;
