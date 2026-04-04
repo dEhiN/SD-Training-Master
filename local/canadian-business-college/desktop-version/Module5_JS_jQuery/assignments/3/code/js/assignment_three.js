@@ -72,7 +72,9 @@ function addUnisToPage() {
 
   for (let university of uni_data_arr) {
     uni_data = `Name: ${university.name}<br>`;
-    uni_data += `State/Province: ${university.state_province}<br>`;
+    if (university.state_province) {
+      uni_data += `State/Province: ${university.state_province}<br>`;
+    }
     uni_data += `Domain(s): ${university.domains.join(", ")}`;
 
     new_div = document.createElement("div");
