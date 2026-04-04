@@ -44,8 +44,16 @@
     text-align: center;
 }
 
+/** Give a little gap between the actual drop-down list and its label. */
 .list-select {
     padding-top: 3%;
+}
+
+.list-select select {
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    padding: 1%;
+    color: #2f1b14;
 }
 
 /** Push down the button a little bit. */
