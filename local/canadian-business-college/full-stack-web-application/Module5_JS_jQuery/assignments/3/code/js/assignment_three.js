@@ -13,5 +13,9 @@ const api_obj = {
 async function fetchData(country_name) {
   api_obj.country_name = country_name;
   const full_url = Object.values(api_obj).join("");
-  console.log(full_url);
 }
+
+let submit_btn = document.getElementById("submit-btn");
+submit_btn.addEventListener("click", function () {
+  fetchData("Canada");
+});
