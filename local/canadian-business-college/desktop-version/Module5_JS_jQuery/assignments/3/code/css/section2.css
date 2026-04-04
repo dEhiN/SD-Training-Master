@@ -18,9 +18,10 @@
     align-items: center;
 }
 
-/** Set a grid display with a gap between the rows and columns for the div container holding the university info. */
+/** Set a grid display with a gap between the rows and columns for the div container holding the university info. The default number of columns is set to 5 with media queries below for responsiveness. */
 .section-university-list {
     display: grid;
+    grid-template-columns: repeat(5, minmax(1%, 1fr));
     padding: 2%;
     gap: 5rem;
 }
@@ -45,13 +46,7 @@
 }
 
 
-/** The following media queries adjust the number of cards per row (or columns in total) for the grid. The range is from 1-5 with the breakpoints being 650px, 950px, 1250px, 1550px, and above. This allows for greater responsive design and visual aesthetics. */
-@media {
-    .section-university-list {
-        grid-template-columns: repeat(5, minmax(1%, 1fr));
-    }
-}
-
+/** The following media queries adjust the number of cards per row (or columns in total) for the grid. The range is from 1-4 with the breakpoints being 650px, 950px, 1250px, 1550px. The default (for everything above 1550px) is 5 columns. This allows for greater responsive design and visual aesthetics. */
 @media (max-width: 1550px) {
     .section-university-list {
         grid-template-columns: repeat(4, minmax(1%, 1fr));
