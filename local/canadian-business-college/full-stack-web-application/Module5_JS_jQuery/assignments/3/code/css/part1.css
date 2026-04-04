@@ -1,7 +1,7 @@
 /* This CSS file is for the assignment part 1 section of the document */
 
 /** List of relevant classes:
-- assign-part1
+- assignment-section-1
 - section-heading
 - section-paras-noiterable
 - section-paras-iterable
@@ -13,8 +13,8 @@
 */
 
 
-/** Set a column-based flex for the whole part 1 section (all 3 main divs). */
-.assign-part1 {
+/** Set a column-based flex for the whole part 1 section. */
+.assignment-section-1 {
     display: flex;
     flex-direction: column;
     border-bottom: 0.5px #2f4f4f solid;
