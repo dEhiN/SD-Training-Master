@@ -34,3 +34,12 @@
     justify-content: center;
     gap: 15%;
 }
+
+.button {
+    margin-top: 1%;
+    padding: 0.3%;
+    border: none;
+    background-color: rgb(176, 165, 226);
+    border-radius: 12%;
+    color: #2f4f4f;
+}
