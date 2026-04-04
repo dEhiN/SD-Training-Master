@@ -17,6 +17,15 @@ let university_info = {
 let uni_data_arr = [];
 
 /**
+ * Function to grab the country name that the user selected from the drop-down list
+ * @returns The name of the country as a string
+ */
+function getCountryName() {
+  const select_country = document.querySelector("#select-country");
+  return select_country.value;
+}
+
+/**
  * Fetch function to make the API call and get the returned data.
  * @param {string} url: The url to use in the fetch command, passed in as a string
  */
@@ -32,14 +41,6 @@ async function fetchData(url) {
   } catch (error) {
     console.log(error);
   }
-}
-/**
- * Function to grab the country name that the user selected from the drop-down list
- * @returns The name of the country as a string
- */
-function getCountryName() {
-  const select_country = document.querySelector("#select-country");
-  return select_country.value;
 }
 
 /**
