@@ -62,9 +62,12 @@ function processUniversities(university_list) {
 }
 
 /**
- * Function to add each university in the uni_data_arr array to the HTML page.
+ * Function to add each university in the uni_data_arr array to the HTML page. The total number of universities is also added.
  */
 function addUnisToPage() {
+  let span_uni_total = document.querySelector(".university-total");
+  span_uni_total.textContent = `Total: ${uni_data_arr.length}`;
+
   let new_div;
   let new_para;
   let uni_data = "";
