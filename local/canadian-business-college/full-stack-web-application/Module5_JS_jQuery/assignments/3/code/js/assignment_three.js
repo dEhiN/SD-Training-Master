@@ -60,6 +60,7 @@ function addUnisToPage() {
   let new_div;
   let new_para;
   let uni_data = "";
+  let alt_card = false;
 
   for (let university of uni_data_arr) {
     uni_data = `Name: ${university.name}<br>`;
@@ -68,6 +69,14 @@ function addUnisToPage() {
 
     new_div = document.createElement("div");
     new_div.className = "university-card";
+
+    if (alt_card) {
+      new_div.className += " blue-card";
+    } else {
+      new_div.className += " green-card";
+    }
+
+    alt_card = !alt_card;
 
     new_para = document.createElement("p");
     new_para.innerHTML = uni_data;
