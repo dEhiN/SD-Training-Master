@@ -5,6 +5,7 @@
 - section-heading (styled in main.css)
 - user-select
 - drop-down-list
+- button
 */
 
 
@@ -42,4 +43,5 @@
     background-color: rgb(176, 165, 226);
     border-radius: 12%;
     color: #2f4f4f;
+    cursor: pointer;
 }
