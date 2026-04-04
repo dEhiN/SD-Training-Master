@@ -18,10 +18,9 @@
     align-items: center;
 }
 
-/** Set a grid with 3 columns and a gap between the rows and columns for the div container holding the university info. */
+/** Set a grid display with a gap between the rows and columns for the div container holding the university info. */
 .section-university-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(1%, 1fr));
     padding: 2%;
     gap: 5rem;
 }
@@ -45,15 +44,33 @@
     color: steelblue;
 }
 
-/** Adjust from 3 columns to 2 for responsive design. */
-@media (max-width: 768px) {
+
+/** The following media queries adjust the number of cards per row (or columns in total) for the grid. The range is from 1-5 with the breakpoints being 650px, 950px, 1250px, 1550px, and above. This allows for greater responsive design and visual aesthetics. */
+@media {
+    .section-university-list {
+        grid-template-columns: repeat(5, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 1550px) {
+    .section-university-list {
+        grid-template-columns: repeat(4, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 1250px) {
+    .section-university-list {
+        grid-template-columns: repeat(3, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 950px) {
     .section-university-list {
         grid-template-columns: repeat(2, minmax(1%, 1fr));
     }
 }
 
-/** Adjust from 2 columns to 1 for responsive design. */
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .section-university-list {
         grid-template-columns: 1fr;
     }
