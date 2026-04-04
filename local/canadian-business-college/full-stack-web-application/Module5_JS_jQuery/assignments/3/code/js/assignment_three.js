@@ -8,14 +8,33 @@ const api_obj = {
 
 /**
  * Fetch function to make the API call and get the returned data.
- * @param {string} country_name: A valid country name passed in as a string
+ * @param {string} url: The url to use in the fetch command, passed in as a string
  */
-async function fetchData(country_name) {
-  api_obj.country_name = country_name;
-  const full_url = Object.values(api_obj).join("");
+async function fetchData(url) {
+  let response_data;
+  let university_list;
+
+  try {
+    response_data = await fetch(url);
+    university_list = await response_data.json();
+    console.log(response_data);
+    console.log(university_list);
+  } catch (error) {
+    console.log(error);
+  }
+}
+/**
+ * Function to grab the country name that the user selected from the drop-down list
+ * @returns The name of the country as a string
+ */
+function getCountryName() {
+  const select_country = document.querySelector("#select-country");
+  return select_country.value;
 }
 
-let submit_btn = document.getElementById("submit-btn");
+let submit_btn = document.querySelector("#submit-btn");
 submit_btn.addEventListener("click", function () {
-  fetchData("Canada");
+  api_obj.country_name = getCountryName();
+  const full_url = Object.values(api_obj).join("");
+  fetchData(full_url);
 });
