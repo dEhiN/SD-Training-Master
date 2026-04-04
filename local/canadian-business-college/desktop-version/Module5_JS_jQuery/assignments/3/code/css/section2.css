@@ -5,6 +5,8 @@
 - section-heading (styled in main.css)
 - section-university-list
 - university-card
+- green-card
+- blue-card
 */
 
 
@@ -26,12 +28,19 @@
 
 /** Set the styling for each university card which is just a div container wrapping the paragraph of information. */
 .university-card {
-    /* background-color: rgb(176, 165, 226); */
-    background-color: #2f4f4f;
-    color: white;
     padding: 2%;
     border-radius: 5%;
     text-align: center;
+}
+
+.green-card {
+    background-color: #2f4f4f;
+    color: white;
+}
+
+.blue-card {
+    background-color: rgb(176, 165, 226);
+    color: steelblue;
 }
 
 /** Adjust from 3 columns to 2 for responsive design. */
