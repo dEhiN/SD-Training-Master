@@ -33,11 +33,13 @@
     text-align: center;
 }
 
+/** Set the background and text colour for the green university cards. */
 .green-card {
     background-color: #2f4f4f;
     color: white;
 }
 
+/** Set the background and text colour for the blue university cards. */
 .blue-card {
     background-color: rgb(176, 165, 226);
     color: steelblue;
