@@ -38,6 +38,7 @@ async function fetchData(url) {
     university_list = await response_data.json();
 
     processUniversities(university_list);
+    addUnisToPage();
   } catch (error) {
     console.log(error);
   }
@@ -48,14 +49,19 @@ async function fetchData(url) {
  * @param {object} university_list : an object that represents a list of universities from the API http://universities.hipolabs.com
  */
 function processUniversities(university_list) {
-  const section_uni_list = document.querySelector(".section-university-list");
-
   for (let university of university_list) {
     university_info.name = university["name"];
     university_info.state_province = university["state-province"];
     university_info.domains = university["domains"];
     uni_data_arr.push(university_info);
   }
+}
+
+/**
+ * Function to add each university in the uni_data_arr array to the HTML page.
+ */
+function addUnisToPage() {
+  const section_uni_list = document.querySelector(".section-university-list");
 }
 
 let submit_btn = document.querySelector("#submit-btn");
