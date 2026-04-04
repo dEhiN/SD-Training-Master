@@ -57,6 +57,18 @@ function processUniversities(university_list) {
  */
 function addUnisToPage() {
   const section_uni_list = document.querySelector(".section-university-list");
+  let new_para;
+  let uni_data = "";
+
+  for (let university of uni_data_arr) {
+    uni_data = `Name: ${university.name}<br>`;
+    uni_data += `State/Province: ${university.state_province}<br>`;
+    uni_data += `Domain(s): ${university.domains.join(", ")}`;
+
+    new_para = document.createElement("p");
+    new_para.innerHTML = uni_data;
+    section_uni_list.appendChild(new_para);
+  }
 }
 
 let submit_btn = document.querySelector("#submit-btn");
