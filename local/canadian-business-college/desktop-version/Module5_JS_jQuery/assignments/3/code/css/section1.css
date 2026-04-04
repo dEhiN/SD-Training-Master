@@ -5,6 +5,8 @@
 - section-heading (styled in main.css)
 - section-user-select
 - drop-down-list
+- list-label
+- list-select
 - user-button
 - button
 */
@@ -32,14 +34,23 @@
 */
 .drop-down-list {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 15%;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Adjust the label to shape the text width and placement. */
+.list-label {
+    width: 50%;
+    text-align: center;
+}
+
+.list-select {
+    padding-top: 3%;
 }
 
 /** Push down the button a little bit. */
 .user-button {
-    margin-top: 1%;
+    padding-top: 3%;
 }
 
 /** Style the submit button to have the following:
