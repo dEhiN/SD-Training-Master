@@ -3,6 +3,8 @@
 /** List of relevant classes:
 - assignment-section-2
 - section-heading (styled in main.css)
+- section-university-list
+- university-card
 */
 
 
@@ -12,4 +14,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/** Set a grid with 3 columns and a gap between the rows and columns for the div container holding the university info. */
+.section-university-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(1%, 1fr));
+    padding: 2%;
+    gap: 1rem;
+}
+
+/** Set the styling for each university card which is just a div container wrapping the paragraph of information. */
+.university-card {
+    background-color: bisque;
+    padding: 2%;
+}
+
+/** Adjust from 3 columns to 2 for responsive design. */
+@media (max-width: 768px) {
+    .section-university-list {
+        grid-template-columns: repeat(2, minmax(1%, 1fr));
+    }
+}
+
+/** Adjust from 2 columns to 1 for responsive design. */
+@media (max-width: 480px) {
+    .section-university-list {
+        grid-template-columns: 1fr;
+    }
 }
