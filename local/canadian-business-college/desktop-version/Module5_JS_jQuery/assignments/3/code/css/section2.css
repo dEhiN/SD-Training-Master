@@ -21,13 +21,17 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(1%, 1fr));
     padding: 2%;
-    gap: 1rem;
+    gap: 5rem;
 }
 
 /** Set the styling for each university card which is just a div container wrapping the paragraph of information. */
 .university-card {
-    background-color: bisque;
+    /* background-color: rgb(176, 165, 226); */
+    background-color: #2f4f4f;
+    color: white;
     padding: 2%;
+    border-radius: 5%;
+    text-align: center;
 }
 
 /** Adjust from 3 columns to 2 for responsive design. */
