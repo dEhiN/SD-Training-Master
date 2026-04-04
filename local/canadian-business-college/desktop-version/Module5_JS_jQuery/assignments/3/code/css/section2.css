@@ -2,12 +2,7 @@
 
 /** List of relevant classes:
 - assignment-section-2
-- section-calculator
-- section-calc-inputs
-- section-calc-input-num1
-- section-calc-input-num2
-- section-calc-buttons
-- section-results
+- section-heading (styled in main.css)
 */
 
 
@@ -17,38 +12,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/** Set a column-based flex to the calculator section.
-    Add top padding. 
-*/
-.section-calculator {
-    display: flex;
-    flex-direction: column;
-    padding-top: 3%;
-    gap: 20px;
-}
-
-/** Set a row-based flex to each input field + label combo.
-    Add even space between the label and the input field.
-*/
-.section-calc-input-num1,
-.section-calc-input-num2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/** Set a row-based flex for the calculator buttons.
-    Add even space between each button.
-*/
-.section-calc-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/* Add a top padding to the results section. */
-.section-results {
-    padding: 4% 0%;
 }
