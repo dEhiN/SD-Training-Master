@@ -2,7 +2,7 @@
 
 
 /** Remove all padding and margin.
-    Set a default font-size.
+    Set a default font-size and font-face.
 */
 * {
     padding: 0;
@@ -31,9 +31,4 @@ body {
 /** Increase the size of the section heading text. */
 .section-heading h4 {
     font-size: 1.5rem;
-}
-
-.section-heading h5 {
-    font-size: 1.3rem;
-    color: #b0c4de;
 }
