@@ -39,26 +39,26 @@ function addHumanData(api_data) {
 }
 
 /**
- * Add the dog data to the correct HTML section.
+ * Take the full image url returned from the random dog API and extract * just the dog breed data
  * 
- * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
+ * @param {string} dog_img_string: A string representing the full URL 
+ * given in the random dog image API
+ * 
+ * @returns A string with the dog breed name is proper human readable 
+ * format
  */
-function addDogData(api_data) {
-	console.log(api_data);
-
+function getDogBreed(dog_img_string) {
 	// Variable to store the breed name for captioning
+	// Default is blank.
 	let full_breed_name = "";
 
-	// Get the URL for the dog image
-	let dog_img_url = api_data.message;
-
 	// Extract the dog breed from the URL
-	let dog_img_arr = dog_img_url.split("/");
+	let dog_img_arr = dog_img_string.split("/");
 	let dog_breed_name = dog_img_arr[dog_img_arr.length - 2];
 
-	// Make the breed name human readable
-	// First, split the extracted dog breed using the hyphen
+	// Split the extracted dog breed using the hyphen
 	let dog_breed_arr = dog_breed_name.split("-");
+
 	// Check the length of the returned array
 	if (dog_breed_arr.length == 1) {
 		// The breed is only one word
@@ -70,6 +70,24 @@ function addDogData(api_data) {
 		// The API lists the breed backwards, so flip things around
 		full_breed_name = `${dog_breed_arr[1].charAt(0).toUpperCase() + dog_breed_arr[1].slice(1)} ${dog_breed_arr[0].charAt(0).toUpperCase() + dog_breed_arr[0].slice(1)}`;
 	}
+
+	return full_breed_name;
+}
+
+/**
+ * Add the dog data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
+ */
+function addDogData(api_data) {
+	console.log(api_data);
+
+	// Get the URL for the dog image
+	let dog_img_url = api_data.message;
+
+	let dog_breed = getDogBreed(dog_img_url);
+
+	console.log(dog_breed);
 }
 
 /**
