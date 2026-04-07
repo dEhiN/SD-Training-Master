@@ -22,12 +22,12 @@ function updateUserOnAttempt() {
 
 /**
  *
- * @param {boolean} isDog: A boolean variable to specify which API  call to make. If true, a call to the random dog API ("https://dog.ceo/api/breeds/image/random") is made. If false, a call to the random user API ("https://randomuser.me/api/") is made.
+ * @param {boolean} is_dog: A boolean variable to specify which API  call to make. If true, a call to the random dog API ("https://dog.ceo/api/breeds/image/random") is made. If false, a call to the random user API ("https://randomuser.me/api/") is made.
  */
-function fetchAPIData(isDog) {
+function fetchAPIData(is_dog) {
 	// Set the correct API url
 	let api_url = "";
-	if (isDog) {
+	if (is_dog) {
 		api_url = dog_api_url;
 	} else {
 		api_url = ruser_api_url;
