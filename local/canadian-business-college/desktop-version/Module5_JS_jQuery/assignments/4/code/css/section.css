@@ -7,6 +7,8 @@
 - section-user-select
 - button-label
 - api-data
+- figure-img-dog
+- img-dog
 - user-button
 - button
 */
@@ -46,9 +48,18 @@
 }
 
 .api-data {
+    padding: 5% 0%;
+}
+
+.figure-img-dog {
     display: flex;
     flex-direction: column;
-    padding: 5% 0%;
+    align-items: center;
+}
+
+.img-dog {
+    width: 500px;
+    height: 500px;
 }
 
 /** Remove text wrapping on the button but add the rule at the div level. */
