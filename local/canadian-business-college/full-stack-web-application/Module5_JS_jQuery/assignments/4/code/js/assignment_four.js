@@ -2,7 +2,10 @@
 const dog_api_url = "https://dog.ceo/api/breeds/image/random";
 const ruser_api_url = "https://randomuser.me/api/";
 
-/** Global constants to hold the necessary class and id names that will be referenced with jQuery. */
+/** 
+ * Global constants to hold HTML class and id references.
+ * This allows for easier use with jQuery.
+ */
 const jq_submit_btn_dog = "#submit-btn-dog";
 const jq_submit_btn_human = "#submit-btn-human";
 const jq_api_div_dog = "#api-data-dog";
@@ -43,7 +46,9 @@ function updateUserOnAttempt(show_para) {
 }
 
 /**
- *
+ * Call the correct API using the jQuery $.get() method. If the action 
+ * is successful, call another function to process the API data.
+ * If it's not successful, update the user.
  * @param {boolean} is_dog: A boolean variable to specify which API  call to make. If true, a call to the random dog API ("https://dog.ceo/api/breeds/image/random") is made. If false, a call to the random user API ("https://randomuser.me/api/") is made.
  */
 function fetchAPIData(is_dog) {
