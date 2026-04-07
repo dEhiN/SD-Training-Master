@@ -70,7 +70,9 @@ function fetchAPIData() {
 		api_url = ruser_api_url;
 	}
 
+	// Get the API data
 	$.get(api_url, function (data) {
+		// Clear any messages showing in the api-data div.
 		updateUserOnAttempt(false);
 		processAPIData(is_dog, data);
 	}).fail(function () {
