@@ -34,10 +34,20 @@ function fetchAPIData(is_dog) {
 	}
 
 	$.get(api_url, function (data) {
-		console.log(data);
+		processAPIData(is_dog, data);
 	}).fail(function () {
 		alert(fetch_api_err);
 	});
+}
+
+/**
+ *
+ * @param {boolean} is_dog: A boolean variable to specify which API  data to work with. If true, the data is from the random dog API ("https://dog.ceo/api/breeds/image/random"). If false, the data is from the random user API ("https://randomuser.me/api/").
+ * @param {object} api_data: An object representing API data.
+ */
+function processAPIData(is_dog, api_data) {
+	console.log(`is_dog: ${is_dog}\napi_data:`);
+	console.log(api_data);
 }
 
 /** Add a click event listener to the "Fetch Doggie" button. When the
