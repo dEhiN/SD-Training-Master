@@ -13,11 +13,33 @@ const jq_api_div_data = ".api-data";
 const fetch_api_err = "The fetch call failed! Please try again...";
 const fetch_api_attempt = "Attempting the fetch...";
 
-/** Let the user know the "get" call is happening. This is helpful since a jQuery get call can take a few milliseconds or seconds to complete. */
-function updateUserOnAttempt() {
-	// Create new paragraph
-	let user_para = $("<p></p>").text(fetch_api_attempt);
-	$(jq_api_div_data).append(user_para);
+/** 
+ * Update the user on what is happening. This function will add a
+ * paragraph element to the api-data div that lets the user know
+ * the API data is being fetch. This function can also clear that
+ * paragraph by calling the jQuery empty() method on the div.
+ * 
+ * This dual functionality allows for one function to be used to 
+ * update the user. When the API call is being made, since there 
+ * can be a delay in fetching the data, the user is informed of this.
+ * When the data has been received and is ready to be presented to 
+ * the user, the div for presenting the data can be emptied.
+ * 
+*/
+function updateUserOnAttempt(show_para) {
+	// Create local variable reference to api-data div
+	const data_div = $(jq_api_div_data);
+
+	if (show_para) {
+		// Create new paragraph
+		let user_para = $("<p></p>").text(fetch_api_attempt);
+		data_div.append(user_para);
+	}
+	else {
+		// Clear all child elements
+		data_div.empty();
+
+	}
 }
 
 /**
