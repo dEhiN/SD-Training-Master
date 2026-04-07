@@ -64,6 +64,7 @@ function fetchAPIData(is_dog) {
 	}
 
 	$.get(api_url, function (data) {
+		updateUserOnAttempt(false);
 		processAPIData(is_dog, data);
 	}).fail(function () {
 		alert(fetch_api_err);
