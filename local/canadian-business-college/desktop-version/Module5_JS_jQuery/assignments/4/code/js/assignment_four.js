@@ -128,11 +128,22 @@ function updateUserOnAttempt(show_para) {
 // MAIN CODE
 /** Add a click event listener to the "Fetch Doggie" button. When the
  * user clicks the button, the is_dog variable is set to use the random 
- * dog API, user is updated of the fetch action happening, and the 
+ * dog API, the user is updated of the fetch action happening, and the 
  * function to fetch the actual API data is called.
  */
 $(jq_submit_btn_dog).on("click", function () {
 	is_dog = true;
+	updateUserOnAttempt(true);
+	fetchAPIData(true);
+});
+
+/** Add a click event listener to the "Fetch Human" button. When the
+ * user clicks the button, the is_dog variable is set to use the random 
+ * user API, the user is updated of the fetch action happening, and the 
+ * function to fetch the actual API data is called.
+ */
+$(jq_submit_btn_human).on("click", function () {
+	is_dog = false;
 	updateUserOnAttempt(true);
 	fetchAPIData(true);
 });
