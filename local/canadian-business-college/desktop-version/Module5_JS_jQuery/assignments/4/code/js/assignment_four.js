@@ -67,6 +67,13 @@ function processUser(user_arr) {
 function addHumanData(api_data) {
 	// Get the actual results
 	processUser(api_data["results"][0]);
+
+	let user_info = "<p>";
+	for (property in ruser) {
+		user_info += `<span>${property}: ${ruser[property]}</span><br>`;
+	}
+	user_info += "</p>";
+	$(jq_api_div_human).append(user_info);
 }
 
 /**
