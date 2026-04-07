@@ -3,6 +3,15 @@ const dog_api_url = "https://dog.ceo/api/breeds/image/random";
 const ruser_api_url = "https://randomuser.me/api/";
 
 /** 
+ * Global variable that will be used to determine which API call 
+ * and data to use. 
+ * 
+ * If true, the random dog API (dog_api_url) will be used.
+ * If false, the random user API (ruser_api_url) will be used.
+ */
+let is_dog;
+
+/** 
  * Global constants to hold HTML class and id references.
  * This allows for easier use with jQuery.
  */
@@ -49,11 +58,9 @@ function updateUserOnAttempt(show_para) {
 /**
  * Call the correct API using the jQuery $.get() method. If the action 
  * is successful, call another function to process the API data.
- * If it's not successful, update the user.
- * 
- * @param {boolean} is_dog: A boolean variable to specify which API  call to make. If true, a call to the random dog API ("https://dog.ceo/api/breeds/image/random") is made. If false, a call to the random user API ("https://randomuser.me/api/") is made.
+ * If it's not successful, alert the user.
  */
-function fetchAPIData(is_dog) {
+function fetchAPIData() {
 	// Set the correct API url
 	let api_url = "";
 	if (is_dog) {
@@ -75,10 +82,9 @@ function fetchAPIData(is_dog) {
  * Process the API data and call another function to add the data to 
  * the HTML page.
  * 
- * @param {boolean} is_dog: A boolean variable to specify which API  data to work with. If true, the data is from the random dog API ("https://dog.ceo/api/breeds/image/random"). If false, the data is from the random user API ("https://randomuser.me/api/").
  * @param {object} api_data: An object representing API data.
  */
-function processAPIData(is_dog, api_data) {
+function processAPIData(api_data) {
 	if (is_dog) {
 		addDogData(api_data);
 	}
@@ -106,10 +112,12 @@ function addHumanData(api_data) {
 }
 
 /** Add a click event listener to the "Fetch Doggie" button. When the
- * user clicks the button, the user is updated of the action being 
- * taken and the function to fetch the actual API data is called.
+ * user clicks the button, the is_dog variable is set to use the random 
+ * dog API, user is updated of the fetch action happening, and the 
+ * function to fetch the actual API data is called.
  */
 $(jq_submit_btn_dog).on("click", function () {
+	is_dog = true;
 	updateUserOnAttempt(true);
 	fetchAPIData(true);
 });
