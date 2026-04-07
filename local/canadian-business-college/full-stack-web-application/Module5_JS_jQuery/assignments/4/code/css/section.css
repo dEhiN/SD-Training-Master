@@ -1,20 +1,34 @@
-/* This CSS file is for the assignment part 1 section of the document */
+/* This CSS file is for the assignment sections of the document */
+
 
 /** List of relevant classes:
-- assignment-section-1
-- section-heading (styled in main.css)
+- assignment-section
+- section-heading
 - section-user-select
 - button-label
+- api-data
 - user-button
 - button
 */
 
-
-/** Set a column-based flex for the whole part 1 section. */
-.assignment-section-1 {
+/** Set a column-based flex for each assignment section. */
+.assignment-section {
     display: flex;
     flex-direction: column;
-    border-bottom: 0.5px #2f4f4f solid;
+    justify-content: center;
+    align-items: center;
+}
+
+/** Center the section heading and push it down from the document title. */
+.section-heading {
+    text-align: center;
+    padding-top: 2%;
+    color: #8fa5c7;
+}
+
+/** Increase the size of the section heading text. */
+.section-heading h4 {
+    font-size: 1.5rem;
 }
 
 /** Set a column-based flex for the user selection area.
@@ -61,4 +75,14 @@
 .button:active {
     transform: scale(0.98);
     box-shadow: none;
+}
+
+
+/** List of relevant ids:
+- assignment-section-1
+*/
+
+/** Add a bottom border to the first section to create a division. */
+#assignment-section-1 {
+    border-bottom: 0.5px #2f4f4f solid;
 }
