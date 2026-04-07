@@ -89,12 +89,24 @@ function addDogData(api_data) {
 	let dog_image = $("<img>");
 	dog_image.attr({
 		"src": dog_img_url,
-		"alt": alt_txt_dog_img
+		"alt": alt_txt_dog_img,
+		"class": "img-dog"
 	});
 
-	console.log(alt_txt_dog_img);
-	console.log(dog_image);
-	console.log(dog_image.attr("src"));
+	// Create a figure element to add an image caption
+	let dog_figure = $("<figure></figure>");
+	dog_figure.attr({
+		"class": "figure-img-dog"
+	})
+
+	// Create the image caption
+	let dog_caption = $("<figcaption></figcaption>");
+	dog_caption.text(`Here is an image of a ${dog_breed}`);
+
+	// Append everything to the HTML
+	dog_figure.append(dog_image);
+	dog_figure.append(dog_caption);
+	$(jq_api_div_dog).append(dog_figure);
 }
 
 /**
