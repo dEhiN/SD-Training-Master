@@ -56,7 +56,8 @@ function fetchAPIData(is_dog) {
 	let api_url = "";
 	if (is_dog) {
 		api_url = dog_api_url;
-	} else {
+	}
+	else {
 		api_url = ruser_api_url;
 	}
 
@@ -68,7 +69,9 @@ function fetchAPIData(is_dog) {
 }
 
 /**
- *
+ * Process the API data and call another function to add the data to 
+ * the HTML page.
+ * 
  * @param {boolean} is_dog: A boolean variable to specify which API  data to work with. If true, the data is from the random dog API ("https://dog.ceo/api/breeds/image/random"). If false, the data is from the random user API ("https://randomuser.me/api/").
  * @param {object} api_data: An object representing API data.
  */
@@ -100,11 +103,10 @@ function addHumanData(api_data) {
 }
 
 /** Add a click event listener to the "Fetch Doggie" button. When the
- * user clicks the button, the associated function makes the API call.
- * The user is informed of this action. If the action is successful,
- * update the HTML page. If it's not successful, let the user.
+ * user clicks the button, the user is updated of the action being 
+ * taken and the function to fetch the actual API data is called.
  */
 $(jq_submit_btn_dog).on("click", function () {
-	updateUserOnAttempt();
+	updateUserOnAttempt(true);
 	fetchAPIData(true);
 });
