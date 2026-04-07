@@ -44,12 +44,29 @@ const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/ap
 
 // FUNCTIONS
 /**
+ * Create the actual user object from the api data
+ * 
+ * @param (array) user_arr: Array holding the actual user data
+ */
+function processUser(user_arr) {
+	// Populate the ruser object
+	ruser.name = `${user_arr.name.first} ${user_arr.name.last}`;
+	ruser.gender = user_arr.gender;
+	ruser.address = `${user_arr.location.street.number} ${user_arr.location.street.name}\n${user_arr.location.city}\n${user_arr.location.state}\n${user_arr.location.country}`;
+	ruser.email = user_arr.email;
+	ruser.age = user_arr.dob.age;
+	ruser.cell = user_arr.cell;
+	ruser.pic_url = user_arr.picture.medium;
+}
+
+/**
  * Add the person, or user, data to the correct HTML section.
  * 
  * @param {object} api_data: An object representing the API data returned from a call to "https://randomuser.me/api/".
  */
 function addHumanData(api_data) {
-	console.log(api_data);
+	// Get the actual results
+	processUser(api_data["results"][0]);
 }
 
 /**
