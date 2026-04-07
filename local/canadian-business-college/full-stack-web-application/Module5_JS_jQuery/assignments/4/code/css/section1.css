@@ -4,6 +4,7 @@
 - assignment-section-1
 - section-heading (styled in main.css)
 - section-user-select
+- button-label
 - user-button
 - button
 */
@@ -26,9 +27,9 @@
     padding: 2% 0%;
 }
 
-/** Push down the button a little bit. */
+/** Remove text wrapping on the button but add the rule at the div level. */
 .user-button {
-    padding-top: 3%;
+    white-space: nowrap;
 }
 
 /** Style the submit button to have the following:
@@ -51,7 +52,7 @@
 /** Set the background and text colour scheme of the button to change when the user hovers over it.
 */
 .button:hover {
-    background-color: #2f4f4f;
+    background-color: steelblue;
     color: white;
 }
 
