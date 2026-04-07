@@ -14,7 +14,7 @@ const jq_api_div_data = ".api-data";
 
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
-const fetch_api_attempt = "Attempting the fetch...";
+const fetch_api_attempt = "Attempting to fetch the requested data...";
 
 /** 
  * Update the user on what is happening. This function will add a
@@ -28,6 +28,7 @@ const fetch_api_attempt = "Attempting the fetch...";
  * When the data has been received and is ready to be presented to 
  * the user, the div for presenting the data can be emptied.
  * 
+ * @param {boolean} show_para: A boolean variable that indicates whether to show or remove the paragraph informing the user. 
 */
 function updateUserOnAttempt(show_para) {
 	// Create local variable reference to api-data div
@@ -49,6 +50,7 @@ function updateUserOnAttempt(show_para) {
  * Call the correct API using the jQuery $.get() method. If the action 
  * is successful, call another function to process the API data.
  * If it's not successful, update the user.
+ * 
  * @param {boolean} is_dog: A boolean variable to specify which API  call to make. If true, a call to the random dog API ("https://dog.ceo/api/breeds/image/random") is made. If false, a call to the random user API ("https://randomuser.me/api/") is made.
  */
 function fetchAPIData(is_dog) {
