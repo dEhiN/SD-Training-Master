@@ -45,6 +45,31 @@ function addHumanData(api_data) {
  */
 function addDogData(api_data) {
 	console.log(api_data);
+
+	// Variable to store the breed name for captioning
+	let full_breed_name = "";
+
+	// Get the URL for the dog image
+	let dog_img_url = api_data.message;
+
+	// Extract the dog breed from the URL
+	let dog_img_arr = dog_img_url.split("/");
+	let dog_breed_name = dog_img_arr[dog_img_arr.length - 2];
+
+	// Make the breed name human readable
+	// First, split the extracted dog breed using the hyphen
+	let dog_breed_arr = dog_breed_name.split("-");
+	// Check the length of the returned array
+	if (dog_breed_arr.length == 1) {
+		// The breed is only one word
+		// Capitalize just the first letter
+		full_breed_name = dog_breed_arr[0].charAt(0).toUpperCase() + dog_breed_arr[0].slice(1);
+	} else if (dog_breed_arr.length == 2) {
+		// The breed is composed of two words
+		// Capitalize just the first letter of both words
+		// The API lists the breed backwards, so flip things around
+		full_breed_name = `${dog_breed_arr[1].charAt(0).toUpperCase() + dog_breed_arr[1].slice(1)} ${dog_breed_arr[0].charAt(0).toUpperCase() + dog_breed_arr[0].slice(1)}`;
+	}
 }
 
 /**
