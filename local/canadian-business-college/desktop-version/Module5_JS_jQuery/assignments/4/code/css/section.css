@@ -38,7 +38,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2% 0%;
+    padding: 1.5% 0%;
+}
+
+.button-label {
+    padding-bottom: 5%;
+}
+
+.api-data {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0%;
 }
 
 /** Remove text wrapping on the button but add the rule at the div level. */
