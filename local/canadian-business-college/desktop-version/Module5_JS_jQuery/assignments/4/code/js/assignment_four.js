@@ -18,13 +18,11 @@ let is_dog;
 let ruser = {
 	"name": "",
 	"gender": "",
-	"street-number": 0,
-	"street-name": "",
-	"city": "",
-	"province-state": "",
-	"country": "",
+	"address": "",
 	"email": "",
-	"age": 0
+	"age": 0,
+	"cell": "",
+	"pic_url": ""
 }
 
 /** 
