@@ -65,8 +65,19 @@ function processUser(user_arr) {
  * @param {object} api_data: An object representing the API data returned from a call to "https://randomuser.me/api/".
  */
 function addHumanData(api_data) {
-	// Get the actual results
+	// Process the actual results
 	processUser(api_data["results"][0]);
+
+	// Replace '\n' character with '<br>' in the ruser.address property
+	ruser.address = ruser.address.replace(/\n/g, "<br>");
+	console.log(ruser.address);
+
+	let user_info = "<p>";
+	for (property in ruser) {
+		user_info += `<span>${property}: ${ruser[property]}</span><br>`;
+	}
+	user_info += "</p>";
+	$(jq_api_div_human).append(user_info);
 }
 
 /**
