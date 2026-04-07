@@ -1,3 +1,4 @@
+// GLOBAL VARIABLES AND CONSTANTS
 /** Global constants to hold the API URLs. */
 const dog_api_url = "https://dog.ceo/api/breeds/image/random";
 const ruser_api_url = "https://randomuser.me/api/";
@@ -24,34 +25,41 @@ const jq_api_div_data = ".api-data";
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
 const fetch_api_attempt = "Attempting to fetch the requested data...";
+const fetch_api_err_2 = "There was a problem with the returned data...";
 
-/** 
- * Update the user on what is happening. This function will add a
- * paragraph element to the api-data div that lets the user know
- * the API data is being fetch. This function can also clear that
- * paragraph by calling the jQuery empty() method on the div.
- * 
- * This dual functionality allows for one function to be used to 
- * update the user. When the API call is being made, since there 
- * can be a delay in fetching the data, the user is informed of this.
- * When the data has been received and is ready to be presented to 
- * the user, the div for presenting the data can be emptied.
- * 
- * @param {boolean} show_para: A boolean variable that indicates whether to show or remove the paragraph informing the user. 
-*/
-function updateUserOnAttempt(show_para) {
-	// Create local variable reference to api-data div
-	const data_div = $(jq_api_div_data);
 
-	if (show_para) {
-		// Create new paragraph
-		let user_para = $("<p></p>").text(fetch_api_attempt);
-		data_div.append(user_para);
+// FUNCTIONS
+/**
+ * Add the person, or user, data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://randomuser.me/api/".
+ */
+function addHumanData(api_data) {
+	console.log(api_data);
+}
+
+/**
+ * Add the dog data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
+ */
+function addDogData(api_data) {
+	console.log(api_data);
+}
+
+/**
+ * Process the API data and call another function to add the data to 
+ * the HTML page.
+ * 
+ * @param {object} api_data: An object representing API data.
+ */
+function processAPIData(api_data) {
+	// Determine which function to call based on the is_dog variable
+	if (is_dog) {
+		addDogData(api_data);
 	}
 	else {
-		// Clear all child elements
-		data_div.empty();
-
+		addHumanData(api_data);
 	}
 }
 
@@ -74,46 +82,50 @@ function fetchAPIData() {
 	$.get(api_url, function (data) {
 		// Clear any messages showing in the api-data div.
 		updateUserOnAttempt(false);
-		processAPIData(is_dog, data);
+		processAPIData(data);
 	}).fail(function () {
 		alert(fetch_api_err);
 	});
 }
 
-/**
- * Process the API data and call another function to add the data to 
- * the HTML page.
+/** 
+ * Update the user on what is happening. This function will add a
+ * paragraph element to the api-data div that lets the user know
+ * the API data is being fetch. This function can also clear that
+ * paragraph by calling the jQuery empty() method on the div.
  * 
- * @param {object} api_data: An object representing API data.
- */
-function processAPIData(api_data) {
-	// Determine which function to call based on the is_dog variable
+ * This dual functionality allows for one function to be used to 
+ * update the user. When the API call is being made, since there 
+ * can be a delay in fetching the data, the user is informed of this.
+ * When the data has been received and is ready to be presented to 
+ * the user, the div for presenting the data can be emptied.
+ * 
+ * @param {boolean} show_para: A boolean variable that indicates whether to show or remove the paragraph informing the user. 
+*/
+function updateUserOnAttempt(show_para) {
+	// Create local variable reference to api-data div
+	let data_div;
+
+	// Specify which section of document to update based on API call
 	if (is_dog) {
-		addDogData(api_data);
+		data_div = $(jq_api_div_dog);
+	} else {
+		data_div = $(jq_api_div_human);
+	}
+
+	// Update or empty the api-data div as appropriate
+	if (show_para) {
+		// Create new paragraph
+		let user_para = $("<p></p>").text(fetch_api_attempt);
+		data_div.append(user_para);
 	}
 	else {
-		addHumanData(api_data);
+		// Clear all child elements
+		data_div.empty();
 	}
 }
 
-/**
- * Add the dog data to the correct HTML section.
- * 
- * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
- */
-function addDogData(api_data) {
-	console.log(api_data);
-}
-
-/**
- * Add the person, or user, data to the correct HTML section.
- * 
- * @param {object} api_data: An object representing the API data returned from a call to "https://randomuser.me/api/".
- */
-function addHumanData(api_data) {
-	console.log(api_data);
-}
-
+// MAIN CODE
 /** Add a click event listener to the "Fetch Doggie" button. When the
  * user clicks the button, the is_dog variable is set to use the random 
  * dog API, user is updated of the fetch action happening, and the 
