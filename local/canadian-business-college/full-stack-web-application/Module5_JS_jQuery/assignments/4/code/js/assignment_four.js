@@ -73,7 +73,29 @@ function fetchAPIData(is_dog) {
  * @param {object} api_data: An object representing API data.
  */
 function processAPIData(is_dog, api_data) {
-	console.log(`is_dog: ${is_dog}\napi_data:`);
+	if (is_dog) {
+		addDogData(api_data);
+	}
+	else {
+		addHumanData(api_data);
+	}
+}
+
+/**
+ * Add the dog data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
+ */
+function addDogData(api_data) {
+	console.log(api_data);
+}
+
+/**
+ * Add the person, or user, data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://randomuser.me/api/".
+ */
+function addHumanData(api_data) {
 	console.log(api_data);
 }
 
