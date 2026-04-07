@@ -24,8 +24,9 @@ const jq_api_div_data = ".api-data";
 
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
-const fetch_api_attempt = "Attempting to fetch the requested data...";
 const fetch_api_err_2 = "There was a problem with the returned data...";
+const fetch_api_attempt = "Attempting to fetch the requested data...";
+const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/api/breeds/image/random\""
 
 
 // FUNCTIONS
@@ -80,14 +81,20 @@ function getDogBreed(dog_img_string) {
  * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
  */
 function addDogData(api_data) {
-	console.log(api_data);
-
-	// Get the URL for the dog image
+	// Get the URL for the dog image and then extract the dog breed
 	let dog_img_url = api_data.message;
-
 	let dog_breed = getDogBreed(dog_img_url);
 
-	console.log(dog_breed);
+	// Create the img element
+	let dog_image = $("<img>");
+	dog_image.attr({
+		"src": dog_img_url,
+		"alt": alt_txt_dog_img
+	});
+
+	console.log(alt_txt_dog_img);
+	console.log(dog_image);
+	console.log(dog_image.attr("src"));
 }
 
 /**
