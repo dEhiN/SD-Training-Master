@@ -87,6 +87,7 @@ function fetchAPIData() {
  * @param {object} api_data: An object representing API data.
  */
 function processAPIData(api_data) {
+	// Determine which function to call based on the is_dog variable
 	if (is_dog) {
 		addDogData(api_data);
 	}
