@@ -12,6 +12,21 @@ const ruser_api_url = "https://randomuser.me/api/";
  */
 let is_dog;
 
+/**
+ * Global object to store the user data when pulled from the API.
+ */
+let ruser = {
+	"name": "",
+	"gender": "",
+	"street-number": 0,
+	"street-name": "",
+	"city": "",
+	"province-state": "",
+	"country": "",
+	"email": "",
+	"age": 0
+}
+
 /** 
  * Global constants to hold HTML class and id references.
  * This allows for easier use with jQuery.
