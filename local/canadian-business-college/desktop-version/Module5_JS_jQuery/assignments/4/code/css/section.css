@@ -7,10 +7,15 @@
 - section-user-select
 - button-label
 - api-data
-- figure-img-dog
-- img-dog
 - user-button
 - button
+- figure-img-dog
+- img-dog
+- figure-img-user
+- img-user
+- user-property-para
+- user-property-name
+- user-property-value
 */
 
 /** Set a column-based flex for each assignment section. */
@@ -51,17 +56,6 @@
     padding: 5% 0%;
 }
 
-.figure-img-dog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.img-dog {
-    width: 500px;
-    height: 500px;
-}
-
 /** Remove text wrapping on the button but add the rule at the div level. */
 .user-button {
     white-space: nowrap;
@@ -91,11 +85,24 @@
     color: white;
 }
 
-/** Set the button to shrink and remove the shadow when the user clicks the button to give a visual "click"
+/** Set the button to shrink and remove the shadow when the user clicks the button to give a visual "click".
 */
 .button:active {
     transform: scale(0.98);
     box-shadow: none;
+}
+
+/** Set the dog figure element to be a column flex display with centered items. */
+.figure-img-dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Give the actual dog image a fixed width and height as per assignment instructions. */
+.img-dog {
+    width: 500px;
+    height: 500px;
 }
 
 
