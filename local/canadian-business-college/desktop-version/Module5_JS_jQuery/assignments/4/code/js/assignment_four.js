@@ -44,7 +44,7 @@ const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/ap
 
 // FUNCTIONS
 /**
- * Create the actual user object from the api data
+ * Create the actual user object from the api data. Extract the relevant fields.
  * 
  * @param (array) user_arr: Array holding the actual user data
  */
