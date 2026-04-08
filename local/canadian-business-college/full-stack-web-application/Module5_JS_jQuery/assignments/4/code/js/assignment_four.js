@@ -76,9 +76,32 @@ function addHumanData(api_data) {
 	for (property in ruser) {
 		let property_name = property.charAt(0).toUpperCase() + property.slice(1);
 
-		user_info += `<p><span>${property_name}:</span><br><span>${ruser[property]}</span></p><br>`;
+		// Create span element for property name
+		let property_name_span = $("<span></span>");
+		property_name_span.attr({
+			"class": "user-property-name"
+		});
+		property_name_span.text(`${property_name}:`);
+
+		// Create span element for property value
+		let property_value_span = $("<span></span>");
+		property_value_span.attr({
+			"class": "user-property-value"
+		});
+		property_value_span.text(ruser[property]);
+
+		// Create paragraph element for property
+		let property_para = $("<p></p>");
+		property_para.attr({
+			"class": "user-property-para"
+		});
+
+		// Populate the property paragraph element
+		property_para.append(property_name_span, "<br>", property_value_span);
+
+		// Add that property paragraph to the api-data-human div
+		$(jq_api_div_human).append([property_para, "<br>"]);
 	}
-	$(jq_api_div_human).append(user_info);
 }
 
 /**
