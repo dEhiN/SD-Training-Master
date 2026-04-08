@@ -49,7 +49,7 @@ const alt_txt_user_img = "A picture of the user whose details are below in the c
  * 
  * @param (array) user_arr: Array holding the actual user data
  */
-function processUser(user_arr) {
+function processUserData(user_arr) {
 	// Populate the ruser object
 	ruser.name = `${user_arr.name.first} ${user_arr.name.last}`;
 	ruser.gender = user_arr.gender;
@@ -57,7 +57,7 @@ function processUser(user_arr) {
 	ruser.email = user_arr.email;
 	ruser.age = user_arr.dob.age;
 	ruser.cell = user_arr.cell;
-	ruser.pic_url = user_arr.picture.medium;
+	ruser.pic_url = user_arr.picture.large;
 }
 
 /**
@@ -67,7 +67,7 @@ function processUser(user_arr) {
  */
 function addHumanData(api_data) {
 	// Process the actual results
-	processUser(api_data["results"][0]);
+	processUserData(api_data["results"][0]);
 
 	// Replace '\n' character with '<br>' in the ruser.address property
 	ruser.address = ruser.address.replace(/\n/g, "<br>");
@@ -94,33 +94,37 @@ function addHumanData(api_data) {
 
 	// Create paragraphs for all of the user properties
 	for (property in ruser) {
-		let property_name = property.charAt(0).toUpperCase() + property.slice(1);
+		// Make sure the last property isn't displayed since it's the image url
+		if (property != "pic_url") {
+			let property_name = property.charAt(0).toUpperCase() + property.slice(1);
 
-		// Create span element for property name
-		let property_name_span = $("<span></span>");
-		property_name_span.attr({
-			"class": "user-property-name"
-		});
-		property_name_span.text(`${property_name}:`);
+			// Create span element for property name
+			let property_name_span = $("<span></span>");
+			property_name_span.attr({
+				"class": "user-property-name"
+			});
+			property_name_span.text(`${property_name}:`);
 
-		// Create span element for property value
-		let property_value_span = $("<span></span>");
-		property_value_span.attr({
-			"class": "user-property-value"
-		});
-		property_value_span.text(ruser[property]);
+			// Create span element for property value
+			let property_value_span = $("<span></span>");
+			property_value_span.attr({
+				"class": "user-property-value"
+			});
+			// Use the html method instead of the normal text method so the <br> elements in the address property are treated correctly
+			property_value_span.html(ruser[property]);
 
-		// Create paragraph element for property
-		let property_para = $("<p></p>");
-		property_para.attr({
-			"class": "user-property-para"
-		});
+			// Create paragraph element for property
+			let property_para = $("<p></p>");
+			property_para.attr({
+				"class": "user-property-para"
+			});
 
-		// Populate the property paragraph element
-		property_para.append(property_name_span, property_value_span);
+			// Populate the property paragraph element
+			property_para.append(property_name_span, property_value_span);
 
-		// Add the property paragraph to the image caption
-		user_caption.append(property_para, $("<br>"));
+			// Add the property paragraph to the image caption
+			user_caption.append(property_para, $("<br>"));
+		}
 	}
 
 	// Build up the user figure
