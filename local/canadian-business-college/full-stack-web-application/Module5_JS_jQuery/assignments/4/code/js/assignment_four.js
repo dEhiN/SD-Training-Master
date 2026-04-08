@@ -72,11 +72,12 @@ function addHumanData(api_data) {
 	ruser.address = ruser.address.replace(/\n/g, "<br>");
 	console.log(ruser.address);
 
-	let user_info = "<p>";
+	let user_info = "";
 	for (property in ruser) {
-		user_info += `<span>${property}: ${ruser[property]}</span><br>`;
+		let property_name = property.charAt(0).toUpperCase() + property.slice(1);
+
+		user_info += `<p><span>${property_name}:</span><br><span>${ruser[property]}</span></p><br>`;
 	}
-	user_info += "</p>";
 	$(jq_api_div_human).append(user_info);
 }
 
