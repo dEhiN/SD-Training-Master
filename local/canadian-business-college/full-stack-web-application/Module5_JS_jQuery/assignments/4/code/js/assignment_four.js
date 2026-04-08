@@ -40,6 +40,7 @@ const fetch_api_err = "The fetch call failed! Please try again...";
 const fetch_api_err_2 = "There was a problem with the returned data...";
 const fetch_api_attempt = "Attempting to fetch the requested data...";
 const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/api/breeds/image/random\""
+const alt_txt_user_img = "A picture of the user whose details are below in the caption. The user image and data were randomly taken from \"https://randomuser.me/api/\""
 
 
 // FUNCTIONS
@@ -70,9 +71,25 @@ function addHumanData(api_data) {
 
 	// Replace '\n' character with '<br>' in the ruser.address property
 	ruser.address = ruser.address.replace(/\n/g, "<br>");
-	console.log(ruser.address);
 
-	let user_info = "";
+	// Create a figure container
+	let user_figure = $("<figure></figure>");
+	user_figure.attr({
+		"class": "figure-img-user"
+	});
+
+	// Create an image element for the user picture
+	let user_image = $("<img>")
+	user_image.attr({
+		"src": ruser.pic_url,
+		"alt": alt_txt_user_img,
+		"class": "img-user"
+	});
+
+	// Create an image caption
+	let user_caption = $("<figcaption></figcaption>");
+
+	// Create paragraphs for all of the user properties
 	for (property in ruser) {
 		let property_name = property.charAt(0).toUpperCase() + property.slice(1);
 
@@ -97,11 +114,18 @@ function addHumanData(api_data) {
 		});
 
 		// Populate the property paragraph element
-		property_para.append(property_name_span, "<br>", property_value_span);
+		property_para.append(property_name_span, $("<br>"), property_value_span);
 
-		// Add that property paragraph to the api-data-human div
-		$(jq_api_div_human).append([property_para, "<br>"]);
+		// Add the property paragraph to the image caption
+		user_caption.append(property_para, $("<br>"));
 	}
+
+	// Build up the user figure
+	user_figure.append(user_image);
+	user_figure.append(user_caption);
+
+	// Add the user figure to the api-data-human div
+	$(jq_api_div_human).append(user_figure);
 }
 
 /**
@@ -150,7 +174,7 @@ function addDogData(api_data) {
 	let dog_img_url = api_data.message;
 	let dog_breed = getDogBreed(dog_img_url);
 
-	// Create the img element
+	// Create an image element for the dog picture
 	let dog_image = $("<img>");
 	dog_image.attr({
 		"src": dog_img_url,
@@ -158,7 +182,7 @@ function addDogData(api_data) {
 		"class": "img-dog"
 	});
 
-	// Create a figure element to add an image caption
+	// Create a figure container so an image caption can be added to the image
 	let dog_figure = $("<figure></figure>");
 	dog_figure.attr({
 		"class": "figure-img-dog"
@@ -168,7 +192,7 @@ function addDogData(api_data) {
 	let dog_caption = $("<figcaption></figcaption>");
 	dog_caption.text(`Here is an image of a ${dog_breed}`);
 
-	// Append everything to the HTML
+	// Build everything up
 	dog_figure.append(dog_image);
 	dog_figure.append(dog_caption);
 	$(jq_api_div_dog).append(dog_figure);
