@@ -1,4 +1,4 @@
-/* This CSS file is for the assignment sections of the document */
+/* This CSS file is for the common aspects of the assignment sections of the document */
 
 
 /** List of relevant classes:
@@ -9,13 +9,6 @@
 - api-data
 - user-button
 - button
-- figure-img-dog
-- img-dog
-- figure-img-user
-- img-user
-- user-property-para
-- user-property-name
-- user-property-value
 */
 
 /** Set a column-based flex for each assignment section. */
@@ -90,27 +83,4 @@
 .button:active {
     transform: scale(0.98);
     box-shadow: none;
-}
-
-/** Set the dog figure element to be a column flex display with centered items. */
-.figure-img-dog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/** Give the actual dog image a fixed width and height as per assignment instructions. */
-.img-dog {
-    width: 500px;
-    height: 500px;
-}
-
-
-/** List of relevant ids:
-- assignment-section-1
-*/
-
-/** Add a bottom border to the first section to create a division. */
-#assignment-section-1 {
-    border-bottom: 0.5px #2f4f4f solid;
 }
