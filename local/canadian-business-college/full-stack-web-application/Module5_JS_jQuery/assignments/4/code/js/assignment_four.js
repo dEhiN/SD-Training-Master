@@ -117,7 +117,7 @@ function addHumanData(api_data) {
 		});
 
 		// Populate the property paragraph element
-		property_para.append(property_name_span, $("<br>"), property_value_span);
+		property_para.append(property_name_span, property_value_span);
 
 		// Add the property paragraph to the image caption
 		user_caption.append(property_para, $("<br>"));
