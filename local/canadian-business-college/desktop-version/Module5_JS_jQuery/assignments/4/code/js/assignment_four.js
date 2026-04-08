@@ -197,7 +197,7 @@ function addDogData(api_data) {
 
 	// Create the image caption
 	let dog_caption = $("<figcaption></figcaption>");
-	dog_caption.text(`Here is an image of a ${dog_breed}`);
+	dog_caption.text(`This image shows the ${dog_breed} breed`);
 
 	// Build everything up
 	dog_figure.append(dog_image);
