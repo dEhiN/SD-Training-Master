@@ -1,0 +1,30 @@
+/* This CSS file is for the assignment "doggie" section of the document */
+
+
+/** List of relevant classes:
+- figure-img-dog
+- img-dog
+*/
+
+/** Set the dog figure element to be a column flex display with centered items. */
+.figure-img-dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Give the actual dog image a fixed width and height as per assignment instructions. */
+.img-dog {
+    width: 500px;
+    height: 500px;
+}
+
+
+/** List of relevant ids:
+- assignment-section-doggie
+*/
+
+/** Add a bottom border to the first section to create a division. */
+#assignment-section-doggie {
+    border-bottom: 0.5px #2f4f4f solid;
+}
