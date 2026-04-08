@@ -17,11 +17,16 @@
     align-items: center;
 }
 
+.img-user {
+    border: 2px solid black;
+}
+
 /** Set a column flex display style on the caption element with centered items. */
 .figure-caption-user {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 10%;
 }
 
 /** Set a column flex display style on each property paragraph with centered items. */
