@@ -75,7 +75,7 @@ function addHumanData(api_data) {
 	// Create a figure container
 	let user_figure = $("<figure></figure>");
 	user_figure.attr({
-		"class": "figure-img-user"
+		"class": "figure-user"
 	});
 
 	// Create an image element for the user picture
@@ -88,6 +88,9 @@ function addHumanData(api_data) {
 
 	// Create an image caption
 	let user_caption = $("<figcaption></figcaption>");
+	user_caption.attr({
+		"class": "figure-caption-user"
+	})
 
 	// Create paragraphs for all of the user properties
 	for (property in ruser) {
@@ -185,7 +188,7 @@ function addDogData(api_data) {
 	// Create a figure container so an image caption can be added to the image
 	let dog_figure = $("<figure></figure>");
 	dog_figure.attr({
-		"class": "figure-img-dog"
+		"class": "figure-dog"
 	})
 
 	// Create the image caption
