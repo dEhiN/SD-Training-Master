@@ -1,0 +1,22 @@
+/* This is the main CSS file for overall page styling */
+
+
+/** Remove all padding and margin.
+    Set a default font-size and font-face.
+*/
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/** Set a column-based flex for the whole body (all 3 main divs). 
+    Set a border-box sizing calculation for the whole body.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f0f8ff;
+}
