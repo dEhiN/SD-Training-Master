@@ -1,3 +1,5 @@
+// This JS file will be for the logic related to the university API call
+
 /** Global object to represent the API call */
 const api_obj = {
   base_url: "http://universities.hipolabs.com/",

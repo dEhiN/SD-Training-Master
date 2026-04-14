@@ -1,0 +1,1 @@
+// This JS file will function as the main JS that's linked to the HTML. The script element in the HTML will need to have the attribute 'type="module"'.
