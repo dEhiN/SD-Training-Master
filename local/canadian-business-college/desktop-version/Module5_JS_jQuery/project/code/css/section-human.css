@@ -1,0 +1,47 @@
+/* This CSS file is for the assignment "human/user" section of the document */
+
+
+/** List of relevant classes:
+- figure-user
+- img-user
+- figure-caption-user
+- user-property-para
+- user-property-name
+- user-property-value
+*/
+
+/** Set the human figure element to be a column flex display with centered items. */
+.figure-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-user {
+    border: 2px solid black;
+}
+
+/** Set a column flex display style on the caption element with centered items. */
+.figure-caption-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+}
+
+/** Set a column flex display style on each property paragraph with centered items. */
+.user-property-para {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Add boldness to the property names. */
+.user-property-name {
+    font-weight: bold;
+}
+
+/** Italicize the property value. */
+.user-property-value {
+    font-style: italic;
+}
