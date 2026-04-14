@@ -24,45 +24,48 @@
                 Building a Dynamic Web Application
             </h3>
         </div>
-        <!-- Making this the section where the user can choose the country and "submit" -->
-        <div class="assignment-section-1">
-            <div class="section-heading">
-                <h4>
-                    Choose a country
-                </h4>
-            </div>
-            <div class="section-user-select">
-                <div class="drop-down-list">
-                    <div class="list-label">
-                        <label for="select-country">
-                            Please select a country to view all its universities and colleges:
-                        </label>
+        <!-- This is the university API container -->
+        <div class="container-university">
+            <!-- Making this the section where the user can choose the country and "submit" -->
+            <div class="university-section-1">
+                <div class="section-heading">
+                    <h4>
+                        Choose a country
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="drop-down-list">
+                        <div class="list-label">
+                            <label for="select-country">
+                                Please select a country to view all its universities and colleges:
+                            </label>
+                        </div>
+                        <div class="list-select">
+                            <select id="select-country">
+                                <option value="Brazil">Brazil</option>
+                                <option value="Canada" selected>Canada</option>
+                                <option value="Italy">Italy</option>
+                                <option value="United+States">USA</option>
+                                <option value="United+Kingdom">UK</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="list-select">
-                        <select id="select-country">
-                            <option value="Brazil">Brazil</option>
-                            <option value="Canada" selected>Canada</option>
-                            <option value="Italy">Italy</option>
-                            <option value="United+States">USA</option>
-                            <option value="United+Kingdom">UK</option>
-                        </select>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn" class="button">Submit</button>
                     </div>
                 </div>
-                <div class="user-button">
-                    <button type="button" id="submit-btn" class="button">Submit</button>
+            </div>
+            <!-- Making this the section where the list of universities is displayed -->
+            <div class="unviersity-section-2">
+                <div class="section-heading">
+                    <h4>
+                        List of universities and colleges
+                    </h4>
+                    <h5 class="university-total">
+                    </h5>
                 </div>
-            </div>
-        </div>
-        <!-- Making this the section where the list of universities is displayed -->
-        <div class="assignment-section-2">
-            <div class="section-heading">
-                <h4>
-                    List of universities and colleges
-                </h4>
-                <h5 class="university-total">
-                </h5>
-            </div>
-            <div class="section-university-list">
+                <div class="section-university-list">
+                </div>
             </div>
         </div>
     </body>
