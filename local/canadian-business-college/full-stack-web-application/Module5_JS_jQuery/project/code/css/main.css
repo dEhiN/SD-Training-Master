@@ -22,18 +22,18 @@ body {
 }
 
 /** Center the section heading and push it down from the document title. */
-/* .section-heading {
+.section-heading {
     text-align: center;
     padding-top: 2%;
     color: #8fa5c7;
-} */
+}
 
 /** Increase the size of the section heading text. */
-/* .section-heading h4 {
+.section-heading h4 {
     font-size: 1.5rem;
 }
 
 .section-heading h5 {
     font-size: 1.3rem;
     color: #b0c4de;
-} */
+}
