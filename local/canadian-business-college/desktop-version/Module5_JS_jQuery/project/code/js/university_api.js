@@ -20,10 +20,10 @@ let uni_data_arr = [];
 /** 
  * Global constants to hold HTML class and id references.
  */
-const select_country = "#select-country";
-const submit_btn_university = "#submit-btn-university";
-const header_university_total = ".university-total";
-const section_university_list = ".section-university-list";
+const select_country = document.querySelector("#select-country");
+const submit_btn_university = document.querySelector("#submit-btn-university");
+const header_university_total = document.querySelector(".university-total");
+const section_university_list = document.querySelector(".section-university-list");
 
 
 // FUNCTIONS
@@ -33,7 +33,7 @@ const section_university_list = ".section-university-list";
  * @returns The name of the country as a string
  */
 function getCountryName() {
-  return document.querySelector(select_country).value;
+  return select_country.value;
 }
 
 /**
@@ -42,15 +42,14 @@ function getCountryName() {
  * @param {string} url: The url to use in the fetch command, passed in as a string
  */
 async function fetchData(url) {
-  let uni_list_div = document.querySelector(section_university_list);
-
+  /** Local variables to help with the fetch call. */
   let response_data;
   let university_list;
 
   /** Check to see if there's an existing university list that's displayed and if so, remove all the child elements as well as reinitialize the uni_data_arr array. */
   if (uni_data_arr.length > 0) {
     uni_data_arr = [];
-    uni_list_div.replaceChildren();
+    section_university_list.replaceChildren();
   }
 
   try {
@@ -84,10 +83,8 @@ function processUniversities(university_list) {
  * Function to add each university in the uni_data_arr array to the HTML page. The total number of universities is also added.
  */
 function addUnisToPage() {
-  let uni_list_div = document.querySelector(section_university_list);
-  let uni_total = document.querySelector(header_university_total);
-
-  uni_total.textContent = `Total: ${uni_data_arr.length}`;
+  /** Display the total number of results returned by the API call */
+  header_university_total.textContent = `Total: ${uni_data_arr.length}`;
 
   let new_div;
   let new_para;
@@ -116,7 +113,7 @@ function addUnisToPage() {
     new_para.innerHTML = uni_data;
 
     new_div.appendChild(new_para);
-    uni_list_div.appendChild(new_div);
+    section_university_list.appendChild(new_div);
   }
 }
 
@@ -126,7 +123,7 @@ function addUnisToPage() {
  * Add a click event listener to the "Submit" button. When the user clicks the button, the country name that the user selected is grabbed, the Object.values() and Array.join() methods are then used to create the full API URL, and finally the function to fetch the data and process the API results is called.
  */
 export function universityButtonListener() {
-  document.querySelector(submit_btn_university).addEventListener("click", function () {
+  submit_btn_university.addEventListener("click", function () {
     api_obj.country_name = getCountryName();
     const full_url = Object.values(api_obj).join("");
     fetchData(full_url);
