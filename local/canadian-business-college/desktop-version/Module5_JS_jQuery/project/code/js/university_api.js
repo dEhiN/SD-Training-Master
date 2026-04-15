@@ -56,6 +56,25 @@ function buildApiUrl() {
 }
 
 /**
+ * Function to clear any existing API data from a previous call.
+ */
+export function clearData() {
+  /** Check to see if there's an existing university list that's displayed and if so:
+   * 
+   * - remove all the child elements
+   * - reinitialize the uni_data_arr array
+   * - set the drop-down list in the HTML back to the default, blank option
+   * - set the totals amount in the HTML to blank
+   */
+  if (uni_data_arr.length > 0) {
+    uni_data_arr = [];
+    select_country.value = "";
+    header_university_total.textContent = "";
+    section_university_list.replaceChildren();
+  }
+}
+
+/**
  * Fetch function to make the API call and get the returned data.
  * 
  * @param {string} url: The url to use in the fetch command, passed in as a string.
@@ -65,11 +84,7 @@ async function fetchData(url) {
   let response_data;
   let university_list;
 
-  /** Check to see if there's an existing university list that's displayed and if so, remove all the child elements as well as reinitialize the uni_data_arr array. */
-  if (uni_data_arr.length > 0) {
-    uni_data_arr = [];
-    section_university_list.replaceChildren();
-  }
+  clearData();
 
   try {
     response_data = await fetch(url);
