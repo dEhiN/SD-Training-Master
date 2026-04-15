@@ -33,7 +33,17 @@ const section_university_list = document.querySelector(".section-university-list
  * @returns The name of the country as a string.
  */
 function getCountryName() {
-  return select_country.value;
+  // Get the user's choice from the drop-down list
+  let user_choice = select_country.value;
+
+  // Validate the choice - make sure the user selected a country
+  if (!user_choice) {
+    alert("You didn't make a valid country choice! Defaulting to Canada...");
+    select_country.value = "Canada";
+    user_choice = "Canada";
+  }
+
+  return user_choice;
 }
 
 /**
