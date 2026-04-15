@@ -5,7 +5,7 @@
 /** 
  * Imports from the API JS modules.
  */
-import { } from './weather_api.js';
+import { weatherButtonListener } from './weather_api.js';
 import { dogButtonListener, clearData as clearDogImage } from './dog_api.js';
 import { universityButtonListener, clearData as clearUniversityList } from './university_api.js';
 
@@ -78,6 +78,7 @@ function setupFeatureChooser() {
  * Call the imported event listener functions. 
  */
 function setupImports() {
+    weatherButtonListener();
     dogButtonListener();
     universityButtonListener();
 }
