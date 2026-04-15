@@ -13,3 +13,9 @@ import { universityButtonListener } from './university_api.js';
  */
 dogButtonListener();
 universityButtonListener();
+
+let feature_containers_list = document.querySelectorAll(".feature-container");
+
+feature_containers_list.forEach(function (feature_container) {
+    feature_container.style.display = "none";
+})
