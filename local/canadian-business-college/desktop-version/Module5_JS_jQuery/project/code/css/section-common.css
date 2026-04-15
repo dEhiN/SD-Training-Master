@@ -38,20 +38,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5% 0%;
+    padding: 2% 0%;
 }
 
-.button-label {
-    padding-bottom: 5%;
-}
-
-.api-data {
-    padding: 5% 0%;
-}
-
-/** Remove text wrapping on the button but add the rule at the div level. */
+/** Remove text wrapping on the button but add the rule at the div level. Also, push the button down a little bit. */
 .user-button {
     white-space: nowrap;
+    padding-top: 3%;
 }
 
 /** Style the submit button to have the following:

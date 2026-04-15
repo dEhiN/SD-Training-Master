@@ -1,0 +1,52 @@
+/* This CSS file is for the assignment part 1 section of the document */
+
+/** List of relevant classes:
+- assignment-section-1
+- section-heading (styled in main.css)
+- section-user-select
+- drop-down-list
+- list-label
+- list-select
+- university-total
+*/
+
+
+/** Set a column-based flex for the whole part 1 section. */
+.assignment-section-1 {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.5px #2f4f4f solid;
+}
+
+
+/** Set a row-based flex for the drop-down list section.
+    Ensure the child items are spaced evenly.
+*/
+.drop-down-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Adjust the label to shape the text width and placement. */
+.list-label {
+    width: 50%;
+    text-align: center;
+}
+
+/** Give a little gap between the actual drop-down list and its label. */
+.list-select {
+    padding-top: 3%;
+}
+
+.list-select select {
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    padding: 1%;
+    color: #2f1b14;
+}
+
+.university-total {
+    font-size: 1.3rem;
+    /* color: #b0c4de; */
+}
