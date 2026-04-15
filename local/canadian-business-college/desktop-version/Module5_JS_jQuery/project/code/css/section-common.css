@@ -1,12 +1,8 @@
-/* This CSS file is for the common aspects of the assignment sections of the document */
-
-
+/* The following rules are for div assignment-section which represents a section of the assignment or project. Therefore, these rules create common styling to all the assignment sections. */
 /** List of relevant classes:
 - assignment-section
 - section-heading
 - section-user-select
-- button-label
-- api-data
 - user-button
 - button
 */
