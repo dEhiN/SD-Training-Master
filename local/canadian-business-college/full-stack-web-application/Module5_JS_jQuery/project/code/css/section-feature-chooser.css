@@ -1,0 +1,28 @@
+/* The following rules are for the div section-feature-chooser. */
+
+.section-feature-chooser {
+    .section-user-select {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .user-button {
+        /* white-space: wrap; */
+        padding: 0%;
+    }
+
+    .button {
+        padding: 0%;
+        background-color: rgba(240, 241, 255, 1);
+        border-radius: 0%;
+        color: black;
+        width: 10rem;
+        font-size: 1.1rem;
+    }
+
+    .button:hover {
+        background-color: #2f4f4f;
+        color: white;
+    }
+}
