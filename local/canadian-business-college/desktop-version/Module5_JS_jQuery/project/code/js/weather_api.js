@@ -71,6 +71,10 @@ function validateUserInput() {
     let city = input_search_city.value;
     let days = input_forecast_days.value;
 
+    // ADDING TEMPORARY VALUES FOR TESTING PURPOSES
+    city = "Toronto";
+    days = "1";
+
     /** Boolean to store whether the user input is fully valid or not. Assume true as default. */
     let input_is_valid = true;
 

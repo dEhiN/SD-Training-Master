@@ -90,4 +90,7 @@ function setupImports() {
  */
 setupImports();
 hideFeatureContainers();
-setupFeatureChooser();
+//setupFeatureChooser();
+
+// FOR TESTING PURPOSES
+handleApiButton(feature_btn_weather);
