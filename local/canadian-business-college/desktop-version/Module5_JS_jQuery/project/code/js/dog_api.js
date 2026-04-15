@@ -16,7 +16,6 @@ const jq_section_img_dog = ".section-dog-image";
 
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
-const fetch_api_attempt = "Attempting to fetch the requested data...";
 const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/api/breeds/image/random\""
 
 
@@ -107,36 +106,14 @@ function processDogData(api_data) {
 function fetchAPIData() {
 	// Get the API data
 	$.get(api_url, function (data) {
-		// Clear any messages showing in the api-data div.
-		updateUserOnAttempt(false);
+		// Clear any thing showing in the dog image div
+		$(jq_section_img_dog).empty();
 		processDogData(data);
 	}).fail(function () {
 		alert(fetch_api_err);
 	});
 }
 
-/** 
- * Update the user on what is happening. This function will add a paragraph element to the dog image section that lets the user know the API data is being fetched. This function can also clear that paragraph by calling the jQuery empty() method on the div.
- * 
- * This dual functionality allows for one function to be used to update the user. When the API call is being made, since there can be a delay in fetching the data, the user is informed of this.When the data has been received and is ready to be presented to the user, the div for presenting the data can be emptied.
- * 
- * @param {boolean} show_para: A boolean variable that indicates whether to show or remove the paragraph informing the user. 
-*/
-function updateUserOnAttempt(show_para) {
-	// Create local variable reference to the dog image section
-	let data_div = $(jq_section_img_dog);
-
-	// Update or empty the dog image section as appropriate
-	if (show_para) {
-		// Create new paragraph
-		let user_para = $("<p></p>").text(fetch_api_attempt);
-		data_div.append(user_para);
-	}
-	else {
-		// Clear all child elements
-		data_div.empty();
-	}
-}
 
 // MAIN CODE
 /** 
@@ -144,7 +121,6 @@ function updateUserOnAttempt(show_para) {
  */
 export function dogButtonListener() {
 	$(jq_submit_btn_dog).on("click", function () {
-		updateUserOnAttempt(true);
 		fetchAPIData();
 	})
 };
