@@ -11,8 +11,5 @@ import { universityButtonListener } from './university_api.js';
 /** 
  * Call the imported functions. 
  */
-console.log("In main.js");
-console.log("Calling dogButtonListener");
 dogButtonListener();
-console.log("Calling universityButtonListener");
 universityButtonListener();
