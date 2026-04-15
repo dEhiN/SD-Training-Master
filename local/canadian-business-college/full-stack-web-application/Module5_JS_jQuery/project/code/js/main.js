@@ -52,7 +52,7 @@ function handleApiButton(button_element) {
     }
     else if (button_element == feature_btn_university) {
         // Clear anything that's showing already
-        clearUniversityList();
+        clearUniversityList(true);
         // Display the Higher Institutions section
         feature_containers_list[2].style.display = "";
     }
