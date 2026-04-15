@@ -91,8 +91,8 @@ function processDogData(api_data) {
 	dog_caption.text(caption);
 
 	// Build everything up
-	dog_figure.append(dog_image);
 	dog_figure.append(dog_caption);
+	dog_figure.append(dog_image);
 	jq_section_dog_image.append(dog_figure);
 }
 
