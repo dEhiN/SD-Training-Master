@@ -31,8 +31,7 @@
     align-items: center;
 }
 
-/** Give the actual dog image a fixed width and height as per assignment instructions. */
+/** Give the actual dog image a fixed width. */
 .img-dog {
     width: 500px;
-    height: 500px;
 }
