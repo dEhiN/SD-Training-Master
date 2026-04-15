@@ -101,7 +101,31 @@ function validateUserInput() {
  * @returns A string representing the full URL of the API call using all the properties of the api_obj object.
  */
 function buildApiUrl() {
-    console.log(Object.values(api_obj).join(""));
+    /** Create a temporary variable to build the full API URL and initially populate it with the base_url from api_obj. */
+    let api_url = api_obj.base_url;
+
+    /** Add the endpoint. */
+    api_url += api_obj.endpoint;
+    api_url += api_obj.s_keywords.question_mark;
+
+    /** Add the key parameter */
+    api_url += api_obj.parameters.key.param_name;
+    api_url += api_obj.s_keywords.equal_sign;
+    api_url += api_obj.parameters.key.param_value;
+
+    /** Add the city name parameter. */
+    api_url += api_obj.s_keywords.ampersand;
+    api_url += api_obj.parameters.city.param_name;
+    api_url += api_obj.s_keywords.equal_sign;
+    api_url += api_obj.parameters.city.param_value;
+
+    /** Add the days parameter. */
+    api_url += api_obj.s_keywords.ampersand;
+    api_url += api_obj.parameters.days.param_name;
+    api_url += api_obj.s_keywords.equal_sign;
+    api_url += api_obj.parameters.days.param_value;
+
+    return api_url;
 }
 
 /**
@@ -129,7 +153,8 @@ export function weatherButtonListener() {
 
         /** If the user input is valid, build the API url, fetch the API data, and process it. */
         if (valid_user_input) {
-            buildApiUrl();
+            const full_url = buildApiUrl();
+            console.log(full_url);
         }
     })
 };
