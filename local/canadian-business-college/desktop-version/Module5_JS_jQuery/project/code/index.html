@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/section-dog.css">
         <link rel="stylesheet" href="css/section-university.css">
         <link rel="stylesheet" href="css/section-weather.css">
+        <link rel="stylesheet" href="css/section-feature-chooser.css">
         <!-- JS file links -->
         <script src="js/main.js" type="module"></script>
         <!-- jQuery link code taken directly from https://releases.jquery.com/ -->
@@ -34,6 +35,28 @@
                 Building a Dynamic Web Application
             </h3>
         </div>
+        <!-- Allow the user to select which API to play with -->
+        <div id="feature-chooser">
+            <div class="assignment-section section-feature-chooser">
+                <div class="section-heading">
+                    <h4>
+                        Pick Your API
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-weather" class="button">Weather</button>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-weather" class="button">Random Dog</button>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-weather" class="button">University List</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <!-- This is the weather API container -->
         <div class="feature-container" id="weather-container">
             <!--  -->
@@ -44,7 +67,6 @@
                     </h4>
                 </div>
                 <div class="section-user-select">
-
                     <div class="user-button">
                         <button type="button" id="submit-btn-weather" class="button">Fetch Daily Forecast</button>
                     </div>
@@ -101,7 +123,8 @@
                         </div>
                     </div>
                     <div class="user-button">
-                        <button type="button" id="submit-btn-university" class="button">Fetch Schools List</button>
+                        <button type="button" id="submit-btn-university" class="button">Fetch Schools
+                            List</button>
                     </div>
                 </div>
             </div>
