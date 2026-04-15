@@ -23,7 +23,7 @@
 
 /** Give a little gap between the actual drop-down list and its label. */
 .list-select {
-    padding-top: 3%;
+    padding: 3% 0%;
 }
 
 .list-select select {
@@ -35,7 +35,7 @@
 
 .university-total {
     font-size: 1.3rem;
-    /* color: #b0c4de; */
+    color: #b0c4de;
 }
 
 
