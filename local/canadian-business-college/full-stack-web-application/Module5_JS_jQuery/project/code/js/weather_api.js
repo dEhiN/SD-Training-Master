@@ -40,3 +40,21 @@ const api_obj = {
         }
     }
 };
+
+/** 
+ * Global constants to hold HTML class and id references.
+ */
+const submit_btn_weather = document.querySelector("#submit-btn-weather");
+
+// FUNCTIONS
+
+
+// MAIN CODE
+/** 
+ * Add a click event listener to the "Fetch Doggie Image" button. When the user clicks the button, the function to fetch the actual API data is called.
+ */
+export function weatherButtonListener() {
+    submit_btn_weather.addEventListener("click", function () {
+        console.log("You pressed me!");
+    })
+};
