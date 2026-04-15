@@ -42,6 +42,11 @@ const api_obj = {
 };
 
 /** 
+ * Global variable to hold the weather data.
+ */
+let weather_data = {};
+
+/** 
  * Global constants to hold HTML class and id references.
  */
 const submit_btn_weather = document.querySelector("#submit-btn-weather");
@@ -129,6 +134,30 @@ function buildApiUrl() {
 }
 
 /**
+ * Fetch function to make the API call and get the returned data.
+ * 
+ * @param {string} url: The url to use in the fetch command, passed in as a string.
+ */
+async function fetchData(url) {
+    /** Local variables to help with the fetch call. */
+    let response_data;
+    let weather_results;
+
+    /** Clear existing data, but not all of it. */
+    clearData(false);
+
+    try {
+        response_data = await fetch(url);
+        weather_results = await response_data.json();
+
+        console.log(weather_results);
+    }
+    catch (error) {
+        alert(error);
+    }
+}
+
+/**
  * Function to clear any existing API data from a previous call.
  * 
  * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
@@ -154,7 +183,7 @@ export function weatherButtonListener() {
         /** If the user input is valid, build the API url, fetch the API data, and process it. */
         if (valid_user_input) {
             const full_url = buildApiUrl();
-            console.log(full_url);
+            fetchData(full_url);
         }
     })
 };
