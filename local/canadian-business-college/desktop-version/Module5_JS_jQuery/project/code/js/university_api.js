@@ -89,6 +89,7 @@ async function fetchData(url) {
   let response_data;
   let university_list;
 
+  /** Clear existing data, but not all of it. */
   clearData(false);
 
   try {
@@ -97,8 +98,9 @@ async function fetchData(url) {
 
     processUniversities(university_list);
     addUnisToPage();
-  } catch (error) {
-    console.log(error);
+  }
+  catch (error) {
+    alert(error);
   }
 }
 
