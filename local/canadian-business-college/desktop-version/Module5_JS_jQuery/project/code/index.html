@@ -56,17 +56,41 @@
         </div>
         <!-- This is the weather API container -->
         <div class="feature-container" id="weather-container">
-            <!--  -->
-            <div class="assignment-section section-weather">
+            <!-- Making this the section where the user can enter their API key and choose the details for the forecast (city and number of days between 1-5) -->
+            <div class="assignment-section section-weather-1">
                 <div class="section-heading">
                     <h4>
                         Weather Forecast
                     </h4>
                 </div>
                 <div class="section-user-select">
+                    <div class="section-user-input">
+                        <div class="input-field-weather">
+                            <label for="weather-api-key">Please enter your Weather API key:</label>
+                            <input type="password" name="weather-api-key" id="weather-api-key">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="search-city">Please enter a city to get its forecast:</label>
+                            <input type="input" name="search-city" id="search-city">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="forecast-days">Please choose the number of days to forecast (between 1 and
+                                5):</label>
+                            <input type="number" name="forecast-days" id="forecast-days" min="1" max="5">
+                        </div>
+                    </div>
                     <div class="user-button">
                         <button type="button" id="submit-btn-weather" class="button">Fetch Daily Forecast</button>
                     </div>
+                </div>
+            </div>
+            <!-- Making this the section where the actual forecast result is displayed -->
+            <div class="assignment-section section-weather-2">
+                <div class="section-heading">
+                    <h5 class="forecast-results">
+                    </h5>
+                </div>
+                <div class="section-forecast">
                 </div>
             </div>
         </div>
