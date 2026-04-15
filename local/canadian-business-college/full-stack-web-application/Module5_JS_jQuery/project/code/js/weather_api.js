@@ -66,26 +66,25 @@ function validateUserInput() {
     let city = input_search_city.value;
     let days = input_forecast_days.value;
 
-    /** Boolean to store whether the user input is fully valid or not. Assume false as default. */
-    let input_is_valid = false;
+    /** Boolean to store whether the user input is fully valid or not. Assume true as default. */
+    let input_is_valid = true;
 
     /** Check to make sure none of the fields are blank. If any are, let the user know. */
     if (!api_key || !city || !days) {
         alert(fill_all_fields);
+        input_is_valid = false;
     }
 
-    /** Check the number of days inputted to make sure it's between 1 and 5. First, convert the days string to a number. */
+    /** Check the number of days inputted to make sure it's between 1 and 5. First, convert the days string to a number. The check also makes sure input_is_valid is true, otherwise the user has already been alerted and shouldn't be alerted twice. */
     let days_num = Number(days);
-    if (days_num < 1 || days_num > 5) {
-        alert(invalid_number_days)
+    if ((days_num < 1 || days_num > 5) && input_is_valid) {
+        alert(invalid_number_days);
+        input_is_valid = false;
     }
 
     /** If the input is not valid, clear the input fields plus any existing API results. If it is valid, update the inputIsValid variable.*/
     if (!input_is_valid) {
         clearData(true);
-    }
-    else {
-        input_is_valid = true;
     }
 
     /** The input is valid, so build the api_obj object. */
@@ -94,6 +93,15 @@ function validateUserInput() {
     api_obj.parameters.days.param_value = days;
 
     return input_is_valid;
+}
+
+/**
+ * Function to get the full URL of the API call from the constant api_obj. This is done using both the Object.values() method and the Array.join() method.
+ * 
+ * @returns A string representing the full URL of the API call using all the properties of the api_obj object.
+ */
+function buildApiUrl() {
+    console.log(Object.values(api_obj).join(""));
 }
 
 /**
@@ -121,6 +129,7 @@ export function weatherButtonListener() {
 
         /** If the user input is valid, build the API url, fetch the API data, and process it. */
         if (valid_user_input) {
+            buildApiUrl();
         }
     })
 };
