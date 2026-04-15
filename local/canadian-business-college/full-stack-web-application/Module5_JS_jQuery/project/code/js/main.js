@@ -5,7 +5,7 @@
 /** 
  * Imports from the API JS modules.
  */
-import { weatherButtonListener } from './weather_api.js';
+import { weatherButtonListener, clearData as clearWeatherForecast } from './weather_api.js';
 import { dogButtonListener, clearData as clearDogImage } from './dog_api.js';
 import { universityButtonListener, clearData as clearUniversityList } from './university_api.js';
 
@@ -41,7 +41,8 @@ function handleApiButton(button_element) {
 
     // Check to see which button was pressed
     if (button_element == feature_btn_weather) {
-        // Display the Weather Forecast section
+        // Clear anything that's showing already
+        clearUniversityList(true);        // Display the Weather Forecast section
         feature_containers_list[0].style.display = "";
     }
     else if (button_element == feature_btn_dog) {
