@@ -84,7 +84,16 @@ function processDogData(api_data) {
 
 	// Create the image caption
 	let dog_caption = $("<figcaption></figcaption>");
-	dog_caption.text(`This image shows the ${dog_breed} breed`);
+	let caption = "This is ";
+	// Minor check to account for the breed name starting with a vowel
+	if (/^[aeiou]/i.test(dog_breed[0])) {
+		caption += "an ";
+	}
+	else {
+		caption += "a ";
+	}
+	caption += dog_breed;
+	dog_caption.text(caption);
 
 	// Build everything up
 	dog_figure.append(dog_image);
