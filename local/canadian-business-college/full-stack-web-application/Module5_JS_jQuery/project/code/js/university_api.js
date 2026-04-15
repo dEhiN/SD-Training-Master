@@ -31,7 +31,7 @@ const section_university_list = document.querySelector(".section-university-list
  * Function to grab the country name that the user selected from the drop-down list.
  * 
  * @returns The name of the country as a string.
- */.=
+ */
 function getCountryName() {
   return select_country.value;
 }
