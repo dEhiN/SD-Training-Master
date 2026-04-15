@@ -7,11 +7,6 @@
 - img-dog
 */
 
-/** Add a bottom border to the random dog section to create a division. */
-.section-dog {
-    border-bottom: 0.5px #2f4f4f solid;
-}
-
 /** Add a little spacing between the button label and the button. */
 .label-button-dog {
     padding-bottom: 5%;

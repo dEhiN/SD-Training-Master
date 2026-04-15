@@ -7,12 +7,13 @@
 - button
 */
 
-/** Set a column-based flex for each assignment section. */
+/** Set a column-based flex for each assignment section. Also add a border line to the bottom of the section. */
 .assignment-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 0.5px #2f4f4f solid;
 }
 
 /** Center the section heading and push it down from the document title. */
