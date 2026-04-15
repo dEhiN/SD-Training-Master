@@ -9,10 +9,9 @@ const api_url = "https://dog.ceo/api/breeds/image/random";
 
 /** 
  * Global constants to hold HTML class and id references.
- * This allows for easier use with jQuery.
  */
-const jq_submit_btn_dog = "#submit-btn-dog";
-const jq_section_img_dog = ".section-dog-image";
+const jq_submit_btn_dog = $("#submit-btn-dog");
+const jq_section_dog_image = $(".section-dog-image");
 
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
@@ -60,9 +59,6 @@ function getDogBreed(dog_img_string) {
  * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
  */
 function processDogData(api_data) {
-	// Create local variable reference to the dog image section
-	let data_div = $(jq_section_img_dog);
-
 	// Get the URL for the dog image and then extract the dog breed
 	let dog_img_url = api_data.message;
 	let dog_breed = getDogBreed(dog_img_url);
@@ -97,7 +93,7 @@ function processDogData(api_data) {
 	// Build everything up
 	dog_figure.append(dog_image);
 	dog_figure.append(dog_caption);
-	data_div.append(dog_figure);
+	jq_section_dog_image.append(dog_figure);
 }
 
 /**
@@ -107,7 +103,7 @@ function fetchAPIData() {
 	// Get the API data
 	$.get(api_url, function (data) {
 		// Clear any thing showing in the dog image div
-		$(jq_section_img_dog).empty();
+		jq_section_dog_image.empty();
 		processDogData(data);
 	}).fail(function () {
 		alert(fetch_api_err);
@@ -117,10 +113,10 @@ function fetchAPIData() {
 
 // MAIN CODE
 /** 
- * Add a click event listener to the "Fetch Doggie" button. When the user clicks the button, the user is updated of the fetch action happening, and the function to fetch the actual API data is called.
+ * Add a click event listener to the "Fetch Doggie Image" button. When the user clicks the button, the function to fetch the actual API data is called.
  */
 export function dogButtonListener() {
-	$(jq_submit_btn_dog).on("click", function () {
+	jq_submit_btn_dog.on("click", function () {
 		fetchAPIData();
 	})
 };
