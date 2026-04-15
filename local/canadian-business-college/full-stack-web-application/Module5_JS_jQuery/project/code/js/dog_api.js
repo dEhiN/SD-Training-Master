@@ -97,13 +97,20 @@ function processDogData(api_data) {
 }
 
 /**
+ * Function to clear any existing API data from a previous call.
+ */
+export function clearData() {
+	jq_section_dog_image.empty();
+}
+
+/**
  * Call the correct API using the jQuery $.get() method. If the action is successful, call another function to process the API data. If it's not successful, alert the user.
  */
 function fetchAPIData() {
 	// Get the API data
 	$.get(api_url, function (data) {
 		// Clear any thing showing in the dog image div
-		jq_section_dog_image.empty();
+		clearData();
 		processDogData(data);
 	}).fail(function () {
 		alert(fetch_api_err);

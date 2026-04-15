@@ -6,8 +6,8 @@
  * Imports from the API JS modules.
  */
 import { } from './weather_api.js';
-import { dogButtonListener } from './dog_api.js';
-import { universityButtonListener } from './university_api.js';
+import { dogButtonListener, clearData as clearDogImage } from './dog_api.js';
+import { universityButtonListener, clearData as clearUniversityList } from './university_api.js';
 
 
 // GLOBAL VARIABLES AND CONSTANTS
@@ -45,10 +45,14 @@ function handleApiButton(button_element) {
         feature_containers_list[0].style.display = "";
     }
     else if (button_element == feature_btn_dog) {
+        // Clear anything that's showing already
+        clearDogImage();
         // Display the Doggie Image section
         feature_containers_list[1].style.display = "";
     }
     else if (button_element == feature_btn_university) {
+        // Clear anything that's showing already
+        clearUniversityList();
         // Display the Higher Institutions section
         feature_containers_list[2].style.display = "";
     }
@@ -70,16 +74,18 @@ function setupFeatureChooser() {
     })
 }
 
+/** 
+ * Call the imported event listener functions. 
+ */
+function setupImports() {
+    dogButtonListener();
+    universityButtonListener();
+}
 
 // MAIN CODE
 /** 
- * Call the imported functions. 
- */
-dogButtonListener();
-universityButtonListener();
-
-/** 
  * Call the main functions
  */
+setupImports();
 hideFeatureContainers();
 setupFeatureChooser();
