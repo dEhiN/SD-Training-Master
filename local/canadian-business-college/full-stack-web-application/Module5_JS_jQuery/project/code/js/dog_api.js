@@ -13,8 +13,7 @@ const api_url = "https://dog.ceo/api/breeds/image/random";
 const submit_btn_dog = document.querySelector("#submit-btn-dog");
 const section_dog_image = document.querySelector(".section-dog-image");
 
-/** Global constants to act as user alert messages */
-const fetch_api_err = "The fetch call failed! Please try again...";
+/** Global constant for the image alternate text */
 const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/api/breeds/image/random\""
 
 
