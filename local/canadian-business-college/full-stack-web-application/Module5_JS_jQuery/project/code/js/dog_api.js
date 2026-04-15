@@ -10,8 +10,8 @@ const api_url = "https://dog.ceo/api/breeds/image/random";
 /** 
  * Global constants to hold HTML class and id references.
  */
-const jq_submit_btn_dog = $("#submit-btn-dog");
-const jq_section_dog_image = $(".section-dog-image");
+const submit_btn_dog = document.querySelector("#submit-btn-dog");
+const section_dog_image = document.querySelector(".section-dog-image");
 
 /** Global constants to act as user alert messages */
 const fetch_api_err = "The fetch call failed! Please try again...";
@@ -64,21 +64,24 @@ function processDogData(api_data) {
 	let dog_breed = getDogBreed(dog_img_url);
 
 	// Create an image element for the dog picture
-	let dog_image = $("<img>");
-	dog_image.attr({
+	let dog_image = document.createElement("img");
+
+	// Set the images attributes
+	const image_attributes = {
 		"src": dog_img_url,
 		"alt": alt_txt_dog_img,
 		"class": "img-dog"
+	};
+	Object.keys(image_attributes).forEach(function (key) {
+		dog_image.setAttribute(key, image_attributes[key]);
 	});
 
 	// Create a figure container so an image caption can be added to the image
-	let dog_figure = $("<figure></figure>");
-	dog_figure.attr({
-		"class": "figure-dog"
-	})
+	let dog_figure = document.createElement("figure");
+	dog_figure.setAttribute("class", "figure-dog");
 
 	// Create the image caption
-	let dog_caption = $("<figcaption></figcaption>");
+	let dog_caption = document.createElement("figcaption");
 	let caption = "This is ";
 	// Minor check to account for the breed name starting with a vowel
 	if (/^[aeiou]/i.test(dog_breed[0])) {
@@ -88,33 +91,43 @@ function processDogData(api_data) {
 		caption += "a ";
 	}
 	caption += dog_breed;
-	dog_caption.text(caption);
+	dog_caption.innerText = caption;
 
-	// Build everything up
-	dog_figure.append(dog_caption);
-	dog_figure.append(dog_image);
-	jq_section_dog_image.append(dog_figure);
+	// Build the figure element
+	dog_figure.appendChild(dog_caption);
+	dog_figure.appendChild(dog_image);
+
+	// Attach the figure element to the dog image section
+	section_dog_image.appendChild(dog_figure);
 }
 
 /**
  * Function to clear any existing API data from a previous call.
  */
 export function clearData() {
-	jq_section_dog_image.empty();
+	section_dog_image.replaceChildren();
 }
 
 /**
  * Call the correct API using the jQuery $.get() method. If the action is successful, call another function to process the API data. If it's not successful, alert the user.
  */
-function fetchAPIData() {
-	// Get the API data
-	$.get(api_url, function (data) {
-		// Clear any thing showing in the dog image div
-		clearData();
-		processDogData(data);
-	}).fail(function () {
-		alert(fetch_api_err);
-	});
+async function fetchAPIData() {
+	/** Local variables to help with the fetch call. */
+	let response_data;
+	let dog_data;
+
+	/** Clear existing data, but not all of it. */
+	clearData();
+
+	try {
+		response_data = await fetch(api_url);
+		dog_data = await response_data.json();
+
+		processDogData(dog_data);
+	}
+	catch (error) {
+		alert(error);
+	}
 }
 
 
@@ -123,7 +136,7 @@ function fetchAPIData() {
  * Add a click event listener to the "Fetch Doggie Image" button. When the user clicks the button, the function to fetch the actual API data is called.
  */
 export function dogButtonListener() {
-	jq_submit_btn_dog.on("click", function () {
+	submit_btn_dog.addEventListener("click", function () {
 		fetchAPIData();
 	})
 };
