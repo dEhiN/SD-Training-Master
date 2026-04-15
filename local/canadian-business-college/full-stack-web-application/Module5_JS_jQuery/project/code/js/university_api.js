@@ -28,18 +28,27 @@ const section_university_list = document.querySelector(".section-university-list
 
 // FUNCTIONS
 /**
- * Function to grab the country name that the user selected from the drop-down list
+ * Function to grab the country name that the user selected from the drop-down list.
  * 
- * @returns The name of the country as a string
- */
+ * @returns The name of the country as a string.
+ */.=
 function getCountryName() {
   return select_country.value;
 }
 
 /**
+ * Function to get the full URL of the API call from the constant api_obj. This is done using both the Object.values() method and the Array.join() method.
+ * 
+ * @returns A string representing the full URL of the API call using all the properties of the api_obj object.
+ */
+function buildApiUrl() {
+  return Object.values(api_obj).join("");
+}
+
+/**
  * Fetch function to make the API call and get the returned data.
  * 
- * @param {string} url: The url to use in the fetch command, passed in as a string
+ * @param {string} url: The url to use in the fetch command, passed in as a string.
  */
 async function fetchData(url) {
   /** Local variables to help with the fetch call. */
@@ -120,12 +129,12 @@ function addUnisToPage() {
 
 // MAIN CODE
 /**
- * Add a click event listener to the "Submit" button. When the user clicks the button, the country name that the user selected is grabbed, the Object.values() and Array.join() methods are then used to create the full API URL, and finally the function to fetch the data and process the API results is called.
+ * Add a click event listener to the "Fetch Schools List" button. When the user clicks the button, the country name that the user selected is grabbed, the full API URL is then created and finally the function to fetch the data and process the API results is called.
  */
 export function universityButtonListener() {
   submit_btn_university.addEventListener("click", function () {
     api_obj.country_name = getCountryName();
-    const full_url = Object.values(api_obj).join("");
+    const full_url = buildApiUrl();
     fetchData(full_url);
   })
 };
