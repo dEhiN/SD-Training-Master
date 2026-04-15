@@ -1,6 +1,10 @@
 // This JS file will be for the logic related to the weather API call
 
-/** Global object to represent the API call */
+
+// GLOBAL VARIABLES AND CONSTANTS
+/** 
+ * Global object to represent the API call.
+ */
 const api_obj = {
     // Base URL for the Weather API
     base_url: "https://api.weatherapi.com/v1/",
