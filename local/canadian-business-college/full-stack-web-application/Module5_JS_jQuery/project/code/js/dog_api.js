@@ -1,0 +1,141 @@
+// This JS file will be for the logic related to the random dog API call
+
+
+// GLOBAL VARIABLES AND CONSTANTS
+/**
+ *  Global constant to hold the API URL. 
+ */
+const api_url = "https://dog.ceo/api/breeds/image/random";
+
+/** 
+ * Global constants to hold HTML class and id references.
+ * This allows for easier use with jQuery.
+ */
+const jq_submit_btn_dog = "#submit-btn-dog";
+const jq_section_img_dog = ".section-dog-image";
+
+/** Global constants to act as user alert messages */
+const fetch_api_err = "The fetch call failed! Please try again...";
+const fetch_api_attempt = "Attempting to fetch the requested data...";
+const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/api/breeds/image/random\""
+
+
+// FUNCTIONS
+/**
+ * Take the full image url returned from the random dog API and extract just the dog breed data
+ * 
+ * @param {string} dog_img_string: A string representing the full URL given in the random dog image API
+ * 
+ * @returns A string with the dog breed name is proper human readable format
+ */
+function getDogBreed(dog_img_string) {
+	// Variable to store the breed name for captioning
+	// Default is blank.
+	let full_breed_name = "";
+
+	// Extract the dog breed from the URL
+	let dog_img_arr = dog_img_string.split("/");
+	let dog_breed_name = dog_img_arr[dog_img_arr.length - 2];
+
+	// Split the extracted dog breed using the hyphen
+	let dog_breed_arr = dog_breed_name.split("-");
+
+	// Check the length of the returned array
+	if (dog_breed_arr.length == 1) {
+		// The breed is only one word
+		// Capitalize just the first letter
+		full_breed_name = dog_breed_arr[0].charAt(0).toUpperCase() + dog_breed_arr[0].slice(1);
+	} else if (dog_breed_arr.length == 2) {
+		// The breed is composed of two words
+		// Capitalize just the first letter of both words
+		// The API lists the breed backwards, so flip things around
+		full_breed_name = `${dog_breed_arr[1].charAt(0).toUpperCase() + dog_breed_arr[1].slice(1)} ${dog_breed_arr[0].charAt(0).toUpperCase() + dog_breed_arr[0].slice(1)}`;
+	}
+
+	return full_breed_name;
+}
+
+/**
+ * Add the dog data to the correct HTML section.
+ * 
+ * @param {object} api_data: An object representing the API data returned from a call to "https://dog.ceo/api/breeds/image/random".
+ */
+function processDogData(api_data) {
+	// Create local variable reference to the dog image section
+	let data_div = $(jq_section_img_dog);
+
+	// Get the URL for the dog image and then extract the dog breed
+	let dog_img_url = api_data.message;
+	let dog_breed = getDogBreed(dog_img_url);
+
+	// Create an image element for the dog picture
+	let dog_image = $("<img>");
+	dog_image.attr({
+		"src": dog_img_url,
+		"alt": alt_txt_dog_img,
+		"class": "img-dog"
+	});
+
+	// Create a figure container so an image caption can be added to the image
+	let dog_figure = $("<figure></figure>");
+	dog_figure.attr({
+		"class": "figure-dog"
+	})
+
+	// Create the image caption
+	let dog_caption = $("<figcaption></figcaption>");
+	dog_caption.text(`This image shows the ${dog_breed} breed`);
+
+	// Build everything up
+	dog_figure.append(dog_image);
+	dog_figure.append(dog_caption);
+	data_div.append(dog_figure);
+}
+
+/**
+ * Call the correct API using the jQuery $.get() method. If the action is successful, call another function to process the API data. If it's not successful, alert the user.
+ */
+function fetchAPIData() {
+	// Get the API data
+	$.get(api_url, function (data) {
+		// Clear any messages showing in the api-data div.
+		updateUserOnAttempt(false);
+		processDogData(data);
+	}).fail(function () {
+		alert(fetch_api_err);
+	});
+}
+
+/** 
+ * Update the user on what is happening. This function will add a paragraph element to the dog image section that lets the user know the API data is being fetched. This function can also clear that paragraph by calling the jQuery empty() method on the div.
+ * 
+ * This dual functionality allows for one function to be used to update the user. When the API call is being made, since there can be a delay in fetching the data, the user is informed of this.When the data has been received and is ready to be presented to the user, the div for presenting the data can be emptied.
+ * 
+ * @param {boolean} show_para: A boolean variable that indicates whether to show or remove the paragraph informing the user. 
+*/
+function updateUserOnAttempt(show_para) {
+	// Create local variable reference to the dog image section
+	let data_div = $(jq_section_img_dog);
+
+	// Update or empty the dog image section as appropriate
+	if (show_para) {
+		// Create new paragraph
+		let user_para = $("<p></p>").text(fetch_api_attempt);
+		data_div.append(user_para);
+	}
+	else {
+		// Clear all child elements
+		data_div.empty();
+	}
+}
+
+// MAIN CODE
+/** 
+ * Add a click event listener to the "Fetch Doggie" button. When the user clicks the button, the user is updated of the fetch action happening, and the function to fetch the actual API data is called.
+ */
+export function dogButtonListener() {
+	$(jq_submit_btn_dog).on("click", function () {
+		updateUserOnAttempt(true);
+		fetchAPIData();
+	})
+};
