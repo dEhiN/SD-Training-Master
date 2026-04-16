@@ -42,7 +42,8 @@ function handleApiButton(button_element) {
     // Check to see which button was pressed
     if (button_element == feature_btn_weather) {
         // Clear anything that's showing already
-        clearUniversityList(true);        // Display the Weather Forecast section
+        clearWeatherForecast(true);
+        // Display the Weather Forecast section
         feature_containers_list[0].style.display = "";
     }
     else if (button_element == feature_btn_dog) {
