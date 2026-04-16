@@ -20,7 +20,7 @@
 /** Create a grid of rows for the forecast cards. */
 .section-forecast {
     display: grid;
-    grid-template-columns: repeat(2, minmax(1%, auto));
+    grid-template-columns: repeat(2, minmax(1%, 2fr));
     padding: 1.8rem;
     gap: 3rem;
     white-space: nowrap;
