@@ -340,7 +340,7 @@ function addCurrentDayData() {
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.weather_description.condition}`;
 
         /** Add an image of the icon provided by the weather data API. */
-        weather_content += `<br><span class="weather-description-icon><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
+        weather_content += `<br><span class="weather-description-icon"><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
 
         break;
     }
