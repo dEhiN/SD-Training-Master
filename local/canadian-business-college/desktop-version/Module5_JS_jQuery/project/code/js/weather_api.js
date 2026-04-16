@@ -95,6 +95,22 @@ const invalid_number_days = "The number of days to forecast can only be between 
 
 // FUNCTIONS
 /**
+ * Function to clear any existing API data from a previous call.
+ *
+ * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
+ */
+export function clearData(all_data) {
+  section_forecast.replaceChildren();
+
+  // Check if the input fields need to be cleared
+  if (all_data) {
+    input_weather_api_key.value = "";
+    input_search_city.value = "";
+    input_forecast_days.value = "";
+  }
+}
+
+/**
  * Function to validate the input fields to make sure the user provided valid input.
  *
  * @returns Boolean value specifying whether the user input was valid or not.
@@ -176,26 +192,6 @@ function buildApiUrl() {
 }
 
 /**
- * Function to add the processed weather information for the current day to the HTML page
- */
-function addCurrentDayData() {
-  let html_content = "";
-
-  html_content += `<p>Location: ${weather_data.location_name}</p>`;
-  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`;
-  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`;
-  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`;
-  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`;
-  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`;
-  html_content += `<p>Current Feels Like (Fahrenheit): ${weather_data.current_day.temp_feels_fahrenheit}</p>`
-  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`;
-  html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`;
-  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`;
-
-  section_forecast.innerHTML = html_content;
-}
-
-/**
  * Function to add the processed weather information for a future day to the HTML page
  * 
  * @param {object} day : A single forecast day taken from the weather_data object.
@@ -227,58 +223,31 @@ function addForecastData() {
 }
 
 /**
+ * Function to add the processed weather information for the current day to the HTML page
+ */
+function addCurrentDayData() {
+  let html_content = "";
+
+  html_content += `<p>Location: ${weather_data.location_name}</p>`;
+  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`;
+  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`;
+  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`;
+  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`;
+  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`;
+  html_content += `<p>Current Feels Like (Fahrenheit): ${weather_data.current_day.temp_feels_fahrenheit}</p>`
+  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`;
+  html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`;
+  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`;
+
+  section_forecast.innerHTML = html_content;
+}
+
+/**
  * Function to add the processed weather information to the HTML page.
  */
 function addWeatherToPage() {
   addCurrentDayData();
   addForecastData();
-}
-
-/**
- * Fetch function to make the API call and get the returned data.
- *
- * @param {string} url: The url to use in the fetch command, passed in as a string.
- */
-async function fetchData(url) {
-  /** Local variables to help with the fetch call. */
-  let response_data;
-  let weather_results;
-
-  /** Clear existing data, but not all of it. */
-  clearData(false);
-
-  try {
-    response_data = await fetch(url);
-    weather_results = await response_data.json();
-
-    api_data_obj = weather_results;
-    processWeatherData();
-    addWeatherToPage();
-  } catch (error) {
-    alert(error);
-  }
-}
-
-/**
- * Extract the current day details from the returned API data and store it in the weather_data object.
- */
-function processCurrentDayData() {
-  /** Since the returned API data stores both the date and time as a single string with a space in between, use the split method to separate both aspects. */
-  let date_time = api_data_obj.current.last_updated.split(" ");
-  weather_data.current_day.date = date_time[0];
-  weather_data.current_day.time = date_time[1];
-
-  /** Get the actual temperatures. */
-  weather_data.current_day.temp_celsius = api_data_obj.current.temp_c;
-  weather_data.current_day.temp_fahrenheit = api_data_obj.current.temp_f;
-
-  /** Get the feels like temperatures. */
-  weather_data.current_day.temp_feels_celsius = api_data_obj.current.feelslike_c;
-  weather_data.current_day.temp_feels_fahrenheit = api_data_obj.current.feelslike_f;
-
-  /** Get the current conditions. */
-  weather_data.current_day.weather_description.condition = api_data_obj.current.condition.text;
-  weather_data.current_day.weather_description.icon_url = api_data_obj.current.condition.icon;
 }
 
 /**
@@ -325,6 +294,28 @@ function processForecastData() {
 }
 
 /**
+ * Extract the current day details from the returned API data and store it in the weather_data object.
+ */
+function processCurrentDayData() {
+  /** Since the returned API data stores both the date and time as a single string with a space in between, use the split method to separate both aspects. */
+  let date_time = api_data_obj.current.last_updated.split(" ");
+  weather_data.current_day.date = date_time[0];
+  weather_data.current_day.time = date_time[1];
+
+  /** Get the actual temperatures. */
+  weather_data.current_day.temp_celsius = api_data_obj.current.temp_c;
+  weather_data.current_day.temp_fahrenheit = api_data_obj.current.temp_f;
+
+  /** Get the feels like temperatures. */
+  weather_data.current_day.temp_feels_celsius = api_data_obj.current.feelslike_c;
+  weather_data.current_day.temp_feels_fahrenheit = api_data_obj.current.feelslike_f;
+
+  /** Get the current conditions. */
+  weather_data.current_day.weather_description.condition = api_data_obj.current.condition.text;
+  weather_data.current_day.weather_description.icon_url = api_data_obj.current.condition.icon;
+}
+
+/**
  * Function to process the weather data. This function assumes the global object api_data contains the full weather data returned from the API call.
  */
 function processWeatherData() {
@@ -336,20 +327,30 @@ function processWeatherData() {
 }
 
 /**
- * Function to clear any existing API data from a previous call.
+ * Fetch function to make the API call and get the returned data.
  *
- * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
+ * @param {string} url: The url to use in the fetch command, passed in as a string.
  */
-export function clearData(all_data) {
-  section_forecast.replaceChildren();
+async function fetchData(url) {
+  /** Local variables to help with the fetch call. */
+  let response_data;
+  let weather_results;
 
-  // Check if the input fields need to be cleared
-  if (all_data) {
-    input_weather_api_key.value = "";
-    input_search_city.value = "";
-    input_forecast_days.value = "";
+  /** Clear existing data, but not all of it. */
+  clearData(false);
+
+  try {
+    response_data = await fetch(url);
+    weather_results = await response_data.json();
+
+    api_data_obj = weather_results;
+    processWeatherData();
+    addWeatherToPage();
+  } catch (error) {
+    alert(error);
   }
 }
+
 
 // MAIN CODE
 /**
