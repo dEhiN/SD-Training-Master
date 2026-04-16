@@ -87,11 +87,13 @@ const submit_btn_weather = document.querySelector("#submit-btn-weather");
 const input_weather_api_key = document.querySelector("#weather-api-key");
 const input_search_city = document.querySelector("#search-city");
 const input_forecast_days = document.querySelector("#forecast-days");
+const header_forecast_results = document.querySelector(".forecast-results");
 const section_forecast = document.querySelector(".section-forecast");
 
-/** Global constants to store user alert messages */
+/** Global constants to store user alert messages and other static strings */
 const fill_all_fields = "Please fill in all 3 fields!";
 const invalid_number_days = "The number of days to forecast can only be between 1 and 5!";
+const results_text = "Here is the forecast for today and ";
 
 // FUNCTIONS
 /**
@@ -246,6 +248,16 @@ function addCurrentDayData() {
  * Function to add the processed weather information to the HTML page.
  */
 function addWeatherToPage() {
+  /** Create a results header. Account for the fact that the api_obj object has 1 added to the number of days to forecast. Add the header to HTML page.*/
+  let header_text = results_text;
+  if (api_obj.parameters.days.param_value > 2) {
+    header_text += `the next ${api_obj.parameters.days.param_value - 1} days:`;
+  }
+  else {
+    header_text += " tomorrow:"
+  }
+  header_forecast_results.textContent = header_text;
+
   addCurrentDayData();
   addForecastData();
 }
