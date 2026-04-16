@@ -41,10 +41,46 @@ const api_obj = {
 };
 
 /**
- * Global variables to hold the weather data returned from the API call and the processed weather data.
+ * Global constant to represent the processed weather data returned from the API call.
+ */
+const weather_data = {
+  location_name: "",
+  current_day: {
+    date: "",
+    time: "",
+    temp_celsius: "",
+    temp_fahrenheit: "",
+    temp_feels_celsius: "",
+    temp_feels_fahrenheit: "",
+    weather_description: {
+      condition: "",
+      icon_url: ""
+    }
+  },
+  forecast_data: []
+};
+
+/**
+ * Global constant to represent the processed weather data for a single forecast day.
+ */
+const forecast_day_data = {
+  day: "",
+  temp_celsius: "",
+  temp_fahrenheit: "",
+  temp_max_celsius: "",
+  temp_max_fahrenheit: "",
+  temp_min_celsius: "",
+  temp_min_fahrenheit: "",
+  weather_description: {
+    condition: "",
+    icon_url: ""
+  }
+}
+
+/**
+ * Global variable to hold the weather data returned from the API call.
  */
 let api_data_obj = {};
-let weather_data = {};
 
 /**
  * Global constants to hold HTML class and id references.
