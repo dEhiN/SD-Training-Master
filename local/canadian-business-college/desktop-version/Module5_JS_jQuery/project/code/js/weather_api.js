@@ -69,9 +69,7 @@ const weather_data = {
  * Global constant to represent the processed weather data for a single forecast day.
  */
 const forecast_day_data = {
-  day: "",
-  temp_celsius: "",
-  temp_fahrenheit: "",
+  date: "",
   temp_max_celsius: "",
   temp_max_fahrenheit: "",
   temp_min_celsius: "",
@@ -253,8 +251,12 @@ function processForecastData() {
   let forecast_days_arr = api_data_obj.forecast.forecastday;
 
   /** Loop through the array */
-  for (day of forecast_days_arr) {
-    console.log(day);
+  for (let day of forecast_days_arr) {
+    /** Only process future days. */
+    if (day.date != weather_data.current_day.date) {
+      processFutureDayData(day);
+      console.log(forecast_day_data);
+    }
   }
 }
 
