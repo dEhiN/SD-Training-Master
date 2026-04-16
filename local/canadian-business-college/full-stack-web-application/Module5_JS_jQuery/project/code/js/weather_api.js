@@ -154,11 +154,19 @@ async function fetchData(url) {
         response_data = await fetch(url);
         weather_results = await response_data.json();
 
-        console.log(weather_results);
+        weather_data = weather_results;
+        processWeatherData();
     }
     catch (error) {
         alert(error);
     }
+}
+
+/**
+ * Function to process the weather data. This function assumes the global object weather_data contains the full weather data returned from the API call.
+ */
+function processWeatherData() {
+    console.log(weather_data);
 }
 
 /**
