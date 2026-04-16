@@ -45,6 +45,14 @@ const api_obj = {
  */
 let api_data_obj = {};
 
+/** Global enum for use with determining which temperature unit to use on the page. */
+const TUnit = {
+  CELSIUS: "celsius",
+  FAHRENHEIT: "fahrenheit",
+  DEG_CELSIUS: "°C",
+  DEG_FAHRENHEIT: "°F"
+}
+
 /**
  * Global constant to represent the processed weather data returned from the API call. This includes the current day and all forecast days.
  */
@@ -62,7 +70,9 @@ const weather_data = {
       icon_url: ""
     }
   },
-  forecast_data: []
+  forecast_data: [],
+  /** This property will be to determine which temperature unit to use for display. Acceptable values are only those from the enum TUnit.  */
+  temp_unit: ""
 };
 
 /**
@@ -258,6 +268,9 @@ function addWeatherToPage() {
   }
   header_text += ` for ${weather_data.location_name}:`;
   header_forecast_results.textContent = header_text;
+
+  /** Set the default temperature unit to be Celsius */
+  weather_data.temp_unit = TUnit.CELSIUS;
 
   /** Call the helper functions to add the actual processed weather data. */
   addCurrentDayData();
