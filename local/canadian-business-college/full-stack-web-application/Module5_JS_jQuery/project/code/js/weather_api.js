@@ -294,6 +294,7 @@ function addCurrentDayData() {
 
   new_para.innerHTML = weather_content;
   new_div.appendChild(new_para);
+  new_div.className = "forecast-day-card";
 
   /** Add the new div to .section-forecast */
   section_forecast.appendChild(new_div);
