@@ -28,6 +28,30 @@ const section_university_list = document.querySelector(".section-university-list
 
 // FUNCTIONS
 /**
+ * Function to clear any existing API data from a previous call.
+ * 
+ * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
+ */
+export function clearData(all_data) {
+  /** Check to see if there's an existing university list that's displayed and if so:
+   * 
+   * - remove all the child elements
+   * - reinitialize the uni_data_arr array
+   * - set the drop-down list in the HTML back to the default, blank option (depending on the value of all_data)
+   * - set the totals amount in the HTML to blank (depending on the value of all_data)
+   */
+  if (uni_data_arr.length > 0) {
+    uni_data_arr = [];
+    section_university_list.replaceChildren();
+
+    if (all_data) {
+      select_country.value = "";
+      header_university_total.textContent = "";
+    }
+  }
+}
+
+/**
  * Function to grab the country name that the user selected from the drop-down list.
  * 
  * @returns The name of the country as a string.
@@ -53,71 +77,6 @@ function getCountryName() {
  */
 function buildApiUrl() {
   return Object.values(api_obj).join("");
-}
-
-/**
- * Function to clear any existing API data from a previous call.
- * 
- * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
- */
-export function clearData(all_data) {
-  /** Check to see if there's an existing university list that's displayed and if so:
-   * 
-   * - remove all the child elements
-   * - reinitialize the uni_data_arr array
-   * - set the drop-down list in the HTML back to the default, blank option (depending on the value of all_data)
-   * - set the totals amount in the HTML to blank (depending on the value of all_data)
-   */
-  if (uni_data_arr.length > 0) {
-    uni_data_arr = [];
-    section_university_list.replaceChildren();
-
-    if (all_data) {
-      select_country.value = "";
-      header_university_total.textContent = "";
-    }
-  }
-}
-
-/**
- * Fetch function to make the API call and get the returned data.
- * 
- * @param {string} url: The url to use in the fetch command, passed in as a string.
- */
-async function fetchData(url) {
-  /** Local variables to help with the fetch call. */
-  let response_data;
-  let university_list;
-
-  /** Clear existing data, but not all of it. */
-  clearData(false);
-
-  try {
-    response_data = await fetch(url);
-    university_list = await response_data.json();
-
-    processUniversities(university_list);
-    addUnisToPage();
-  }
-  catch (error) {
-    alert(error);
-  }
-}
-
-/**
- * Function to process the returned universities
- * 
- * @param {object} university_list : an object that represents a list of universities from the API http://universities.hipolabs.com
- */
-function processUniversities(university_list) {
-  for (let university of university_list) {
-    let university_info = {
-      name: university["name"],
-      state_province: university["state-province"],
-      domains: university["domains"],
-    };
-    uni_data_arr.push(university_info);
-  }
 }
 
 /**
@@ -155,6 +114,47 @@ function addUnisToPage() {
 
     new_div.appendChild(new_para);
     section_university_list.appendChild(new_div);
+  }
+}
+
+/**
+ * Function to process the returned universities
+ * 
+ * @param {object} university_list : an object that represents a list of universities from the API http://universities.hipolabs.com
+ */
+function processUniversities(university_list) {
+  for (let university of university_list) {
+    let university_info = {
+      name: university["name"],
+      state_province: university["state-province"],
+      domains: university["domains"],
+    };
+    uni_data_arr.push(university_info);
+  }
+}
+
+/**
+ * Fetch function to make the API call and get the returned data.
+ * 
+ * @param {string} url: The url to use in the fetch command, passed in as a string.
+ */
+async function fetchData(url) {
+  /** Local variables to help with the fetch call. */
+  let response_data;
+  let university_list;
+
+  /** Clear existing data, but not all of it. */
+  clearData(false);
+
+  try {
+    response_data = await fetch(url);
+    university_list = await response_data.json();
+
+    processUniversities(university_list);
+    addUnisToPage();
+  }
+  catch (error) {
+    alert(error);
   }
 }
 

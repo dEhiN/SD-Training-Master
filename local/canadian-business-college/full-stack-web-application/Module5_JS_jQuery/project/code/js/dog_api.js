@@ -19,6 +19,13 @@ const alt_txt_dog_img = "A random image of a dog taken from \"https://dog.ceo/ap
 
 // FUNCTIONS
 /**
+ * Function to clear any existing API data from a previous call.
+ */
+export function clearData() {
+	section_dog_image.replaceChildren();
+}
+
+/**
  * Take the full image url returned from the random dog API and extract just the dog breed data
  * 
  * @param {string} dog_img_string: A string representing the full URL given in the random dog image API
@@ -98,13 +105,6 @@ function processDogData(api_data) {
 
 	// Attach the figure element to the dog image section
 	section_dog_image.appendChild(dog_figure);
-}
-
-/**
- * Function to clear any existing API data from a previous call.
- */
-export function clearData() {
-	section_dog_image.replaceChildren();
 }
 
 /**
