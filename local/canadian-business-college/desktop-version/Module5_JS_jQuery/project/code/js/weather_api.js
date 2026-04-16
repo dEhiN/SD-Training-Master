@@ -254,32 +254,43 @@ function addCurrentDayData() {
     /** Switch statement to handle each property differently*/
     switch (i) {
       case 0:
+        /** Get the Date value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date} (Today)`;
+
         break;
       case 1:
+        /** Get the Time value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.time}`;
+
         break;
       case 2:
-        /** Determine which temperature unit to use. */
+        /** Determine which temperature unit to use. Then get the Real Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_celsius}${TUnit.DEG_CELSIUS}`;
         }
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
+
         break;
       case 3:
-        /** Determine which temperature unit to use. */
+        /** Determine which temperature unit to use. Then get the Feels Like Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_celsius}${TUnit.DEG_CELSIUS}`;
         }
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
+
         break;
-      // case 4:
-      //   weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date}`;
-      //   break;
+      case 4:
+        /** Get the Weather Condition value. */
+        weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.weather_description.condition}`;
+
+        /** Add an image of the icon provided by the weather data API. */
+        weather_content += `<br><span class="weather-description-icon><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
+
+        break;
     }
 
     /** Add a line break for all properties except the last one. */
