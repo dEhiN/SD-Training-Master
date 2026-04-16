@@ -292,11 +292,13 @@ function addFutureDayData(future_day) {
   new_img.src = future_day.weather_description.icon_url;
   new_img.alt = image_alt_text;
 
+  /** Clone the img element to show on both the top and bottom of the card. */
+  let new_img_clone = new_img.cloneNode();
+
   /** Build up the current day div. */
-  new_div.appendChild(new_img);
   new_para.innerHTML = weather_content;
-  new_div.appendChild(new_para);
   new_div.className = "forecast-card";
+  new_div.append(new_img, new_para, new_img_clone);
 
   /** Add the new div to .section-forecast */
   section_forecast.appendChild(new_div);
@@ -379,8 +381,6 @@ function addCurrentDayData() {
   new_para.innerHTML = weather_content;
   new_div.className = "forecast-card";
   new_div.append(new_img, new_para, new_img_clone);
-
-  console.log(new_div);
 
   /** Add the new div to .section-forecast */
   section_forecast.appendChild(new_div);
