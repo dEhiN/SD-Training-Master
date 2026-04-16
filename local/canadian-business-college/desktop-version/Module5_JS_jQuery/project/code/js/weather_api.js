@@ -197,10 +197,36 @@ async function fetchData(url) {
 }
 
 /**
- * Function to process the weather data. This function assumes the global object weather_data contains the full weather data returned from the API call.
+ * Extract the current day details from the returned API data and store it in the weather_data object.
+ */
+function processCurrentDayData() {
+  /** Since the returned API data stores both the date and time as a single string with a space in between, use the split method to separate both aspects. */
+  let date_time = api_data_obj.current.last_updated.split(" ");
+  weather_data.current_day.date = date_time[0];
+  weather_data.current_day.time = date_time[1];
+
+  /** Get the actual temperatures. */
+  weather_data.current_day.temp_celsius = api_data_obj.current.temp_c;
+  weather_data.current_day.temp_fahrenheit = api_data_obj.current.temp_f;
+
+  /** Get the feels like temperatures. */
+  weather_data.current_day.temp_feels_celsius = api_data_obj.current.feelslike_c;
+  weather_data.current_day.temp_feels_fahrenheit = api_data_obj.current.feelslike_f;
+
+  /** Get the current conditions. */
+  weather_data.current_day.weather_description.condition = api_data_obj.current.condition.text;
+  weather_data.current_day.weather_description.icon_url = api_data_obj.current.condition.icon;
+}
+
+/**
+ * Function to process the weather data. This function assumes the global object api_data contains the full weather data returned from the API call.
  */
 function processWeatherData() {
-  console.log(api_data_obj);
+  /** Get the location name from the returned API data. */
+  weather_data.location_name = api_data_obj.location.name;
+
+  processCurrentDayData();
+  console.log(weather_data);
 }
 
 /**
