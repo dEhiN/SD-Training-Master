@@ -107,7 +107,7 @@ function validateUserInput() {
   let days = input_forecast_days.value;
 
   // ADDING TEMPORARY VALUES FOR TESTING PURPOSES
-  city = "Toronto";
+  city = "Barrie";
   days = "1";
 
   /** Boolean to store whether the user input is fully valid or not. Assume true as default. */
@@ -134,6 +134,10 @@ function validateUserInput() {
   /** The input is valid, so build the api_obj object. */
   api_obj.parameters.key.param_value = api_key;
   api_obj.parameters.city.param_value = city;
+
+  /** Because the returned API data lists the current day as a forecast day, increase the number of days requested by the user by one. In other words, if the user wants 1 day of forecast, fetch 2 days of forecast from the API because the array that contains each forecast day will hold the current day at index 0. */
+  days_num++;
+  days = `${days_num}`;
   api_obj.parameters.days.param_value = days;
 
   return input_is_valid;
