@@ -67,16 +67,23 @@
                     <div class="section-user-input">
                         <div class="input-field-weather">
                             <label for="weather-api-key">Please enter your Weather API key:</label>
-                            <input type="password" name="weather-api-key" id="weather-api-key">
+                            <input type="password" id="weather-api-key">
                         </div>
                         <div class="input-field-weather">
                             <label for="search-city">Please enter a city to get the forecast:</label>
-                            <input type="input" name="search-city" id="search-city">
+                            <input type="input" id="search-city">
                         </div>
                         <div class="input-field-weather">
                             <label for="forecast-days">Please choose the number of days to forecast (between 1 and
                                 5):</label>
-                            <input type="number" name="forecast-days" id="forecast-days" min="1" max="5">
+                            <input type="number" id="forecast-days" min="1" max="5">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="temperature-unit">Please choose which temperature unit to use:</label>
+                            <input type="radio" name="temperature-unit" id="temperature-unit-celsius" checked>
+                            <label for="temperature-unit-celsius">Celsius</label>
+                            <input type="radio" name="temperature-unit" id="temperature-unit-fahrenheit">
+                            <label for="temperature-unit-fahrenheit">Fahrenheit</label>
                         </div>
                     </div>
                     <div class="user-button">

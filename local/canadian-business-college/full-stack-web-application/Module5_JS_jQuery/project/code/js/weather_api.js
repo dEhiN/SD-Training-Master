@@ -71,8 +71,8 @@ const weather_data = {
     }
   },
   forecast_data: [],
-  /** This property will be to determine which temperature unit to use for display. Acceptable values are only those from the enum TUnit.  */
-  temp_unit: ""
+  /** This property will be to determine which temperature unit to use for display. Acceptable values are only those from the enum TUnit. Set the default temperature unit to be Celsius */
+  temp_unit: TUnit.CELSIUS
 };
 
 /**
@@ -117,6 +117,10 @@ const future_day_labels = [
   "Minimum Temperature",
   "Weather Condition"
 ]
+const temp_radio_options = [
+  "temperature-unit-celsius",
+  "temperature-unit-fahrenheit"
+]
 
 // FUNCTIONS
 /**
@@ -146,10 +150,6 @@ function validateUserInput() {
   let api_key = input_weather_api_key.value;
   let city = input_search_city.value;
   let days = input_forecast_days.value;
-
-  // ADDING TEMPORARY VALUES FOR TESTING PURPOSES
-  // city = "Barrie";
-  // days = "3";
 
   /** Boolean to store whether the user input is fully valid or not. Assume true as default. */
   let input_is_valid = true;
@@ -182,6 +182,21 @@ function validateUserInput() {
   api_obj.parameters.days.param_value = days;
 
   return input_is_valid;
+}
+
+/** Function to set the temperature unit based on what the user selected. */
+function setTemperatureUnit() {
+  /** Get the checked radio button. */
+  let checked_button = document.querySelectorAll("input[name=temperature-unit]:checked");
+  let checked_id = checked_button[0].id;
+
+  /** Check which radio button was selected and set the temperature unit accordingly. */
+  if (checked_id == temp_radio_options[0]) {
+    weather_data.temp_unit = TUnit.CELSIUS;
+  }
+  else if (checked_id == temp_radio_options[1]) {
+    weather_data.temp_unit = TUnit.FAHRENHEIT;
+  }
 }
 
 /**
@@ -378,9 +393,6 @@ function addWeatherToPage() {
   header_text += ` for ${weather_data.location_name}:`;
   header_forecast_results.textContent = header_text;
 
-  /** Set the default temperature unit to be Celsius */
-  weather_data.temp_unit = TUnit.CELSIUS;
-
   /** Call the helper functions to add the actual processed weather data. */
   addCurrentDayData();
   addForecastData();
@@ -496,6 +508,9 @@ export function weatherButtonListener() {
   submit_btn_weather.addEventListener("click", function () {
     /** Validate the user input before proceeding. */
     let valid_user_input = validateUserInput();
+
+    /** Set the temperature unit */
+    setTemperatureUnit();
 
     /** If the user input is valid, build the API url, fetch the API data, and process it. */
     if (valid_user_input) {
