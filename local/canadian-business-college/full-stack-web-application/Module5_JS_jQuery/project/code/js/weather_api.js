@@ -223,6 +223,29 @@ function processCurrentDayData() {
 }
 
 /**
+ * Extract a future day's  details from the returned API data and store it in the forecast_day_data object.
+ * 
+ * @param {object} forecast_day : An object representing a single forecast day from the returned weather API data. This function performs no error checking while processing the data, so the parameter needs to container properly formatted content.
+ */
+function processFutureDayData(forecast_day) {
+  /** Extract the day details object for better readability. */
+  let day_details = forecast_day.day;
+
+  /** Get the date of the forecast day. */
+  forecast_day_data.date = forecast_day.date;
+
+  /** Get the max and min temperatures. */
+  forecast_day_data.temp_max_celsius = day_details.maxtemp_c;
+  forecast_day_data.temp_max_fahrenheit = day_details.maxtemp_f;
+  forecast_day_data.temp_min_celsius = day_details.mintemp_c;
+  forecast_day_data.temp_min_fahrenheit = day_details.mintemp_f;
+
+  /** Get the current conditions. */
+  forecast_day_data.weather_description.condition = day_details.condition.text;
+  forecast_day_data.weather_description.icon_url = day_details.condition.icon;
+}
+
+/**
  * Extract the forecast details from the returned API data and store it in the weather_data object.
  */
 function processForecastData() {
