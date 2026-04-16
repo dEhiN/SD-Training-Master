@@ -105,6 +105,7 @@ const fill_all_fields = "Please fill in all 3 fields!";
 const invalid_number_days = "The number of days to forecast can only be between 1 and 5!";
 const results_text = "Here is the forecast for today and ";
 const curr_day_labels = [
+  "Weather Icon",
   "Date",
   "Time",
   "Real Temperature",
@@ -112,6 +113,7 @@ const curr_day_labels = [
   "Weather Condition"
 ]
 const future_day_labels = [
+  "Weather Icon",
   "Date",
   "Maximum Temperature",
   "Minimum Temperature",
@@ -247,11 +249,16 @@ function addFutureDayData(future_day) {
     /** Switch statement to handle each property differently*/
     switch (i) {
       case 0:
+        /** Add an image of the icon provided by the weather data API. */
+        weather_content += `<span class="weather-description-icon"><img src="${future_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
+
+        break;
+      case 1:
         /** Get the Date value. */
         weather_content += `${future_day_labels[i]}: ${future_day.date}`;
 
         break;
-      case 1:
+      case 2:
         /** Determine which temperature unit to use. Then get the Maximum Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_max_celsius}${TUnit.DEG_CELSIUS}`;
@@ -261,7 +268,7 @@ function addFutureDayData(future_day) {
         }
 
         break;
-      case 2:
+      case 3:
         /** Determine which temperature unit to use. Then get the Minimum Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_min_celsius}${TUnit.DEG_CELSIUS}`;
@@ -271,12 +278,9 @@ function addFutureDayData(future_day) {
         }
 
         break;
-      case 3:
+      case 4:
         /** Get the Weather Condition value. */
         weather_content += `${future_day_labels[i]}: ${future_day.weather_description.condition}`;
-
-        /** Add an image of the icon provided by the weather data API. */
-        weather_content += `<br><span class="weather-description-icon"><img src="${future_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
 
         break;
     }
@@ -321,16 +325,21 @@ function addCurrentDayData() {
     /** Switch statement to handle each property differently*/
     switch (i) {
       case 0:
+        /** Add an image of the icon provided by the weather data API. */
+        weather_content += `<span class="weather-description-icon"><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
+
+        break;
+      case 1:
         /** Get the Date value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date} (Today)`;
 
         break;
-      case 1:
+      case 2:
         /** Get the Time value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.time}`;
 
         break;
-      case 2:
+      case 3:
         /** Determine which temperature unit to use. Then get the Real Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_celsius}${TUnit.DEG_CELSIUS}`;
@@ -340,7 +349,7 @@ function addCurrentDayData() {
         }
 
         break;
-      case 3:
+      case 4:
         /** Determine which temperature unit to use. Then get the Feels Like Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_celsius}${TUnit.DEG_CELSIUS}`;
@@ -350,12 +359,9 @@ function addCurrentDayData() {
         }
 
         break;
-      case 4:
+      case 5:
         /** Get the Weather Condition value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.weather_description.condition}`;
-
-        /** Add an image of the icon provided by the weather data API. */
-        weather_content += `<br><span class="weather-description-icon"><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
 
         break;
     }
