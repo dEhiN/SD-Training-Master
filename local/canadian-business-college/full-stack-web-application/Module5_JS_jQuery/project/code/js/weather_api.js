@@ -126,6 +126,7 @@ const future_day_labels = [
  */
 export function clearData(all_data) {
   section_forecast.replaceChildren();
+  weather_data.forecast_data = [];
 
   // Check if the input fields need to be cleared
   if (all_data) {
@@ -222,8 +223,6 @@ function buildApiUrl() {
  * @param {object} day : A single forecast day taken from the weather_data object.
  */
 function addFutureDayData(future_day) {
-  console.log(future_day);
-
   let new_div;
   let new_para;
   let weather_content = "";
@@ -273,7 +272,6 @@ function addFutureDayData(future_day) {
     }
   }
 
-  console.log(weather_content);
   /** Build up the current day div. */
   new_para = document.createElement("p");
   new_div = document.createElement("div");
