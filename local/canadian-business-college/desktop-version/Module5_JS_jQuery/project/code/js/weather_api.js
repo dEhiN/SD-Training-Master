@@ -111,6 +111,12 @@ const curr_day_labels = [
   "Feels Like Temperature",
   "Weather Condition"
 ]
+const future_day_labels = [
+  "Date",
+  "Maximum Temperature",
+  "Minimum Temperature",
+  "Weather Condition"
+]
 
 // FUNCTIONS
 /**
@@ -215,21 +221,69 @@ function buildApiUrl() {
  * 
  * @param {object} day : A single forecast day taken from the weather_data object.
  */
-function addFutureDayData(day) {
-  let html_content = "";
+function addFutureDayData(future_day) {
+  console.log(future_day);
 
-  html_content += "<br>"
-  html_content += `<p>Forecast Date: ${day.date}</p>`;
-  html_content += `<p>Maximum Temperature (Celsius): ${day.temp_max_celsius}</p>`;
-  html_content += `<p>Maximum Temperature (Fahrenheit): ${day.temp_max_fahrenheit}</p>`;
-  html_content += `<p>Minimum Temperature (Celsius): ${day.temp_min_celsius}</p>`;
-  html_content += `<p>Minimum Temperature (Fahrenheit): ${day.temp_min__fahrenheit}</p>`;
-  html_content += `<p>Current Conditions: ${day.weather_description.condition}</p>`;
-  html_content += `<p>Current Conditions Picture: ${day.weather_description.icon_url}</p>`;
-  html_content += `<p>Current Conditions Picture: <img src="${day.weather_description.icon_url}"></p>`;
+  let new_div;
+  let new_para;
+  let weather_content = "";
 
-  /** Need to append the data so it doesn't overwrite what's there. */
-  section_forecast.innerHTML += html_content;
+  /** Loop through the future day details. */
+  for (let i = 0; i < future_day_labels.length; i++) {
+    /** Switch statement to handle each property differently*/
+    switch (i) {
+      case 0:
+        /** Get the Date value. */
+        weather_content += `${future_day_labels[i]}: ${future_day.date}`;
+
+        break;
+      case 1:
+        /** Determine which temperature unit to use. Then get the Maximum Temperature value. */
+        if (weather_data.temp_unit == TUnit.CELSIUS) {
+          weather_content += `${future_day_labels[i]}: ${future_day.temp_max_celsius}${TUnit.DEG_CELSIUS}`;
+        }
+        else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
+          weather_content += `${future_day_labels[i]}: ${future_day.temp_max_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
+        }
+
+        break;
+      case 2:
+        /** Determine which temperature unit to use. Then get the Minimum Temperature value. */
+        if (weather_data.temp_unit == TUnit.CELSIUS) {
+          weather_content += `${future_day_labels[i]}: ${future_day.temp_min_celsius}${TUnit.DEG_CELSIUS}`;
+        }
+        else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
+          weather_content += `${future_day_labels[i]}: ${future_day.temp_min_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
+        }
+
+        break;
+      case 3:
+        /** Get the Weather Condition value. */
+        weather_content += `${future_day_labels[i]}: ${future_day.weather_description.condition}`;
+
+        /** Add an image of the icon provided by the weather data API. */
+        weather_content += `<br><span class="weather-description-icon"><img src="${future_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
+
+        break;
+    }
+
+    /** Add a line break for all properties except the last one. */
+    if (i < future_day_labels.length - 1) {
+      weather_content += "<br>";
+    }
+  }
+
+  console.log(weather_content);
+  /** Build up the current day div. */
+  new_para = document.createElement("p");
+  new_div = document.createElement("div");
+
+  new_para.innerHTML = weather_content;
+  new_div.appendChild(new_para);
+  new_div.className = "forecast-day-card";
+
+  /** Add the new div to .section-forecast */
+  section_forecast.appendChild(new_div);
 }
 
 /**
@@ -331,7 +385,7 @@ function addWeatherToPage() {
 
   /** Call the helper functions to add the actual processed weather data. */
   addCurrentDayData();
-  // addForecastData();
+  addForecastData();
 }
 
 /**
