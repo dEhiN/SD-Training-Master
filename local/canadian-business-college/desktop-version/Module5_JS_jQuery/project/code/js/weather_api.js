@@ -302,6 +302,8 @@ function processWeatherData() {
  * @param { boolean } all_data: A boolean to specify if all the existing data should be cleared or only some of it.
  */
 export function clearData(all_data) {
+  section_forecast.replaceChildren();
+
   // Check if the input fields need to be cleared
   if (all_data) {
     input_weather_api_key.value = "";
