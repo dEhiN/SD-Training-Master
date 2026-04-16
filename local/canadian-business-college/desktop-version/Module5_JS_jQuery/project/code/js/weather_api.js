@@ -104,6 +104,13 @@ const section_forecast = document.querySelector(".section-forecast");
 const fill_all_fields = "Please fill in all 3 fields!";
 const invalid_number_days = "The number of days to forecast can only be between 1 and 5!";
 const results_text = "Here is the forecast for today and ";
+const curr_day_labels = [
+  "Date",
+  "Time",
+  "Real Temperature",
+  "Feels Like Temperature",
+  "Weather Condition"
+]
 
 // FUNCTIONS
 /**
@@ -238,20 +245,58 @@ function addForecastData() {
  * Function to add the processed weather information for the current day to the HTML page
  */
 function addCurrentDayData() {
-  let html_content = "";
+  let new_div;
+  let new_para;
+  let weather_content = "";
 
-  html_content += `<p>Location: ${weather_data.location_name}</p>`;
-  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`;
-  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`;
-  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`;
-  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`;
-  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`;
-  html_content += `<p>Current Feels Like (Fahrenheit): ${weather_data.current_day.temp_feels_fahrenheit}</p>`
-  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`;
-  html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`;
-  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`;
+  /** Loop through the current day details. */
+  for (let i = 0; i < curr_day_labels.length; i++) {
+    /** Switch statement to handle each property differently*/
+    switch (i) {
+      case 0:
+        weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date} (Today)`;
+        break;
+      case 1:
+        weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.time}`;
+        break;
+      case 2:
+        /** Determine which temperature unit to use. */
+        if (weather_data.temp_unit == TUnit.CELSIUS) {
+          weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_celsius}${TUnit.DEG_CELSIUS}`;
+        }
+        else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
+          weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
+        }
+        break;
+      case 3:
+        /** Determine which temperature unit to use. */
+        if (weather_data.temp_unit == TUnit.CELSIUS) {
+          weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_celsius}${TUnit.DEG_CELSIUS}`;
+        }
+        else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
+          weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
+        }
+        break;
+      // case 4:
+      //   weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date}`;
+      //   break;
+    }
 
-  section_forecast.innerHTML = html_content;
+    /** Add a line break for all properties except the last one. */
+    if (i < curr_day_labels.length - 1) {
+      weather_content += "<br>";
+    }
+  }
+
+  /** Build up the current day div. */
+  new_para = document.createElement("p");
+  new_div = document.createElement("div");
+
+  new_para.innerHTML = weather_content;
+  new_div.appendChild(new_para);
+
+  /** Add the new div to .section-forecast */
+  section_forecast.appendChild(new_div);
 }
 
 /**
@@ -274,7 +319,7 @@ function addWeatherToPage() {
 
   /** Call the helper functions to add the actual processed weather data. */
   addCurrentDayData();
-  addForecastData();
+  // addForecastData();
 }
 
 /**
