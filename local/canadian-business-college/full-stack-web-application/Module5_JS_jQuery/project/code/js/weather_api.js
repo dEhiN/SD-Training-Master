@@ -176,23 +176,54 @@ function buildApiUrl() {
 }
 
 /**
- * Function to add the current day's processed weather information to the HTML page
+ * Function to add the processed weather information for the current day to the HTML page
  */
 function addCurrentDayData() {
   let html_content = "";
 
-  html_content += `<p>Location: ${weather_data.location_name}</p>`
-  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`
-  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`
-  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`
-  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`
-  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`
+  html_content += `<p>Location: ${weather_data.location_name}</p>`;
+  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`;
+  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`;
+  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`;
+  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`;
+  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`;
   html_content += `<p>Current Feels Like (Fahrenheit): ${weather_data.current_day.temp_feels_fahrenheit}</p>`
-  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`
-  // html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`
-  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`
+  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`;
+  html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`;
+  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`;
 
   section_forecast.innerHTML = html_content;
+}
+
+/**
+ * Function to add the processed weather information for a future day to the HTML page
+ * 
+ * @param {object} day : A single forecast day taken from the weather_data object.
+ */
+function addFutureDayData(day) {
+  let html_content = "";
+
+  html_content += "<br>"
+  html_content += `<p>Forecast Date: ${day.date}</p>`;
+  html_content += `<p>Maximum Temperature (Celsius): ${day.temp_max_celsius}</p>`;
+  html_content += `<p>Maximum Temperature (Fahrenheit): ${day.temp_max_fahrenheit}</p>`;
+  html_content += `<p>Minimum Temperature (Celsius): ${day.temp_min_celsius}</p>`;
+  html_content += `<p>Minimum Temperature (Fahrenheit): ${day.temp_min__fahrenheit}</p>`;
+  html_content += `<p>Current Conditions: ${day.weather_description.condition}</p>`;
+  html_content += `<p>Current Conditions Picture: ${day.weather_description.icon_url}</p>`;
+  html_content += `<p>Current Conditions Picture: <img src="${day.weather_description.icon_url}"></p>`;
+
+  /** Need to append the data so it doesn't overwrite what's there. */
+  section_forecast.innerHTML += html_content;
+}
+
+/**
+ * Function to go through the processed forecast data to add it to the HTML page.
+ */
+function addForecastData() {
+  for (let day of weather_data.forecast_data) {
+    addFutureDayData(day);
+  }
 }
 
 /**
@@ -200,6 +231,7 @@ function addCurrentDayData() {
  */
 function addWeatherToPage() {
   addCurrentDayData();
+  addForecastData();
 }
 
 /**
@@ -250,7 +282,7 @@ function processCurrentDayData() {
 }
 
 /**
- * Extract a future day's  details from the returned API data and store it in the forecast_day_data object.
+ * Extract the details for a single future day from the returned API data and store it in the forecast_day_data object.
  * 
  * @param {object} forecast_day : An object representing a single forecast day from the returned weather API data. This function performs no error checking while processing the data, so the parameter needs to container properly formatted content.
  */
