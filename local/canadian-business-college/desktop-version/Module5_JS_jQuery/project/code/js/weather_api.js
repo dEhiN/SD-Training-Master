@@ -87,6 +87,7 @@ const submit_btn_weather = document.querySelector("#submit-btn-weather");
 const input_weather_api_key = document.querySelector("#weather-api-key");
 const input_search_city = document.querySelector("#search-city");
 const input_forecast_days = document.querySelector("#forecast-days");
+const section_forecast = document.querySelector(".section-forecast");
 
 /** Global constants to store user alert messages */
 const fill_all_fields = "Please fill in all 3 fields!";
@@ -175,6 +176,26 @@ function buildApiUrl() {
 }
 
 /**
+ * Function to add the processed weather information to the HTML page.
+ */
+function addWeatherToPage() {
+  let html_content = "";
+
+  html_content += `<p>Location: ${weather_data.location_name}</p>`
+  html_content += `<p>Current Date: ${weather_data.current_day.date}</p>`
+  html_content += `<p>Current Time: ${weather_data.current_day.time}</p>`
+  html_content += `<p>Current Temperature (Celsius): ${weather_data.current_day.temp_celsius}</p>`
+  html_content += `<p>Current Temperature (Fahrenheit): ${weather_data.current_day.temp_fahrenheit}</p>`
+  html_content += `<p>Current Feels Like (Celsius): ${weather_data.current_day.temp_feels_celsius}</p>`
+  html_content += `<p>Current Feels Like (Fahrenheit): ${weather_data.current_day.temp_feels_fahrenheit}</p>`
+  html_content += `<p>Current Conditions: ${weather_data.current_day.weather_description.condition}</p>`
+  // html_content += `<p>Current Conditions Picture: ${weather_data.current_day.weather_description.icon_url}</p>`
+  html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`
+
+  section_forecast.innerHTML = html_content;
+}
+
+/**
  * Fetch function to make the API call and get the returned data.
  *
  * @param {string} url: The url to use in the fetch command, passed in as a string.
@@ -193,6 +214,7 @@ async function fetchData(url) {
 
     api_data_obj = weather_results;
     processWeatherData();
+    addWeatherToPage();
   } catch (error) {
     alert(error);
   }
