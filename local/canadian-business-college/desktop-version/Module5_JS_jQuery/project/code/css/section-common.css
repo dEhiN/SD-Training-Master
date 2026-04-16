@@ -1,4 +1,4 @@
-/* The following rules are for div assignment-section which represents a section of the assignment or project. Therefore, these rules create common styling to all the assignment sections. */
+/* The following rules are for the divs assignment-section which represent a section of the assignment or project. Therefore, these rules create common styling to all the assignment sections. */
 /** List of relevant classes:
 - assignment-section
 - section-heading
@@ -6,6 +6,7 @@
 - user-button
 - button
 */
+
 
 /** Set a column-based flex for each assignment section. */
 .assignment-section {

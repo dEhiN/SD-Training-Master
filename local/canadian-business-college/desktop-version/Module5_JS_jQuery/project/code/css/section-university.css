@@ -6,6 +6,7 @@
 - university-total
 */
 
+
 /** Set a row-based flex for the drop-down list section.
     Ensure the child items are spaced evenly.
 */
@@ -39,6 +40,7 @@
 }
 
 
+
 /* The following rules are for the div section-university-2. */
 /** List of relevant classes:
 - section-university-list
@@ -46,6 +48,7 @@
 - green-card
 - blue-card
 */
+
 
 /** Set a grid display with a gap between the rows and columns for the div container holding the university info. The default number of columns is set to 5 with media queries below for responsiveness. */
 .section-university-list {
