@@ -255,7 +255,10 @@ function processForecastData() {
     /** Only process future days. */
     if (day.date != weather_data.current_day.date) {
       processFutureDayData(day);
-      console.log(forecast_day_data);
+
+      /** Create a new local object copy of the forecast_day_data object using JSON.parse and JSON.stringify. This ensures the same global constant can be used over and over but the actual stored data will be different. */
+      let temp_day_data = JSON.parse(JSON.stringify(forecast_day_data));
+      weather_data.forecast_data.push(temp_day_data);
     }
   }
 }
