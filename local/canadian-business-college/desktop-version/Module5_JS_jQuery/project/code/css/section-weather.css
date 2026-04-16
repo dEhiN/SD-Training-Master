@@ -1,4 +1,16 @@
-/* The following rules are for the div section-weather. */
+/* The following rules are for the div section-weather-1. */
 /** List of relevant classes:
-- section-weather
 */
+
+
+
+/* The following rules are for the div section-weather-2. */
+/** List of relevant classes:
+- forecast-results
+- section-forecast
+*/
+
+.forecast-results {
+    font-size: 1.3rem;
+    color: #567293;
+}
