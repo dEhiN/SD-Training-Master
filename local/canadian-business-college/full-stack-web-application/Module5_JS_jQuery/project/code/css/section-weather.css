@@ -8,11 +8,27 @@
 /** List of relevant classes:
 - forecast-results
 - section-forecast
-- forecast-day-card
+- forecast-card
 - weather-description-icon
 */
 
 .forecast-results {
     font-size: 1.3rem;
     color: #567293;
+}
+
+/** Create a grid of rows for the forecast cards. */
+.section-forecast {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(1%, 1fr));
+    padding: 2%;
+    gap: 3rem;
+}
+
+/** Style each forecast card. */
+.forecast-card {
+    background-color: #DECCB2;
+    padding: 5%;
+    border-radius: 10%;
+    corner-shape: superellipse(0.5);
 }
