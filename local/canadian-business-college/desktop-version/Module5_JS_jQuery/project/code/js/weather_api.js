@@ -41,9 +41,9 @@ const api_obj = {
 };
 
 /**
- * Global constant to hold the weather data returned from the API call.
+ * Global variable to hold the weather data returned from the API call.
  */
-const api_data_obj = {};
+let api_data_obj = {};
 
 /**
  * Global constant to represent the processed weather data returned from the API call. This includes the current day and all forecast days.
@@ -223,6 +223,19 @@ function processCurrentDayData() {
 }
 
 /**
+ * Extract the forecast details from the returned API data and store it in the weather_data object.
+ */
+function processForecastData() {
+  /** Grab the actual array holding each forecast day. */
+  let forecast_days_arr = api_data_obj.forecast.forecastday;
+
+  /** Loop through the array */
+  for (day of forecast_days_arr) {
+    console.log(day);
+  }
+}
+
+/**
  * Function to process the weather data. This function assumes the global object api_data contains the full weather data returned from the API call.
  */
 function processWeatherData() {
@@ -230,6 +243,7 @@ function processWeatherData() {
   weather_data.location_name = api_data_obj.location.name;
 
   processCurrentDayData();
+  processForecastData();
   console.log(weather_data);
 }
 
@@ -259,6 +273,7 @@ export function weatherButtonListener() {
     /** If the user input is valid, build the API url, fetch the API data, and process it. */
     if (valid_user_input) {
       const full_url = buildApiUrl();
+      console.log(full_url);
       fetchData(full_url);
     }
   });
