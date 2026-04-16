@@ -251,13 +251,15 @@ function addWeatherToPage() {
   /** Create a results header. Account for the fact that the api_obj object has 1 added to the number of days to forecast. Add the header to HTML page.*/
   let header_text = results_text;
   if (api_obj.parameters.days.param_value > 2) {
-    header_text += `the next ${api_obj.parameters.days.param_value - 1} days:`;
+    header_text += `the next ${api_obj.parameters.days.param_value - 1} days`;
   }
   else {
-    header_text += " tomorrow:"
+    header_text += " tomorrow"
   }
+  header_text += ` for ${weather_data.location_name}:`;
   header_forecast_results.textContent = header_text;
 
+  /** Call the helper functions to add the actual processed weather data. */
   addCurrentDayData();
   addForecastData();
 }
