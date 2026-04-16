@@ -176,9 +176,9 @@ function buildApiUrl() {
 }
 
 /**
- * Function to add the processed weather information to the HTML page.
+ * Function to add the current day's processed weather information to the HTML page
  */
-function addWeatherToPage() {
+function addCurrentDayData() {
   let html_content = "";
 
   html_content += `<p>Location: ${weather_data.location_name}</p>`
@@ -193,6 +193,13 @@ function addWeatherToPage() {
   html_content += `<p>Current Conditions Picture: <img src="${weather_data.current_day.weather_description.icon_url}"></p>`
 
   section_forecast.innerHTML = html_content;
+}
+
+/**
+ * Function to add the processed weather information to the HTML page.
+ */
+function addWeatherToPage() {
+  addCurrentDayData();
 }
 
 /**
