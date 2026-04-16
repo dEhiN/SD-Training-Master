@@ -106,7 +106,7 @@ function validateUserInput() {
 
   // ADDING TEMPORARY VALUES FOR TESTING PURPOSES
   city = "Barrie";
-  days = "1";
+  days = "3";
 
   /** Boolean to store whether the user input is fully valid or not. Assume true as default. */
   let input_is_valid = true;
@@ -269,7 +269,6 @@ function processWeatherData() {
 
   processCurrentDayData();
   processForecastData();
-  console.log(weather_data);
 }
 
 /**
@@ -298,7 +297,6 @@ export function weatherButtonListener() {
     /** If the user input is valid, build the API url, fetch the API data, and process it. */
     if (valid_user_input) {
       const full_url = buildApiUrl();
-      console.log(full_url);
       fetchData(full_url);
     }
   });
