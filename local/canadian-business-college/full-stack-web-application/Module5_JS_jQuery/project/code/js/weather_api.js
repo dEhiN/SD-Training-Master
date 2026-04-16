@@ -2,7 +2,7 @@
 
 // GLOBAL VARIABLES AND CONSTANTS
 /**
- * Global object to represent the API call.
+ * Global constant to represent the API call. From all of its properties, the full API URL can be created.
  */
 const api_obj = {
   // Base URL for the Weather API
@@ -41,7 +41,12 @@ const api_obj = {
 };
 
 /**
- * Global constant to represent the processed weather data returned from the API call.
+ * Global constant to hold the weather data returned from the API call.
+ */
+const api_data_obj = {};
+
+/**
+ * Global constant to represent the processed weather data returned from the API call. This includes the current day and all forecast days.
  */
 const weather_data = {
   location_name: "",
@@ -76,11 +81,6 @@ const forecast_day_data = {
     icon_url: ""
   }
 }
-
-/**
- * Global variable to hold the weather data returned from the API call.
- */
-let api_data_obj = {};
 
 /**
  * Global constants to hold HTML class and id references.
