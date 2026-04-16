@@ -32,4 +32,10 @@
     padding: 1rem;
     border-radius: 1.5rem;
     corner-shape: superellipse(0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-description-icon {
+    align-self: center;
 }

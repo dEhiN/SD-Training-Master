@@ -104,8 +104,8 @@ const section_forecast = document.querySelector(".section-forecast");
 const fill_all_fields = "Please fill in all 3 fields!";
 const invalid_number_days = "The number of days to forecast can only be between 1 and 5!";
 const results_text = "Here is the forecast for today and ";
+const image_alt_text = "Small icon picture of the current weather condition";
 const curr_day_labels = [
-  "Weather Icon",
   "Date",
   "Time",
   "Real Temperature",
@@ -113,7 +113,6 @@ const curr_day_labels = [
   "Weather Condition"
 ]
 const future_day_labels = [
-  "Weather Icon",
   "Date",
   "Maximum Temperature",
   "Minimum Temperature",
@@ -242,6 +241,7 @@ function buildApiUrl() {
 function addFutureDayData(future_day) {
   let new_div;
   let new_para;
+  let new_img;
   let weather_content = "";
 
   /** Loop through the future day details. */
@@ -249,16 +249,10 @@ function addFutureDayData(future_day) {
     /** Switch statement to handle each property differently*/
     switch (i) {
       case 0:
-        /** Add an image of the icon provided by the weather data API. */
-        weather_content += `<span class="weather-description-icon"><img src="${future_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
-
-        break;
-      case 1:
         /** Get the Date value. */
         weather_content += `${future_day_labels[i]}: ${future_day.date}`;
-
         break;
-      case 2:
+      case 1:
         /** Determine which temperature unit to use. Then get the Maximum Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_max_celsius}${TUnit.DEG_CELSIUS}`;
@@ -266,9 +260,8 @@ function addFutureDayData(future_day) {
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_max_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
-
         break;
-      case 3:
+      case 2:
         /** Determine which temperature unit to use. Then get the Minimum Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_min_celsius}${TUnit.DEG_CELSIUS}`;
@@ -276,12 +269,10 @@ function addFutureDayData(future_day) {
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${future_day_labels[i]}: ${future_day.temp_min_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
-
         break;
-      case 4:
+      case 3:
         /** Get the Weather Condition value. */
         weather_content += `${future_day_labels[i]}: ${future_day.weather_description.condition}`;
-
         break;
     }
 
@@ -291,10 +282,18 @@ function addFutureDayData(future_day) {
     }
   }
 
-  /** Build up the current day div. */
+  /** Created the elements needed. */
+  new_img = document.createElement("img");
   new_para = document.createElement("p");
   new_div = document.createElement("div");
 
+  /** Add an image of the icon provided by the weather data API to the top of the card div. */
+  new_img.className = "weather-description-icon";
+  new_img.src = future_day.weather_description.icon_url;
+  new_img.alt = image_alt_text;
+
+  /** Build up the current day div. */
+  new_div.appendChild(new_img);
   new_para.innerHTML = weather_content;
   new_div.appendChild(new_para);
   new_div.className = "forecast-card";
@@ -318,6 +317,7 @@ function addForecastData() {
 function addCurrentDayData() {
   let new_div;
   let new_para;
+  let new_img;
   let weather_content = "";
 
   /** Loop through the current day details. */
@@ -325,21 +325,14 @@ function addCurrentDayData() {
     /** Switch statement to handle each property differently*/
     switch (i) {
       case 0:
-        /** Add an image of the icon provided by the weather data API. */
-        weather_content += `<span class="weather-description-icon"><img src="${weather_data.current_day.weather_description.icon_url}" alt="Small icon picture of the current weather condition"></span>`;
-
-        break;
-      case 1:
         /** Get the Date value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.date} (Today)`;
-
         break;
-      case 2:
+      case 1:
         /** Get the Time value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.time}`;
-
         break;
-      case 3:
+      case 2:
         /** Determine which temperature unit to use. Then get the Real Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_celsius}${TUnit.DEG_CELSIUS}`;
@@ -347,9 +340,8 @@ function addCurrentDayData() {
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
-
         break;
-      case 4:
+      case 3:
         /** Determine which temperature unit to use. Then get the Feels Like Temperature value. */
         if (weather_data.temp_unit == TUnit.CELSIUS) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_celsius}${TUnit.DEG_CELSIUS}`;
@@ -357,12 +349,10 @@ function addCurrentDayData() {
         else if (weather_data.temp_unit == TUnit.FAHRENHEIT) {
           weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.temp_feels_fahrenheit}${TUnit.DEG_FAHRENHEIT}`;
         }
-
         break;
-      case 5:
+      case 4:
         /** Get the Weather Condition value. */
         weather_content += `${curr_day_labels[i]}: ${weather_data.current_day.weather_description.condition}`;
-
         break;
     }
 
@@ -372,13 +362,25 @@ function addCurrentDayData() {
     }
   }
 
-  /** Build up the current day div. */
+  /** Created the elements needed. */
+  new_img = document.createElement("img");
   new_para = document.createElement("p");
   new_div = document.createElement("div");
 
+  /** Add an image of the icon provided by the weather data API to the top of the card div. */
+  new_img.className = "weather-description-icon";
+  new_img.src = weather_data.current_day.weather_description.icon_url;
+  new_img.alt = image_alt_text;
+
+  /** Clone the img element to show on both the top and bottom of the card. */
+  let new_img_clone = new_img.cloneNode();
+
+  /** Build up the current day div. */
   new_para.innerHTML = weather_content;
-  new_div.appendChild(new_para);
   new_div.className = "forecast-card";
+  new_div.append(new_img, new_para, new_img_clone);
+
+  console.log(new_div);
 
   /** Add the new div to .section-forecast */
   section_forecast.appendChild(new_div);
