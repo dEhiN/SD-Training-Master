@@ -1,5 +1,8 @@
-// Directories
+# Directories
 .github
 
-// Files
+# Files
 .env
+
+# Node.js specific
+node_modules/
