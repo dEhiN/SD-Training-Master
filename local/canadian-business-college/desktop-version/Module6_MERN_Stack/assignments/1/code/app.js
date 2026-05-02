@@ -38,6 +38,10 @@ app.get("/contact", (req, res) => {
     res.sendFile(returnFile);
 })
 
+app.post("/form", (req, res) => {
+    res.send("This hasn't been implemented yet!");
+})
+
 /** Server entry point */
 app.listen(PORT, () => {
     console.log(`The server has started. It is running on http://localhost:${PORT}`);
