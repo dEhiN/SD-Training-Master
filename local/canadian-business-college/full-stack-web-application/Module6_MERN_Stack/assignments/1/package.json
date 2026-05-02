@@ -1,0 +1,13 @@
+{
+  "name": "module6-assignment-1",
+  "version": "1.0.0",
+  "description": "A repository for Module 6, Assignment 1 from the Canadian Business College diploma program, Full Stack Web Application Developer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "node --watch app.js"
+  },
+  "author": "David H. Watson",
+  "license": "ISC",
+  "type": "commonjs"
+}
