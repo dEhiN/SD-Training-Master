@@ -1,7 +1,8 @@
 {
-  "name": "CBCDiploma--FSWAD",
+  "name": "cbc-diploma-fswad",
   "version": "1.0.0",
   "description": "A repository storing all assignment and project work from the Canadian Business College diploma program, Full Stack Web Application Developer",
+  "private": "true",
   "workspaces": [
     "Module6_MERN_Stack/assignments/*"
   ],
