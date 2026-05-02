@@ -8,6 +8,11 @@ const path = require("path");
 const app = express();
 const templateDir = path.join(__dirname, "public", "templates");
 const staticDir = path.join(__dirname, "public", "static");
+const htmlFiles = {
+    "index": "index.html",
+    "form": "form.html",
+    "contact": "contact.html"
+}
 
 /** Middleware Setup */
 app.use(cors());
