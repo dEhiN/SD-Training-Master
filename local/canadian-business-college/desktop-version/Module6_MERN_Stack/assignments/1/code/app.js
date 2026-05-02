@@ -13,9 +13,22 @@ const htmlFiles = {
     "form": "form.html",
     "contact": "contact.html"
 }
+let returnFile = ""
+const PORT = 8000;
 
-/** Middleware Setup */
+/** Middleware setup */
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
+
+/** Route logic */
+app.get("/", (req, res) => {
+    returnFile = path.join(templateDir, htmlFiles.index);
+    res.sendFile(returnFile);
+})
+
+/** Server entry point */
+app.listen(PORT, () => {
+    console.log(`The server has started. It is running on http://localhost:${PORT}`);
+});
