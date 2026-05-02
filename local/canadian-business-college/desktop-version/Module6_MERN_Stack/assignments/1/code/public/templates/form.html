@@ -8,6 +8,7 @@
             content="Assignment 1 for Module 6 of the Canadian Business College program Full Stack Web Application Development. The assignment focuses on building a full-stack Node.js web server.">
         <meta name="keywords" content="Canadian Business College, CBC, full stack, web server, node.js">
         <title>Module 6 - Assignment 1 - Form</title>
+        <script src=""></script>
     </head>
 
     <body>
@@ -15,14 +16,14 @@
         <header class="section-header">
             <nav>
                 <!-- Hamburger menu
-                    NOTE: I used GitHub Copilot to generate this code!!
+                        NOTE: I used GitHub Copilot to generate this code!!
                 -->
                 <!-- <input type="checkbox" id="nav-toggle" class="nav-toggle">
-                <label for="nav-toggle" class="nav-toggle-label">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label> -->
+                            <label for="nav-toggle" class="nav-toggle-label">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label> -->
                 <ul class="nav-list">
                     <li>
                         <a href="/" class="nav-link">Home</a>
@@ -39,13 +40,54 @@
         <!-- Main part of the body -->
         <main>
             <!-- Title section -->
-            <section class="section-title">
+            <section class="section doc-title">
                 <h1>
                     Module 6 - Assignment 1: Form
                 </h1>
                 <h3>
                     Building a Full-Stack Node.js Web Server
                 </h3>
+            </section>
+            <!-- Explanation and instructions for the form -->
+            <section class="section form-instructions">
+                <h4 class="section-title">
+                    Instructions:
+                </h4>
+                <p>
+                    Please fill out this form and click submit when you are finished. You will need to upload a photo as
+                    part of the form. All fields are required.
+                </p>
+            </section>
+            <!-- The form itself -->
+            <section class="section form-form">
+                <h4 class="section-title">
+                    Details about you:
+                </h4>
+                <form class="form-form-details" action="/form" method="post">
+                    <div class="form-form-element">
+                        <label for="u_name">What is your name?</label>
+                        <input type="text" id="u_name" name="u_name" required>
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_age">What is your age?</label>
+                        <input type="text" id="u_age" name="u_age" required>
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_car">What car do you drive?</label>
+                        <input type="text" id="u_car" name="u_car" required>
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_job">What is your occupation?</label>
+                        <input type="text" id="u_job" name="u_job" required>
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_image">Please upload a photo of your choosing:</label>
+                        <input type="file" id="u_image" name="u_image" required>
+                    </div>
+                    <div class="form-form-element">
+                        <button type="submit" class="form-submit-btn">Send my information</button>
+                    </div>
+                </form>
             </section>
         </main>
     </body>
