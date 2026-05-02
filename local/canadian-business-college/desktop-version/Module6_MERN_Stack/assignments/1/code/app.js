@@ -28,6 +28,16 @@ app.get("/", (req, res) => {
     res.sendFile(returnFile);
 })
 
+app.get("/form", (req, res) => {
+    returnFile = path.join(templateDir, htmlFiles.form);
+    res.sendFile(returnFile);
+})
+
+app.get("/contact", (req, res) => {
+    returnFile = path.join(templateDir, htmlFiles.contact);
+    res.sendFile(returnFile);
+})
+
 /** Server entry point */
 app.listen(PORT, () => {
     console.log(`The server has started. It is running on http://localhost:${PORT}`);
