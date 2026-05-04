@@ -14,7 +14,7 @@ const htmlFiles = {
     "contact": "contact.html"
 }
 let returnFile = ""
-const PORT = 8000;
+const PORT = 4006;
 
 /** Middleware setup */
 app.use(cors());
