@@ -23,23 +23,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
 
 /** Route logic */
+/** Home page */
 app.get("/", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.index);
     res.sendFile(returnFile);
 })
 
-app.get("/form", (req, res) => {
+/** Assignment form page */
+app.get("/assignment-form", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.form);
     res.sendFile(returnFile);
 })
-
-app.get("/contact", (req, res) => {
-    returnFile = path.join(templateDir, htmlFiles.contact);
-    res.sendFile(returnFile);
+app.post("/assignment-form", (req, res) => {
+    res.send("This hasn't been implemented yet!");
 })
 
-app.post("/form", (req, res) => {
-    res.send("This hasn't been implemented yet!");
+/** Contact page */
+app.get("/contact-page", (req, res) => {
+    returnFile = path.join(templateDir, htmlFiles.contact);
+    res.sendFile(returnFile);
 })
 
 /** Server entry point */
