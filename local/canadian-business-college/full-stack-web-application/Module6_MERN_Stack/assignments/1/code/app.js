@@ -43,6 +43,9 @@ app.get("/contact-page", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.contact);
     res.sendFile(returnFile);
 })
+app.post("/contact-page", (req, res) => {
+    res.send("This hasn't been implemented yet!");
+})
 
 /** Server entry point */
 app.listen(PORT, () => {
