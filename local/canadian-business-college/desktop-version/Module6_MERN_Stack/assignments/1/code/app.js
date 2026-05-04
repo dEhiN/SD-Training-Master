@@ -1,4 +1,5 @@
 /** Imports */
+const fs = require("fs");
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
@@ -30,6 +31,11 @@ const storageDetails = multer.diskStorage({
 });
 const processMulter = multer({ storage: storageDetails });
 
+/** Create 'uploads' folder */
+fs.mkdir(uploadDir, (err) => {
+    if (err) return;
+});
+
 /** Middleware setup */
 app.use(cors());
 app.use(express.json());
@@ -51,6 +57,7 @@ app.get("/assignment-form", (req, res) => {
 app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
     res.send("This hasn't been implemented yet!");
     console.log(req.file);
+    console.log(req.body);
 })
 
 /** Contact page */
