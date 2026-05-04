@@ -37,7 +37,7 @@ const storageDetails = multer.diskStorage({
 });
 const processMulter = multer({ storage: storageDetails });
 
-/** Create 'uploads' folder */
+/** Create 'uploads' folder prior to continuing. If there's an error because the folder already exists, return and continue. */
 fs.mkdir(uploadDir, (err) => {
     if (err) return;
 });
@@ -68,6 +68,7 @@ app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
     assignmentFormData.u_age = userData.u_age;
     assignmentFormData.u_car = userData.u_car;
     assignmentFormData.u_job = userData.u_job;
+
 })
 
 /** Contact page */
