@@ -1,8 +1,9 @@
 /** Imports */
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
-const path = require("path");
+const mailer = require("nodemailer");
 
 /** Global variables */
 const app = express();
