@@ -12,7 +12,8 @@ const staticDir = path.join(__dirname, "public", "static");
 const htmlFiles = {
     "index": "index.html",
     "form": "form.html",
-    "contact": "contact.html"
+    "contact": "contact.html",
+    "not_found": "404.html"
 }
 let returnFile = ""
 const PORT = 4006;
@@ -46,6 +47,12 @@ app.get("/contact-page", (req, res) => {
 })
 app.post("/contact-page", (req, res) => {
     res.send("This hasn't been implemented yet!");
+})
+
+/** Catch-all */
+app.use((req, res) => {
+    returnFile = path.join(templateDir, htmlFiles.not_found);
+    res.status(404).sendFile(returnFile);
 })
 
 /** Server entry point */
