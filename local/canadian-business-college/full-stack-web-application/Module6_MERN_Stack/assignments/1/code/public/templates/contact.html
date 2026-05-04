@@ -47,6 +47,38 @@
                     Building a Full-Stack Node.js Web Server
                 </h3>
             </section>
+            <!-- The contact me form itself -->
+            <section class="section form-form">
+                <p>
+                    If you would like to connect with me - whether to collaborate on a project, ask about my code, or
+                    just say hi - send me a message through the form below:
+                </p>
+                <form class="form-form-details" action="/form" method="post">
+                    <div class="form-form-element">
+                        <label for="u_name">What is your name?</label>
+                        <input type="text" id="u_name" name="u_name">
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_age">What is your age?</label>
+                        <input type="text" id="u_age" name="u_age">
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_car">What car do you drive?</label>
+                        <input type="text" id="u_car" name="u_car">
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_job">What is your occupation?</label>
+                        <input type="text" id="u_job" name="u_job">
+                    </div>
+                    <div class="form-form-element">
+                        <label for="u_image">Please upload a photo of your choosing:</label>
+                        <input type="file" id="u_image" name="u_image">
+                    </div>
+                    <div class="form-form-element">
+                        <button type="submit" id="form-submit-btn">Send my information</button>
+                    </div>
+                </form>
+            </section>
         </main>
     </body>
 
