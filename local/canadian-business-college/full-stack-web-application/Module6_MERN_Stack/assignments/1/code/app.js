@@ -16,6 +16,12 @@ const htmlFiles = {
     "contact": "contact.html",
     "not_found": "404.html"
 }
+const assignmentFormData = {
+    "u_name": "",
+    "u_age": "",
+    "u_car": "",
+    "u_job": ""
+}
 let returnFile = ""
 const PORT = 4006;
 
@@ -56,8 +62,12 @@ app.get("/assignment-form", (req, res) => {
 })
 app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
     res.send("This hasn't been implemented yet!");
-    console.log(req.file);
-    console.log(req.body);
+
+    const userData = req.body;
+    assignmentFormData.u_name = userData.u_name;
+    assignmentFormData.u_age = userData.u_age;
+    assignmentFormData.u_car = userData.u_car;
+    assignmentFormData.u_job = userData.u_job;
 })
 
 /** Contact page */
