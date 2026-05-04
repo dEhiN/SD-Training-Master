@@ -5,10 +5,10 @@ const cors = require("cors");
 const multer = require("multer");
 const mailer = require("nodemailer");
 
-/** Global variables */
-const app = express();
+/** Script specific global variables */
 const templateDir = path.join(__dirname, "public", "templates");
 const staticDir = path.join(__dirname, "public", "static");
+const uploadDir = path.join(__dirname, "uploads");
 const htmlFiles = {
     "index": "index.html",
     "form": "form.html",
@@ -17,6 +17,18 @@ const htmlFiles = {
 }
 let returnFile = ""
 const PORT = 4006;
+
+/** Module reference global variables */
+const app = express();
+const storageDetails = multer.diskStorage({
+    destination: (req, userFile, callbackFunc) => {
+        callbackFunc(null, uploadDir);
+    },
+    filename: (req, userFile, callbackFunc) => {
+        callbackFunc(null, userFile.originalname);
+    }
+});
+const processMulter = multer({ storage: storageDetails });
 
 /** Middleware setup */
 app.use(cors());
@@ -36,8 +48,9 @@ app.get("/assignment-form", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.form);
     res.sendFile(returnFile);
 })
-app.post("/assignment-form", (req, res) => {
+app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
     res.send("This hasn't been implemented yet!");
+    console.log(req.file);
 })
 
 /** Contact page */
