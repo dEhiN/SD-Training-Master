@@ -1,0 +1,55 @@
+/* This is the CSS file for common page style rules */
+
+
+/** Remove all padding and margin.
+    Set a default font-size.
+*/
+* {
+    padding: 0;
+    /* margin: 0; */
+    font-size: 20px;
+    font-family: "Forum", serif;
+}
+
+/** Set a column-based flex for the whole body. 
+    Set a border-box sizing calculation for the whole body.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: rgba(192, 128, 129, 0.4);
+}
+
+/** Set a header background to complement the nav link colour scheme. */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #8b9ba6;
+    /* background-color: #a68fa3; */
+    /* background-color: #7a9b8f; */
+}
+
+/** Set up the navigation list to not have any dots and be flex display with default main axis and a gap to make the links horizontal*/
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li {
+    padding: 5px 10px;
+}
+
+/** Adjusted the specific nav links to look better against the header backdrop */
+.nav-link {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/** Added decoration for on hover of nav links */
+.nav-link:hover {
+    background-color: #4682b4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
