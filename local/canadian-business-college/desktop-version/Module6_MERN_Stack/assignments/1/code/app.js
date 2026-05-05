@@ -6,7 +6,9 @@ const cors = require("cors");
 const multer = require("multer");
 const mailer = require("nodemailer");
 
+
 /** Script specific global variables */
+const PORT = 4006;
 const templateDir = path.join(__dirname, "public", "templates");
 const staticDir = path.join(__dirname, "public", "static");
 const uploadDir = path.join(__dirname, "uploads");
@@ -24,9 +26,9 @@ const assignmentFormData = {
     "u_job": ""
 }
 let returnFile = ""
-const PORT = 4006;
 
-/** Module reference global variables */
+
+/** Module reference global variables: Creates the Express app, sets up a Multer StorageEngine with the correct save directory along with the option to use the original file name, and a Multer instance with that StorageEngine. */
 const app = express();
 const storageDetails = multer.diskStorage({
     destination: (req, userFile, callbackFunc) => {
@@ -43,13 +45,15 @@ fs.mkdir(uploadDir, (err) => {
     if (err) return;
 });
 
-/** Middleware setup */
+
+/** Middleware setup: Sets up CORS, the ability to handle complex form data through post, and the static directory that Express should use. */
 app.use(cors());
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
 
-/** Route logic */
+
+/** Route logic: The get methods just return the correct html file found in public/templates. The post methods handle the respective form data that is sent back. */
+
 /** Home page */
 app.get("/", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.index);
