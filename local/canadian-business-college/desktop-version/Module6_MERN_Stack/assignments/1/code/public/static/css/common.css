@@ -69,19 +69,19 @@ header {
 }
 
 /** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h1 size based on the base font size. */
-.doc-title h1 {
+.doc-title__heading {
     font-size: 1.6rem;
     margin: 0;
 }
 
 /** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h3 size based on the base font size. Also sets the display to column-based flex to break apart the h3 text in CSS without using a br element.*/
-.doc-title h3 {
+.doc-title__subheading {
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
 }
 
 /** Inherit the font size from the parent so the text size stays the same and doesn't shrink. */
-.doc-title h3 span {
+.doc-title__subheading__text {
     font-size: inherit;
 }
