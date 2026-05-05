@@ -11,7 +11,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/** Set a column-based flex for the whole body (all 3 main divs). 
+/** Set a column-based flex for the whole body. 
     Set a border-box sizing calculation for the whole body.
 */
 body {
