@@ -21,7 +21,7 @@ body {
     background-color: rgba(192, 128, 129, 0.4);
 }
 
-/** Set a header background to complement the nav link colour scheme. */
+/** Set up the header to be a flex container with default main axis, space in between the header elements to center the nav bar on the page, and a background color to complement the nav link colour scheme. */
 header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@ header {
     /* background-color: #7a9b8f; */
 }
 
-/** Set up the navigation list to not have any dots and be flex display with default main axis and a gap to make the links horizontal*/
+/** Set up the navigation list to not have any bullet points and be flex display with default main axis to make the links horizontal with a gap in between each link. */
 .nav-list {
     list-style-type: none;
     display: flex;
@@ -52,4 +52,27 @@ header {
     background-color: #4682b4;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+/** Set a column-based flex for the whole title section.
+    Align items in the centre.
+    Note: Percentage is used in padding for relative sizing.
+*/
+.doc-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c08081;
+    padding: 1.5% 0%;
+}
+
+/** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h1 size based on the base font size. */
+.doc-title h1 {
+    font-size: 1.6rem;
+
+}
+
+/** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h3 size based on the base font size. */
+.doc-title h3 {
+    font-size: 1.2rem;
 }
