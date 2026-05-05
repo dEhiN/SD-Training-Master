@@ -12,9 +12,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2f4f4f;
+    background-color: #c08081;
     padding: 1.5% 0%;
-    color: steelblue;
 }
 
 /** Note: Rem is used for relative font-sizing. */
