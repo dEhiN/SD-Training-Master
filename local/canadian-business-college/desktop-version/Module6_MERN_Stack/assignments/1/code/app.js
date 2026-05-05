@@ -40,19 +40,19 @@ const storageDetails = multer.diskStorage({
 });
 const processMulter = multer({ storage: storageDetails });
 
-/** Create 'uploads' folder prior to continuing. If there's an error because the folder already exists, return and continue. */
+/** Creates the 'uploads' folder prior to continuing. If there's an error because the folder already exists, the code just continues. */
 fs.mkdir(uploadDir, (err) => {
     if (err) return;
 });
 
 
-/** Middleware setup: Sets up CORS, the ability to handle complex form data through post, and the static directory that Express should use. */
+/** Middleware setup: Sets up CORS, the ability to handle complex form data through POST, and the static directory that Express should use. */
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
 
 
-/** Route logic: The get methods just return the correct html file found in public/templates. The post methods handle the respective form data that is sent back. */
+/** Route logic: The GET methods use the global variable returnFile to specify the correct HTML to send to the client and then send the file. The POST methods handle the respective form data that is sent back. */
 
 /** Home page */
 app.get("/", (req, res) => {
