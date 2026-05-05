@@ -88,12 +88,15 @@ app.listen(PORT, () => {
 });
 
 /** Script specific functions */
-/** This function takes user submitted form data and writes it to a file on disk.
+/** This function takes user submitted form data and writes it to a file on disk. It then returns the result of that action, whether it succeeded or not.
  * 
  * @param {Request.body} userData An object that contains the body of a Request sent through a post method.
+ * 
+ * @returns {Boolean} Specifies whether the data was written successfully to disk or not
  */
 async function outputFormDataToDisk(userData) {
     let outputString = "";
+    let writeSuccess = true;
 
     assignmentFormData.u_name = userData.u_name;
     assignmentFormData.u_age = userData.u_age;
@@ -105,7 +108,11 @@ async function outputFormDataToDisk(userData) {
     outputString += `\tCar: ${assignmentFormData.u_car}\n`;
     outputString += `\tJob: ${assignmentFormData.u_job}\n\n`;
 
-    fs.appendFile(outputPath, outputString, () => {
-        return;
+    fs.appendFile(outputPath, outputString, (err) => {
+        if (err) {
+            writeSuccess = false;
+        }
     });
+
+    return writeSuccess;
 }
