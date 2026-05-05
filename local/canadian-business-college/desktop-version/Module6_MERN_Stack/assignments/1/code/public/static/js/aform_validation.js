@@ -19,7 +19,8 @@ const alertMsg = {
         "Please choose a file to upload...",
         "Please upload an image file...",
         "Something went wrong trying to upload your file. Please try again..."
-    ]
+    ],
+    "save_fail": "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again..."
 }
 
 /** Get a reference to the form */
@@ -91,7 +92,7 @@ function alertUser(msg) {
 }
 
 /** Add an event listener for when the user "submits" the */
-formSubmit.addEventListener("submit", (event) => {
+formSubmit.addEventListener("submit", async (event) => {
     /** Override the default action */
     event.preventDefault();
 
@@ -108,11 +109,22 @@ formSubmit.addEventListener("submit", (event) => {
     /** Validate the data */
     let validData = validate();
 
-    /** Send the data if validation passed */
-    if (validData) {
-        event.target.submit();
+    /** If the validation failed, skip the rest of the function */
+    if (!validData) {
+        return;
     }
 
-    /** Clear the form */
-    event.target.reset();
+    /** Since validation passed, use the fetch method to send the form data */
+    const serverResponse = await fetch("/assignment-form", {
+        method: "POST",
+        body: formData
+    })
+
+    /** Check the server response to know if the file saving operation failed or not. If not, let the user know and tell them to try again. If it did, clear the form so the user could send more data. */
+    if (serverResponse.status === 500) {
+        alertUser(alertMsg.save_fail);
+    }
+    else {
+        event.target.reset();
+    }
 });
