@@ -1,23 +1,21 @@
 /* This is the CSS file for common page style rules */
 
 
-/** Remove all padding and margin.
-    Set a default font-size.
+/** Set some rules for all elements, classes, and ids: no padding, a base font size, a base font family with fallback, and box sizing to be border-box.
 */
 * {
     padding: 0;
     /* margin: 0; */
     font-size: 20px;
     font-family: "Forum", serif;
+    box-sizing: border-box;
 }
 
-/** Set a column-based flex for the whole body. 
-    Set a border-box sizing calculation for the whole body.
+/** Set a column-based flex for the whole body and the page background colour.
 */
 body {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
     background-color: rgba(192, 128, 129, 0.4);
 }
 
@@ -63,7 +61,8 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #c08081;
-    padding: 1.5% 0%;
+    /* padding: 1.5% 0%; */
+    padding-top: 1.5%;
 }
 
 /** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h1 size based on the base font size. */
