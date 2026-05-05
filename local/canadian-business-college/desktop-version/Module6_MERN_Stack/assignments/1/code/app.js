@@ -10,6 +10,7 @@ const mailer = require("nodemailer");
 const templateDir = path.join(__dirname, "public", "templates");
 const staticDir = path.join(__dirname, "public", "static");
 const uploadDir = path.join(__dirname, "uploads");
+const outputPath = path.join(__dirname, "submissions.txt");
 const htmlFiles = {
     "index": "index.html",
     "form": "form.html",
@@ -61,14 +62,9 @@ app.get("/assignment-form", (req, res) => {
     res.sendFile(returnFile);
 })
 app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
-    res.send("This hasn't been implemented yet!");
-
     const userData = req.body;
-    assignmentFormData.u_name = userData.u_name;
-    assignmentFormData.u_age = userData.u_age;
-    assignmentFormData.u_car = userData.u_car;
-    assignmentFormData.u_job = userData.u_job;
-
+    outputFormDataToDisk(userData);
+    res.redirect("/assignment-form");
 })
 
 /** Contact page */
@@ -90,3 +86,26 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`The server has started. It is running on http://localhost:${PORT}`);
 });
+
+/** Script specific functions */
+/** This function takes user submitted form data and writes it to a file on disk.
+ * 
+ * @param {Request.body} userData An object that contains the body of a Request sent through a post method.
+ */
+async function outputFormDataToDisk(userData) {
+    let outputString = "";
+
+    assignmentFormData.u_name = userData.u_name;
+    assignmentFormData.u_age = userData.u_age;
+    assignmentFormData.u_car = userData.u_car;
+    assignmentFormData.u_job = userData.u_job;
+
+    outputString = `Name: ${assignmentFormData.u_name}\n`;
+    outputString += `\tAge: ${assignmentFormData.u_age}\n`;
+    outputString += `\tCar: ${assignmentFormData.u_car}\n`;
+    outputString += `\tJob: ${assignmentFormData.u_job}\n\n`;
+
+    fs.appendFile(outputPath, outputString, () => {
+        return;
+    });
+}
