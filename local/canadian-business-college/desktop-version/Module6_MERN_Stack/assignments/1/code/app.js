@@ -89,6 +89,8 @@ app.listen(PORT, () => {
 
 /** Script specific functions */
 /** This function takes user submitted form data and writes it to a file on disk. It then returns the result of that action, whether it succeeded or not.
+ * A try...catch block is used with the recommended way to handle file I/O calls, which is to use the FileSystem.Promises method along with the async..await keywords. 
+ * This approach is preferred over the traditional callback method for robustness and reliability. Although the assignment is simple in scope, it is better for learning purposes to try and follow recommended and modern approaches.
  * 
  * @param {Request.body} userData An object that contains the body of a Request sent through a post method.
  * 
@@ -108,11 +110,12 @@ async function outputFormDataToDisk(userData) {
     outputString += `\tCar: ${assignmentFormData.u_car}\n`;
     outputString += `\tJob: ${assignmentFormData.u_job}\n\n`;
 
-    fs.appendFile(outputPath, outputString, (err) => {
-        if (err) {
-            writeSuccess = false;
-        }
-    });
+    try {
+        await fs.promises.appendFile(outputPath, outputString);
+    }
+    catch (err) {
+        writeSuccess = false;
+    }
 
     return writeSuccess;
 }
