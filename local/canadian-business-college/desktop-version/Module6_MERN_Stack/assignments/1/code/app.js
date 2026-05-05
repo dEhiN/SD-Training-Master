@@ -65,10 +65,19 @@ app.get("/assignment-form", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.form);
     res.sendFile(returnFile);
 })
-app.post("/assignment-form", processMulter.single("u_image"), (req, res) => {
+app.post("/assignment-form", processMulter.single("u_image"), async (req, res) => {
     const userData = req.body;
-    outputFormDataToDisk(userData);
-    res.redirect("/assignment-form");
+
+    /** Call the helper function to save the form data to disk. Grab the returned value to determine if the save action was successful or not. */
+    let writeSuccess = await outputFormDataToDisk(userData);
+
+    /** If the save action failed, return a status code of 500 to the browser. This is intended to then be handled by the client side JavaScript. */
+    if (!writeSuccess) {
+        return res.sendStatus(500);
+    }
+
+    /** There were no issues, so send back a status of 200. */
+    res.sendStatus(200);
 })
 
 /** Contact page */
