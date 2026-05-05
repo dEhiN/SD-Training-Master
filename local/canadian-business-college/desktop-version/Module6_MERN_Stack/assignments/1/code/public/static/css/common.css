@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(192, 128, 129, 0.4);
+    margin: 0;
 }
 
 /** Set up the header to be a flex container with default main axis, space in between the header elements to center the nav bar on the page, and a background color to complement the nav link colour scheme. */
