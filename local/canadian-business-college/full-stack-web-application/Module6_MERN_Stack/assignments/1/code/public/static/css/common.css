@@ -52,17 +52,20 @@ header {
     border-radius: 5px;
 }
 
-/** Set a column-based flex for the whole title section.
-    Align items in the centre.
+/** Set a column-based flex for the each section.
+    Align items in the centre and add top padding.
     Note: Percentage is used in padding for relative sizing.
 */
-.doc-title {
+.section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #c08081;
-    /* padding: 1.5% 0%; */
     padding-top: 1.5%;
+}
+
+/** Add a background colour just for the page title part. */
+.doc-title {
+    background-color: #c08081;
 }
 
 /** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h1 size based on the base font size. */
