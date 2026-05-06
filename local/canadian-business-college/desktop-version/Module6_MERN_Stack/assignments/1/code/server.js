@@ -153,7 +153,10 @@ app.post("/contact-page", async (req, res) => {
     res.status(returnStatus);
 
     /** Send back the return status code and the message from the helper function. This is intended to then be handled by the client side JavaScript.*/
-    res.json({ message: returnMessage });
+    res.json({
+        status: returnStatus,
+        message: returnMessage
+    });
 })
 
 /** Catch-all */
