@@ -22,10 +22,10 @@ const htmlFiles = {
     "contact": "contact.html",
     "not_found": "404.html"
 }
-const mailerUser = process.env.GMAIL_APP_USER || "";
-const mailerPassword = process.env.GMAIL_APP_PASSWORD || "";
-let returnFile = ""
-let mailConnectAuth = false;
+let returnFile;
+let mailerUser;
+let mailerPassword;
+let mailConnectAuth;
 
 
 /** Module configuration needed prior to proceeding */
@@ -37,6 +37,10 @@ dotenv.config();
 fs.mkdir(uploadDir, (err) => {
     if (err) return;
 });
+
+/** Initialize the variables for the Gmail username and password */
+mailerUser = process.env.GMAIL_APP_USER || "";
+mailerPassword = process.env.GMAIL_APP_PASSWORD || "";
 
 
 /** Module reference global variables: 
@@ -78,6 +82,7 @@ async function verifyEmailConnection() {
         console.log("Connection verification to Gmail was successful!");
     }
     catch (err) {
+        mailConnectAuth = false;
         console.log(`Couldn't verify the connection to Gmail. The following error occurred:\n${err}`);
     }
 }
