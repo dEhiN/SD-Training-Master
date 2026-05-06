@@ -211,8 +211,8 @@ async function outputFormDataToDisk(userData) {
  *                     message - a message containing either the response from the SMTP server if the send was successful, or the error message if not
  */
 async function sendEmailFromUser(userData) {
-    let returnMessage = "";
-    let sendSuccess = false;
+    let returnMessage;
+    let sendSuccess;
 
     const c_name = userData.c_name;
     const c_email = userData.c_email;
@@ -233,6 +233,7 @@ async function sendEmailFromUser(userData) {
     }
     catch (err) {
         returnMessage = err;
+        sendSuccess = false;
     }
 
     return {
