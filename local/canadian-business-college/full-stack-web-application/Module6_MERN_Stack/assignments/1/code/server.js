@@ -123,9 +123,9 @@ app.get("/contact-page", (req, res) => {
     res.sendFile(returnFile);
 })
 app.post("/contact-page", async (req, res) => {
-    let emailSent = true;
-    let returnMessage = "";
-    let returnStatus = 200;
+    let emailSent;
+    let returnMessage;
+    let returnStatus;
 
     /** Try to send the email only if the Gmail connection has been verified. If not, set a return message letting the user know what happened. */
     if (mailConnectAuth) {
@@ -144,6 +144,9 @@ app.post("/contact-page", async (req, res) => {
     /** If the email couldn't be sent, set the return status code to 500. */
     if (!emailSent) {
         returnStatus = 500;
+    }
+    else {
+        returnStatus = 200;
     }
 
     /** Set the return status */
