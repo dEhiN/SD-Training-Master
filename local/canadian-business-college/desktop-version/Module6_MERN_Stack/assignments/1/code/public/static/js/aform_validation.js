@@ -10,7 +10,7 @@ const userData = {
 }
 
 /** Global variable to help with user alert messages. */
-const alertMsg = {
+const assignmentFormAlertMsg = {
     u_name: "Please enter your name...",
     u_age: "Please enter your age...",
     u_car: "Please enter the car you drive...",
@@ -43,16 +43,16 @@ function validate() {
                 /** Handle the text fields that are empty and alert the user to the issue */
                 switch (key) {
                     case "u_name":
-                        alertUser(alertMsg.u_name);
+                        alertUser(assignmentFormAlertMsg.u_name);
                         break;
                     case "u_age":
-                        alertUser(alertMsg.u_age);
+                        alertUser(assignmentFormAlertMsg.u_age);
                         break;
                     case "u_car":
-                        alertUser(alertMsg.u_car);
+                        alertUser(assignmentFormAlertMsg.u_car);
                         break;
                     case "u_job":
-                        alertUser(alertMsg.u_job);
+                        alertUser(assignmentFormAlertMsg.u_job);
                         break;
                 }
 
@@ -65,11 +65,11 @@ function validate() {
             if (imageFile instanceof File) {
                 /** Handle the file upload for the two scenarios of no file being uploaded or a non-image file being uploaded */
                 if (imageFile.size === 0) {
-                    alertUser(alertMsg.u_image[0]);
+                    alertUser(assignmentFormAlertMsg.u_image[0]);
                     isValid = false;
                 }
                 else if (!imageFile.type.startsWith("image/")) {
-                    alertUser(alertMsg.u_image[1]);
+                    alertUser(assignmentFormAlertMsg.u_image[1]);
                     isValid = false;
                 }
             }
@@ -123,10 +123,10 @@ formSubmit.addEventListener("submit", async (event) => {
 
     /** Check the server response to know if the file saving operation failed or not. If not, let the user know and tell them to try again. If it did, clear the form so the user could send more data. */
     if (serverResponse.status === 500) {
-        alertUser(alertMsg.save_fail);
+        alertUser(assignmentFormAlertMsg.save_fail);
     }
     else {
-        alertUser(alertMsg.save_success);
+        alertUser(assignmentFormAlertMsg.save_success);
         event.target.reset();
     }
 });
