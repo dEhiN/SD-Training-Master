@@ -40,6 +40,7 @@ const assignmentFormData = {
     "u_job": ""
 }
 let returnFile = ""
+let mailConnectAuth = false;
 
 
 /** Module reference global variables: 
@@ -70,10 +71,18 @@ const mailTransporter = mailer.createTransport({
  * - Sets up CORS
  * - Add the ability to handle complex form data through POST
  * - Specifies the static directory that Express should use
- * - Tests the Gmail connection */
+ * - Tests the Gmail connection - if it passes, sets the global boolean mailConnectAuth to true; if it fails, outputs the error to the console */
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
+try {
+    await mailTransporter.verify();
+    mailConnectAuth = true;
+    console.log("Connection verification to Gmail was successful!");
+}
+catch (err) {
+    console.log(`Couldn't verify the connection to Gmail. The following error occurred:\n${err}`);
+}
 
 
 /** Route logic: The GET methods use the global variable returnFile to specify the correct HTML to send to the client and then send the file. The POST methods handle the respective form data that is sent back. */
