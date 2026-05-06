@@ -133,7 +133,7 @@ app.post("/contact-page", async (req, res) => {
 
         /** Call the helper function to send an email to the web developer. Grab the returned values to determine if the save action was successful or not, and the message returned. */
         const results = await sendEmailFromUser(userData);
-        emailSent = results.send;
+        emailSent = results.sendStatus;
         returnMessage = results.message;
     }
     else {
@@ -232,12 +232,17 @@ async function sendEmailFromUser(userData) {
         sendSuccess = true;
     }
     catch (err) {
-        returnMessage = err;
+        if (err instanceof Error) {
+            returnMessage = err.message;
+        }
+        else {
+            returnMessage = "Unexpected error occurred";
+        }
         sendSuccess = false;
     }
 
     return {
-        send: sendSuccess,
+        sendStatus: sendSuccess,
         message: returnMessage,
     };
 }
