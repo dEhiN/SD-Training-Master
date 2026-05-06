@@ -9,7 +9,7 @@ const userData = {
     "u_image": "",
 }
 
-/** Global variable to help with user alert messages. It's an object where the keys are the same name as the fields in the form. The last key is a nested array since two possible scenarios exist for the image - the user not uploading a file and the user uploading a non-image file. */
+/** Global variable to help with user alert messages. */
 const alertMsg = {
     "u_name": "Please enter your name...",
     "u_age": "Please enter your age...",
