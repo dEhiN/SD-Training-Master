@@ -1,10 +1,24 @@
-/** Imports */
+/** Built-in Module Imports */
 const fs = require("fs");
 const path = require("path");
+
+/** Installed Module Imports */
+const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const mailer = require("nodemailer");
+
+
+/** Module configuration needed prior to proceeding */
+
+/** Configure the dotenv module to add the variables in the .env file to the environment path */
+dotenv.config();
+
+/** Create the 'uploads' folder prior to continuing. If there's an error because the folder already exists, just continue. */
+fs.mkdir(uploadDir, (err) => {
+    if (err) return;
+});
 
 
 /** Script specific global variables */
@@ -28,7 +42,11 @@ const assignmentFormData = {
 let returnFile = ""
 
 
-/** Module reference global variables: Creates the Express app, sets up a Multer StorageEngine with the correct save directory along with the option to use the original file name, and a Multer instance with that StorageEngine. */
+/** Module reference global variables: 
+ * - Creates the Express app
+ * - Sets up a Multer StorageEngine with the correct save directory along with the option to use the original file name
+ * - Creates a Multer instance with that StorageEngine
+ * - Creates a transporter instance for nodemailer using Gmail as the service (uses the built-in values for Gmail)*/
 const app = express();
 const storageDetails = multer.diskStorage({
     destination: (req, userFile, callbackFunc) => {
@@ -39,14 +57,20 @@ const storageDetails = multer.diskStorage({
     }
 });
 const processMulter = multer({ storage: storageDetails });
-
-/** Creates the 'uploads' folder prior to continuing. If there's an error because the folder already exists, the code just continues. */
-fs.mkdir(uploadDir, (err) => {
-    if (err) return;
+const mailTransporter = mailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: process.env.GMAIL_APP_USER,
+        pass: process.env.GMAIL_APP_PASSWORD
+    }
 });
 
 
-/** Middleware setup: Sets up CORS, the ability to handle complex form data through POST, and the static directory that Express should use. */
+/** Middleware setup: 
+ * - Sets up CORS
+ * - Add the ability to handle complex form data through POST
+ * - Specifies the static directory that Express should use
+ * - Tests the Gmail connection */
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
