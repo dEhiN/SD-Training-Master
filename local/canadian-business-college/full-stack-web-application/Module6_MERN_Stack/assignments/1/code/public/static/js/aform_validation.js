@@ -2,26 +2,26 @@
 
 /** Global object to hold the user's submitted form data. Making this a global object rather than a local one for future scalability. */
 const userData = {
-    "u_name": "",
-    "u_age": "",
-    "u_car": "",
-    "u_job": "",
-    "u_image": "",
+    u_name: "",
+    u_age: "",
+    u_car: "",
+    u_job: "",
+    u_image: "",
 }
 
 /** Global variable to help with user alert messages. */
 const alertMsg = {
-    "u_name": "Please enter your name...",
-    "u_age": "Please enter your age...",
-    "u_car": "Please enter the car you drive...",
-    "u_job": "Please enter your job or occupation...",
-    "u_image": [
+    u_name: "Please enter your name...",
+    u_age: "Please enter your age...",
+    u_car: "Please enter the car you drive...",
+    u_job: "Please enter your job or occupation...",
+    u_image: [
         "Please choose a file to upload...",
         "Please upload an image file...",
         "Something went wrong trying to upload your file. Please try again..."
     ],
-    "save_fail": "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again...",
-    "save_success": "Your information was sent successfully!"
+    save_fail: "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again...",
+    save_success: "Your information was sent successfully!"
 }
 
 /** Get a reference to the form */
