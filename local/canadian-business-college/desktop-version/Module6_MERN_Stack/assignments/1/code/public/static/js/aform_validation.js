@@ -20,7 +20,8 @@ const alertMsg = {
         "Please upload an image file...",
         "Something went wrong trying to upload your file. Please try again..."
     ],
-    "save_fail": "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again..."
+    "save_fail": "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again...",
+    "save_success": "Your information was sent successfully!"
 }
 
 /** Get a reference to the form */
@@ -125,6 +126,7 @@ formSubmit.addEventListener("submit", async (event) => {
         alertUser(alertMsg.save_fail);
     }
     else {
+        alertUser(alertMsg.save_success);
         event.target.reset();
     }
 });
