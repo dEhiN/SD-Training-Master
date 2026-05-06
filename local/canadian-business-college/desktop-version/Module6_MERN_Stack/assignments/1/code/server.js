@@ -22,6 +22,8 @@ const htmlFiles = {
     "contact": "contact.html",
     "not_found": "404.html"
 }
+const mailerUser = process.env.GMAIL_APP_USER || "";
+const mailerPassword = process.env.GMAIL_APP_PASSWORD || "";
 let returnFile = ""
 let mailConnectAuth = false;
 
@@ -55,8 +57,8 @@ const processMulter = multer({ storage: storageDetails });
 const mailTransporter = mailer.createTransport({
     service: "Gmail",
     auth: {
-        user: process.env.GMAIL_APP_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
+        user: mailerUser,
+        pass: mailerPassword
     }
 });
 
