@@ -162,3 +162,47 @@ async function outputFormDataToDisk(userData) {
 
     return writeSuccess;
 }
+
+
+/** This function takes user contact information from the contact.html page and emails that to the web developer.
+ * 
+ * The contact information - name, email, and message - are taken from the parameter passed in. An email message is then created with the contact's email set as the reply-to field.
+ * 
+ * Finally, a try..catch block is sued to send the email. The returned message 
+ * 
+ * @param {Request.body} userData An object that contains the body of a Request sent through a post method.
+ * 
+ * @returns {Promise<object>} An object containing two key-value pairs:  
+ *                     send - a boolean specifying whether the email was sent or not  
+ *                     message - a message containing either the response from the SMTP server if the send was successful, or the error message if not
+ */
+async function sendEmailFromUser(userData) {
+    let returnMessage = "";
+    let sendSuccess = false;
+
+    const c_name = userData.c_name;
+    const c_email = userData.c_email;
+    const c_message = userData.c_message;
+
+    const emailMessage = {
+        from: mailerUser,
+        to: mailerUser,
+        replyTo: c_email,
+        subject: `New contact message for Module 5, Assignment 1`,
+        text: `Hi there, this is the server for Module 5, Assignment 1.\n\nYou have a new contact message from ${c_name} at ${c_email}. The message is as follows:\n\n----------\n${c_message}\n----------\n\nHave a wonderful day,\n\nYour friendly server email transport service :)`,
+    }
+
+    try {
+        let emailResponse = await mailTransporter.sendMail(emailMessage);
+        returnMessage = emailResponse.response;
+        sendSuccess = true;
+    }
+    catch (err) {
+        returnMessage = err;
+    }
+
+    return {
+        send: sendSuccess,
+        message: returnMessage,
+    };
+}
