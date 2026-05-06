@@ -10,17 +10,6 @@ const multer = require("multer");
 const mailer = require("nodemailer");
 
 
-/** Module configuration needed prior to proceeding */
-
-/** Configure the dotenv module to add the variables in the .env file to the environment path */
-dotenv.config();
-
-/** Create the 'uploads' folder prior to continuing. If there's an error because the folder already exists, just continue. */
-fs.mkdir(uploadDir, (err) => {
-    if (err) return;
-});
-
-
 /** Script specific global variables */
 const PORT = 4006;
 const templateDir = path.join(__dirname, "public", "templates");
@@ -41,6 +30,17 @@ const assignmentFormData = {
 }
 let returnFile = ""
 let mailConnectAuth = false;
+
+
+/** Module configuration needed prior to proceeding */
+
+/** Configure the dotenv module to add the variables in the .env file to the environment path */
+dotenv.config();
+
+/** Create the 'uploads' folder prior to continuing. If there's an error because the folder already exists, just continue. */
+fs.mkdir(uploadDir, (err) => {
+    if (err) return;
+});
 
 
 /** Module reference global variables: 
@@ -76,7 +76,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
 try {
-    await mailTransporter.verify();
+    mailTransporter.verify();
     mailConnectAuth = true;
     console.log("Connection verification to Gmail was successful!");
 }
