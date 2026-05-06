@@ -1,4 +1,4 @@
-/** JavaScript file to validate the form before sending it. This script will check every text field to ensure it is not blank and check that a file has been selected. It will then make sure the selected file is an image file based on the file extension. */
+/** JavaScript file to validate the assignment form before sending it. This script will check every text field to ensure it is not blank and check that an image file has been selected. It will then make sure the selected file is an image file based on the file extension. The script will also alert the user of issues, whether due to leaving a field blank, not uploading an image file, or a server issue returned via status code 500. If the server returns 200, the user is also alerted of the success.*/
 
 /** Global object to hold the user's submitted form data. Making this a global object rather than a local one for future scalability. */
 const userData = {
@@ -101,11 +101,11 @@ formSubmit.addEventListener("submit", async (event) => {
     const formData = new FormData(event.target);
 
     /** Populate the userData object with the contents of the form */
-    userData.u_name = formData.get("u_name")
-    userData.u_age = formData.get("u_age")
-    userData.u_car = formData.get("u_car")
-    userData.u_job = formData.get("u_job")
-    userData.u_image = formData.get("u_image")
+    userData.u_name = formData.get("u_name");
+    userData.u_age = formData.get("u_age");
+    userData.u_car = formData.get("u_car");
+    userData.u_job = formData.get("u_job");
+    userData.u_image = formData.get("u_image");
 
     /** Validate the data */
     let validData = validate();
