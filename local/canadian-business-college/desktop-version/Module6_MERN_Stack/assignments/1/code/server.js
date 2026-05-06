@@ -138,7 +138,7 @@ app.post("/contact-page", async (req, res) => {
     }
     else {
         emailSent = false;
-        returnMessage = "Connection to email server couldn't be established";
+        returnMessage = "Connection to the email server couldn't be established";
     }
 
     /** If the email couldn't be sent, set the return status code to 500. */
