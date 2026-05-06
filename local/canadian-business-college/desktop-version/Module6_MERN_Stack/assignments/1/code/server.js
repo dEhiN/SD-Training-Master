@@ -75,14 +75,17 @@ const mailTransporter = mailer.createTransport({
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticDir));
-try {
-    mailTransporter.verify();
-    mailConnectAuth = true;
-    console.log("Connection verification to Gmail was successful!");
+async function verifyEmailConnection() {
+    try {
+        await mailTransporter.verify();
+        mailConnectAuth = true;
+        console.log("Connection verification to Gmail was successful!");
+    }
+    catch (err) {
+        console.log(`Couldn't verify the connection to Gmail. The following error occurred:\n${err}`);
+    }
 }
-catch (err) {
-    console.log(`Couldn't verify the connection to Gmail. The following error occurred:\n${err}`);
-}
+verifyEmailConnection();
 
 
 /** Route logic: The GET methods use the global variable returnFile to specify the correct HTML to send to the client and then send the file. The POST methods handle the respective form data that is sent back. */
