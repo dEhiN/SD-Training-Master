@@ -141,22 +141,25 @@ app.post("/contact-page", async (req, res) => {
         returnMessage = "Connection to the email server couldn't be established";
     }
 
+    /** Unfortunately, due to issues with trying to properly intercept the contact form data client-side, validate it, send it to the server, and then read the response, the below code is being skipped for a simple redirect. As a result, the user will not know if their email was sent. */
+    res.redirect("/");
+
     /** If the email couldn't be sent, set the return status code to 500. */
-    if (!emailSent) {
-        returnStatus = 500;
-    }
-    else {
-        returnStatus = 200;
-    }
+    // if (!emailSent) {
+    //     returnStatus = 500;
+    // }
+    // else {
+    //     returnStatus = 200;
+    // }
 
     /** Set the return status */
-    res.status(returnStatus);
+    // res.status(returnStatus);
 
     /** Send back the return status code and the message from the helper function. This is intended to then be handled by the client side JavaScript.*/
-    res.json({
-        status: returnStatus,
-        message: returnMessage
-    });
+    // res.json({
+    //     status: returnStatus,
+    //     message: returnMessage
+    // });
 })
 
 /** Catch-all */
