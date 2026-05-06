@@ -137,7 +137,7 @@ app.listen(PORT, () => {
  * 
  * @param {Request.body} userData An object that contains the body of a Request sent through a post method.
  * 
- * @returns {Boolean} Specifies whether the data was written successfully to disk or not
+ * @returns {Promise<boolean>} Specifies whether the data was written successfully to disk or not
  */
 async function outputFormDataToDisk(userData) {
     let outputString = "";
