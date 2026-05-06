@@ -117,8 +117,35 @@ app.get("/contact-page", (req, res) => {
     returnFile = path.join(templateDir, htmlFiles.contact);
     res.sendFile(returnFile);
 })
-app.post("/contact-page", (req, res) => {
-    res.send("This hasn't been implemented yet!");
+app.post("/contact-page", async (req, res) => {
+    let emailSent = true;
+    let returnMessage = "";
+    let returnStatus = 200;
+
+    /** Try to send the email only if the Gmail connection has been verified. If not, set a return message letting the user know what happened. */
+    if (mailConnectAuth) {
+        const userData = req.body;
+
+        /** Call the helper function to send an email to the web developer. Grab the returned values to determine if the save action was successful or not, and the message returned. */
+        const results = await sendEmailFromUser(userData);
+        emailSent = results.send;
+        returnMessage = results.message;
+    }
+    else {
+        emailSent = false;
+        returnMessage = "Connection to email server couldn't be established";
+    }
+
+    /** If the email couldn't be sent, set the return status code to 500. */
+    if (!emailSent) {
+        returnStatus = 500;
+    }
+
+    /** Set the return status */
+    res.status(returnStatus);
+
+    /** Send back the return status code and the message from the helper function. This is intended to then be handled by the client side JavaScript.*/
+    res.json({ message: returnMessage });
 })
 
 /** Catch-all */
