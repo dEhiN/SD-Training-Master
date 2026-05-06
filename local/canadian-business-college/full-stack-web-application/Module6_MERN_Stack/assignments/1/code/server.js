@@ -22,12 +22,6 @@ const htmlFiles = {
     "contact": "contact.html",
     "not_found": "404.html"
 }
-const assignmentFormData = {
-    "u_name": "",
-    "u_age": "",
-    "u_car": "",
-    "u_job": ""
-}
 let returnFile = ""
 let mailConnectAuth = false;
 
@@ -149,15 +143,15 @@ async function outputFormDataToDisk(userData) {
     let outputString = "";
     let writeSuccess = true;
 
-    assignmentFormData.u_name = userData.u_name;
-    assignmentFormData.u_age = userData.u_age;
-    assignmentFormData.u_car = userData.u_car;
-    assignmentFormData.u_job = userData.u_job;
+    const u_name = userData.u_name;
+    const u_age = userData.u_age;
+    const u_car = userData.u_car;
+    const u_job = userData.u_job;
 
-    outputString = `Name: ${assignmentFormData.u_name}\n`;
-    outputString += `\tAge: ${assignmentFormData.u_age}\n`;
-    outputString += `\tCar: ${assignmentFormData.u_car}\n`;
-    outputString += `\tJob: ${assignmentFormData.u_job}\n\n`;
+    outputString = `Name: ${u_name}\n`;
+    outputString += `\tAge: ${u_age}\n`;
+    outputString += `\tCar: ${u_car}\n`;
+    outputString += `\tJob: ${u_job}\n\n`;
 
     try {
         await fs.promises.appendFile(outputPath, outputString);
