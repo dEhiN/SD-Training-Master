@@ -1,27 +1,19 @@
-/** JavaScript file to validate the form before sending it. This script will check every text field to ensure it is not blank and check that a file has been selected. It will then make sure the selected file is an image file based on the file extension. */
+/** JavaScript file to validate the assignment form before sending it. This script will check the name and message fields aren't blank and the email field has a proper email address. The script will also alert the user of issues, whether due to leaving a field blank or a server issue returned via status code 500. If the server returns 200, the user is also alerted of the success.*/
 
-/** Global object to hold the user's submitted form data. Making this a global object rather than a local one for future scalability. */
-const userData = {
-    "u_name": "",
-    "u_age": "",
-    "u_car": "",
-    "u_job": "",
-    "u_image": "",
+/** Global object to hold the user's submitted contact data. Making this a global object rather than a local one for future scalability. */
+const contactData = {
+    c_name: "",
+    c_email: "",
+    c_message: ""
 }
 
-/** Global variable to help with user alert messages. It's an object where the keys are the same name as the fields in the form. The last key is a nested array since two possible scenarios exist for the image - the user not uploading a file and the user uploading a non-image file. */
-const alertMsg = {
-    "u_name": "Please enter your name...",
-    "u_age": "Please enter your age...",
-    "u_car": "Please enter the car you drive...",
-    "u_job": "Please enter your job or occupation...",
-    "u_image": [
-        "Please choose a file to upload...",
-        "Please upload an image file...",
-        "Something went wrong trying to upload your file. Please try again..."
-    ],
-    "save_fail": "There was a problem with the server and your data could not be saved! Please wait 30 seconds and try again...",
-    "save_success": "Your information was sent successfully!"
+/** Global variable to help with user alert messages. */
+const contactFormAlertMsg = {
+    c_name: "Please enter your name...",
+    c_email: "Please enter a valid email address...",
+    c_message: "Please enter a message that's at least 20 characters...",
+    send_fail: "There was a problem sending your email.\n\nHere is the message from the server:\n\n",
+    send_success: "Your email was sent successfully!"
 }
 
 /** Get a reference to the form */
@@ -32,52 +24,28 @@ const formSubmit = document.querySelector(".form-form-details");
  * @returns {boolean} True if all the data entered by the user is valid, false otherwise
  */
 function validate() {
+
     /** Assume the data is valid by default */
     let isValid = true;
 
     /** Look through the userData object to validate each field */
-    for (key in userData) {
-        if (key != "u_image") {
-            /** Confirm the field isn't empty */
-            if (userData[key] == "") {
-                /** Handle the text fields that are empty and alert the user to the issue */
-                switch (key) {
-                    case "u_name":
-                        alertUser(alertMsg.u_name);
-                        break;
-                    case "u_age":
-                        alertUser(alertMsg.u_age);
-                        break;
-                    case "u_car":
-                        alertUser(alertMsg.u_car);
-                        break;
-                    case "u_job":
-                        alertUser(alertMsg.u_job);
-                        break;
-                }
+    for (key in contactData) {
+        /** Confirm the field isn't empty */
+        if (contactData[key] == "") {
+            /** Handle the text fields that are empty and alert the user to the issue */
+            switch (key) {
+                case "c_name":
+                    alertUser(contactFormAlertMsg.c_name);
+                    break;
+                case "c_email":
+                    alertUser(contactFormAlertMsg.c_email);
+                    break;
+                case "c_message":
+                    alertUser(contactFormAlertMsg.c_message);
+                    break;
+            }
 
-                isValid = false;
-            }
-        }
-        else {
-            /** Confirm we are working with a File object */
-            const imageFile = userData[key];
-            if (imageFile instanceof File) {
-                /** Handle the file upload for the two scenarios of no file being uploaded or a non-image file being uploaded */
-                if (imageFile.size === 0) {
-                    alertUser(alertMsg.u_image[0]);
-                    isValid = false;
-                }
-                else if (!imageFile.type.startsWith("image/")) {
-                    alertUser(alertMsg.u_image[1]);
-                    isValid = false;
-                }
-            }
-            else {
-                /** Catch-all just in case. While FormData should give a File object for input fields of type "file", it's preferable to alert the user if something goes wrong. */
-                alertUser(alertMsg.u_image[2]);
-                isValid = false;
-            }
+            isValid = false;
         }
     }
 
@@ -100,12 +68,10 @@ formSubmit.addEventListener("submit", async (event) => {
     /** Create a new FormData object to store the HTML form data */
     const formData = new FormData(event.target);
 
-    /** Populate the userData object with the contents of the form */
-    userData.u_name = formData.get("u_name")
-    userData.u_age = formData.get("u_age")
-    userData.u_car = formData.get("u_car")
-    userData.u_job = formData.get("u_job")
-    userData.u_image = formData.get("u_image")
+    /** Populate the contactData object with the contents of the form */
+    contactData.c_name = formData.get("c_name");
+    contactData.c_email = formData.get("c_email");
+    contactData.c_message = formData.get("c_message");
 
     /** Validate the data */
     let validData = validate();
@@ -115,18 +81,22 @@ formSubmit.addEventListener("submit", async (event) => {
         return;
     }
 
-    /** Since validation passed, use the fetch method to send the form data */
-    const serverResponse = await fetch("/assignment-form", {
+    /** Since validation passed, use the fetch method to send the form data. But first, convert the form data to JSON data. */
+    const contactJSONData = Object.fromEntries(formData.entries());
+    const serverResponse = await fetch("/contact-page", {
         method: "POST",
-        body: formData
+        body: JSON.stringify(contactJSONData)
     })
 
-    /** Check the server response to know if the file saving operation failed or not. If not, let the user know and tell them to try again. If it did, clear the form so the user could send more data. */
+    const serverMessage = await serverResponse.json();
+
+    /** Check the server response to know if the email was sent or not. If not, let the user know and tell them to try again. If it did, clear the contact form. */
     if (serverResponse.status === 500) {
-        alertUser(alertMsg.save_fail);
+        contactFormAlertMsg.send_fail += serverMessage.message;
+        alertUser(contactFormAlertMsg.send_fail);
     }
     else {
-        alertUser(alertMsg.save_success);
+        alertUser(contactFormAlertMsg.send_success);
         event.target.reset();
     }
 });
