@@ -152,7 +152,7 @@ app.post("/contact-page", async (req, res) => {
     }
 
     /** Set the return status */
-    // res.status(returnStatus);
+    res.status(returnStatus);
 
     /** Send back the return status code and the message from the helper function. This is intended to then be handled by the client side JavaScript.*/
     res.json({
@@ -244,7 +244,7 @@ async function sendEmailFromUser(userData) {
             returnMessage = err.message;
         }
         else {
-            returnMessage = "Unexpected error occurred";
+            returnMessage = "An unexpected error occurred";
         }
         sendSuccess = false;
     }
