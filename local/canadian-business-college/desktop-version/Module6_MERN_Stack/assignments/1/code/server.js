@@ -70,10 +70,12 @@ const mailTransporter = mailer.createTransport({
 /** Middleware setup: 
  * - Sets up CORS
  * - Add the ability to handle complex form data through POST
+ * - Add the ability to handle JSON data through POST
  * - Specifies the static directory that Express should use
  * - Tests the Gmail connection - if it passes, sets the global boolean mailConnectAuth to true; if it fails, outputs the error to the console */
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(staticDir));
 async function verifyEmailConnection() {
     try {
@@ -141,25 +143,22 @@ app.post("/contact-page", async (req, res) => {
         returnMessage = "Connection to the email server couldn't be established";
     }
 
-    /** Unfortunately, due to issues with trying to properly intercept the contact form data client-side, validate it, send it to the server, and then read the response, the below code is being skipped for a simple redirect. As a result, the user will not know if their email was sent. */
-    res.redirect("/");
-
     /** If the email couldn't be sent, set the return status code to 500. */
-    // if (!emailSent) {
-    //     returnStatus = 500;
-    // }
-    // else {
-    //     returnStatus = 200;
-    // }
+    if (!emailSent) {
+        returnStatus = 500;
+    }
+    else {
+        returnStatus = 200;
+    }
 
     /** Set the return status */
     // res.status(returnStatus);
 
     /** Send back the return status code and the message from the helper function. This is intended to then be handled by the client side JavaScript.*/
-    // res.json({
-    //     status: returnStatus,
-    //     message: returnMessage
-    // });
+    res.json({
+        status: returnStatus,
+        message: returnMessage
+    });
 })
 
 /** Catch-all */
