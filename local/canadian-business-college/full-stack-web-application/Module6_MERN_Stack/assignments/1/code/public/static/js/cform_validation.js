@@ -85,6 +85,7 @@ formSubmit.addEventListener("submit", async (event) => {
     const contactJSONData = Object.fromEntries(formData.entries());
     const serverResponse = await fetch("/contact-page", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(contactJSONData)
     })
 
