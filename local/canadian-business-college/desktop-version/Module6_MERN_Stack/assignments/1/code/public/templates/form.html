@@ -20,6 +20,7 @@
             rel="stylesheet">
         <!-- Personal CSS -->
         <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
     </head>
 
     <body>
@@ -82,34 +83,31 @@
                 <h4 class="section-title">
                     Details about you:
                 </h4>
-                <div class="section-content">
-                    <form class="form-form-details" action="assignment-form" method="post"
-                        enctype="multipart/form-data">
-                        <div class="form-form-element">
-                            <label for="u_name">What is your name?</label>
-                            <input type="text" id="u_name" name="u_name">
-                        </div>
-                        <div class="form-form-element">
-                            <label for="u_age">What is your age?</label>
-                            <input type="text" id="u_age" name="u_age">
-                        </div>
-                        <div class="form-form-element">
-                            <label for="u_car">What car do you drive?</label>
-                            <input type="text" id="u_car" name="u_car">
-                        </div>
-                        <div class="form-form-element">
-                            <label for="u_job">What is your occupation?</label>
-                            <input type="text" id="u_job" name="u_job">
-                        </div>
-                        <div class="form-form-element">
-                            <label for="u_image">Please upload a photo of your choosing:</label>
-                            <input type="file" id="u_image" name="u_image">
-                        </div>
-                        <div class="form-form-element">
-                            <button type="submit" id="form-submit-btn">Send my information</button>
-                        </div>
-                    </form>
-                </div>
+                <form class="form-form-details" action="assignment-form" method="post" enctype="multipart/form-data">
+                    <div class="form-form-element form-text">
+                        <label for="u_name" class="form-label">What is your name?</label>
+                        <input type="text" id="u_name" name="u_name">
+                    </div>
+                    <div class="form-form-element form-text">
+                        <label for="u_age" class="form-label">What is your age?</label>
+                        <input type="text" id="u_age" name="u_age">
+                    </div>
+                    <div class="form-form-element form-text">
+                        <label for="u_car" class="form-label">What car do you drive?</label>
+                        <input type="text" id="u_car" name="u_car">
+                    </div>
+                    <div class="form-form-element form-text">
+                        <label for="u_job" class="form-label">What is your occupation?</label>
+                        <input type="text" id="u_job" name="u_job">
+                    </div>
+                    <div class="form-form-element form-upload">
+                        <label for="u_image" class="form-label">Please upload a photo of your choosing:</label>
+                        <input type="file" id="u_image" name="u_image">
+                    </div>
+                    <div class="form-form-element form-btn">
+                        <button type="submit" id="form-submit-btn">Send my information</button>
+                    </div>
+                </form>
             </section>
         </main>
     </body>
