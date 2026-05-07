@@ -16,7 +16,8 @@
 }
 
 .form-upload,
-.form-btn {
+.form-message,
+.form-button {
     grid-column: 1 / span 2;
     display: flex;
     justify-content: center;
@@ -28,4 +29,6 @@
     border: none;
     border-radius: 4%;
     cursor: pointer;
+    background-color: #8b9ba6;
+    color: aliceblue;
 }

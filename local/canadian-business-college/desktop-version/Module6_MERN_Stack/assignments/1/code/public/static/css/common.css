@@ -25,8 +25,6 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #8b9ba6;
-    /* background-color: #a68fa3; */
-    /* background-color: #7a9b8f; */
 }
 
 /** Set up the navigation list to not have any bullet points and be flex display with default main axis to make the links horizontal with a gap in between each link. */

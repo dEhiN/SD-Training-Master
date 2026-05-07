@@ -20,6 +20,8 @@
             rel="stylesheet">
         <!-- Personal CSS -->
         <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/contact.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
     </head>
 
     <body>
@@ -72,7 +74,7 @@
                         or
                         just say hi - send me a message through the form below:
                     </p>
-                    <form class="form-form-details" action="/contact-page" method="post">
+                    <form id="contact-form" class="form-form-details" action="/contact-page" method="post">
                         <div class="form-form-element">
                             <label for="c_name">What is your name?</label>
                             <input type="text" id="c_name" name="c_name">
@@ -81,11 +83,11 @@
                             <label for="c_email">What is your email?</label>
                             <input type="text" id="c_email" name="c_email">
                         </div>
-                        <div class="form-form-element">
+                        <div class="form-form-element form-message">
                             <label for="c_message">What is your message?</label>
                             <textarea id="c_message" name="c_message" minlength="20"></textarea>
                         </div>
-                        <div class="form-form-element">
+                        <div class="form-form-element form-button">
                             <button type="submit" id="form-submit-btn">Message Me!</button>
                         </div>
                     </form>

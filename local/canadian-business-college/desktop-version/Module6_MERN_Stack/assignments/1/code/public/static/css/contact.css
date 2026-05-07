@@ -1,0 +1,16 @@
+#contact-form {
+    width: 95%;
+}
+
+#c_message {
+    width: 50%;
+    height: 200%;
+}
+
+.form-message {
+    height: 200%;
+}
+
+.form-button {
+    margin-top: 10%;
+}
