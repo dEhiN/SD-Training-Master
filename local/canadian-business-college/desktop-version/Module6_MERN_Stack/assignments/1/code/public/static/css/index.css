@@ -1,0 +1,41 @@
+.body-content {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.no-list {
+    list-style-type: none;
+}
+
+.numeral-list {
+    list-style-type: upper-roman;
+    padding-left: 2.5%;
+}
+
+.point-form-list {
+    list-style-type: upper-alpha;
+    padding-left: 5%;
+}
+
+.list-header {
+    font-weight: bold;
+}
+
+.sub-list-header {
+    font-style: italic;
+}
+
+.list-point {
+    padding-bottom: 2%;
+}
+
+.section-site-description,
+.section-site-structure,
+.section-tech-stack,
+.section-about-author {
+    margin: 0;
+    padding-bottom: 0;
+}
