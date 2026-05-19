@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Assignment 1 for Module 6 of the Canadian Business College program Full Stack Web Application Development. The assignment focuses on building a full-stack Node.js web server.">
+        <meta name="keywords" content="Canadian Business College, CBC, full stack, web server, node.js">
+        <!-- Window/Tab Title -->
+        <title>Module 6 - Assignment 1 - Contact</title>
+        <!-- Client-side JS -->
+        <script src="js/cform_validation.js" defer></script>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Forum&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet">
+        <!-- Personal CSS -->
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/contact.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+    </head>
+
+    <body>
+        <!-- Header section which consists of just the nav section -->
+        <header class="section-header">
+            <!-- Add empty div to make nav middle child for flex -->
+            <div></div>
+            <nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="/" class="nav-link">Site Home</a>
+                    </li>
+                    <li>
+                        <a href="assignment-form" class="nav-link">Assignment Form</a>
+                    </li>
+                    <li>
+                        <a href="contact-page" class="nav-link">Contact Me</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Add empty div to make nav middle child for flex -->
+            <div></div>
+        </header>
+        <!-- Main part of the body -->
+        <main>
+            <!-- Title section -->
+            <section class="section doc-title">
+                <h1 class="doc-title__heading">
+                    Module 6 - Assignment 1
+                </h1>
+                <h3 class="doc-title__subheading">
+                    <span class="doc-title__subheading__text">Building a Full-Stack</span>
+                    <span class="doc-title__subheading__text">Node.js Web Server</span>
+                </h3>
+            </section>
+            <!-- The contact me form itself -->
+            <section class="section form-form">
+                <div class="section-content">
+                    <p>
+                        If you would like to connect with me - whether to collaborate on a project, ask about my code,
+                        or
+                        just say hi - send me a message through the form below:
+                    </p>
+                    <form id="contact-form" class="form-form-details" action="/contact-page" method="post">
+                        <div class="form-form-element">
+                            <label for="c_name">What is your name?</label>
+                            <input type="text" id="c_name" name="c_name">
+                        </div>
+                        <div class="form-form-element">
+                            <label for="c_email">What is your email?</label>
+                            <input type="text" id="c_email" name="c_email">
+                        </div>
+                        <div class="form-form-element form-message">
+                            <label for="c_message">What is your message?</label>
+                            <textarea id="c_message" name="c_message" minlength="20"></textarea>
+                        </div>
+                        <div class="form-form-element form-button">
+                            <button type="submit" id="form-submit-btn">Message Me!</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+
+</html>
