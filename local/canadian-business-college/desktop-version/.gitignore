@@ -11,3 +11,6 @@ node_modules/
 # Module 6 - Assignment 1
 submissions.txt
 uploads/
+
+# Google Files
+.gdoc
