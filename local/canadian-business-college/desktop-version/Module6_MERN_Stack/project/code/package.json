@@ -1,0 +1,12 @@
+{
+  "name": "module6-project",
+  "version": "1.0.0",
+  "description": "The project for Module 6 from the Canadian Business College diploma program - Full Stack Web Application Developer",
+  "license": "ISC",
+  "author": "David H. Watson",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
