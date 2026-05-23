@@ -4,7 +4,7 @@
   "description": "The project for Module 6 from the Canadian Business College diploma program - Full Stack Web Application Developer",
   "license": "ISC",
   "author": "David H. Watson",
-  "type": "commonjs",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,6 +14,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongodb": "^7.2.0"
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.2"
   }
 }
