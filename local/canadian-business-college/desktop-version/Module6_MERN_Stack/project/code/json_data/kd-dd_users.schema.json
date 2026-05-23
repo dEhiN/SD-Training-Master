@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "MongoDB data schema for KD-DD",
+  "description": "This is a schema for ...",
+  "type": "object",
+  "properties": {}
+}
