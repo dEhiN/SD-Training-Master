@@ -131,5 +131,6 @@
 		},
 		"additionalProperties": false
 	},
-	"required": ["AccountInfo", "UserProfile", "CreditCardDetails", "VehicleDetails"]
+	"required": ["AccountInfo", "UserProfile", "CreditCardDetails", "VehicleDetails"],
+	"additionalProperties": false
 }
