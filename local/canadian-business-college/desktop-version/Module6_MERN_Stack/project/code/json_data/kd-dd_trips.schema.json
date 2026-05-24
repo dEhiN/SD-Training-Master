@@ -1,7 +1,156 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "title": "MongoDB data schema for KD-DD",
-  "description": "This is a schema for ...",
-  "type": "object",
-  "properties": {}
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"title": "MongoDB data schema for KD-DD",
+	"description": "This is a schema for the Trips collection. It will be used for data validation at the level when the data comes in from the frontend and at the level prior to adding/updating data to the database.",
+	"type": "object",
+	"properties": {
+		"_id": {
+			"type": "string"
+		},
+		"UserId": {
+			"type": "string",
+			"description": "The document id of the user associated with this trip."
+		},
+		"PickupLocation": {
+			"$ref": "#/definitions/AddressObject"
+		},
+		"DropOffLocation": {
+			"$ref": "#/definitions/AddressObject"
+		},
+		"TotalDistanceKm": {
+			"type": "number",
+			"description": "The total distance of the trip recorded in kilometres.",
+			"minimum": 0
+		},
+		"ExtraCalculations": {
+			"type": "object",
+			"description": "An optional object to specify stop overs and wait time",
+			"properties": {
+				"PickupWaitTime": {
+					"$ref": "#/definitions/WaitTimeObject"
+				},
+				"StopOvers": {
+					"type": "array",
+					"description": "An array of trip stopovers.",
+					"items": {
+						"type": "object",
+						"properties": {
+							"StopOverNumber": {
+								"type": "integer",
+								"description": "A number representing the order of the stopover.",
+								"minimum": 1
+							},
+							"StopOverAddress": {
+								"$ref": "#/definitions/AddressObject"
+							},
+							"StopOverWaitTime": {
+								"$ref": "#/definitions/WaitTimeObject"
+							}
+						},
+						"required": ["StopOverNumber", "StopOverAddress", "StopOverWaitTime"],
+						"additionalProperties": false
+					}
+				}
+			},
+			"anyOf": [
+				{
+					"required": ["PickupWaitTime"]
+				},
+				{
+					"required": ["StopOvers"]
+				}
+			],
+			"additionalProperties": false
+		},
+		"TotalCostCAD": {
+			"type": "number",
+			"description": "The total cost of the trip in CAD."
+		}
+	},
+	"required": ["UserId", "PickupLocation", "DropOffLocation", "TotalDistanceKm", "TotalCostCAD"],
+	"additionalProperties": false,
+	"definitions": {
+		"AddressObject": {
+			"type": "object",
+			"description": "A single sub-schema representing an address object. This allows for addresses to appear multiple times in a trip.",
+			"properties": {
+				"StreetAddress": {
+					"type": "string",
+					"description": "The full address as one would use with Google Maps."
+				},
+				"UnitNumber": {
+					"type": "string",
+					"description": "If the address has a second component, such as basement or an apartment number."
+				},
+				"CityName": {
+					"type": "string"
+				},
+				"CountyName": {
+					"type": "string",
+					"description": "The name of the county if applicable."
+				},
+				"ProvinceName": {
+					"type": "string",
+					"enum": [
+						"AB",
+						"BC",
+						"MB",
+						"NB",
+						"NL",
+						"NT",
+						"NU",
+						"ON",
+						"PE",
+						"QC",
+						"SK",
+						"YT"
+					],
+					"default": "ON"
+				},
+				"PostalCode": {
+					"type": "string",
+					"pattern": "([A-CEGHJ-NPR-TVXY][0-9][A-CEGHJ-NPR-TV-Z]\\s?[0-9][A-CEGHJ-NPR-TV-Z][0-9])"
+				},
+				"GeoLocation": {
+					"type": "object",
+					"properties": {
+						"type": {
+							"type": "string",
+							"enum": ["Point"]
+						},
+						"coordinates": {
+							"type": "array",
+							"minItems": 2,
+							"maxItems": 2,
+							"items": {
+								"type": "number"
+							}
+						}
+					},
+					"required": ["type", "coordinates"]
+				}
+			},
+			"required": ["StreetAddress", "CityName", "ProvinceName", "PostalCode", "GeoLocation"],
+			"additionalProperties": false
+		},
+		"WaitTimeObject": {
+			"type": "object",
+			"description": "A single sub-schema representing the components of a trip waiting time. This can then be used multiple times.",
+			"properties": {
+				"StartTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"EndTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"WaitTotalSeconds": {
+					"type": "integer"
+				}
+			},
+			"required": ["StartTime", "EndTime", "WaitTotalSeconds"],
+			"additionalProperties": false
+		}
+	}
 }
