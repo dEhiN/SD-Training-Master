@@ -33,3 +33,14 @@ const ajv = new Ajv({
     useDefaults: true,
     removeAdditional: "all"
 });
+
+
+/** Middleware setup: 
+ * - Sets up CORS
+ * - Add the ability to handle complex form data through POST
+ * - Add the ability to handle JSON data through POST
+ * - Specifies the static directory that Express should use */
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// app.use(express.static(staticDir))
