@@ -16,7 +16,7 @@ dotenv.config();
 
 
 /** Variable to represent the server listening port. */
-const PORT = dotConfigResults.PORT || 4006;
+const PORT = process.env.PORT || 4006;
 
 
 /** Connect to the database before continuing. */
