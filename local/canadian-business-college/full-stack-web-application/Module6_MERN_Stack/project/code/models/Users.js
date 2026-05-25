@@ -5,8 +5,8 @@
 import mongoose from "mongoose";
 
 
-/** Start with the child schemas */
-// Create one to map to "CreditCardDetails" in the JSON Schema
+/** Start with the child schemas. In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */
+// This one maps to "CreditCardDetails" in the JSON Schema
 const ccDetailsSchema = new mongoose.Schema({
     IsDefault: {
         type: Boolean,
@@ -50,7 +50,7 @@ ccDetailsSchema.virtual('CardId')
     .set((value) => {
         this._id = new mongoose.Types.ObjectId(value);
     });
-// Create one to map to "VehicleDetails" in the JSON Schema
+// This one maps to "VehicleDetails" in the JSON Schema
 const vehicleDetailsSchema = new mongoose.Schema({
     OwnerName: {
         type: String
