@@ -114,13 +114,13 @@ const extraCalcSchema = new mongoose.Schema({
     PickupWaitTime: {
         type: waitTimeSchema,
         required: function () {
-            return !this.ExtraCalculations?.StopOvers;
+            return !this.StopOvers || this.StopOvers.length === 0;
         }
     },
     StopOvers: {
         type: [stopOverSchema],
         required: function () {
-            return !this.ExtraCalculations?.PickupWaitTime;
+            return !this.PickupWaitTime;
         }
     }
 }, {
@@ -149,7 +149,6 @@ const tripSchema = new mongoose.Schema({
     },
     ExtraCalculations: {
         type: extraCalcSchema,
-        required: true
     },
     TotalCostCAD: {
         type: Number,
@@ -157,7 +156,7 @@ const tripSchema = new mongoose.Schema({
     },
 }, {
     strict: "throw",
-    collection: "Users"
+    collection: "Trips"
 })
 
 
