@@ -90,6 +90,7 @@
 				"required": [
 					"CardId",
 					"IsDefault",
+					"CC_Type",
 					"CC_Number",
 					"CC_Name",
 					"CC_ExpMonth",
