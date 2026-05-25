@@ -4,11 +4,8 @@
 import mongoose from "mongoose";
 
 /** Start with the child schemas */
+// Create one to map to "CreditCardDetails" in the JSON Schema
 const ccDetailsSchema = new mongoose.Schema({
-    CardId: {
-        type: String,
-        required: true
-    },
     IsDefault: {
         type: Boolean,
         required: true
@@ -40,6 +37,15 @@ const ccDetailsSchema = new mongoose.Schema({
         required: true
     }
 }, {
-    _id: false,
-    strict: "throw"
+    strict: "throw",
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
 })
+// Create a virtual getter/setter so map the _id field in the db to the "CardId" key/field from the JSON Schema since that's what the API and all logic will use
+ccDetailsSchema.virtual('CardId')
+    .get(() => {
+        return this._id.toHexString();
+    })
+    .set((value) => {
+        this._id = new mongoose.Types.ObjectId(value);
+    });
