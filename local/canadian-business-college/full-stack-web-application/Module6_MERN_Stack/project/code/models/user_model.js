@@ -111,14 +111,14 @@ const userProfileSchema = new mongoose.Schema({
         type: String,
         match: /^([2-9]\d{2}[2-9]\d{7}|[2-9]\d{2}-[2-9]\d{2}-\d{4})$/,
         required: function () {
-            return !this.UserProfile?.EmailAddress;
+            return !this.EmailAddress;
         }
     },
     EmailAddress: {
         type: String,
         match: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,})$/,
         required: function () {
-            return !this.UserProfile?.PhoneNumber;
+            return !this.PhoneNumber;
         }
     },
 }, {

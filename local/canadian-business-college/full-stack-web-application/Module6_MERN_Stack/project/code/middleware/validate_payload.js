@@ -5,8 +5,8 @@
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 /** JSON Schema Module Imports */
-import userSchema from './json_data/kd-dd_user.schema.json' with { type: 'json' };
-import tripSchema from './json_data/kd-dd_trip.schema.json' with { type: 'json' };
+import userSchema from '../json_data/kd-dd_user.schema.json' with { type: 'json' };
+import tripSchema from '../json_data/kd-dd_trip.schema.json' with { type: 'json' };
 
 
 /** Module specific global variables:
