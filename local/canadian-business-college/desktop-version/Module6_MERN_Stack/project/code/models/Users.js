@@ -87,3 +87,34 @@ ccDetailsSchema.virtual('CardId')
     .set((value) => {
         this._id = new mongoose.Types.ObjectId(value);
     });
+
+// This one maps to "UserProfile" in the JSON Schema
+const userProfileSchema = new mongoose.Schema({
+    FirstName: {
+        type: String,
+        required: true
+    },
+    MiddleName: {
+        type: String,
+    },
+    FamilyName: {
+        type: String,
+        required: true
+    },
+    PhoneNumber: {
+        type: String,
+        match: /^([2-9]\d{2}[2-9]\d{7}|[2-9]\d{2}-[2-9]\d{2}-\d{4})$/,
+        required: () => {
+            return !this.UserProfile?.EmailAddress;
+        }
+    },
+    EmailAddress: {
+        type: String,
+        match: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,})$/,
+        required: () => {
+            return !this.UserProfile?.PhoneNumber;
+        }
+    },
+}, {
+    strict: "throw"
+})
