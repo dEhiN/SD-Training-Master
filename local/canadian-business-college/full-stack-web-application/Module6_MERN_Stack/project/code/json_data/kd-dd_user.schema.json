@@ -70,9 +70,6 @@
 						"type": "string",
 						"enum": ["VISA", "MasterCard"]
 					},
-					"CC_Name": {
-						"type": "string"
-					},
 					"CC_Number": {
 						"type": "string",
 						"minLength": 15,
