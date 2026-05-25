@@ -2,10 +2,10 @@
 
 
 /** Named Module Imports */
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 
-/** Start with the child schemas. In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */
+/** Child Schemas: In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */
 
 // This one maps to "VehicleDetails" in the JSON Schema
 const vehicleDetailsSchema = new mongoose.Schema({
@@ -132,4 +132,10 @@ const accountInfoSchema = new mongoose.Schema({
     }
 }, {
     strict: "throw"
+})
+
+
+/** Main User Schema: This will be the schema for the top level document to represent a User object. */
+const userSchema = new mongoose.Schema({
+
 })
