@@ -6,9 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Ajv from 'ajv';
 import mongoose from 'mongoose';
-/** Custom Module Imports */
-import userSchema from './json_data/kd-dd_user.schema.json' with { type: 'json' };
-import tripSchema from './json_data/kd-dd_trip.schema.json' with { type: 'json' };
+/** Mongoose Model Module Imports */
 import User from './models/User.js';
 import Trip from './models/Trip.js';
 
@@ -89,14 +87,8 @@ connectToMongoDB();
 
 
 /** Module specific global variables:
- * - Create the Express app
- * - Create an Ajv object to use for the JSON schema validation */
+ * - Create the Express app */
 const app = express();
-const ajv = new Ajv({
-    allErrors: true,
-    useDefaults: true,
-    removeAdditional: "all"
-});
 
 
 /** Middleware setup:
@@ -107,4 +99,3 @@ const ajv = new Ajv({
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static(staticDir))
