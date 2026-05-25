@@ -1,14 +1,16 @@
 /** This is the main Express server file. It creates and starts the Express server for the site kd-dd.ca. */
 
-/** Built-in Module Imports */
-import fs from 'fs';
-import path from 'path';
 /** Named Module Imports */
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Ajv from 'ajv';
 import mongoose from 'mongoose';
+/** Custom Module Imports */
+import userSchema from './json_data/kd-dd_user.schema.json' with { type: 'json' };
+import tripSchema from './json_data/kd-dd_trip.schema.json' with { type: 'json' };
+import User from './models/User.js';
+import Trip from './models/Trip.js';
 
 
 /** Configure the dotenv module to add the variables in the .env file to the environment path. This is done at this point so the script specific global variables that rely on the environment variables can be initialized. The results are stored in a variable for easier use. */
