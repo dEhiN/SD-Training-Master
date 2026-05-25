@@ -181,3 +181,8 @@ userSchema.pre('save', async function (next) {
         next(error);
     }
 });
+
+
+/** Creating the final model for a User object and exporting it for use. */
+const User = mongoose.model("User", userSchema);
+export default User;
