@@ -109,7 +109,7 @@
 				},
 				"PostalCode": {
 					"type": "string",
-					"pattern": "([A-CEGHJ-NPR-TVXY][0-9][A-CEGHJ-NPR-TV-Z]\\s?[0-9][A-CEGHJ-NPR-TV-Z][0-9])"
+					"pattern": "^([A-CEGHJ-NPR-TVXY][0-9][A-CEGHJ-NPR-TV-Z]\\s?[0-9][A-CEGHJ-NPR-TV-Z][0-9])$"
 				},
 				"GeoLocation": {
 					"type": "object",
@@ -130,7 +130,7 @@
 					"required": ["type", "coordinates"]
 				}
 			},
-			"required": ["StreetAddress", "CityName", "ProvinceName", "PostalCode", "GeoLocation"],
+			"required": ["StreetAddress", "CityName", "PostalCode", "GeoLocation"],
 			"additionalProperties": false
 		},
 		"WaitTimeObject": {
