@@ -20,3 +20,5 @@ const userRouter = express.Router();
 /** Set up the routes. These will be based on '/' because server.js will define the API user endpoint for these routes. */
 userRouter.post('/create-account', validateUser, createAccount);
 userRouter.post('/login', loginUser);
+
+export default userRouter;
