@@ -3,6 +3,7 @@
 
 /** Named Module Imports */
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 
 /** Child Schemas: In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */
@@ -139,3 +140,33 @@ const accountInfoSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
 
 })
+
+
+/** Creating a pre-save hook to hash the user password using bcrypt.
+ * NOTE: The code was generated with Gemini.
+ */
+userSchema.pre('save', async function (next) {
+    const user = this;
+
+    // ONLY hash the password if it has been modified (or is brand new)
+    if (!user.isModified('AccountInfo.UserPassword')) {
+        return next();
+    }
+
+    try {
+        // Generate a secure salt (10 rounds is the industry standard balance)
+        const salt = await bcrypt.genSalt(10);
+
+        // Hash the plain-text password using the generated salt
+        const hash = await bcrypt.hash(user.AccountInfo.UserPassword, salt);
+
+        // Overwrite the plain-text password with the secure regex-compliant hash
+        user.AccountInfo.UserPassword = hash;
+
+        // Release the hook and allow Mongoose to complete the save
+        next();
+    } catch (error) {
+        // Pass any hashing system errors down to the Express handler
+        next(error);
+    }
+});
