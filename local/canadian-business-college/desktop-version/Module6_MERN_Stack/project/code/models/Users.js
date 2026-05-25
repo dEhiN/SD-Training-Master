@@ -50,3 +50,38 @@ ccDetailsSchema.virtual('CardId')
     .set((value) => {
         this._id = new mongoose.Types.ObjectId(value);
     });
+// Create one to map to "VehicleDetails" in the JSON Schema
+const vehicleDetailsSchema = new mongoose.Schema({
+    OwnerName: {
+        type: String
+    },
+    VehicleMake: {
+        type: String,
+        required: true
+    },
+    VehicleModel: {
+        type: String,
+        required: true
+    },
+    VehicleColour: {
+        type: String,
+        required: true
+    },
+    LicensePlate: {
+        type: String,
+        match: /^([A-Z]{4}\d{3}|[A-Z]{3}\d{3}|[A-Z]{2}\d{5}|GV[A-Z]\d{4}|[A-Z0-9]{2,8})$/,
+        required: true
+    },
+}, {
+    strict: "throw",
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+})
+// Create a virtual getter/setter to map the _id field in the db to the "VehicleId" key/field from the JSON Schema. This will allow all logic to work with "VehicleId".
+ccDetailsSchema.virtual('VehicleId')
+    .get(() => {
+        return this._id.toHexString();
+    })
+    .set((value) => {
+        this._id = new mongoose.Types.ObjectId(value);
+    });
