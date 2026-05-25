@@ -12,6 +12,9 @@ const ccDetailsSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    CC_Name: {
+        type: String,
+    },
     CC_Type: {
         type: String,
         enum: ["VISA", "MasterCard"],

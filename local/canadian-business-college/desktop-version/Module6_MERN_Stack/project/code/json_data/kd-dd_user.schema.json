@@ -63,6 +63,9 @@
 						"type": "boolean",
 						"description": "True if this card should be automatically selected at checkout."
 					},
+					"CC_Name": {
+						"type": "string"
+					},
 					"CC_Type": {
 						"type": "string",
 						"enum": ["VISA", "MasterCard"]
