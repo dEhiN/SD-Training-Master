@@ -1,3 +1,5 @@
+/** This is the main Express server file. It creates and starts the Express server for the site kd-dd.ca. */
+
 /** Built-in Module Imports */
 import fs from 'fs';
 import path from 'path';
@@ -14,7 +16,9 @@ const dotConfigResults = dotenv.config().parsed;
 
 
 /** Script specific global variables */
+// Server listening port
 const PORT = dotConfigResults.PORT || 4006;
+// Variables for the database connection
 const dbConnectionUri = dotConfigResults?.MONGODB_URI || process.env.MONGODB_URI;
 const dbUserName = dotConfigResults?.MONGODB_UNAME || process.env.MONGODB_UNAME;
 const dbUserPassword = dotConfigResults?.MONGODB_PWD || process.env.MONGODB_PWD;
@@ -57,8 +61,8 @@ async function connectToMongoDB() {
 connectToMongoDB();
 
 
-/** Module specific global variables: 
- * - Create the Express app 
+/** Module specific global variables:
+ * - Create the Express app
  * - Create an Ajv object to use for the JSON schema validation */
 const app = express();
 const ajv = new Ajv({
@@ -68,7 +72,7 @@ const ajv = new Ajv({
 });
 
 
-/** Middleware setup: 
+/** Middleware setup:
  * - Sets up CORS
  * - Add the ability to handle complex form data through POST
  * - Add the ability to handle JSON data through POST
