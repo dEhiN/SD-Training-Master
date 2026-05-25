@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 
 /** Child Schemas: In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */
 
-// This one maps to "VehicleDetails" in the JSON Schema
+// This one maps to "VehicleDetails" in the JSON Schema. A virtual alias is used to map the _id field in the database to the "VehicleId" field from the JSON schema. A virtual getter and setter are created to perform this mapping. This will allow all logic to work with "VehicleId".
 const vehicleDetailsSchema = new mongoose.Schema({
     OwnerName: {
         type: String
@@ -33,18 +33,20 @@ const vehicleDetailsSchema = new mongoose.Schema({
 }, {
     strict: "throw",
     toJSON: { virtuals: true },
-    toObject: { virtuals: true }
+    toObject: { virtuals: true },
+    virtuals: {
+        VehicleId: {
+            get() {
+                return this._id.toHexString();
+            },
+            set(value) {
+                this._id = new mongoose.Types.ObjectId(value);
+            }
+        }
+    }
 })
-// Create a virtual getter/setter to map the _id field in the db to the "VehicleId" key/field from the JSON Schema. This will allow all logic to work with "VehicleId".
-ccDetailsSchema.virtual('VehicleId')
-    .get(() => {
-        return this._id.toHexString();
-    })
-    .set((value) => {
-        this._id = new mongoose.Types.ObjectId(value);
-    });
 
-// This one maps to "CreditCardDetails" in the JSON Schema
+// This one maps to "CreditCardDetails" in the JSON Schema. A virtual alias is used to map the _id field in the database to the "CardId" field from the JSON schema. A virtual getter and setter are created to perform this mapping. This will allow all logic to work with "CardId".
 const ccDetailsSchema = new mongoose.Schema({
     IsDefault: {
         type: Boolean,
@@ -78,16 +80,19 @@ const ccDetailsSchema = new mongoose.Schema({
 }, {
     strict: "throw",
     toJSON: { virtuals: true },
-    toObject: { virtuals: true }
+    toObject: { virtuals: true },
+    virtuals: {
+        CardId: {
+            get() {
+                return this._id.toHexString();
+            },
+            set(value) {
+                this._id = new mongoose.Types.ObjectId(value);
+            }
+        }
+    }
+
 })
-// Create a virtual getter/setter to map the _id field in the db to the "CardId" key/field from the JSON Schema. This will allow all logic to work with "CardId".
-ccDetailsSchema.virtual('CardId')
-    .get(() => {
-        return this._id.toHexString();
-    })
-    .set((value) => {
-        this._id = new mongoose.Types.ObjectId(value);
-    });
 
 // This one maps to "UserProfile" in the JSON Schema
 const userProfileSchema = new mongoose.Schema({
