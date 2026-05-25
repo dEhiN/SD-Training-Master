@@ -26,17 +26,35 @@ const userValidator = ajv.compile(userSchema);
 const tripValidator = ajv.compile(tripSchema);
 
 
-/** Express Middleware functions to do the actual validation of payloads against the JSON schemas. */
-// Validate User data
-export const validateUser = (req, res, next) => {
+/** Helper function to do the actual validation of payloads against the JSON schemas.
+ * 
+ * It first performs some safety checks to make sure that the request object has a body and it isn't empty. If the checks pass then the passed-in validator function is called. If the validation passes, then the passed-in next function is called.
+ * 
+ * If either the safety checks or the validation fail, an HTTP 400 Status Code is returned with a custom message.
+ * 
+ * @param req An Express Request object
+ * @param res An Express Response object
+ * @param next An Express Next function
+ * @param validatorFunction An Ajv validator function created from calling Ajv.compile() on a JSON schema.
+ * @param dataType A string representing which type of data was meant to be in the req.body payload. The currently accepted values are "user" and "trip'."
+ */
+const validateData = (req, res, next, validatorFunction, dataType) => {
+    // Check to make sure req.body exists and isn't empty. If it is, return immediately.
+    if (!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).json({
+            status: "fail",
+            message: "No request data was provided in the body. Please send a valid data payload."
+        })
+    }
+
     // Do the actual validation
-    const isValid = userValidator(req.body);
+    const isValid = validatorFunction(req.body);
 
     // Check if the validation failed and let the client-side code know
     if (!isValid) {
         return res.status(400).json({
-            status: 'fail',
-            message: 'The user request data sent did not pass JSON validation. Please check the data and resend.',
+            status: "fail",
+            message: `The ${dataType} request data sent did not pass JSON validation. Please check the data and resend.`,
             errors: userValidator.errors
         })
     }
@@ -44,20 +62,13 @@ export const validateUser = (req, res, next) => {
     // The validation passed and the data has been cleaned and processed. Execution can proceed to the next step in the Express pipeline.
     next();
 }
+
+/** Express Middleware functions. */
+// Validate User data
+export const validateUser = (req, res, next) => {
+    validateData(req, res, next, userValidator, "user");
+}
 // Validate Trip data
 export const validateTrip = (req, res, next) => {
-    // Do the actual validation
-    const isValid = tripValidator(req.body);
-
-    // Check if the validation failed and let the client-side code know
-    if (!isValid) {
-        return res.status(400).json({
-            status: 'fail',
-            message: 'The trip request data sent did not pass JSON validation. Please check the data and resend.',
-            errors: tripValidator.errors
-        })
-    }
-
-    // The validation passed and the data has been cleaned and processed. Execution can proceed to the next step in the Express pipeline.
-    next();
+    validateData(req, res, next, tripValidator, "trip");
 }
