@@ -40,3 +40,12 @@ app.use(express.json());
 /** Set up main routes to then call the respective imported routers. */
 app.use("/api/users", userRouter);
 app.use("/api/trips", tripRouter);
+
+
+/** Start server to listen */
+app.listen(PORT, () => {
+    console.log(`The server has started on port ${PORT}!`);
+})
+
+
+export default app;
