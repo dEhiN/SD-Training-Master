@@ -17,8 +17,9 @@
 				},
 				"UserPassword": {
 					"type": "string",
-					"description": "Login password information stored as a hash using the bcrypt algorithm",
-					"pattern": "^\\$2[ayb]\\$\\d{2}\\$[./A-Za-z0-9]{53}$"
+					"description": "Login password information in the form of plain text, but that will be stored in the database as a hash using the bcrypt algorithm",
+					"minLength": 8,
+					"maxLength": 24
 				}
 			},
 			"required": ["UserName", "UserPassword"],
