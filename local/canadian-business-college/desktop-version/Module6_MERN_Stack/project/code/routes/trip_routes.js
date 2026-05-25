@@ -14,9 +14,9 @@ import { calculateFare, bookTrip } from '../controllers/trip_controller.js';
 
 
 /** Create the Express Router */
-const userRouter = express.Router();
+const tripRouter = express.Router();
 
 
 /** Set up the routes. These will be based on '/' because server.js will define the API trip endpoint for these routes. */
-userRouter.post('/fare-estimate', calculateFare);
-userRouter.post('/booking', validateTrip, bookTrip);
+tripRouter.post('/fare-estimate', calculateFare);
+tripRouter.post('/booking', validateTrip, bookTrip);
