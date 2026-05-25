@@ -143,7 +143,10 @@ const accountInfoSchema = new mongoose.Schema({
 
 /** Main User Schema: This will be the schema for the top level document to represent a User object. */
 const userSchema = new mongoose.Schema({
-
+    AccountInfo: accountInfoSchema,
+    UserProfile: userProfileSchema,
+    CreditCardDetails: [ccDetailsSchema],
+    VehicleDetails: [vehicleDetailsSchema]
 })
 
 
