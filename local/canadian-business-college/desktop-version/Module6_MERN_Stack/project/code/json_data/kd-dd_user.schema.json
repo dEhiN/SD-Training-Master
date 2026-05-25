@@ -84,7 +84,7 @@
 					"CC_ExpYear": {
 						"type": "string",
 						"description": "Four-digit expiration year (2000)",
-						"pattern": "^(\\d{4}$"
+						"pattern": "^(\\d{4})$"
 					}
 				},
 				"required": [
