@@ -1,2 +1,2 @@
-export const registerUser = () => { };
+export const createAccount = () => { };
 export const loginUser = () => { };
