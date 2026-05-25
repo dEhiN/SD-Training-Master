@@ -22,5 +22,42 @@ addFormats(ajv);
 
 
 /** Compile the schemas. */
-const userValidate = ajv.compile(userSchema);
-const tripValidate = ajv.compile(tripSchema);
+const userValidator = ajv.compile(userSchema);
+const tripValidator = ajv.compile(tripSchema);
+
+
+/** Express Middleware functions to do the actual validation of payloads against the JSON schemas. */
+// Validate User data
+export const validateUser = (req, res, next) => {
+    // Do the actual validation
+    const isValid = userValidator(req.body);
+
+    // Check if the validation failed and let the client-side code know
+    if (!isValid) {
+        return res.status(400).json({
+            status: 'fail',
+            message: 'The user request data sent did not pass JSON validation. Please check the data and resend.',
+            errors: userValidator.errors
+        })
+    }
+
+    // The validation passed and the data has been cleaned and processed. Execution can proceed to the next step in the Express pipeline.
+    next();
+}
+// Validate Trip data
+export const validateTrip = (req, res, next) => {
+    // Do the actual validation
+    const isValid = tripValidator(req.body);
+
+    // Check if the validation failed and let the client-side code know
+    if (!isValid) {
+        return res.status(400).json({
+            status: 'fail',
+            message: 'The trip request data sent did not pass JSON validation. Please check the data and resend.',
+            errors: tripValidator.errors
+        })
+    }
+
+    // The validation passed and the data has been cleaned and processed. Execution can proceed to the next step in the Express pipeline.
+    next();
+}
