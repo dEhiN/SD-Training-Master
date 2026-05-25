@@ -4,11 +4,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import Ajv from 'ajv';
 import mongoose from 'mongoose';
-/** Mongoose Model Module Imports */
-import User from './models/User.js';
-import Trip from './models/Trip.js';
 
 
 /** Configure the dotenv module to add the variables in the .env file to the environment path. This is done at this point so the script specific global variables that rely on the environment variables can be initialized. The results are stored in a variable for easier use. */
