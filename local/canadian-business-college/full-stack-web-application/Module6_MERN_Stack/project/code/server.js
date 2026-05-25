@@ -25,37 +25,62 @@ const dbUserPassword = dotConfigResults?.MONGODB_PWD || process.env.MONGODB_PWD;
 // Variables to assist with console and return messages
 const msgsObj = {
     errors: {
-        NODBCONNECT: "The connection URI to the database is missing!",
-        NODBUSERNAME: "The database connection username is missing!",
-        NODBUSERPASSWORD: "The database connection password is missing!"
+        SERVQUIT: "The server is quitting...",
+        ERRLEAD: "Please see below for the specific error:",
+        mongodb: {
+            DBFAIL: "The connection to the Mongo database could not be established.",
+            NODBURI: "The connection URI to the database is missing!",
+            NODBUSERNAME: "The database connection username is missing!",
+            NODBUSERPASSWORD: "The database connection password is missing!"
+        }
     },
     consoles: {
-        DBFAIL: "The connection to the Mongo database could not be established.",
-        SERVQUIT: "The server is quitting...",
-        ERRLEAD: "Please see below for the specific error:"
+        mongodb: {
+            DBATTEMPT: "Attempting connection to Mongo Atlas...",
+            DBCONNECTED: "Connection to the Mongo database was successfully established!"
+        }
+    },
+    misc: {
+        mongodb: {
+            DBUSERNAME: "<db_username>",
+            DBPASSWORD: "<db_password>"
+        }
     }
 }
 
 
 /** Before continuing, check to make sure a connection to the database can be made. Start with inserting the db username and password into the connection uri if they all exist. If there are issues at any stage, throw an error. */
 async function connectToMongoDB() {
+    console.log(msgsObj.consoles.mongodb.DBATTEMPT)
     try {
         /** Check to make sure the db related variables have values. If not, throw an error */
         if (!dbConnectionUri) {
-            throw new Error(msgsObj.errors.NODBCONNECT);
+            throw new Error(msgsObj.errors.mongodb.NODBURI);
         }
         if (!dbUserName) {
-            throw new Error(msgsObj.errors.NODBUSERNAME);
+            throw new Error(msgsObj.errors.mongodb.NODBUSERNAME);
         }
         if (!dbUserPassword) {
-            throw new Error(msgsObj.errors.NODBUSERPASSWORD);
+            throw new Error(msgsObj.errors.mongodb.NODBUSERPASSWORD);
         }
+
+        /** Add the username and password to the connection URI */
+        let uri = dbConnectionUri;
+        uri = uri.replace(msgsObj.misc.mongodb.DBUSERNAME, dbUserName);
+        uri = uri.replace(msgsObj.misc.mongodb.DBPASSWORD, dbUserPassword);
+
+        /** Connect to the MongoDB */
+        await mongoose.connect(uri, {
+            autoIndex: false,
+            dbName: "kd-dd"
+        })
+        console.log(msgsObj.consoles.mongodb.DBCONNECTED);
     }
     catch (err) {
-        console.log(msgsObj.consoles.DBFAIL + "\n" + msgsObj.consoles.ERRLEAD);
+        console.log(msgsObj.errors.mongodb.DBFAIL + "\n" + msgsObj.errors.ERRLEAD);
         console.error(err);
-        console.log(msgsObj.consoles.SERVQUIT);
-        process.exit("1");
+        console.log(msgsObj.errors.SERVQUIT);
+        process.exit(1);
     }
 }
 connectToMongoDB();
