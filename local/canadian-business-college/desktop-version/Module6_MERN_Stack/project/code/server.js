@@ -7,6 +7,8 @@ import dotenv from 'dotenv';
 
 /** Custom Module Imports */
 import connectToMongoDB from './config/database_config.js';
+import userRouter from './routes/user_routes.js';
+import tripRouter from './routes/trip_routes.js';
 
 
 /** Configure the dotenv module to add the variables in the .env file to the environment path. This is done at this point so the script specific global variables that rely on the environment variables can be initialized. */
@@ -33,3 +35,8 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+/** Set up main routes to then call the respective imported routers. */
+app.use("/api/users", userRouter);
+app.use("/api/trips", tripRouter);
