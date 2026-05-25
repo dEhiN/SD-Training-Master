@@ -6,7 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Ajv from 'ajv';
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
 
 /** Configure the dotenv module to add the variables in the .env file to the environment path. This is done at this point so the script specific global variables that rely on the environment variables can be initialized. The results are stored in a variable for easier use. */
@@ -18,10 +18,43 @@ const PORT = dotConfigResults.PORT || 4006;
 const dbConnectionUri = dotConfigResults?.MONGODB_URI || process.env.MONGODB_URI;
 const dbUserName = dotConfigResults?.MONGODB_UNAME || process.env.MONGODB_UNAME;
 const dbUserPassword = dotConfigResults?.MONGODB_PWD || process.env.MONGODB_PWD;
+// Variables to assist with console and return messages
+const msgsObj = {
+    errors: {
+        NODBCONNECT: "The connection URI to the database is missing!",
+        NODBUSERNAME: "The database connection username is missing!",
+        NODBUSERPASSWORD: "The database connection password is missing!"
+    },
+    consoles: {
+        DBFAIL: "The connection to the Mongo database could not be established.",
+        SERVQUIT: "The server is quitting...",
+        ERRLEAD: "Please see below for the specific error:"
+    }
+}
 
 
-/** Before continuing, check to make sure a connection to the database can be made.  */
-
+/** Before continuing, check to make sure a connection to the database can be made. Start with inserting the db username and password into the connection uri if they all exist. If there are issues at any stage, throw an error. */
+async function connectToMongoDB() {
+    try {
+        /** Check to make sure the db related variables have values. If not, throw an error */
+        if (!dbConnectionUri) {
+            throw new Error(msgsObj.errors.NODBCONNECT);
+        }
+        if (!dbUserName) {
+            throw new Error(msgsObj.errors.NODBUSERNAME);
+        }
+        if (!dbUserPassword) {
+            throw new Error(msgsObj.errors.NODBUSERPASSWORD);
+        }
+    }
+    catch (err) {
+        console.log(msgsObj.consoles.DBFAIL + "\n" + msgsObj.consoles.ERRLEAD);
+        console.error(err);
+        console.log(msgsObj.consoles.SERVQUIT);
+        process.exit("1");
+    }
+}
+connectToMongoDB();
 
 
 /** Module specific global variables: 
