@@ -1,7 +1,9 @@
 /** This acts as the Mongoose model for a User object. The schema defined here should correspond to the definition found in the local file "kd-dd_user.schema.json". Any and all database interaction regarding users will be handled by this model. */
 
+
 /** Named Module Imports */
 import mongoose from "mongoose";
+
 
 /** Start with the child schemas */
 // Create one to map to "CreditCardDetails" in the JSON Schema
@@ -41,7 +43,7 @@ const ccDetailsSchema = new mongoose.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 })
-// Create a virtual getter/setter so map the _id field in the db to the "CardId" key/field from the JSON Schema since that's what the API and all logic will use
+// Create a virtual getter/setter to map the _id field in the db to the "CardId" key/field from the JSON Schema. This will allow all logic to work with "CardId".
 ccDetailsSchema.virtual('CardId')
     .get(() => {
         return this._id.toHexString();
