@@ -38,11 +38,11 @@
 				},
 				"PhoneNumber": {
 					"type": "string",
-					"pattern": "([2-9]\\d{2}[2-9]\\d{7}|[2-9]\\d{2}-[2-9]\\d{2}-\\d{4})"
+					"pattern": "^([2-9]\\d{2}[2-9]\\d{7}|[2-9]\\d{2}-[2-9]\\d{2}-\\d{4})$"
 				},
 				"EmailAddress": {
 					"type": "string",
-					"pattern": "([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,})"
+					"pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,})$"
 				}
 			},
 			"required": ["FirstName", "FamilyName"],
@@ -74,17 +74,17 @@
 						"type": "string",
 						"minLength": 16,
 						"maxLength": 16,
-						"pattern": "(4\\d{15}|5[1-5]\\d{14}|2(22[1-9]|2[3-9]\\d|[3-6]\\d{2}|7[0-1]\\d|720)\\d{12})"
+						"pattern": "^(4\\d{15}|5[1-5]\\d{14}|2(22[1-9]|2[3-9]\\d|[3-6]\\d{2}|7[0-1]\\d|720)\\d{12})$"
 					},
 					"CC_ExpMonth": {
 						"type": "string",
 						"description": "Two-digit expiration month (01-12)",
-						"pattern": "(0[1-9]|1[0-2])"
+						"pattern": "^(0[1-9]|1[0-2])$"
 					},
 					"CC_ExpYear": {
 						"type": "string",
 						"description": "Four-digit expiration year (2000)",
-						"pattern": "(\\d{4}"
+						"pattern": "^(\\d{4}$"
 					}
 				},
 				"required": [
