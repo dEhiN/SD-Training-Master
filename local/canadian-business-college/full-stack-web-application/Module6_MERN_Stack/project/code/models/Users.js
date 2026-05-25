@@ -118,3 +118,18 @@ const userProfileSchema = new mongoose.Schema({
 }, {
     strict: "throw"
 })
+
+// This one maps to "AccountInfo" in the JSON Schema
+const accountInfoSchema = new mongoose.Schema({
+    UserName: {
+        type: String,
+        match: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,})$/,
+        required: true
+    },
+    UserPassword: {
+        type: String,
+        required: true
+    }
+}, {
+    strict: "throw"
+})
