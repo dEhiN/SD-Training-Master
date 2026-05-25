@@ -18,7 +18,7 @@ const tripRouter = express.Router();
 
 
 /** Set up the routes. These will be based on '/' because server.js will define the API trip endpoint for these routes. */
-tripRouter.post('/fare-estimate', calculateFare);
-tripRouter.post('/booking', validateTrip, bookTrip);
+tripRouter.post("/fare-estimate", calculateFare);
+tripRouter.post("/booking", validateTrip, bookTrip);
 
 export default tripRouter;
