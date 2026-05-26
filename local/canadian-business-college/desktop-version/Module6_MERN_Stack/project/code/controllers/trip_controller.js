@@ -9,6 +9,18 @@
 import Trip from "../models/trip_model.js";
 
 
+/** Helper functions */
+
+/** This function will calculate the total cost of a trip. It will take the passed in Trip object and perform the business mathematical operations based on the trip details to determine the total cost for the trip and return that. 
+ * 
+ * @param {Trip} tripObjClone A cloned, validated Trip object. The function may modify the Trip object, so it's recommended that a cloned copy be passed in.
+ * 
+ * @returns A float value representing the total trip cost in CAD.
+ */
+function getTotalCost(tripObjClone) {
+
+}
+
 /** Route functions */
 export const calculateFare = (req, res) => { };
 
