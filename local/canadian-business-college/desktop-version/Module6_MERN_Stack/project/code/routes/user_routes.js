@@ -1,7 +1,9 @@
 /** This serves as the router for User endpoints. The following endpoints exist:
  * 
- * create-account = to register a new user account
- * login = to log in a user with their credentials
+ * /create-account = to register a new user account
+ * /login = to log in a user with their credentials
+ * 
+ * Last updated: 2026-05-26
 */
 
 

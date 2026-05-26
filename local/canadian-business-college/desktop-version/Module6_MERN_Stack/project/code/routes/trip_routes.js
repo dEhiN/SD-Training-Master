@@ -1,7 +1,9 @@
 /** This serves as the router for Trip endpoints. The following endpoints exist:
  * 
- * fare-estimate = to calculate and return a fare estimate for a proposed trip
- * booking = to book a trip
+ * /fare-estimate = to calculate and return a fare estimate for a proposed trip
+ * /booking = to book a trip
+ * 
+ * Last updated: 2026-05-26
 */
 
 
