@@ -1,11 +1,11 @@
 /** This is the main Express server file. It creates and starts the Express server for the site kd-dd.ca. */
 
-/** Named Module Imports */
+/** Installed module imports */
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-/** Custom Module Imports */
+/** Custom module imports */
 import connectToMongoDB from './config/database_config.js';
 import userRouter from './routes/user_routes.js';
 import tripRouter from './routes/trip_routes.js';

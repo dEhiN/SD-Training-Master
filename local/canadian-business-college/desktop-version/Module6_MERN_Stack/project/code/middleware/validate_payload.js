@@ -1,10 +1,11 @@
 /** This acts as custom middleware to allow validation of an incoming payload. The package ajv is used to compile the two JSON Schema files for User and Trip, and then they are used to validate the incoming payload. This ensures any client data sent through POST is cleaned up and adheres to the proper data schema prior to any further action. */
 
 
-/** Named Module Imports */
+/** Installed module imports */
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-/** JSON Schema Module Imports */
+
+/** JSON Schema imports */
 import userSchema from '../json_data/kd-dd_user.schema.json' with { type: 'json' };
 import tripSchema from '../json_data/kd-dd_trip.schema.json' with { type: 'json' };
 

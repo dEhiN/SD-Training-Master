@@ -1,7 +1,7 @@
 /** This solely and explicitly handles the connection to the Mongo Atlas database. It uses Mongoose to do so. */
 
 
-/** Named Module Imports */
+/** Installed module imports */
 import mongoose from 'mongoose';
 
 
