@@ -13,16 +13,18 @@ import Trip from "../models/trip_model.js";
 
 /** This function will calculate the total cost of a trip. It will take the passed in Trip object and perform the business mathematical operations based on the trip details to determine the total cost for the trip and return that. 
  * 
- * @param {Trip} tripObjClone A cloned, validated Trip object. The function may modify the Trip object, so it's recommended that a cloned copy be passed in.
+ * @param {Trip} tripObjClone A validated Trip object.
  * 
  * @returns A float value representing the total trip cost in CAD.
  */
-function getTotalCost(tripObjClone) {
+function getTotalCost(tripObj) {
 
 }
 
 /** Route functions */
-export const calculateFare = (req, res) => { };
+export const calculateFare = (req, res) => {
+
+};
 
 export const bookTrip = async (req, res) => {
     try {
@@ -31,9 +33,7 @@ export const bookTrip = async (req, res) => {
 
         // Confirm that the field TotalCostCAD exists since it's not part of the validation; if it's missing, call the helper function to calculate it
         if (!req.body.TotalCostCAD || req.body.TotalCostCAD === 0) {
-            const cloneOfTrip = structuredClone(req.body);
-
-            newTrip.TotalCostCAD = getTotalCost(cloneOfTrip);
+            newTrip.TotalCostCAD = getTotalCost(req.body);
         }
 
         // await newTrip.save();
