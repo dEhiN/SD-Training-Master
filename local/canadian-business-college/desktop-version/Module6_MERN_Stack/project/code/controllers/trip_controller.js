@@ -31,6 +31,13 @@ export const bookTrip = async (req, res) => {
         // Create a new Trip document using the passed in POST data since it's already been validated
         const newTrip = new Trip(req.body);
 
+        // Confirm that the field TotalCostCAD exists since it's not part of the validation; if it's missing, call the helper function to calculate it
+        if (!req.body.TotalCostCAD || req.body.TotalCostCAD === 0) {
+            const cloneOfTrip = structuredClone(req.body);
+
+            newTrip.TotalCostCAD = getTotalCost(cloneOfTrip);
+        }
+
         console.log("A new Trip document was created! Attempting to save.");
 
         return res.status(200).json({
