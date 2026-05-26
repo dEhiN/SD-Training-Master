@@ -5,7 +5,7 @@
 import mongoose from 'mongoose';
 
 
-/** Script variables to store static console and return messages */
+/** Script variable to store static console and return messages */
 const msgsObj = {
     errors: {
         SERVQUIT: "The server is quitting...",
@@ -69,6 +69,7 @@ const connectToMongoDB = async () => {
         console.log(msgsObj.errors.mongodb.DBFAIL + "\n" + msgsObj.errors.ERRLEAD);
         console.error(err);
         console.log(msgsObj.errors.SERVQUIT);
+        /** Shut the server down since there's no connection to the database. */
         process.exit(1);
     }
 }
