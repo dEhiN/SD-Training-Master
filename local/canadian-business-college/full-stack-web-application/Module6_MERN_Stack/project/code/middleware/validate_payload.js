@@ -10,7 +10,7 @@ import userSchema from '../json_data/kd-dd_user.schema.json' with { type: 'json'
 import tripSchema from '../json_data/kd-dd_trip.schema.json' with { type: 'json' };
 
 
-/** Module specific global variables:
+/** Module specific global variable:
  * Create the ajv object with necessary parameters
  */
 const ajv = new Ajv({
@@ -44,7 +44,8 @@ const validateData = (req, res, next, validatorFunction, dataType) => {
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({
             status: "fail",
-            message: "No request data was provided in the body. Please send a valid data payload."
+            message: "No request data was provided in the body. Please send a valid data payload.",
+            errors: "Empty POST body"
         })
     }
 
