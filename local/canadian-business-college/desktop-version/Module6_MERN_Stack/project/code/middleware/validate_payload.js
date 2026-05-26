@@ -44,7 +44,7 @@ const validateData = (req, res, next, validatorFunction, dataType) => {
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({
             status: "fail",
-            message: "No request data was provided in the body. Please send a valid data payload.",
+            message: "No request data was provided in the body. Please send valid data in the request body.",
             errors: "Empty POST body"
         })
     }
