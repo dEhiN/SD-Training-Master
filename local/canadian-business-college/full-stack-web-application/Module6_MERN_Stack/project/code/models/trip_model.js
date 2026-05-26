@@ -22,7 +22,8 @@ const waitTimeSchema = new mongoose.Schema({
         required: true
     }
 }, {
-    strict: "throw",
+    _id: false,
+    strict: "throw"
 })
 
 // This one maps to "AddressObject" in the JSON Schema.
@@ -83,6 +84,7 @@ const addressSchema = new mongoose.Schema({
         }
     }
 }, {
+    _id: false,
     strict: "throw",
 })
 
@@ -106,6 +108,7 @@ const stopOverSchema = new mongoose.Schema({
         required: true
     }
 }, {
+    _id: false,
     strict: "throw"
 })
 
@@ -124,6 +127,7 @@ const extraCalcSchema = new mongoose.Schema({
         }
     }
 }, {
+    _id: false,
     strict: "throw"
 })
 
