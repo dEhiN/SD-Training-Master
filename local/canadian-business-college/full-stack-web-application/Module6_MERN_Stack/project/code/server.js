@@ -42,6 +42,16 @@ app.use("/api/users", userRouter);
 app.use("/api/trips", tripRouter);
 
 
+/** Set up a catch-all route. */
+app.use((req, res) => {
+    return res.status(400).json({
+        status: "fail",
+        message: "The API endpoint you are trying to reach doesn't exist",
+        errors: "Bad API endpoint request"
+    })
+})
+
+
 /** Start server to listen */
 app.listen(PORT, () => {
     console.log(`The server has started on port ${PORT}!`);
