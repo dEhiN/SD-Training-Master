@@ -12,4 +12,14 @@ import User from "../models/user_model.js";
 /** Route functions */
 export const calculateFare = (req, res) => { };
 
-export const bookTrip = (req, res) => { };
+export const bookTrip = async (req, res) => {
+    try {
+        // Create a new Trip document using the passed in POST data since it's already been validated
+        const newTrip = new Trip(req.body);
+
+        console.log(newTrip);
+    }
+    catch (err) {
+
+    }
+};
