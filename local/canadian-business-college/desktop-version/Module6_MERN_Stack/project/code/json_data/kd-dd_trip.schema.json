@@ -67,7 +67,7 @@
 			"description": "The total cost of the trip in CAD."
 		}
 	},
-	"required": ["UserId", "PickupLocation", "DropOffLocation", "TotalDistanceKm", "TotalCostCAD"],
+	"required": ["UserId", "PickupLocation", "DropOffLocation", "TotalDistanceKm"],
 	"additionalProperties": false,
 	"definitions": {
 		"AddressObject": {

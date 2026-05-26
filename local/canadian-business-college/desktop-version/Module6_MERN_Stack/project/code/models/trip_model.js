@@ -151,8 +151,7 @@ const tripSchema = new mongoose.Schema({
         type: extraCalcSchema,
     },
     TotalCostCAD: {
-        type: Number,
-        required: true
+        type: Number
     },
 }, {
     strict: "throw",
