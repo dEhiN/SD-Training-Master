@@ -1,7 +1,7 @@
 /** This acts as the Mongoose model for a Trip object. The schema defined here should correspond to the definition found in the local file "kd-dd_trip.schema.json". Any and all database interaction regarding trips will be handled by this model. */
 
 
-/** Named Module Imports */
+/** Installed module imports */
 import mongoose from 'mongoose';
 
 

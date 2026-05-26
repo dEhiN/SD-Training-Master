@@ -1,7 +1,7 @@
 /** This acts as the Mongoose model for a User object. The schema defined here should correspond to the definition found in the local file "kd-dd_user.schema.json". Any and all database interaction regarding users will be handled by this model. */
 
 
-/** Named Module Imports */
+/** Installed module imports */
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 

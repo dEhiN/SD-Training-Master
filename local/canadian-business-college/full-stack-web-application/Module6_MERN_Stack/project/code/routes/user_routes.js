@@ -7,7 +7,7 @@
 */
 
 
-/** Named module imports */
+/** Installed module imports */
 import express from 'express';
 
 /** Custom imports */
