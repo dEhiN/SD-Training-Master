@@ -15,7 +15,7 @@ import express from 'express';
 
 /** Custom imports */
 import { validateUser } from '../middleware/validate_payload.js';
-import { createAccount, loginUser, getUserAccount, getUserTrips, filterUserTrips } from '../controllers/user_controller.js';
+import { createUserAccount, loginUser, getUserAccount, getUserTrips, filterUserTrips } from '../controllers/user_controller.js';
 
 
 /** Create the Express Router */
@@ -26,7 +26,7 @@ const userRouter = express.Router();
 userRouter.get("/profile", getUserAccount);
 userRouter.get("/trips", getUserTrips);
 userRouter.get("/trips/filter", filterUserTrips)
-userRouter.post("/create-account", validateUser, createAccount);
+userRouter.post("/create-account", validateUser, createUserAccount);
 userRouter.post("/login", loginUser);
 
 export default userRouter;
