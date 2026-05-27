@@ -31,7 +31,8 @@
 		},
 		"StopOvers": [
 			{
-				"StopOverLocation": {
+				"StopOverNumber": 1,
+				"StopOverAddress": {
 					"StreetAddress": "507 Bayfield Street",
 					"CityName": "Barrie",
 					"ProvinceName": "ON",
