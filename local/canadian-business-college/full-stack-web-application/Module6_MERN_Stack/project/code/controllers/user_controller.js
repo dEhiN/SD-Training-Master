@@ -10,7 +10,6 @@
 
 /** Installed module imports */
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 
 /** Mongoose model import */
 import User from "../models/user_model.js";
