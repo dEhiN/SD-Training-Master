@@ -22,10 +22,13 @@ function getTotalCost(tripObj) {
 }
 
 /** Route functions */
+
+/** API endpoint: /api/trips/fare-estimate */
 export const calculateFare = (req, res) => {
     const estimatedTrip = getTotalCost(req.body);
 };
 
+/** API endpoint: /api/trips/booking */
 export const bookTrip = async (req, res) => {
     try {
         // Create a new Trip document using the passed in POST data since it's already been validated
