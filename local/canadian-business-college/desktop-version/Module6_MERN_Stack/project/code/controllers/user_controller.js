@@ -13,12 +13,18 @@ import User from "../models/user_model.js";
 
 
 /** Route functions */
+
+/** API endpoint: /api/users/profile */
 export const getUserAccount = (req, res) => { };
 
+/** API endpoint: /api/users/trips */
 export const getUserTrips = (req, res) => { };
 
+/** API endpoint: /api/users/trips/filter */
 export const filterUserTrips = (req, res) => { };
 
+/** API endpoint: /api/users/create-account */
 export const createUserAccount = (req, res) => { };
 
+/** API endpoint: /api/users/login */
 export const loginUser = (req, res) => { };
