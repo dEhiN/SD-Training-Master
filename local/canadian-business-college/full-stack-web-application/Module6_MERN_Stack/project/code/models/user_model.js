@@ -131,12 +131,12 @@ const userSchema = new mongoose.Schema({
 /** Creating a pre-save hook to hash the user password using bcrypt.
  * NOTE: The code was generated with Gemini.
  */
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function () {
     const user = this;
 
     // ONLY hash the password if it has been modified (or is brand new)
     if (!user.isModified('AccountInfo.UserPassword')) {
-        return next();
+        return;
     }
 
     try {
@@ -148,12 +148,9 @@ userSchema.pre('save', async function (next) {
 
         // Overwrite the plain-text password with the secure regex-compliant hash
         user.AccountInfo.UserPassword = hash;
-
-        // Release the hook and allow Mongoose to complete the save
-        next();
     } catch (error) {
         // Pass any hashing system errors down to the Express handler
-        next(error);
+        throw error;
     }
 });
 
