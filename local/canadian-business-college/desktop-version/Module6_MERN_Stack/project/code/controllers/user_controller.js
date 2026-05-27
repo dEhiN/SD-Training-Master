@@ -18,13 +18,31 @@ import User from "../models/user_model.js";
 /** Route functions */
 
 /** API endpoint: /api/users/user-profile */
-export const getUserAccount = (req, res) => { };
+export const getUserAccount = (req, res) => {
+    return res.status(501).json({
+        status: "fail",
+        message: "The requested route has not yet been implemented.",
+        error: "Route Not Implemented"
+    });
+};
 
 /** API endpoint: /api/users/user-trips */
-export const getUserTrips = (req, res) => { };
+export const getUserTrips = (req, res) => {
+    return res.status(501).json({
+        status: "fail",
+        message: "The requested route has not yet been implemented.",
+        error: "Route Not Implemented"
+    })
+};
 
 /** API endpoint: /api/users/user-trips/filter */
-export const filterUserTrips = (req, res) => { };
+export const filterUserTrips = (req, res) => {
+    return res.status(501).json({
+        status: "fail",
+        message: "The requested route has not yet been implemented.",
+        error: "Route Not Implemented"
+    })
+};
 
 /** API endpoint: /api/users/create-account */
 export const createUserAccount = async (req, res) => {
