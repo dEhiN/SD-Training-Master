@@ -41,7 +41,21 @@ function getTotalCost(tripObj) {
 
 /** API endpoint: /api/trips/fare-estimate */
 export const calculateFare = (req, res) => {
-    const estimatedTrip = getTotalCost(req.body);
+    // Grab the trip data and store it in a variable for easier access
+    const tripData = req.body;
+
+    // Get the total cost of the trip
+    const estimatedFare = getTotalCost(tripData);
+
+    // Add the cost to the trip data and create the TotalCostCAD field
+    tripData.TotalCostCAD = estimatedFare;
+
+    // Return the trip data with the cost added
+    return res.status(200).json({
+        status: "success",
+        message: "The total estimated cost of the trip was added to the trip data. Please see the payload below.",
+        payload: tripData
+    })
 };
 
 /** API endpoint: /api/trips/booking */
