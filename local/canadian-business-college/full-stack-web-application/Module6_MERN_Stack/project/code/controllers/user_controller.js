@@ -24,7 +24,27 @@ export const getUserTrips = (req, res) => { };
 export const filterUserTrips = (req, res) => { };
 
 /** API endpoint: /api/users/create-account */
-export const createUserAccount = (req, res) => { };
+export const createUserAccount = (req, res) => {
+    try {
+        // Create a new User document using the passed in POST data since it's already been validated
+        const newUser = new User(req.body);
+
+        console.log(newUser);
+
+        return res.status(500).json({
+            status: "...",
+            message: "...",
+            payload: newUser
+        })
+    }
+    catch (err) {
+        return res.status(500).json({
+            status: "fail",
+            message: "Something went wrong! Please see the error(s) below:",
+            errors: err
+        })
+    }
+};
 
 /** API endpoint: /api/users/login */
 export const loginUser = (req, res) => { };
