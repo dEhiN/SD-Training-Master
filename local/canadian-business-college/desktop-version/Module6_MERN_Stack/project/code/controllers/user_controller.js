@@ -31,11 +31,15 @@ export const createUserAccount = (req, res) => {
 
         console.log(newUser);
 
-        return res.status(500).json({
-            status: "...",
-            message: "...",
-            payload: newUser
+        // Return a success status and message along with just the trip id
+        return res.status(200).json({
+            status: "success",
+            message: "The user account was created and the user information was saved to the database. Please see the payload for the user document id.",
+            payload: {
+                user_id: newUser._id
+            }
         })
+
     }
     catch (err) {
         return res.status(500).json({
