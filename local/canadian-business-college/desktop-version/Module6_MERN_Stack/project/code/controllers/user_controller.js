@@ -84,7 +84,7 @@ export const loginUser = async (req, res) => {
             });
         }
 
-        // The login was successful
+        // The login was successful so return the user id along with a success message
         return res.status(200).json({
             status: "success",
             message: "The username and password matched. The login was successful. Please see the payload for the user id.",
