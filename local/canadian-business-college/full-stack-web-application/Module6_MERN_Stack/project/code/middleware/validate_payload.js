@@ -56,7 +56,7 @@ const validateData = (req, res, next, validatorFunction, dataType) => {
     if (!isValid) {
         return res.status(400).json({
             status: "fail",
-            message: `The ${dataType} request data sent did not pass JSON validation. Please check the data and resend.`,
+            message: `The ${dataType} request data sent did not pass JSON validation. Please check the data and resend. See the errors below for more information.`,
             errors: validatorFunction.errors
         })
     }
