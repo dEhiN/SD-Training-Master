@@ -89,7 +89,6 @@ export const bookTrip = async (req, res) => {
                 trip_id: newTrip._id
             }
         })
-
     }
     catch (err) {
         return res.status(500).json({
