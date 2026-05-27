@@ -18,12 +18,12 @@ import Trip from "../models/trip_model.js";
  * @returns A float value representing the total trip cost in CAD.
  */
 function getTotalCost(tripObj) {
-
+    const cloneOfTrip = structuredClone(tripObj);
 }
 
 /** Route functions */
 export const calculateFare = (req, res) => {
-
+    const estimatedTrip = getTotalCost(req.body);
 };
 
 export const bookTrip = async (req, res) => {
