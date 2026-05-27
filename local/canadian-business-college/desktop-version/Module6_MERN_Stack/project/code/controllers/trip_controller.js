@@ -41,7 +41,11 @@ export const bookTrip = async (req, res) => {
 
         // Return a success status and message along with just the trip id
         return res.status(200).json({
-            payload: newTrip
+            status: "success",
+            message: "The trip information was saved to the database. Please see the payload for the trip document id.",
+            payload: {
+                trip_id: newTrip._id
+            }
         })
 
     }
