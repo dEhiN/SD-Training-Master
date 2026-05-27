@@ -59,6 +59,39 @@ export const loginUser = async (req, res) => {
     try {
         // Pull out the username and password sent in the req body
         const { userName, userPassword } = req.body
+
+        // Query the database to see if a user exists with the supplied username
+        const checkUser = await User.findOne({ "AccountInfo.UserName": userName });
+
+        // Check to see if the query returned null which means there's no user with that username
+        if (!checkUser) {
+            return res.status(422).json({
+                status: "fail",
+                message: "The username given cannot be found. Please check the username and try again.",
+                errors: "Incorrect username"
+            });
+        }
+
+        // Check to see if the password given matches what's in the database
+        const checkPassword = await bcrypt.compare(userPassword, checkUser.AccountInfo.UserPassword);
+
+        // Check to see the result of the compare method
+        if (!checkPassword) {
+            return res.status(422).json({
+                status: "fail",
+                message: "The password given does not match what's on file. Please check the password and try again.",
+                errors: "Incorrect password"
+            });
+        }
+
+        // The login was successful
+        return res.status(200).json({
+            status: "success",
+            message: "The username and password matched. The login was successful. Please see the payload for the user id.",
+            payload: {
+                user_id: checkUser._id
+            }
+        });
     }
     catch (err) {
         return res.status(500).json({
