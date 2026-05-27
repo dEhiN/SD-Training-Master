@@ -89,7 +89,6 @@
 					}
 				},
 				"required": [
-					"CardId",
 					"IsDefault",
 					"CC_Type",
 					"CC_Number",
