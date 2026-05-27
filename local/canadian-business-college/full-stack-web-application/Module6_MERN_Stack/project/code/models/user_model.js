@@ -2,8 +2,8 @@
 
 
 /** Installed module imports */
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 
 /** Child Schemas: In the JSON Schema file, the following aren't explicitly listed as separate schemas but just inline objects. However, since Mongoose maps inline objects to their own schemas anyway, these are being explicitly created for greater control. */

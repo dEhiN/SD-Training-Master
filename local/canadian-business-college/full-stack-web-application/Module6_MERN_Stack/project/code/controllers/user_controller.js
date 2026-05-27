@@ -8,6 +8,9 @@
 */
 
 
+/** Installed module imports */
+import bcrypt from "bcrypt";
+
 /** Mongoose model import */
 import User from "../models/user_model.js";
 
