@@ -122,6 +122,7 @@ const userProfileSchema = new mongoose.Schema({
         }
     },
 }, {
+    _id: false,
     strict: "throw"
 })
 
@@ -137,6 +138,7 @@ const accountInfoSchema = new mongoose.Schema({
         required: true
     }
 }, {
+    _id: false,
     strict: "throw"
 })
 
