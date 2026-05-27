@@ -8,6 +8,12 @@
 /** Mongoose model import */
 import Trip from "../models/trip_model.js";
 
+/** Script global variables */
+// Set the base pickup fee
+const pickupFee = 10;
+// Set the base per km rate
+const perKmRate = 2.5;
+
 
 /** Helper functions */
 
@@ -18,7 +24,17 @@ import Trip from "../models/trip_model.js";
  * @returns A float value representing the total trip cost in CAD.
  */
 function getTotalCost(tripObj) {
+    // Clone the request body so it doesn't get accidentally modified
     const cloneOfTrip = structuredClone(tripObj);
+    // Grab the total distance from the Trip object
+    const tripDistance = cloneOfTrip.TotalDistanceKm;
+
+    // Simple calculation for now to test functionality. 
+    // NEED TO CHANGE TO REAL CALCULATION LATER!!!
+    const totalCost = pickupFee + (tripDistance * perKmRate);
+
+    // Return the total cost as a float
+    return totalCost;
 }
 
 /** Route functions */
