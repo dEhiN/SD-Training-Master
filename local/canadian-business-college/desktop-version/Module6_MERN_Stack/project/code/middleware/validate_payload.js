@@ -46,7 +46,7 @@ const validateData = (req, res, next, validatorFunction, dataType) => {
             status: "fail",
             message: "No request data was provided in the body. Please send valid data in the request body.",
             errors: "Empty POST body"
-        })
+        });
     }
 
     // Do the actual validation
@@ -58,7 +58,7 @@ const validateData = (req, res, next, validatorFunction, dataType) => {
             status: "fail",
             message: `The ${dataType} request data sent did not pass JSON validation. Please check the data and resend. See the errors below for more information.`,
             errors: validatorFunction.errors
-        })
+        });
     }
 
     // The validation passed and the data has been cleaned and processed. Execution can proceed to the next step in the Express pipeline.
