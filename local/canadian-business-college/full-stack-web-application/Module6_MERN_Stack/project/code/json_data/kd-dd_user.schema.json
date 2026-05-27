@@ -56,9 +56,8 @@
 			"items": {
 				"type": "object",
 				"properties": {
-					"CardId": {
-						"type": "string",
-						"description": "A unique identifier that represents this card in the system/db."
+					"_id": {
+						"type": "string"
 					},
 					"IsDefault": {
 						"type": "boolean",
@@ -105,9 +104,8 @@
 			"items": {
 				"type": "object",
 				"properties": {
-					"VehicleId": {
-						"type": "string",
-						"description": "A unique identifier that represents this vehicle in the system/db."
+					"_id": {
+						"type": "string"
 					},
 					"OwnerName": {
 						"type": "string"
