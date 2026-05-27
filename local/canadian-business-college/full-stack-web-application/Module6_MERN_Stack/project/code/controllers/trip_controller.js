@@ -40,7 +40,7 @@ export const bookTrip = async (req, res) => {
         }
 
         // Save the trip information
-        // await newTrip.save();
+        await newTrip.save();
 
         // Return a success status and message along with just the trip id
         return res.status(200).json({
