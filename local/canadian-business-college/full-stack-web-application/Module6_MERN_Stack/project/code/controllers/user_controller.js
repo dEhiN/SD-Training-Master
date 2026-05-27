@@ -27,12 +27,13 @@ export const getUserTrips = (req, res) => { };
 export const filterUserTrips = (req, res) => { };
 
 /** API endpoint: /api/users/create-account */
-export const createUserAccount = (req, res) => {
+export const createUserAccount = async (req, res) => {
     try {
         // Create a new User document using the passed in POST data since it's already been validated
         const newUser = new User(req.body);
 
-        console.log(newUser);
+        // Save the user information
+        await newUser.save();
 
         // Return a success status and message along with just the trip id
         return res.status(200).json({
@@ -41,7 +42,7 @@ export const createUserAccount = (req, res) => {
             payload: {
                 user_id: newUser._id
             }
-        })
+        });
 
     }
     catch (err) {
@@ -49,7 +50,7 @@ export const createUserAccount = (req, res) => {
             status: "fail",
             message: "Something went wrong! Please see the error(s) below:",
             errors: err
-        })
+        });
     }
 };
 
