@@ -44,6 +44,15 @@ export const calculateFare = (req, res) => {
     // Grab the trip data and store it in a variable for easier access
     const tripData = req.body;
 
+    // First, check to see if there's already a TotalCostCAD field and it's greater than $1; if so, return a message to the client
+    if (tripData.TotalCostCAD && tripData.TotalCostCAD > 1) {
+        return res.status(418).json({
+            status: "fail",
+            message: "The trip request data already contains a TotalCostCAD field! There was nothing to calculate.",
+            errors: "I'm a teapot and cannot brew coffee."
+        })
+    }
+
     // Get the total cost of the trip
     const estimatedFare = getTotalCost(tripData);
 
