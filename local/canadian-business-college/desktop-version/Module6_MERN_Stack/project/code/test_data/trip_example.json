@@ -28,6 +28,27 @@
 			"StartTime": "2026-05-26T14:30:00.000Z",
 			"EndTime": "2026-05-26T14:35:00.000Z",
 			"WaitTotalSeconds": 300
-		}
+		},
+		"StopOvers": [
+			{
+				"StopOverNumber": 1,
+				"StopOverAddress": {
+					"StreetAddress": "456 Essa Road",
+					"CityName": "Barrie",
+					"ProvinceName": "ON",
+					"PostalCode": "L4N 9E9",
+					"CountryName": "Canada",
+					"GeoLocation": {
+						"type": "Point",
+						"coordinates": [-79.6664, 44.3644]
+					}
+				},
+				"StopOverWaitTime": {
+					"StartTime": "2026-05-26T14:30:00.000Z",
+					"EndTime": "2026-05-26T14:35:00.000Z",
+					"WaitTotalSeconds": 300
+				}
+			}
+		]
 	}
 }
