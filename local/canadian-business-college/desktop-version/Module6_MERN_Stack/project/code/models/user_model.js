@@ -31,19 +31,7 @@ const vehicleDetailsSchema = new mongoose.Schema({
         required: true
     },
 }, {
-    strict: "throw",
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
-    virtuals: {
-        VehicleId: {
-            get() {
-                return this._id.toHexString();
-            },
-            set(value) {
-                this._id = new mongoose.Types.ObjectId(value);
-            }
-        }
-    }
+    strict: "throw"
 })
 
 // This one maps to "CreditCardDetails" in the JSON Schema. A virtual alias is used to map the _id field in the database to the "CardId" field from the JSON schema. A virtual getter and setter are created to perform this mapping. This will allow all logic to work with "CardId".
@@ -78,20 +66,7 @@ const ccDetailsSchema = new mongoose.Schema({
         required: true
     }
 }, {
-    strict: "throw",
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
-    virtuals: {
-        CardId: {
-            get() {
-                return this._id.toHexString();
-            },
-            set(value) {
-                this._id = new mongoose.Types.ObjectId(value);
-            }
-        }
-    }
-
+    strict: "throw"
 })
 
 // This one maps to "UserProfile" in the JSON Schema
