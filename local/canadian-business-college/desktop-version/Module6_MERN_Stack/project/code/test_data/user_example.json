@@ -10,25 +10,18 @@
 		"PhoneNumber": "705-555-0199",
 		"EmailAddress": "david.watson@testapp.ca"
 	},
-	"CreditCardDetails": [
-		{
-			"CardId": "card_visa_main_01",
-			"IsDefault": true,
-			"CC_Name": "David A Watson",
-			"CC_Type": "VISA",
-			"CC_Number": "4123456789012345",
-			"CC_ExpMonth": "08",
-			"CC_ExpYear": "2029"
-		}
-	],
-	"VehicleDetails": [
-		{
-			"VehicleId": "veh_sedan_01",
-			"OwnerName": "David Watson",
-			"VehicleMake": "Honda",
-			"VehicleModel": "Civic",
-			"VehicleColour": "Midnight Black",
-			"LicensePlate": "ABCD123"
-		}
-	]
+	"CreditCardDetails": {
+		"CC_Name": "David A Watson",
+		"CC_Type": "VISA",
+		"CC_Number": "4123456789012345",
+		"CC_ExpMonth": "08",
+		"CC_ExpYear": "2029"
+	},
+	"VehicleDetails": {
+		"OwnerName": "David Watson",
+		"VehicleMake": "Honda",
+		"VehicleModel": "Civic",
+		"VehicleColour": "Midnight Black",
+		"LicensePlate": "ABCD123"
+	}
 }
