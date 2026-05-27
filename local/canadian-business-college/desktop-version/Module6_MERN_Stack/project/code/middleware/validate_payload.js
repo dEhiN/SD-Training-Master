@@ -2,12 +2,12 @@
 
 
 /** Installed module imports */
-import Ajv from 'ajv';
-import addFormats from 'ajv-formats';
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
 
 /** JSON Schema imports */
-import userSchema from '../json_data/kd-dd_user.schema.json' with { type: 'json' };
-import tripSchema from '../json_data/kd-dd_trip.schema.json' with { type: 'json' };
+import userSchema from "../json_data/kd-dd_user.schema.json" with { type: "json" };
+import tripSchema from "../json_data/kd-dd_trip.schema.json" with { type: "json" };
 
 
 /** Module specific global variable:
@@ -18,7 +18,7 @@ const ajv = new Ajv({
     useDefaults: true,
     removeAdditional: "all"
 });
-/** Add non-standard formats to ajv so it can validate for 'date-time'. */
+/** Add non-standard formats to ajv so it can validate for "date-time". */
 addFormats(ajv);
 
 
@@ -37,10 +37,10 @@ const tripValidator = ajv.compile(tripSchema);
  * @param res An Express Response object
  * @param next An Express Next function
  * @param validatorFunction An Ajv validator function created from calling Ajv.compile() on a JSON schema.
- * @param dataType A string representing which type of data was meant to be in the req.body payload. The currently accepted values are "user" and "trip'."
+ * @param dataType A string representing which type of data was meant to be in the req.body payload. The currently accepted values are "user" and "trip".
  */
 const validateData = (req, res, next, validatorFunction, dataType) => {
-    // Check to make sure req.body exists and isn't empty. If it is, return immediately.
+    // Check to make sure req.body exists and isn"t empty. If it is, return immediately.
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({
             status: "fail",

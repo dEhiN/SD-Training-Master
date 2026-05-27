@@ -2,7 +2,7 @@
 
 
 /** Installed module imports */
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 
 /** Child Schemas: In the JSON Schema file, there is a "definitions" block, which lists two sub-schemas because those objects are used multiple times in the main Trip schema. Therefore, those two will become child schemas. StopOvers and ExtraCalculations are inline in the JSON Schema file, but will get their own child schema. */

@@ -11,11 +11,11 @@
 
 
 /** Installed module imports */
-import express from 'express';
+import express from "express";
 
 /** Custom imports */
-import { validateUser } from '../middleware/validate_payload.js';
-import { createUserAccount, loginUser, getUserAccount, getUserTrips, filterUserTrips } from '../controllers/user_controller.js';
+import { validateUser } from "../middleware/validate_payload.js";
+import { createUserAccount, loginUser, getUserAccount, getUserTrips, filterUserTrips } from "../controllers/user_controller.js";
 
 
 /** Create the Express Router */

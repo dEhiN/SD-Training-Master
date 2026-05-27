@@ -2,7 +2,7 @@
 
 
 /** Installed module imports */
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 
 /** Script variable to store static console and return messages */

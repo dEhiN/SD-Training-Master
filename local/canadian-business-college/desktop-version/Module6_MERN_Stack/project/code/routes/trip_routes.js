@@ -8,11 +8,11 @@
 
 
 /** Installed module imports */
-import express from 'express';
+import express from "express";
 
 /** Custom imports */
-import { validateTrip } from '../middleware/validate_payload.js';
-import { calculateFare, bookTrip } from '../controllers/trip_controller.js';
+import { validateTrip } from "../middleware/validate_payload.js";
+import { calculateFare, bookTrip } from "../controllers/trip_controller.js";
 
 
 /** Create the Express Router */
