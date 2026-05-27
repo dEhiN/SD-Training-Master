@@ -1,6 +1,6 @@
 /** This acts as the controller for Trip endpoints. The functions attached to each Trip endpoint will be written here. These functions will interact with a global instance of the Trip model and use that to interact with the Mongo database. The API endpoints and their associated functions:
  * 
- * /fare-estimate = calculateFare()
+ * /trip-estimate = calculateFare()
  * /book-trip = bookTrip()
 */
 
@@ -39,7 +39,7 @@ function getTotalCost(tripObj) {
 
 /** Route functions */
 
-/** API endpoint: /api/trips/fare-estimate */
+/** API endpoint: /api/trips/trip-estimate */
 export const calculateFare = (req, res) => {
     // Grab the trip data and store it in a variable for easier access
     const tripData = req.body;

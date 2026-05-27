@@ -1,10 +1,10 @@
 /** This acts as the controller for User endpoints. The functions attached to each User endpoint will be written here. These functions will interact with a global instance of the User model and use that to interact with the Mongo database. The API endpoints and their associated functions:
  * 
- * /profile = getUserAccount()
- * /trips = getUserTrips()
- * /trips/filter = filterUserTrips()
+ * /user-profile = getUserAccount()
+ * /user-trips = getUserTrips()
+ * /user-trips/filter = filterUserTrips()
  * /create-account = createUserAccount()
- * /login = loginUser()
+ * /login-account = loginUser()
 */
 
 
@@ -17,13 +17,13 @@ import User from "../models/user_model.js";
 
 /** Route functions */
 
-/** API endpoint: /api/users/profile */
+/** API endpoint: /api/users/user-profile */
 export const getUserAccount = (req, res) => { };
 
-/** API endpoint: /api/users/trips */
+/** API endpoint: /api/users/user-trips */
 export const getUserTrips = (req, res) => { };
 
-/** API endpoint: /api/users/trips/filter */
+/** API endpoint: /api/users/user-trips/filter */
 export const filterUserTrips = (req, res) => { };
 
 /** API endpoint: /api/users/create-account */
@@ -54,5 +54,17 @@ export const createUserAccount = async (req, res) => {
     }
 };
 
-/** API endpoint: /api/users/login */
-export const loginUser = (req, res) => { };
+/** API endpoint: /api/users/login-account */
+export const loginUser = async (req, res) => {
+    try {
+        // Pull out the username and password sent in the req body
+        const { userName, userPassword } = req.body
+    }
+    catch (err) {
+        return res.status(500).json({
+            status: "fail",
+            message: "Something went wrong! Please see the error(s) below:",
+            errors: err
+        });
+    }
+};
