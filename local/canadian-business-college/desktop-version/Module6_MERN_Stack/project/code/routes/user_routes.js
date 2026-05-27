@@ -1,10 +1,10 @@
 /** This serves as the router for User endpoints. The following endpoints exist:
  * 
- * /profile = to get the user's profile
- * /trips = to get the user's trip history
- * /trips/filter = to get the user's trip history based on the query parameters acting as filters
+ * /user-profile = to get the user's profile
+ * /user-trips = to get the user's trip history
+ * /user-trips/filter = to get the user's trip history based on the query parameters acting as filters
  * /create-account = to register a new user account
- * /login = to log in a user with their credentials
+ * /login-account = to log in a user with their credentials
  * 
  * Last updated: 2026-05-26
 */
@@ -23,10 +23,10 @@ const userRouter = express.Router();
 
 
 /** Set up the routes. These will be based on '/' because server.js will define the API user endpoint for these routes. */
-userRouter.get("/profile", getUserAccount);
-userRouter.get("/trips", getUserTrips);
-userRouter.get("/trips/filter", filterUserTrips)
+userRouter.get("/user-profile", getUserAccount);
+userRouter.get("/user-trips", getUserTrips);
+userRouter.get("/user-trips/filter", filterUserTrips)
 userRouter.post("/create-account", validateUser, createUserAccount);
-userRouter.post("/login", loginUser);
+userRouter.post("/login-account", loginUser);
 
 export default userRouter;
