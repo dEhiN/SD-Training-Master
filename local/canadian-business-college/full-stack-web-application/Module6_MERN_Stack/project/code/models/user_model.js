@@ -120,8 +120,8 @@ const accountInfoSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
     AccountInfo: accountInfoSchema,
     UserProfile: userProfileSchema,
-    CreditCardDetails: [ccDetailsSchema],
-    VehicleDetails: [vehicleDetailsSchema]
+    CreditCardDetails: ccDetailsSchema,
+    VehicleDetails: vehicleDetailsSchema
 }, {
     strict: "throw",
     collection: "Users"
