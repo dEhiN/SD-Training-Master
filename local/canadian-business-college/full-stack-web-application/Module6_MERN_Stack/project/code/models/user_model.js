@@ -31,15 +31,12 @@ const vehicleDetailsSchema = new mongoose.Schema({
         required: true
     },
 }, {
+    _id: false,
     strict: "throw"
 })
 
 // This one maps to "CreditCardDetails" in the JSON Schema. A virtual alias is used to map the _id field in the database to the "CardId" field from the JSON schema. A virtual getter and setter are created to perform this mapping. This will allow all logic to work with "CardId".
 const ccDetailsSchema = new mongoose.Schema({
-    IsDefault: {
-        type: Boolean,
-        required: true
-    },
     CC_Name: {
         type: String,
     },
@@ -66,6 +63,7 @@ const ccDetailsSchema = new mongoose.Schema({
         required: true
     }
 }, {
+    _id: false,
     strict: "throw"
 })
 
