@@ -62,9 +62,11 @@ export const calculateFare = (req, res) => {
     // Return the trip data with the cost added
     return res.status(200).json({
         status: "success",
-        message: "The total estimated cost of the trip was added to the trip data. Please see the payload below.",
-        payload: tripData
-    })
+        message: "The total estimated cost of the trip was calculated. Please see the payload below for the total fare.",
+        payload: {
+            estimated_fare: tripData.TotalCostCAD
+        }
+    });
 };
 
 /** API endpoint: /api/trips/book-trip */
@@ -88,13 +90,13 @@ export const bookTrip = async (req, res) => {
             payload: {
                 trip_id: newTrip._id
             }
-        })
+        });
     }
     catch (err) {
         return res.status(500).json({
             status: "fail",
             message: "Something went wrong! Please see the error(s) below:",
             errors: err
-        })
+        });
     }
 };
