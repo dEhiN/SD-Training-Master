@@ -62,7 +62,7 @@ The project submission was created to be a robust, backend server that functions
 
 ### Basic Functionality:
 
-The database was built predicated on two main collections - _Users_ and _Trips_. The first collection will be used to store and handle all account related data, while the second will be used to store and handle all trip related data.
+The database was built predicated on two main collections - _Users_ and _Trips_. The first collection is used to store and handle all account related data, while the second is used to store and handle all trip related data.
 
 JSON schemas were developed for each set of data to specify data properties and to allow for data validation. Each collection data is treated as its own data type and is called _User_ and _Trip_, respectively.
 
@@ -70,9 +70,9 @@ JSON schemas were developed for each set of data to specify data properties and 
 
 The server was built in a modular format, allowing for functionality to be separated across different custom JavaScript modules.
 
-As a result of the modularity, in addition to the main file `server.js`, the following folders were created: `json_data`, `models`,`controllers`, `routes`, `config`, `middleware`, and `test_data`.
+As a result of the modularity, in addition to `server.js`, the following folders were created: `json_data`, `models`,`controllers`, `routes`, `config`, `middleware`, and `test_data`.
 
-For the API endpoints, four `POST` and three `GET` routes were created. Two of the `POST` routes are for _Trip_ data, while the rest of the `POST` routes and all the `GET` routes are for _User_ data. Note that currently, only the four `POST` routes were implemented fully. The specific endpoints were listed in the two route files.
+For the API endpoints, four `POST` and three `GET` routes were created. Two of the `POST` routes are used for _Trip_ data, while the rest of the `POST` routes and all the `GET` routes are used for _User_ data. Note that currently, only the four `POST` routes were implemented fully.
 
 ### Module/Folder Breakdown:
 
@@ -82,7 +82,7 @@ For the API endpoints, four `POST` and three `GET` routes were created. Two of t
 
 3. `controllers`: Controller modules were created in this folder to utilise the Mongoose models and act as the route functions.
 
-4. `routes`: The routing was split up into modules with a separate route file in this folder for each _User_ and _Trip_. To facilitate this routing approach, `Express Router` was used. The main server splits the two main API routes and the specific routing modules further split the endpoints. The two main API routes are:
+4. `routes`: The routing was split up into separate route files for _User_ and _Trip_, and are found in this folder. To facilitate this routing approach, `Express Router` was used. The main server splits the two main API routes and the specific routing modules further split the endpoints. Each route module lists the endpoints. The two main API routes are:
     - `/api/users` for the _User_ collection
     - `/api/trips` for the _Trip_ collection
 
@@ -90,7 +90,7 @@ For the API endpoints, four `POST` and three `GET` routes were created. Two of t
 
 6. `middleware`: In addition to JSON data validation prior to storage in the database, JSON data validation is also performed on any incoming POST data. The Node package `ajv` was used for this and a validator function was created that acts as middleware when necessary. The function was put into its own module in this folder.
 
-7. `test_data`: Since the _User_ and _Trip_ data types are complex, the AI Gemini was used to create sample data that can assist with testing of the API endpoints. The sample data can be found in the folder.
+7. `test_data`: Since the _User_ and _Trip_ data types are complex, Gemini AI was used to create sample data that can assist with testing of the API endpoints, and which can be found in this folder.
 
 ### Environment Configuration:
 
