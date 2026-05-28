@@ -72,7 +72,7 @@ As a result of the modularity, in addition to `server.js`, the folders `config`,
 
 - Since the _User_ and _Trip_ data types are complex, the AI Gemini was used to create sample data that can assist with testing of the API endpoints. The sample data can be found in the folder `test_data`.
 
-For the API endpoints, four `POST` and three `GET` routes were created. Two of the `POST` routes are for _Trip_ data, while all the `GET` and the rest of the `POST` routes are for _User_ data.
+For the API endpoints, four `POST` and three `GET` routes were created. Two of the `POST` routes are for _Trip_ data, while all the `GET` and the rest of the `POST` routes are for _User_ data. Note that currently, only the four `POST` routes were implemented fully. The specific endpoints were listed in the route files.
 
 Finally, the server and database configuration are set up to pull environment variables from a `.env` file. The file needs to follow the exact structure outlined below:
 
