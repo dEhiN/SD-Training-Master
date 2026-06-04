@@ -1,0 +1,27 @@
+{
+	"AccountInfo": {
+		"UserName": "developer.david@testapp.ca",
+		"UserPassword": "SecurePassword123!"
+	},
+	"UserProfile": {
+		"FirstName": "David",
+		"MiddleName": "Alexander",
+		"FamilyName": "Watson",
+		"PhoneNumber": "705-555-0199",
+		"EmailAddress": "david.watson@testapp.ca"
+	},
+	"CreditCardDetails": {
+		"CC_Name": "David A Watson",
+		"CC_Type": "VISA",
+		"CC_Number": "4123456789012345",
+		"CC_ExpMonth": "08",
+		"CC_ExpYear": "2029"
+	},
+	"VehicleDetails": {
+		"OwnerName": "David Watson",
+		"VehicleMake": "Honda",
+		"VehicleModel": "Civic",
+		"VehicleColour": "Midnight Black",
+		"LicensePlate": "ABCD123"
+	}
+}
