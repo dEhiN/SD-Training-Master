@@ -1,6 +1,7 @@
 # Directories
 .github
 .vscode
+prev-files
 
 # Files
 .env
