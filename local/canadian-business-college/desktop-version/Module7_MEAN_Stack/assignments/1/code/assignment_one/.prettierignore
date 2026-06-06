@@ -1,31 +1,10 @@
 # Ignore build and dependency folders
 node_modules/
-dist/
-build/
-coverage/
-
-# Ignore legacy / backup exports
-past-versions/
-*.wpress
 
 # Ignore editor and CI files
 .vscode/
 .github/
-.github/ISSUE/
-.github/PR/
-.husky/
 .git/
-
-# Ignore static assets
-website/src/assets/
-website/src/assets/video/
-website/src/assets/audio/
-website/src/assets/img/
-website/src/assets/fonts/
-screenshots/
-
-# Ignore lockfiles
-package-lock.json
 
 # Ignore binaries and large files
 *.zip
