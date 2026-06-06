@@ -1,48 +1,11 @@
-const prettierPlugin = require('eslint-plugin-prettier'); // Plugin to run Prettier as an ESLint rule
-const prettierConfig = require('eslint-config-prettier/flat'); // Config to disable ESLint rules that conflict with Prettier (flat version)
-const { defineConfig } = require('eslint/config'); // Importing the defineConfig function from ESLint's config module for better type support and configuration structure
-// Note: avoid optional 'globals' package to keep devDependencies minimal
-
 module.exports = defineConfig([
   {
-    // Limit linting to our website source files only
-    files: ['website/**/*.{js,jsx}'],
-    ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/coverage/**',
-      '.github/**',
-      '.vscode/**',
-      'website/src/assets/video/**',
-      'website/src/assets/audio/**',
-      '.husky/**',
-      '**/*.lock',
-      '**/*.yml',
-      '**/*.png',
-      '**/*.jpg',
-      '**/*.jpeg',
-      '**/*.gif',
-      '**/*.ico',
-      '**/*.svg',
-      '**/*.webp',
-      '**/*.woff',
-      '**/*.woff2',
-      '**/*.ttf',
-      '**/*.eot',
-      '**/*.otf',
-      '**/*.zip',
-      '**/*.pdf',
-      '**/*.bin'
-    ]
-  },
   {
     files: ['website/**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 'latest',
-      sourceType: 'module'
+      sourceType: 'module',
     },
-
-    plugins: { prettier: prettierPlugin },
     rules: {
       'no-console': 'off', // Allow console statements for debugging
       'func-names': 'off', // Allow unnamed functions for flexibility
@@ -66,9 +29,9 @@ module.exports = defineConfig([
       'no-undef': 'off', // Allow usage of undefined variables
       'no-restricted-syntax': 'off', // Allow all syntax
       'import/no-extraneous-dependencies': 'off', // Allow importing devDependencies
-      'prettier/prettier': ['warn', { singleQuote: true, endOfLine: 'auto' }] // Prettier: use single quotes and auto-detect line endings
-    }
+      'prettier/prettier': ['warn', { singleQuote: true, endOfLine: 'auto' }], // Prettier: use single quotes and auto-detect line endings
+    },
   },
   // Prettier config should be last to disable conflicting ESLint rules
-  prettierConfig
+  prettierConfig,
 ]);
