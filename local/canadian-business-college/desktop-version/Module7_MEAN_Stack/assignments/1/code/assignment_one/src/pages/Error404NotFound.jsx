@@ -1,5 +1,8 @@
 /** This component will act as default page for any 404 errors. */
 
+/** CSS import */
+import "./Error404NotFound.css";
+
 /** Custom component imports */
 import HeadingLevelOne from "../components/HeadingLevelOne";
 
