@@ -11,7 +11,7 @@ import "./WelcomeCard.css";
  */
 function WelcomeCard(props) {
 	return (
-		<div>
+		<div className="welcome-card">
 			<p className="fonts-google caveat-semibold wc-size-big">
 				Welcome to my first React app! It is a 3 page site that functions like a Single Page
 				Application. The 3 pages correspond to the nav links at the top of the page:
