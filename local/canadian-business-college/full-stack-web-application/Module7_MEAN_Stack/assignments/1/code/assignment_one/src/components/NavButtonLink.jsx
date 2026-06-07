@@ -1,10 +1,10 @@
-/** This component will act as a navigation link shown in the form of a button. This means that every navigation link will actually be wrapped in a button element. This will allow for finer styling of each navigation link. */
+/** This component will act as a single navigation link shown in the form of a button. This means that every navigation link will actually be wrapped in a button element. This will allow for finer styling of each navigation link. */
 
 /** Use the Link component from the react-router package */
 import { Link } from "react-router";
 
 /**
- * This component function creates a navigation bar link in the form of a button. The react-router Link element is used for the actual link rather than a standard HTML anchor element.
+ * This component function creates a navigation section link in the form of a button. The react-router Link element is used for the actual link rather than a standard HTML anchor element. This allows for dynamic routing in a React app.
  *
  * @param {Object} props - The component props.
  * @param {string} props.linkRoute - The route that the link should point to (recommended to make sure the route matches a <Route> component specified elsewhere in the app).

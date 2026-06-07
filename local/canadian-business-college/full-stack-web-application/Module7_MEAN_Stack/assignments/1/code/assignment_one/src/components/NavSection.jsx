@@ -4,7 +4,7 @@
 import NavButtonLink from "./NavButtonLink";
 
 /**
- * This component function creates a navigation bar. The bar itself is a div component with a nav component nested inside. This allows for both styling and HTML semantics.
+ * This component function creates the navigation bar as a section. The bar itself is a div element with a nav element nested inside. This allows for both styling and HTML semantics. Inside the nav element are the actual links formed from NavButtonLink components.
  *
  * @returns {JSX.Element} The rendered navigation bar complete with all links it should display.
  */
