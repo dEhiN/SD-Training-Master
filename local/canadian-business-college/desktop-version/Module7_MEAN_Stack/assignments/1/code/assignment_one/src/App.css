@@ -10,12 +10,6 @@ h1 {
 }
 
 .fonts-google {
-    &.playwrite-au-vic-guides-regular {
-        font-family: "Playwrite AU VIC Guides", cursive;
-        font-weight: 400;
-        font-style: normal;
-    }
-
     &.playwrite-au-vic-lite {
         font-family: "Playwrite AU VIC", cursive;
         font-optical-sizing: auto;
