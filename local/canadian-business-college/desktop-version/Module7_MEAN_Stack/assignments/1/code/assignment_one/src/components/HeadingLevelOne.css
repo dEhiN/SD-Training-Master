@@ -1,6 +1,5 @@
-/* Centre the page heading and add some bottom padding. */
+/* Set the element size back to the default for h1 and add some bottom padding. */
 .main-heading {
     font-size: 2em;
-    text-align: center;
     padding-bottom: 2%;
 }

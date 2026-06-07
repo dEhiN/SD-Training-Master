@@ -1,5 +1,8 @@
 /** This component will act as the main section for every page. It will basically be a wrapper for the specific pages.*/
 
+/** CSS import */
+import "./MainSection.css";
+
 /** Page component imports */
 import HomePage from "../pages/HomePage";
 import UserInfoFormPage from "../pages/UserInfoFormPage";
