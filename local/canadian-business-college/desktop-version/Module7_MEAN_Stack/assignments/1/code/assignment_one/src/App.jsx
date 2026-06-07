@@ -19,9 +19,9 @@ function App() {
 		<BrowserRouter>
 			<NavSection />
 			<Routes>
-				<Route path="/" element={HomePage} />
-				<Route path="/userinfoform" element={UserInfoFormPage} />
-				<Route path="/userlist" element={UserListPage} />
+				<Route path="/" element={<HomePage />} />
+				<Route path="/userinfoform" element={<UserInfoFormPage />} />
+				<Route path="/userlist" element={<UserListPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
