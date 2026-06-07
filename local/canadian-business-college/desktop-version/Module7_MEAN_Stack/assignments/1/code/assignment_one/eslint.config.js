@@ -27,6 +27,7 @@ export default defineConfig([
 			"linebreak-style": ["error", "unix"],
 			"spaced-comment": ["error", "always"],
 			"no-var": "error",
+			"no-unused-vars": "off",
 		},
 	},
 ]);
