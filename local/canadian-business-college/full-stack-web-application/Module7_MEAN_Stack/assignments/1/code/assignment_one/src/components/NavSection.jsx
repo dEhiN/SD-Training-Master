@@ -1,5 +1,8 @@
 /** This component will act as the top navigation section for every page. */
 
+/** CSS import */
+import "./NavSection.css";
+
 /** Use the NavButtonLink component */
 import NavButtonLink from "./NavButtonLink";
 
@@ -10,8 +13,8 @@ import NavButtonLink from "./NavButtonLink";
  */
 function NavSection() {
 	return (
-		<div className="nav-section">
-			<nav>
+		<div>
+			<nav className="nav-section">
 				<NavButtonLink linkRoute="/" linkName="Home" />
 				<NavButtonLink linkRoute="/userinfoform" linkName="User Information" />
 				<NavButtonLink linkRoute="/userlist" linkName="User List" />
