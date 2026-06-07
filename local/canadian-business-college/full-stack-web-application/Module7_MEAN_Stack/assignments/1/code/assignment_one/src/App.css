@@ -18,10 +18,17 @@ body {
 
 /* Create classes to apply the different Google fonts that have been added to index.html. This allows any font to be applied by just using the correct class. */
 .fonts-google {
-    &.playwrite-au-vic-lite {
-        font-family: "Playwrite AU VIC", cursive;
+    &.caveat-medium {
+        font-family: "Caveat", cursive;
         font-optical-sizing: auto;
-        font-weight: 159;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    &.caveat-semibold {
+        font-family: "Caveat", cursive;
+        font-optical-sizing: auto;
+        font-weight: 600;
         font-style: normal;
     }
 
