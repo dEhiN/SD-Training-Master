@@ -9,6 +9,7 @@ import MainSection from "./components/MainSection";
 import HomePage from "./pages/HomePage";
 import UserInfoFormPage from "./pages/UserInfoFormPage";
 import UserListPage from "./pages/UserListPage";
+import Error404NotFound from "./pages/Error404NotFound";
 
 /** This is the main App component function. It is configured to just set up the routes and the navigation bar.
  *
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/userinfoform" element={<UserInfoFormPage />} />
 				<Route path="/userlist" element={<UserListPage />} />
+				<Route path="*" element={<Error404NotFound />} />
 			</Routes>
 		</BrowserRouter>
 	);
