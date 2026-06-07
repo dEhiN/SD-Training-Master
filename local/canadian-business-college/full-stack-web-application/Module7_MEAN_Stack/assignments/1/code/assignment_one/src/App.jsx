@@ -1,5 +1,8 @@
 /** This is the main React app */
 
+/** CSS import */
+import "./App.css";
+
 /** React-specific component imports */
 import { BrowserRouter, Routes, Route } from "react-router";
 
