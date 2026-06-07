@@ -1,5 +1,6 @@
 /* Centre the page heading and add some bottom padding. */
 .main-heading {
+    font-size: 2em;
     text-align: center;
     padding-bottom: 2%;
 }

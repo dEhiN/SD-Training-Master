@@ -16,11 +16,6 @@ body {
     background-color: #f0f8ff
 }
 
-/* Restore the general sizing of h1 elements to be twice the base font size.  */
-h1 {
-    font-size: 2em;
-}
-
 /* Create classes to apply the different Google fonts that have been added to index.html. This allows any font to be applied by just using the correct class. */
 .fonts-google {
     &.playwrite-au-vic-lite {
