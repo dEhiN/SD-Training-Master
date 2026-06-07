@@ -2,13 +2,13 @@
 
 Note: Percentage is used in padding for relative sizing.
 */
-
 .nav-section {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: #2f4f4f;
-    padding: 1.5% 0%;
+    padding: 0.5% 0%;
     color: steelblue;
+    gap: calc(100% / 3);
 }
