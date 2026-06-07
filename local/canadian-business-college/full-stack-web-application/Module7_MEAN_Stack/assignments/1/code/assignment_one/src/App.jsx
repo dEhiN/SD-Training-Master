@@ -4,7 +4,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
 /** App-specific (custom) component imports */
-import NavBar from "./components/NavBar";
+import NavSection from "./components/NavSection";
 
 /** This is the main App component function. It is configured to just set up the routes and the navigation bar.
  *
@@ -13,7 +13,7 @@ import NavBar from "./components/NavBar";
 function App() {
 	return (
 		<BrowserRouter>
-			<NavBar />
+			<NavSection />
 			<Routes>
 				<Route path="/" element="" />
 				<Route path="/userinfoform" element="" />

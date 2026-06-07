@@ -8,7 +8,7 @@ import NavButtonLink from "./NavButtonLink";
  *
  * @returns {JSX.Element} The rendered navigation bar complete with all links it should display.
  */
-function NavBar() {
+function NavSection() {
 	return (
 		<div className="nav-section">
 			<nav>
@@ -20,4 +20,4 @@ function NavBar() {
 	);
 }
 
-export default NavBar;
+export default NavSection;
