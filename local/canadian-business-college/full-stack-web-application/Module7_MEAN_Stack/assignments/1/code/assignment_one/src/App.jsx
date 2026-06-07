@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router";
 
 /** App-specific (custom) component imports */
 import NavSection from "./components/NavSection";
+import MainSection from "./components/MainSection";
+import HomePage from "./pages/HomePage";
+import UserInfoFormPage from "./pages/UserInfoFormPage";
+import UserListPage from "./pages/UserListPage";
 
 /** This is the main App component function. It is configured to just set up the routes and the navigation bar.
  *
@@ -15,9 +19,9 @@ function App() {
 		<BrowserRouter>
 			<NavSection />
 			<Routes>
-				<Route path="/" element="" />
-				<Route path="/userinfoform" element="" />
-				<Route path="/userlist" element="" />
+				<Route path="/" element={HomePage} />
+				<Route path="/userinfoform" element={UserInfoFormPage} />
+				<Route path="/userlist" element={UserListPage} />
 			</Routes>
 		</BrowserRouter>
 	);
