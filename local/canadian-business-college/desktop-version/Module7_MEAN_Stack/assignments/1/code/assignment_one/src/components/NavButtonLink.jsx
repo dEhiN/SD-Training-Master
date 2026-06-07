@@ -1,5 +1,8 @@
 /** This component will act as a single navigation link shown in the form of a button. This means that every navigation link will actually be wrapped in a button element. This will allow for finer styling of each navigation link. */
 
+/** CSS import */
+import "./NavButtonLink.css";
+
 /** Use the Link component from the react-router package */
 import { Link } from "react-router";
 
@@ -13,8 +16,11 @@ import { Link } from "react-router";
  */
 function NavButtonLink(props) {
 	return (
-		<button className="nav-link">
-			<Link to={props.linkRoute} className="fonts-google iosevka-charon-regular">
+		<button className="nav-button">
+			<Link
+				to={props.linkRoute}
+				className="fonts-google iosevka-charon-regular nav-button-link"
+			>
 				{props.linkName}
 			</Link>
 		</button>
