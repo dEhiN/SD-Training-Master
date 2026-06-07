@@ -11,7 +11,7 @@ import WelcomeCard from "../components/WelcomeCard";
 function HomePage() {
 	return (
 		<>
-			<h1>Home</h1>
+			<h1 className="fonts-google iosevka-charon-bold">Home</h1>
 			<WelcomeCard />
 		</>
 	);
