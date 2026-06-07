@@ -1,0 +1,19 @@
+p {
+    margin-bottom: 2%;
+}
+
+ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+
+/* Adjust the size to make it 1.5 times bigger than the base font size. */
+.wc-size-big {
+    font-size: 1.5em;
+}
+
+/* Adjust the size to make it 1.2 times bigger than the base font size. */
+.wc-size-md {
+    font-size: 1.2em;
+}

@@ -1,20 +1,26 @@
 /** This component will act as a welcome card that can be featured in the hero section of the main page. */
 
-function WelcomeCard() {
+/** CSS import */
+import "./WelcomeCard.css";
+
+/**
+ * This component function creates a welcome card that can be displayed as the "hero" section of the main or Home page. The card text itself shares some information about the site and the author (or developer). It will also use the React props feature but the author hasn't figured out how yet.
+ *
+ * @param {Object} props - The component props.
+ * @return {JSX.Element} The rendered component as a div parent with the contents as children.
+ */
+function WelcomeCard(props) {
 	return (
 		<div>
-			<p className="fonts-google iosevka-charon-regular">
-				Welcome to my first React app! This sentence using Ioveska Charon regular as the
-				font. Do you like it?
+			<p className="fonts-google caveat-semibold wc-size-big">
+				Welcome to my first React app! It is a 3 page site that functions like a Single Page
+				Application. The 3 pages correspond to the nav links at the top of the page:
 			</p>
-			<p className="fonts-google iosevka-charon-bold">
-				Welcome to my first React app! This sentence using Ioveska Charon bold as the font.
-				Do you like it?
-			</p>
-			<p className="fonts-google playwrite-au-vic-lite">
-				Welcome to my first React app! This sentence using Playwrite AU Vic with weight 159
-				as the font. Do you like it?
-			</p>
+			<ul>
+				<li className="fonts-google caveat-medium wc-size-md">Home</li>
+				<li className="fonts-google caveat-medium wc-size-md">User Information</li>
+				<li className="fonts-google caveat-medium wc-size-md">User List</li>
+			</ul>
 		</div>
 	);
 }
