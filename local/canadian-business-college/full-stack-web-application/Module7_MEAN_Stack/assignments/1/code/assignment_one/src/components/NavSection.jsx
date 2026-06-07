@@ -13,13 +13,11 @@ import NavButtonLink from "./NavButtonLink";
  */
 function NavSection() {
 	return (
-		<div>
-			<nav className="nav-section">
-				<NavButtonLink linkRoute="/" linkName="Home" />
-				<NavButtonLink linkRoute="/userinfoform" linkName="User Information" />
-				<NavButtonLink linkRoute="/userlist" linkName="User List" />
-			</nav>
-		</div>
+		<nav className="nav-section">
+			<NavButtonLink linkRoute="/" linkName="Home" />
+			<NavButtonLink linkRoute="/userinfoform" linkName="User Information" />
+			<NavButtonLink linkRoute="/userlist" linkName="User List" />
+		</nav>
 	);
 }
 

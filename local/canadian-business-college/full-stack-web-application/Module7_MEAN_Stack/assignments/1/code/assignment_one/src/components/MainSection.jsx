@@ -53,11 +53,7 @@ function MainSection(props) {
 		}
 	};
 
-	return (
-		<div className="main-section">
-			<main>{whichPage(props.pageComponentName)}</main>
-		</div>
-	);
+	return <main className="main-section">{whichPage(props.pageComponentName)}</main>;
 }
 
 export default MainSection;
