@@ -5,13 +5,16 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 .fonts-google {
     &.playwrite-au-vic-guides-regular {
         font-family: "Playwrite AU VIC Guides", cursive;
         font-weight: 400;
         font-style: normal;
     }
-
 
     &.playwrite-au-vic-lite {
         font-family: "Playwrite AU VIC", cursive;
@@ -31,5 +34,4 @@
         font-weight: 700;
         font-style: normal;
     }
-
 }
