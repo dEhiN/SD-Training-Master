@@ -1,6 +1,7 @@
 /** This component will act as the Home page. */
 
 /** Custom component imports */
+import HeadingLevelOne from "../components/HeadingLevelOne";
 import WelcomeCard from "../components/WelcomeCard";
 
 /**
@@ -11,7 +12,7 @@ import WelcomeCard from "../components/WelcomeCard";
 function HomePage() {
 	return (
 		<>
-			<h1 className="fonts-google iosevka-charon-bold">Home</h1>
+			<HeadingLevelOne text="Home" />
 			<WelcomeCard />
 		</>
 	);

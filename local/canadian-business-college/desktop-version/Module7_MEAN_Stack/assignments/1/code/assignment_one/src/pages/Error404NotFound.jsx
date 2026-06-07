@@ -1,5 +1,8 @@
 /** This component will act as default page for any 404 errors. */
 
+/** Custom component imports */
+import HeadingLevelOne from "../components/HeadingLevelOne";
+
 /**
  * This component function creates a 404 error page to display.
  *
@@ -8,7 +11,7 @@
 function Error404NotFound() {
 	return (
 		<>
-			<h1>404: Page Not Found</h1>
+			<HeadingLevelOne text="404: Page Not Found" />
 			<p>
 				Uh-oh, the dreaded <span className="html-error-code">404</span> error!
 			</p>
