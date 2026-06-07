@@ -1,14 +1,27 @@
+/* Since this is the App css file, treat this as the global rules */
+
+/* Remove all padding and margin. Set a default font family and size. */
 * {
     padding: 0;
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Set a column-based flex, a border-box sizing calculation, and a background colour for the whole body. */
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f0f8ff
+}
+
+/* Restore the general sizing of h1 elements to be twice the base font size.  */
 h1 {
     font-size: 2em;
 }
 
+/* Create classes to apply the different Google fonts that have been added to index.html. This allows any font to be applied by just using the correct class. */
 .fonts-google {
     &.playwrite-au-vic-lite {
         font-family: "Playwrite AU VIC", cursive;
