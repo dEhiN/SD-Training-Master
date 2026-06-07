@@ -20,11 +20,10 @@ export default defineConfig([
 		},
 		plugins: { prettier: prettierPlugin },
 		rules: {
-			indent: ["error", 4],
+			indent: ["error", "tab"],
 			semi: ["error", "always"],
 			quotes: "off",
 			"keyword-spacing": ["error", { before: true, after: true }],
-			"linebreak-style": ["error", "unix"],
 			"spaced-comment": ["error", "always"],
 			"no-var": "error",
 			"no-unused-vars": "off",
