@@ -54,8 +54,7 @@ function UserInfoFormPage() {
 						inputName="firstName"
 						inputPlaceholder=""
 						id="firstName"
-						labelText="What should we call you (first name)?"
-						// labelText={`What should we call you (first name)?`}
+						labelText={`What should we call you\n(first name)?`}
 						inputValue={userInfo.firstName}
 						changeFunction={updateValues}
 					/>
@@ -66,7 +65,7 @@ function UserInfoFormPage() {
 						inputName="lastName"
 						inputPlaceholder=""
 						id="lastName"
-						labelText="What is your family name (last name)?"
+						labelText={`What is your family name\n(last name)?`}
 						inputValue={userInfo.lastName}
 						changeFunction={updateValues}
 					/>
@@ -77,7 +76,7 @@ function UserInfoFormPage() {
 						inputName="email"
 						inputPlaceholder=""
 						id="email"
-						labelText="How can we reach you (email address)?"
+						labelText={`How can we reach you\n(email address)?`}
 						inputValue={userInfo.email}
 						changeFunction={updateValues}
 					/>
@@ -88,7 +87,7 @@ function UserInfoFormPage() {
 						inputName="company"
 						inputPlaceholder=""
 						id="company"
-						labelText="Where do you work (company name)?"
+						labelText={`Where do you work\n(company name)?`}
 						inputValue={userInfo.company}
 						changeFunction={updateValues}
 					/>
@@ -102,7 +101,7 @@ function UserInfoFormPage() {
 						labelText={
 							userInfo.company
 								? `What is your role at ${userInfo.company}?`
-								: "What do you do for work (job title)?"
+								: `What do you do for work\n(job title)?`
 						}
 						inputValue={userInfo.role}
 						changeFunction={updateValues}
@@ -114,7 +113,7 @@ function UserInfoFormPage() {
 						inputName="age"
 						inputPlaceholder=""
 						id="age"
-						labelText="How old are you (age)?"
+						labelText={`How many times have you been around the sun\n(age)?`}
 						inputValue={userInfo.age ? userInfo.age : ""}
 						changeFunction={updateValues}
 					/>
