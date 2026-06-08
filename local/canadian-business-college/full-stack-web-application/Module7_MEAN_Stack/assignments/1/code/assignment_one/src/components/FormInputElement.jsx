@@ -22,12 +22,15 @@ import "./FormInputElement.css";
 function FormInputElement(props) {
 	return (
 		<div className="input-container">
-			<label
-				htmlFor={props.id}
-				className="fonts-google caveat-medium font-size-bg input-label"
-			>
-				{props.labelText}
-			</label>
+			{props.inputType !== "submit" && (
+				<label
+					htmlFor={props.id}
+					className="fonts-google caveat-medium font-size-bg input-label"
+				>
+					{props.labelText}
+				</label>
+			)}
+
 			<input
 				type={props.inputType}
 				name={props.inputName}
