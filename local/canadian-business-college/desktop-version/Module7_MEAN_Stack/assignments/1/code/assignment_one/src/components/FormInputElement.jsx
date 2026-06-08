@@ -23,7 +23,7 @@ function FormInputElement(props) {
 		<div className="input-container">
 			<label
 				htmlFor={props.id}
-				className="fonts-google caveat-medium font-size-md input-label"
+				className="fonts-google caveat-medium font-size-bg input-label"
 			>
 				{props.labelText}
 			</label>
@@ -34,6 +34,7 @@ function FormInputElement(props) {
 				placeholder={props.inputPlaceholder}
 				value={props.inputValue}
 				onChange={props.changeFunction}
+				className="input-field"
 			/>
 		</div>
 	);

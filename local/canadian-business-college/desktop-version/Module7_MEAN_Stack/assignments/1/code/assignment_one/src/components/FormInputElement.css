@@ -1,9 +1,18 @@
+/* Set the div surrounding the input label and field to be a column-based flex. */
 .input-container {
     display: flex;
     flex-direction: column;
 }
 
+/* For the input field label, align the text to center and add a bottom margin to create space between the label and the field. */
 .input-label {
     text-align: center;
     margin-bottom: 5%;
+}
+
+/* For the input field itself, remove the border but add a border radius and a box shadow to make it look like the field is popping off the page. */
+.input-field {
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
