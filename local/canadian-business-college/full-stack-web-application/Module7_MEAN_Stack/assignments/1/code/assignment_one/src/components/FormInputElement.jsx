@@ -14,7 +14,9 @@
 function FormInputElement(props) {
 	return (
 		<>
-			<label htmlFor={props.id}>{props.labelText}</label>
+			<label htmlFor={props.id} className="fonts-google caveat-medium font-size-md">
+				{props.labelText}
+			</label>
 			<input
 				type={props.inputType}
 				name={props.inputName}
