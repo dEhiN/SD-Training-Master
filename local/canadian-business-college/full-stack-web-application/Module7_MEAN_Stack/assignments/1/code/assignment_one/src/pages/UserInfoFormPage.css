@@ -1,0 +1,6 @@
+/* Create a column-based flex for the form itself with a gap of 5 px between its child elements. */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
