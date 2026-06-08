@@ -39,7 +39,11 @@ function FormInputElement(props) {
 				value={props.inputValue}
 				onChange={props.changeFunction}
 				onClick={props.submitFunction}
-				className={props.inputType === "submit" ? "input-submit" : "input-field"}
+				className={
+					props.inputType === "submit"
+						? "input-submit fonts-google caveat-semibold font-size-bg"
+						: "input-field"
+				}
 			/>
 		</div>
 	);
