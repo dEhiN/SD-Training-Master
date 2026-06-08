@@ -1,10 +1,11 @@
 /** This component will act as the User Information Form page. */
 
 /** React-specific import */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 /** Custom component imports */
 import HeadingLevelOne from "../components/HeadingLevelOne";
+import FormInputElement from "../components/FormInputElement";
 
 /**
  * This component function creates the User Information form page. That is, a page with a form for users to fill out. The data is then validated and sent to an Express server for storage in a database. This component acts as the counterpart to the UserListPage component.
@@ -14,18 +15,14 @@ import HeadingLevelOne from "../components/HeadingLevelOne";
 function UserInfoFormPage() {
 	// An object to store the form data
 	const [userInfo, setUserInfo] = useState({
-		first_name: "",
-		last_name: "",
+		firstName: "",
+		lastName: "",
 		email: "",
 		company: "",
 		role: "",
-		birth_date: Date,
+		birthDate: Date,
 		age: 0,
 	});
-
-	useEffect(() => {
-		console.log(userInfo);
-	}, [userInfo]);
 
 	/**
 	 * This function updates the values for the userInfo object every time a user enters data into one of the form fields.
@@ -44,12 +41,13 @@ function UserInfoFormPage() {
 		<>
 			<HeadingLevelOne text="User Information" />
 			<form>
-				<input
-					type="text"
-					name="first_name"
-					placeholder="Your first name"
-					onChange={updateValues}
-				></input>
+				<FormInputElement
+					inputType="text"
+					inputName="firstName"
+					inputPlaceholder=""
+					id="firstName"
+					labelText="Please enter your first name: "
+				/>
 			</form>
 		</>
 	);

@@ -9,7 +9,7 @@
  * @param {string} props.inputPlaceholder - The placeholder text (if any) to specify for the input field.
  * @param {string} props.id - The id for the input field. This will also be used as the "for" attribute of the associated label element.
  * @param {string} props.labelText - The label text to display.
- * @returns {JSX.Element} The rendered input form element.
+ * @returns {JSX.Element} The rendered input form element together with its label.
  */
 function FormInputElement(props) {
 	return (
