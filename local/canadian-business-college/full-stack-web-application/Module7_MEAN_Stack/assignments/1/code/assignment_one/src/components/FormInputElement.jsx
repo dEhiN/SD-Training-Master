@@ -9,6 +9,7 @@
  * @param {string} props.inputPlaceholder - The placeholder text (if any) to specify for the input field.
  * @param {string} props.id - The id for the input field. This will also be used as the "for" attribute of the associated label element.
  * @param {string} props.labelText - The label text to display.
+ * @param {function(React.ChangeEvent<HTMLInputElement>): void} props.changeFunction - The callback function to handle whenever the value for the input element changes.
  * @returns {JSX.Element} The rendered input form element together with its label.
  */
 function FormInputElement(props) {
@@ -22,6 +23,7 @@ function FormInputElement(props) {
 				name={props.inputName}
 				id={props.id}
 				placeholder={props.inputPlaceholder}
+				onChange={props.changeFunction}
 			/>
 		</>
 	);
