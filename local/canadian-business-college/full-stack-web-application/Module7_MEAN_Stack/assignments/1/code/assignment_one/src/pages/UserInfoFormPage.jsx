@@ -38,7 +38,7 @@ function UserInfoFormPage() {
 	/**
 	 * This function updates the values for the userInfo object every time a user enters data into one of the form fields.
 	 *
-	 * @param {React.BaseSyntheticEvent} event - The React event that called this function
+	 * @param {React.ChangeEvent<HTMLInputElement>} event - The React event that called this function. Specifically, it's expected that this even will be a change event on an HTML input element.
 	 */
 	const updateValues = (event) => {
 		console.log(userInfo.firstName);
