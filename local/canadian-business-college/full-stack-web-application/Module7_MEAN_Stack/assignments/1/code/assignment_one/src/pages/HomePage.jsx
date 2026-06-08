@@ -28,6 +28,12 @@ function HomePage() {
 					<li className="fonts-google caveat-medium font-size-md">User List</li>
 				</ul>
 			</WelcomeCard>
+			<WelcomeCard wcVersion={2}>
+				<p className="fonts-google caveat-medium font-size-bg">
+					This app collects and saves user information through a form and then will show
+					all saved information in a list.
+				</p>
+			</WelcomeCard>
 		</>
 	);
 }
