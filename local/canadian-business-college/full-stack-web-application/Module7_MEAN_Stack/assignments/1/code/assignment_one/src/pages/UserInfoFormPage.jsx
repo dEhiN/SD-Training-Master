@@ -55,6 +55,7 @@ function UserInfoFormPage() {
 						inputPlaceholder=""
 						id="firstName"
 						labelText="What should we call you (first name)?"
+						// labelText={`What should we call you (first name)?`}
 						inputValue={userInfo.firstName}
 						changeFunction={updateValues}
 					/>
