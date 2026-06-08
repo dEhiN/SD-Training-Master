@@ -130,7 +130,7 @@ function UserInfoFormPage() {
 				<WelcomeCard wcVersion={1}>
 					<FormInputElement
 						inputType="submit"
-						inputValue={"Save my info!"}
+						inputValue={"Send my info off to the cloud..."}
 						submitFunction={sendData}
 					/>
 				</WelcomeCard>
