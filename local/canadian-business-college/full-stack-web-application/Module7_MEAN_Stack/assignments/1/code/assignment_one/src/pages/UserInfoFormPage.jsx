@@ -127,7 +127,7 @@ function UserInfoFormPage() {
 						changeFunction={updateValues}
 					/>
 				</WelcomeCard>
-				<WelcomeCard wcVersion={1}>
+				<WelcomeCard wcVersion={3}>
 					<FormInputElement
 						inputType="submit"
 						inputValue={"Send my info off to the cloud..."}
