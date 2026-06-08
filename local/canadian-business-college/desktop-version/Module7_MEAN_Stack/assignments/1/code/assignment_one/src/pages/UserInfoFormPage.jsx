@@ -47,7 +47,7 @@ function UserInfoFormPage() {
 	return (
 		<>
 			<HeadingLevelOne text="User Information" />
-			<form>
+			<form className="form-container">
 				<WelcomeCard wcVersion={3}>
 					<FormInputElement
 						inputType="text"
