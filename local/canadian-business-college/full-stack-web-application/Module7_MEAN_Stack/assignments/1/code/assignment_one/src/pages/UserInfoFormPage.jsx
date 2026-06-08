@@ -4,7 +4,7 @@
 import "./UserInfoFormPage.css";
 
 /** React-specific import */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 /** Custom component imports */
 import HeadingLevelOne from "../components/HeadingLevelOne";
@@ -27,6 +27,9 @@ function UserInfoFormPage() {
 		age: 0,
 	});
 
+	// API POST route to use for sending the user data
+	const apiPostRoute = "";
+
 	/**
 	 * This function updates the values for the userInfo object every time a user enters data into one of the form fields.
 	 *
@@ -46,12 +49,26 @@ function UserInfoFormPage() {
 	 * @param {React.SubmitEvent<HTMLButtonElement>} event - The React event that called this function. Specifically, it's expected that this event will be a click event from an HTML button or input type submit element.
 	 */
 	async function sendData(event) {
+		// Stop the form from reloading the whole page
 		event.preventDefault();
-	}
 
-	useEffect(() => {
-		console.log(userInfo);
-	}, [userInfo]);
+		// Check to make sure there's a proper endpoint to send to
+		if (!apiPostRoute || apiPostRoute === "") {
+			alert(
+				"Your data could not be sent because the web developer forgot to tell me where to send it! Please get in touch with them to resolve this issue!"
+			);
+		}
+
+		let apiPostResponse = await fetch(apiPostRoute, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(userInfo),
+		});
+
+		console.log(apiPostResponse);
+	}
 
 	return (
 		<>
