@@ -30,7 +30,7 @@ function UserInfoFormPage() {
 	/**
 	 * This function updates the values for the userInfo object every time a user enters data into one of the form fields.
 	 *
-	 * @param {React.ChangeEvent<HTMLInputElement>} event - The React event that called this function. Specifically, it's expected that this even will be a change event on an HTML input element.
+	 * @param {React.ChangeEvent<HTMLInputElement>} event - The React event that called this function. Specifically, it's expected that this event will be a change event on an HTML input element.
 	 */
 	const updateValues = (event) => {
 		console.log(userInfo.firstName);
@@ -40,6 +40,11 @@ function UserInfoFormPage() {
 		});
 	};
 
+	/**
+	 * This function sends the saved userInfo object representing user data to the backend server using the API route ??
+	 *
+	 * @param {React.SubmitEvent<HTMLButtonElement>} event - The React event that called this function. Specifically, it's expected that this event will be a click event from an HTML button or input type submit element.
+	 */
 	async function sendData(event) {
 		event.preventDefault();
 	}
