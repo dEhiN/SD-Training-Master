@@ -1,7 +1,7 @@
 /** This component will act as the User Information Form page. */
 
 /** React-specific import */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /** Custom component imports */
 import HeadingLevelOne from "../components/HeadingLevelOne";
@@ -31,7 +31,6 @@ function UserInfoFormPage() {
 		email: "",
 		company: "",
 		role: "",
-		birthDate: Date,
 		age: 0,
 	});
 
@@ -47,6 +46,10 @@ function UserInfoFormPage() {
 			[event.target.name]: event.target.value,
 		});
 	};
+
+	useEffect(() => {
+		console.log(userInfo);
+	}, [userInfo]);
 
 	return (
 		<>
@@ -72,6 +75,54 @@ function UserInfoFormPage() {
 							id="lastName"
 							labelText="Please enter your last name: "
 							inputValue={userInfo.lastName}
+							changeFunction={updateValues}
+						/>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={3}>
+						<FormInputElement
+							inputType="email"
+							inputName="email"
+							inputPlaceholder=""
+							id="email"
+							labelText="Please enter your email address: "
+							inputValue={userInfo.email}
+							changeFunction={updateValues}
+						/>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={2}>
+						<FormInputElement
+							inputType="text"
+							inputName="company"
+							inputPlaceholder=""
+							id="company"
+							labelText="Please enter what company your work for: "
+							inputValue={userInfo.company}
+							changeFunction={updateValues}
+						/>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={3}>
+						<FormInputElement
+							inputType="text"
+							inputName="role"
+							inputPlaceholder=""
+							id="role"
+							labelText={
+								userInfo.company
+									? `Please enter your role at ${userInfo.company}: `
+									: "Please enter your job title: "
+							}
+							inputValue={userInfo.role}
+							changeFunction={updateValues}
+						/>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={2}>
+						<FormInputElement
+							inputType="number"
+							inputName="age"
+							inputPlaceholder=""
+							id="age"
+							labelText="Please enter your age: "
+							inputValue={userInfo.age ? userInfo.age : ""}
 							changeFunction={updateValues}
 						/>
 					</WelcomeCard>
