@@ -8,6 +8,7 @@
 .input-label {
     text-align: center;
     margin-bottom: 5%;
+    white-space-collapse: preserve-breaks;
 }
 
 /* For the input field itself, remove the border but add a border radius and a box shadow to make it look like the field is popping off the page. */
