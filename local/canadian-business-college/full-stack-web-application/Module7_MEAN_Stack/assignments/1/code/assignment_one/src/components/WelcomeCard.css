@@ -13,7 +13,9 @@ ul {
     padding: 2%;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: rgb(176, 165, 226);
+    /* background-color: rgb(176, 165, 226); */
+    background-color: #f8f3ee;
+    /* background-color: #d8e3ef; */
 }
 
 /* Adjust the size to make it 1.5 times bigger than the base font size. */
