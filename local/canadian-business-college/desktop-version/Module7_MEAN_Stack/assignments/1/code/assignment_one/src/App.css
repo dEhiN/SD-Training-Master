@@ -23,7 +23,7 @@ body {
 
 /* Adjust the size to make it 1.2 times bigger than the base font size. */
 .font-size-md {
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 /* Create classes to apply the different Google fonts that have been added to index.html. This allows any font to be applied by just using the correct class. */
