@@ -44,80 +44,78 @@ function UserInfoFormPage() {
 	return (
 		<>
 			<HeadingLevelOne text="User Information" />
-			<WelcomeCard>
-				<form>
-					<WelcomeCard wcVersion={3}>
-						<FormInputElement
-							inputType="text"
-							inputName="firstName"
-							inputPlaceholder=""
-							id="firstName"
-							labelText="Please enter your first name: "
-							inputValue={userInfo.firstName}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-					<WelcomeCard wcVersion={2}>
-						<FormInputElement
-							inputType="text"
-							inputName="lastName"
-							inputPlaceholder=""
-							id="lastName"
-							labelText="Please enter your last name: "
-							inputValue={userInfo.lastName}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-					<WelcomeCard wcVersion={3}>
-						<FormInputElement
-							inputType="email"
-							inputName="email"
-							inputPlaceholder=""
-							id="email"
-							labelText="Please enter your email address: "
-							inputValue={userInfo.email}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-					<WelcomeCard wcVersion={2}>
-						<FormInputElement
-							inputType="text"
-							inputName="company"
-							inputPlaceholder=""
-							id="company"
-							labelText="Please enter what company your work for: "
-							inputValue={userInfo.company}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-					<WelcomeCard wcVersion={3}>
-						<FormInputElement
-							inputType="text"
-							inputName="role"
-							inputPlaceholder=""
-							id="role"
-							labelText={
-								userInfo.company
-									? `Please enter your role at ${userInfo.company}: `
-									: "Please enter your job title: "
-							}
-							inputValue={userInfo.role}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-					<WelcomeCard wcVersion={2}>
-						<FormInputElement
-							inputType="number"
-							inputName="age"
-							inputPlaceholder=""
-							id="age"
-							labelText="Please enter your age: "
-							inputValue={userInfo.age ? userInfo.age : ""}
-							changeFunction={updateValues}
-						/>
-					</WelcomeCard>
-				</form>
-			</WelcomeCard>
+			<form>
+				<WelcomeCard wcVersion={3}>
+					<FormInputElement
+						inputType="text"
+						inputName="firstName"
+						inputPlaceholder=""
+						id="firstName"
+						labelText="Please enter your first name: "
+						inputValue={userInfo.firstName}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={2}>
+					<FormInputElement
+						inputType="text"
+						inputName="lastName"
+						inputPlaceholder=""
+						id="lastName"
+						labelText="Please enter your last name: "
+						inputValue={userInfo.lastName}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={3}>
+					<FormInputElement
+						inputType="email"
+						inputName="email"
+						inputPlaceholder=""
+						id="email"
+						labelText="Please enter your email address: "
+						inputValue={userInfo.email}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={2}>
+					<FormInputElement
+						inputType="text"
+						inputName="company"
+						inputPlaceholder=""
+						id="company"
+						labelText="Please enter what company your work for: "
+						inputValue={userInfo.company}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={3}>
+					<FormInputElement
+						inputType="text"
+						inputName="role"
+						inputPlaceholder=""
+						id="role"
+						labelText={
+							userInfo.company
+								? `Please enter your role at ${userInfo.company}: `
+								: "Please enter your job title: "
+						}
+						inputValue={userInfo.role}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={2}>
+					<FormInputElement
+						inputType="number"
+						inputName="age"
+						inputPlaceholder=""
+						id="age"
+						labelText="Please enter your age: "
+						inputValue={userInfo.age ? userInfo.age : ""}
+						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+			</form>
 		</>
 	);
 }
