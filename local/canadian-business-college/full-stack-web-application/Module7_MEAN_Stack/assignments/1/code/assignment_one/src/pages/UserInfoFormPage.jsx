@@ -8,16 +8,6 @@ import HeadingLevelOne from "../components/HeadingLevelOne";
 import WelcomeCard from "../components/WelcomeCard";
 import FormInputElement from "../components/FormInputElement";
 
-/** Global variables */
-/* An object that represents the props data needed to build a FormInputElement */
-const formElementInput = {
-	inputType: "",
-	inputName: "",
-	inputPlaceholder: "",
-	id: "",
-	labelText: "",
-};
-
 /**
  * This component function creates the User Information form page. That is, a page with a form for users to fill out. The data is then validated and sent to an Express server for storage in a database. This component acts as the counterpart to the UserListPage component.
  *
