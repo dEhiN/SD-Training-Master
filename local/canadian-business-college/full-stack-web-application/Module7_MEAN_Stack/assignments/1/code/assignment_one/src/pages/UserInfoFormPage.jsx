@@ -5,6 +5,7 @@ import { useState } from "react";
 
 /** Custom component imports */
 import HeadingLevelOne from "../components/HeadingLevelOne";
+import WelcomeCard from "../components/WelcomeCard";
 import FormInputElement from "../components/FormInputElement";
 
 /**
@@ -40,15 +41,28 @@ function UserInfoFormPage() {
 	return (
 		<>
 			<HeadingLevelOne text="User Information" />
-			<form>
-				<FormInputElement
-					inputType="text"
-					inputName="firstName"
-					inputPlaceholder=""
-					id="firstName"
-					labelText="Please enter your first name: "
-				/>
-			</form>
+			<WelcomeCard>
+				<form>
+					<WelcomeCard wcVersion={3}>
+						<FormInputElement
+							inputType="text"
+							inputName="firstName"
+							inputPlaceholder=""
+							id="firstName"
+							labelText="Please enter your first name: "
+						/>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={2}>
+						<FormInputElement
+							inputType="text"
+							inputName="lastName"
+							inputPlaceholder=""
+							id="lastName"
+							labelText="Please enter your last name: "
+						/>
+					</WelcomeCard>
+				</form>
+			</WelcomeCard>
 		</>
 	);
 }
