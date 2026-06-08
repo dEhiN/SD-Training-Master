@@ -60,6 +60,8 @@ function UserInfoFormPage() {
 							inputPlaceholder=""
 							id="firstName"
 							labelText="Please enter your first name: "
+							inputValue={userInfo.firstName}
+							changeFunction={updateValues}
 						/>
 					</WelcomeCard>
 					<WelcomeCard wcVersion={2}>
@@ -69,6 +71,8 @@ function UserInfoFormPage() {
 							inputPlaceholder=""
 							id="lastName"
 							labelText="Please enter your last name: "
+							inputValue={userInfo.lastName}
+							changeFunction={updateValues}
 						/>
 					</WelcomeCard>
 				</form>
