@@ -16,6 +16,7 @@ import "./FormInputElement.css";
  * @param {string} props.labelText - The label text to display.
  * @param {string|number} props.inputValue - The current value or state of the input field.
  * @param {function(React.ChangeEvent<HTMLInputElement>): void} props.changeFunction - The callback function to handle whenever the value for the input element changes.
+ * @param {function(React.SubmitEvent<HTMLButtonElement>): void} props.submitFunction - The callback function to handle when a submit input element (in other words, a submit button) is clicked.
  * @returns {JSX.Element} The rendered input form element together with its label.
  */
 function FormInputElement(props) {
@@ -34,6 +35,7 @@ function FormInputElement(props) {
 				placeholder={props.inputPlaceholder}
 				value={props.inputValue}
 				onChange={props.changeFunction}
+				onClick={props.submitFunction}
 				className="input-field"
 			/>
 		</div>
