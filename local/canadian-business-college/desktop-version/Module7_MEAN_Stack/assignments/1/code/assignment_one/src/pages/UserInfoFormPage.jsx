@@ -1,5 +1,8 @@
 /** This component will act as the User Information Form page. */
 
+/** CSS import */
+import "./HomePage.css";
+
 /** React-specific import */
 import { useState, useEffect } from "react";
 
