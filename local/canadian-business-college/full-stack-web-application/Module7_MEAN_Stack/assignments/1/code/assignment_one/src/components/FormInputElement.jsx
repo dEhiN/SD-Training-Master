@@ -1,5 +1,8 @@
 /** This component will act as a form input element. */
 
+/** CSS import */
+import "./FormInputElement.css";
+
 /**
  * This component function will create a form input element using the props values passed in. It will also add the element label if the same props are passed in. It can only create and handle form input elements, not any other type of form elements.
  *
@@ -17,8 +20,11 @@
  */
 function FormInputElement(props) {
 	return (
-		<>
-			<label htmlFor={props.id} className="fonts-google caveat-medium font-size-md">
+		<div className="input-container">
+			<label
+				htmlFor={props.id}
+				className="fonts-google caveat-medium font-size-md input-label"
+			>
 				{props.labelText}
 			</label>
 			<input
@@ -29,7 +35,7 @@ function FormInputElement(props) {
 				value={props.inputValue}
 				onChange={props.changeFunction}
 			/>
-		</>
+		</div>
 	);
 }
 
