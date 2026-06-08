@@ -1,39 +1,22 @@
-/* Add some margin underneath each paragraph. */
-p {
-    margin-bottom: 2%;
-}
-
-/* Change the type of bullet point and the positioning of each list item. */
-ul {
-    list-style-type: circle;
-    list-style-position: inside;
-}
-
+/* Style the welcome card itself to have some padding, a border radius, a box shadow, and a margin bottom. There are 3 versions of the welcome card that can be styled. They differ only in the background colour as can be seen with the classes below. */
 .welcome-card {
     padding: 2%;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* background-color: rgb(176, 165, 226); */
+    margin-bottom: 2%;
+}
+
+/* Background colour for welcome card version 1. */
+.wc-version1 {
     background-color: #f8f3ee;
-    /* background-color: #d8e3ef; */
 }
 
-/* Adjust the size to make it 1.5 times bigger than the base font size. */
-.wc-size-big {
-    font-size: 1.5em;
+/* Background colour for welcome card version 2. */
+.wc-version2 {
+    background-color: #d8e3ef;
 }
 
-/* Adjust the size to make it 1.2 times bigger than the base font size. */
-.wc-size-md {
-    font-size: 1.2em;
+/* Background colour for welcome card version 3. */
+.wc-version3 {
+    background-color: rgb(176, 165, 226);
 }
-
-
-/*
-If #fde9d4 is the background, a softer, more neutral card works better than a bright cyan.
-
-Good card options
-#f8f3ee — warm off-white that still reads as a layer over the peach
-#d8e3ef — soft dusty blue, cool but muted enough to avoid feeling harsh
-#c7d0d7 — gentle slate blue for slightly stronger contrast while staying calm
-*/
