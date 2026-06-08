@@ -36,7 +36,7 @@ function FormInputElement(props) {
 				value={props.inputValue}
 				onChange={props.changeFunction}
 				onClick={props.submitFunction}
-				className="input-field"
+				className={props.inputType === "submit" ? "input-submit" : "input-field"}
 			/>
 		</div>
 	);
