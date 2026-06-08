@@ -40,6 +40,10 @@ function UserInfoFormPage() {
 		});
 	};
 
+	async function sendData(event) {
+		event.preventDefault();
+	}
+
 	useEffect(() => {
 		console.log(userInfo);
 	}, [userInfo]);
@@ -116,6 +120,13 @@ function UserInfoFormPage() {
 						labelText={`How many times have you been around the sun\n(age)?`}
 						inputValue={userInfo.age ? userInfo.age : ""}
 						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={1}>
+					<FormInputElement
+						inputType="submit"
+						inputValue={"Save my info!"}
+						submitFunction={sendData}
 					/>
 				</WelcomeCard>
 			</form>
