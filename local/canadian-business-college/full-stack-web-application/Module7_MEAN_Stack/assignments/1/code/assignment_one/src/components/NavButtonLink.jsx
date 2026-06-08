@@ -17,10 +17,7 @@ import { Link } from "react-router";
 function NavButtonLink(props) {
 	return (
 		<button className="nav-button">
-			<Link
-				to={props.linkRoute}
-				className="fonts-google iosevka-charon-regular nav-button-link"
-			>
+			<Link to={props.linkRoute} className="fonts-google iosevka-charon-bold nav-button-link">
 				{props.linkName}
 			</Link>
 		</button>
