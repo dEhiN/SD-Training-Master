@@ -4,25 +4,25 @@
 import "./WelcomeCard.css";
 
 /**
- * This component function creates a welcome card that can be displayed as the "hero" section of the main or Home page. The card text itself shares some information about the site and the author (or developer). It will also use the React props feature but the author hasn't figured out how yet.
+ * This component function creates a welcome card that can be displayed as the "hero" section of the main or Home page. The card text itself shares some information about the site and the author (or developer). In the CSS, 3 different card "versions" have been created which differ only in the background colour of the card. The card that's created uses the props value to specify which background colour to use and to inject any children.
  *
  * @param {Object} props - The component props.
+ * @param {number} props.wcVersion - A number between 1 and 3 representing which version of the Welcome Card to display. This affects the background colour. See WelcomeCard.css for more information.
+ * @param {ReactNode} props.children - A ReactNode representing JSX elements or code to insert as children of the div element
  * @return {JSX.Element} The rendered component as a div parent with the contents as children.
  */
 function WelcomeCard(props) {
-	return (
-		<div className="welcome-card">
-			<p className="fonts-google caveat-semibold wc-size-big">
-				Welcome to my first React app! It is a 3 page site that functions like a Single Page
-				Application. The 3 pages correspond to the nav links at the top of the page:
-			</p>
-			<ul>
-				<li className="fonts-google caveat-medium wc-size-md">Home</li>
-				<li className="fonts-google caveat-medium wc-size-md">User Information</li>
-				<li className="fonts-google caveat-medium wc-size-md">User List</li>
-			</ul>
-		</div>
-	);
+	// An object to allow different version of the welcome card
+	const welcomeCardVersions = {
+		1: "wc-version1",
+		2: "wc-version2",
+		3: "wc-version3",
+	};
+
+	// Set the welcome card version based on the props value or a default as a safety backup
+	const wcVersion = welcomeCardVersions[props.wcVersion] || welcomeCardVersions[1];
+
+	return <div className={`welcome-card ${wcVersion}`}>{props.children}</div>;
 }
 
 export default WelcomeCard;
