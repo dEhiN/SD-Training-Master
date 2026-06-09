@@ -2,6 +2,37 @@
 
 /** Installed module import */
 import express from "express";
-import { MongoClient } from "mongodb";
 import cors from "cors";
 import dotenv from "dotenv";
+
+/** Custom module import */
+import connectToMongoDB from "./config/database_config.js";
+
+/** Configure the dotenv module */
+dotenv.config();
+
+/** Create the connection to the Mongo database and then to the collection that will be used for the React app. */
+const dbClient = await connectToMongoDB();
+const dbCollection = dbClient.db("module_7").collection("assignment_1");
+
+/** Create the Express app */
+const app = express();
+
+/** Set up the Express middleware for CORS, handling complex form data through POST, and handling JSON data. */
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+/** Set the server listening port */
+const PORT = process.env.PORT || 4000;
+
+/** Set up the server API routes */
+app.post("/api/save-user", async (req, res) => {
+	let results = dbCollection.insertOne(req.body);
+	res.status(200).send("Received!");
+});
+
+/** Start the server */
+app.listen(PORT, () => {
+	console.log(`The server has started on port ${PORT}!`);
+});
