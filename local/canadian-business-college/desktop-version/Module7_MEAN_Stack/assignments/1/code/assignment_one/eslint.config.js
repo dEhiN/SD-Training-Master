@@ -29,5 +29,14 @@ export default defineConfig([
 			"no-unused-vars": "off",
 		},
 	},
+	{
+		files: ["server.js"],
+		extends: [js.configs.recommended],
+		languageOptions: {
+			globals: globals.node,
+			parserOptions: { sourceType: "module" },
+		},
+	},
+
 	prettierConfig,
 ]);

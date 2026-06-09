@@ -10,7 +10,7 @@
 		"preview": "vite preview",
 		"server": "node server.js",
 		"server-watch": "node --watch server.js",
-		"start:all": "concurrently \"npm run dev\" \"npm run sever\""
+		"start:all": "concurrently \"npm run dev\" \"npm run server\""
 	},
 	"dependencies": {
 		"concurrently": "^10.0.3",
