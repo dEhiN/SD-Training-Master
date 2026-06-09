@@ -57,7 +57,7 @@ function HomePage() {
 			<WelcomeCard wcVersion={3}>
 				<FormInputElement
 					inputType="submit"
-					inputValue={learnMore ? "Show Less..." : "Show More..."}
+					inputValue={learnMore ? "Show Less " : "Show More "}
 					submitFunction={showMore}
 				/>
 			</WelcomeCard>
@@ -83,15 +83,41 @@ function HomePage() {
 						</p>
 						<p className="fonts-google caveat-medium font-size-md">
 							When the Internet was first created, and when websites were first
-							developed, they only existed to show or serve information. The
-							information on a site stayed the same, so you could visit the site every
-							day for a month and you would read the same text.
+							created, they only existed to show or serve information. The information
+							on a site stayed the same, so you could visit the site every day for a
+							month and you would read the same text.
 						</p>
 						<p className="fonts-google caveat-medium font-size-md">
-							As the Internet, and websites, developed, the information served evolved
+							As the Internet, and websites developed, the information served evolved
 							to become dynamic. That is, the information could change every time the
-							site was viewed. Eventually, websites evolved more to become interactive
-							in the same way as a mobile app or laptop software program.
+							site was viewed.
+						</p>
+						<p className="fonts-google caveat-medium font-size-md">
+							Eventually, websites evolved even more to become interactive in the same
+							way as a mobile application or computer software program.
+						</p>
+					</WelcomeCard>
+					<WelcomeCard wcVersion={1}>
+						<p className="fonts-google caveat-semibold font-size-bg">
+							What does this have to do with SPAs?
+						</p>
+						<p className="fonts-google caveat-medium font-size-md">
+							A lot, actually. When website became interactive, it became jarring and
+							unpleasant to see a browser refresh every time a different page was
+							accessed. So, the idea of an SPA was invented.
+						</p>
+						<p className="fonts-google caveat-medium font-size-md">
+							To demonstrate this, let's look at this React app site you're
+							interacting with. At the top, the navigation section has links for three
+							pages in total - this home page and two others. With a traditional site,
+							if a link to one of the other pages was clicked, the whole site would
+							refresh so the browser could load the other page properly. However, with
+							an SPA, when a link to another page is clicked, the page contents load
+							but the browser never refreshes.
+						</p>
+						<p className="fonts-google caveat-medium font-size-md">
+							This is what makes an SPA feel more like a computer program or a mobile
+							application and less like a traditional website.
 						</p>
 					</WelcomeCard>
 				</>
