@@ -17,6 +17,7 @@ import "./FormInputElement.css";
  * @param {string|number} props.inputValue - The current value or state of the input field.
  * @param {function(React.ChangeEvent<HTMLInputElement>): void} props.changeFunction - The callback function to handle whenever the value for the input element changes.
  * @param {function(React.SubmitEvent<HTMLButtonElement>): void} props.submitFunction - The callback function to handle when a submit input element (in other words, a submit button) is clicked.
+ * @param {boolean} props.required - Specifies whether the "required" HTML attribute should be added to the input element.
  * @returns {JSX.Element} The rendered input form element together with its label.
  */
 function FormInputElement(props) {
@@ -33,17 +34,18 @@ function FormInputElement(props) {
 
 			<input
 				type={props.inputType}
-				name={props.inputName}
-				id={props.id}
-				placeholder={props.inputPlaceholder}
-				value={props.inputValue}
-				onChange={props.changeFunction}
-				onClick={props.submitFunction}
 				className={
 					props.inputType === "submit"
 						? "input-submit fonts-google caveat-semibold font-size-bg"
 						: "input-field"
 				}
+				name={props.inputName}
+				id={props.id}
+				placeholder={props.inputPlaceholder || undefined}
+				value={props.inputValue || undefined}
+				onChange={props.changeFunction}
+				onClick={props.submitFunction}
+				required={props.required || undefined}
 			/>
 		</div>
 	);
