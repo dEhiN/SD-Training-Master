@@ -100,6 +100,7 @@ function UserInfoFormPage() {
 				`There was an error sending your data to the cloud!\n\nPlease get in touch with the developer and give them the following details:\n\nHTTP Status Code: ${apiPostResponse.status} - ${apiPostResponse.statusText}`
 			);
 		} else {
+			alert("Your information is now in the cloud...");
 			// Clear the user data since the POST request was successful
 			clearForm();
 		}
