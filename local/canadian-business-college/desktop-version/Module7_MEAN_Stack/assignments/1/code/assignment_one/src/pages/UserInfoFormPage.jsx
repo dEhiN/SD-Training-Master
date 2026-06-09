@@ -52,10 +52,20 @@ function UserInfoFormPage() {
 		// Stop the form from reloading the whole page
 		event.preventDefault();
 
+		// Check to make sure all fields have been filled out
+		for (let data in userInfo) {
+			if (!userInfo[data]) {
+				alert("Please fill out all fields before trying to save your information...");
+				return;
+			}
+		}
+
+		// Check the email address
+
 		// Check to make sure there's a proper endpoint to send to
 		if (!apiPostRoute || apiPostRoute === "") {
 			alert(
-				"Your data could not be sent because the web developer forgot to tell me where to send it! Please get in touch with them to resolve this issue!"
+				"Your data could not be sent because the web developer forgot to tell me where to send it!\n\nPlease get in touch with them to resolve this issue!"
 			);
 		}
 
