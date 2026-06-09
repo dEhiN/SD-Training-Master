@@ -22,4 +22,5 @@
     border: none;
     background-color: rgb(176, 165, 226);
     cursor: pointer;
+    border-radius: 4px;
 }
