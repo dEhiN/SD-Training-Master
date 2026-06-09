@@ -60,8 +60,6 @@ function UserInfoFormPage() {
 			}
 		}
 
-		// Check the email address
-
 		// Check to make sure there's a proper endpoint to send to
 		if (!apiPostRoute || apiPostRoute === "") {
 			alert(
@@ -113,6 +111,7 @@ function UserInfoFormPage() {
 						inputPlaceholder=""
 						id="email"
 						labelText={`How can we reach you\n(email address)?`}
+						required={true}
 						inputValue={userInfo.email}
 						changeFunction={updateValues}
 					/>
