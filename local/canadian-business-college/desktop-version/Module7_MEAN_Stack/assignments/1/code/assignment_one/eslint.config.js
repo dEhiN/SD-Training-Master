@@ -30,7 +30,7 @@ export default defineConfig([
 		},
 	},
 	{
-		files: ["server.js"],
+		files: ["server.js", "config/database_config.js"],
 		extends: [js.configs.recommended],
 		languageOptions: {
 			globals: globals.node,
