@@ -35,7 +35,7 @@ app.post("/api/save-user", async (req, res) => {
 
 app.get("/api/get-user", async (req, res) => {
 	// Get all of the saved database data, store it in an array, and send it back with a status code of 200
-	let results = await dbCollection.find().toArray();
+	let results = await dbCollection.find({}, { projection: { _id: 0 } }).toArray();
 	res.status(200).json({
 		results: results,
 	});
