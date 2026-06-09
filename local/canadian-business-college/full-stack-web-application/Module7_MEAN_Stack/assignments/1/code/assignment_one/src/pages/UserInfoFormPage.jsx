@@ -36,11 +36,19 @@ function UserInfoFormPage() {
 	 * @param {React.ChangeEvent<HTMLInputElement>} event - The React event that called this function. Specifically, it's expected that this event will be a change event on an HTML input element.
 	 */
 	const updateValues = (event) => {
-		console.log(userInfo.firstName);
 		setUserInfo({
 			...userInfo,
 			[event.target.name]: event.target.value,
 		});
+	};
+
+	/**
+	 * This function will check the validity of the email field using the browser's native email validity mechanism. While the browser default check isn't robust, it's sufficient for this app. Specifically, this function allows for a user to finish typing in the email field and only validates once the focus moves off the email field.
+	 *
+	 * @param {React.FocusEvent<HTMLInputElement>} event  - The React event that called this function. Specifically, it's expected that this event will be a blur event on an HTML input element. In other words, the event should be a focus event when the focus is off the element.
+	 */
+	const validateEmail = (event) => {
+		event.target.reportValidity();
 	};
 
 	/**
@@ -114,6 +122,9 @@ function UserInfoFormPage() {
 						required={true}
 						inputValue={userInfo.email}
 						changeFunction={updateValues}
+						blurFunction={validateEmail}
+						regexPattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+						tooltip="Please type in a valid email complete with the @ symbol, a dot (.) and a valid domain extension (e.g., .com)"
 					/>
 				</WelcomeCard>
 				<WelcomeCard wcVersion={2}>
