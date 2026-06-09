@@ -45,6 +45,7 @@ export default defineConfig([
 			"spaced-comment": ["error", "always"],
 			"no-var": "error",
 			"no-unused-vars": "off",
+			"no-useless-assignment": "off",
 		},
 	},
 
