@@ -28,8 +28,17 @@ const PORT = process.env.PORT || 4000;
 
 /** Set up the server API routes */
 app.post("/api/save-user", async (req, res) => {
-	let results = dbCollection.insertOne(req.body);
+	// Save the user data and return a status of 200
+	await dbCollection.insertOne(req.body);
 	res.status(200).send("Received!");
+});
+
+app.get("/api/get-user", async (req, res) => {
+	// Get all of the saved database data, store it in an array, and send it back with a status code of 200
+	let results = await dbCollection.find().toArray();
+	res.status(200).json({
+		results: results,
+	});
 });
 
 /** Start the server */
