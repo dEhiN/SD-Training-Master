@@ -63,15 +63,25 @@ function UserListPage() {
 							userCount++,
 							(
 								<WelcomeCard wcVersion={2}>
-									<p className="user-list-header">User {userCount}</p>
+									<p className="user-list-header fonts-google iosevka-charon-bold">
+										User {userCount}
+									</p>
 									<ul className="user-list-list">
-										<li>
+										<li className="fonts-google iosevka-charon-regular">
 											Name: {user.firstName} {user.lastName}
 										</li>
-										<li>Age: {user.age}</li>
-										<li>Company: {user.company}</li>
-										<li>Position: {user.role}</li>
-										<li>Email: {user.email}</li>
+										<li className="fonts-google iosevka-charon-regular">
+											Age: {user.age}
+										</li>
+										<li className="fonts-google iosevka-charon-regular">
+											Company: {user.company}
+										</li>
+										<li className="fonts-google iosevka-charon-regular">
+											Position: {user.role}
+										</li>
+										<li className="fonts-google iosevka-charon-regular">
+											Email: {user.email}
+										</li>
 									</ul>
 								</WelcomeCard>
 							)
