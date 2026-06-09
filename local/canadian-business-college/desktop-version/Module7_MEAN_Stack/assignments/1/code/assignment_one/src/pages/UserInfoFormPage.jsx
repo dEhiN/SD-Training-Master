@@ -55,6 +55,14 @@ function UserInfoFormPage() {
 	};
 
 	/**
+	 * This function clears the form of all inputted data.
+	 *
+	 */
+	const clearForm = () => {
+		setUserInfo(initialUserInfo);
+	};
+
+	/**
 	 * This function sends the saved userInfo object representing user data to the backend server using the API route ??
 	 *
 	 * @param {React.SubmitEvent<HTMLButtonElement>} event - The React event that called this function. Specifically, it's expected that this event will be a click event from an HTML button or input type submit element.
@@ -93,7 +101,7 @@ function UserInfoFormPage() {
 			);
 		} else {
 			// Clear the user data since the POST request was successful
-			setUserInfo(initialUserInfo);
+			clearForm();
 		}
 	}
 
@@ -173,6 +181,13 @@ function UserInfoFormPage() {
 						labelText={`How many times have you been around the sun\n(age)?`}
 						inputValue={userInfo.age ? userInfo.age : ""}
 						changeFunction={updateValues}
+					/>
+				</WelcomeCard>
+				<WelcomeCard wcVersion={3}>
+					<FormInputElement
+						inputType="button"
+						inputValue={"Erase what I wrote!"}
+						submitFunction={clearForm}
 					/>
 				</WelcomeCard>
 				<WelcomeCard wcVersion={3}>

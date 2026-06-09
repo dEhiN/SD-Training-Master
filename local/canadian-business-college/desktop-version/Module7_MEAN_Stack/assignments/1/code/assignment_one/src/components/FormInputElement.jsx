@@ -26,7 +26,7 @@ import "./FormInputElement.css";
 function FormInputElement(props) {
 	return (
 		<div className="input-container">
-			{props.inputType !== "submit" && (
+			{props.inputType !== "submit" && props.inputType !== "button" && (
 				<label
 					htmlFor={props.id}
 					className="fonts-google caveat-medium font-size-bg input-label"
@@ -38,14 +38,14 @@ function FormInputElement(props) {
 			<input
 				type={props.inputType}
 				className={
-					props.inputType === "submit"
+					props.inputType === "submit" || props.inputType === "button"
 						? "input-submit fonts-google caveat-semibold font-size-bg"
 						: "input-field"
 				}
 				name={props.inputName}
 				id={props.id}
 				placeholder={props.inputPlaceholder || undefined}
-				value={props.inputValue || undefined}
+				value={props.inputValue ?? ""}
 				onChange={props.changeFunction}
 				onBlurCapture={props.blurFunction}
 				onClick={props.submitFunction}
