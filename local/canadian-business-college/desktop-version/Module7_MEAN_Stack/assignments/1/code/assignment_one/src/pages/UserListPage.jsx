@@ -56,26 +56,28 @@ function UserListPage() {
 					/>
 				</WelcomeCard>
 			)}
-			{users &&
-				users.map(
-					(user) => (
-						userCount++,
-						(
-							<WelcomeCard wcVersion={2}>
-								<p className="user-list-header">User {userCount}</p>
-								<ul className="user-list-list">
-									<li>
-										Name: {user.firstName} {user.lastName}
-									</li>
-									<li>Age: {user.age}</li>
-									<li>Company: {user.company}</li>
-									<li>Position: {user.role}</li>
-									<li>Email: {user.email}</li>
-								</ul>
-							</WelcomeCard>
+			<div className="user-list-container">
+				{users &&
+					users.map(
+						(user) => (
+							userCount++,
+							(
+								<WelcomeCard wcVersion={2}>
+									<p className="user-list-header">User {userCount}</p>
+									<ul className="user-list-list">
+										<li>
+											Name: {user.firstName} {user.lastName}
+										</li>
+										<li>Age: {user.age}</li>
+										<li>Company: {user.company}</li>
+										<li>Position: {user.role}</li>
+										<li>Email: {user.email}</li>
+									</ul>
+								</WelcomeCard>
+							)
 						)
-					)
-				)}
+					)}
+			</div>
 		</>
 	);
 }

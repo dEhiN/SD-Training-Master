@@ -1,7 +1,15 @@
+.user-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: calc(100vw / 2 / 3);
+}
+
+/** Centre align the text */
 .user-list-header {
     text-align: center;
 }
 
+/** Don't use bullet points */
 .user-list-list {
     list-style-type: none;
 }
