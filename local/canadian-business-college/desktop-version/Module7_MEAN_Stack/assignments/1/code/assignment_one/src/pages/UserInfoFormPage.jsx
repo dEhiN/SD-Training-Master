@@ -17,18 +17,21 @@ import FormInputElement from "../components/FormInputElement";
  * @return {JSX.Element} The full rendered User Information page.
  */
 function UserInfoFormPage() {
-	// An object to store the form data
-	const [userInfo, setUserInfo] = useState({
+	// Set the initial (blank) state for the form data
+	const initialUserInfo = {
 		firstName: "",
 		lastName: "",
 		email: "",
 		company: "",
 		role: "",
 		age: 0,
-	});
+	};
+
+	// An object to store the form data
+	const [userInfo, setUserInfo] = useState(initialUserInfo);
 
 	// API POST route to use for sending the user data
-	const apiPostRoute = "";
+	const apiPostRoute = "/api/save-user";
 
 	/**
 	 * This function updates the values for the userInfo object every time a user enters data into one of the form fields.
@@ -83,7 +86,15 @@ function UserInfoFormPage() {
 			body: JSON.stringify(userInfo),
 		});
 
-		console.log(apiPostResponse);
+		// If the response was anything other than 200, let the user know
+		if (apiPostResponse.status !== 200) {
+			alert(
+				`There was an error sending your data to the cloud!\n\nPlease get in touch with the developer and give them the following details:\n\nHTTP Status Code: ${apiPostResponse.status} - ${apiPostResponse.statusText}`
+			);
+		} else {
+			// Clear the user data since the POST request was successful
+			setUserInfo(initialUserInfo);
+		}
 	}
 
 	return (
