@@ -41,6 +41,11 @@ app.get("/api/get-user", async (req, res) => {
 	});
 });
 
+app.use((req, res) => {
+	// Return a status code of 502 with an error message
+	res.status(502).send("This route cannot be found on the server!");
+});
+
 /** Start the server */
 app.listen(PORT, () => {
 	console.log(`The server has started on port ${PORT}!`);
