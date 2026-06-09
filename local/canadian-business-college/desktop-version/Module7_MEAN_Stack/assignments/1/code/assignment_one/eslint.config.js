@@ -36,6 +36,16 @@ export default defineConfig([
 			globals: globals.node,
 			parserOptions: { sourceType: "module" },
 		},
+		plugins: { prettier: prettierPlugin },
+		rules: {
+			indent: ["error", "tab"],
+			semi: ["error", "always"],
+			quotes: "off",
+			"keyword-spacing": ["error", { before: true, after: true }],
+			"spaced-comment": ["error", "always"],
+			"no-var": "error",
+			"no-unused-vars": "off",
+		},
 	},
 
 	prettierConfig,
