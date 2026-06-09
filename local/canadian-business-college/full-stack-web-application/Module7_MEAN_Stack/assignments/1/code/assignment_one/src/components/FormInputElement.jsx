@@ -13,9 +13,12 @@ import "./FormInputElement.css";
  * @param {string} props.inputName- The name for the input field.
  * @param {string} props.inputPlaceholder - The placeholder text (if any) to specify for the input field.
  * @param {string} props.id - The id for the input field. This will also be used as the "for" attribute of the associated label element.
+ * @param {string} props.tooltip - A tooltip or hint text to display. Should be used in conjunction with a validation function.
+ * @param {string} props.regexPattern - A RegEx pattern to use. Should be used in conjunction with a validator function.
  * @param {string} props.labelText - The label text to display.
  * @param {string|number} props.inputValue - The current value or state of the input field.
  * @param {function(React.ChangeEvent<HTMLInputElement>): void} props.changeFunction - The callback function to handle whenever the value for the input element changes.
+ * * @param {function(React.FocusEvent<HTMLInputElement>): void} props.blurFunction - The callback function to handle whenever the focus goes off an input element. This could be used to handle custom input field validation.
  * @param {function(React.SubmitEvent<HTMLButtonElement>): void} props.submitFunction - The callback function to handle when a submit input element (in other words, a submit button) is clicked.
  * @param {boolean} props.required - Specifies whether the "required" HTML attribute should be added to the input element.
  * @returns {JSX.Element} The rendered input form element together with its label.
@@ -44,7 +47,10 @@ function FormInputElement(props) {
 				placeholder={props.inputPlaceholder || undefined}
 				value={props.inputValue || undefined}
 				onChange={props.changeFunction}
+				onBlurCapture={props.blurFunction}
 				onClick={props.submitFunction}
+				pattern={props.blurFunction ? props.regexPattern : undefined}
+				title={props.blurFunction ? props.tooltip : undefined}
 				required={props.required || undefined}
 			/>
 		</div>
