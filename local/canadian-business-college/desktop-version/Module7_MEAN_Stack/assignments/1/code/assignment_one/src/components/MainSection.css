@@ -1,0 +1,7 @@
+/* Set a column-based flex on the main section and center the child elements both vertically and horizontally. */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
