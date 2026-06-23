@@ -1,0 +1,15 @@
+/* Add some margin underneath each paragraph. */
+p {
+    margin-bottom: 2%;
+}
+
+/* Change the type of bullet point. */
+ul {
+    list-style-type: circle;
+}
+
+/* Change the positioning of each list item for both unordered and ordered lists so that the full item is shown inside. */
+ul,
+ol {
+    list-style-position: inside;
+}
