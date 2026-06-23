@@ -1,0 +1,41 @@
+<div class="prod-cart-container">
+    <h2>Available Items</h2>
+    <p>Items in Cart: <strong>{{cartCount}}</strong></p>
+
+    <!-- Version 3 -->
+    <div class="prod-list-container">
+        @for (product of products; track product.id) {
+        <app-product-card [productData]="product"></app-product-card>
+        }
+    </div>
+
+    <!-- Version 2 -->
+    <!-- <div class="prod-list-container">
+        @for (product of products; track product.id) {
+        <div class="prod-item-container" [style.opacity]="product.inStock ? '1' : '0.5'">
+            <h3>{{product.name}}</h3>
+            <p>Price: ${{product.price}}</p>
+
+            @if (product.inStock) {
+            <button class="cart-add-btn" (click)="addToCart()">
+                Add to Cart
+            </button>
+            }
+            @else {
+            <span class="prod-item-oos">Temporarily Out of Stock</span>
+            }
+        </div>
+        }
+    </div> -->
+
+    <!-- Version 1 -->
+    <!-- <div class="prod-item-container">
+        <h3></h3>
+        <p>Price: $</p>
+        <p>Status: </p>
+
+        <button class="cart-add-btn" (click)="addToCart()">
+            Add to Cart
+        </button>
+    </div> -->
+</div>
