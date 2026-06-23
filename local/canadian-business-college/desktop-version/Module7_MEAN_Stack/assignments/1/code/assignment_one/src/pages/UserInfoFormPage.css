@@ -1,0 +1,17 @@
+/* Create a column-based flex for the form itself with a gap of 5 px between its child elements. */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* If the screen width is >764 px, switch from a column-based flex to a grid */
+/* @media (min-width: 764px) {
+    .form-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        justify-content: space-evenly;
+        gap: 20px;
+        margin: 20px;
+    }
+} */

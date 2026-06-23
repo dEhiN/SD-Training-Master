@@ -1,0 +1,14 @@
+/** Set a row-based flex for the nav section. Align items in the centre. 
+
+Note: Percentage is used in padding for relative sizing.
+*/
+.nav-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #2f4f4f;
+    padding: 0.5% 0%;
+    color: steelblue;
+    gap: calc(100% / 3);
+}
