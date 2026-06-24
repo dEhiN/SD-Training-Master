@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular-beginner-assessment": {
+    "angular-beginner-assignment": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,9 +24,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -56,10 +54,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-beginner-assessment:build:production"
+              "buildTarget": "angular-beginner-assignment:build:production"
             },
             "development": {
-              "buildTarget": "angular-beginner-assessment:build:development"
+              "buildTarget": "angular-beginner-assignment:build:development"
             }
           },
           "defaultConfiguration": "development"
