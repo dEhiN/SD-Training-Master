@@ -11,22 +11,10 @@
     margin-top: 15px;
 }
 
-.prod-item-container {
-    border: 1px solid #eee;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
 .cart-add-btn {
     background: #007bff;
     color: white;
     padding: 8px 12px;
     border: none;
     cursor: pointer;
-}
-
-.prod-item-oos {
-    color: red;
-    font-weight: bold;
 }
