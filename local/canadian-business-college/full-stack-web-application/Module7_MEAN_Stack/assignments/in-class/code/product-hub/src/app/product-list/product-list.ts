@@ -28,7 +28,6 @@ export class ProductList {
       inStock: true,
     },
   ];
-
   cartCount: number = 0;
 
   addToCart() {
