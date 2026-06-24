@@ -2,13 +2,23 @@
     <h2>Available Items</h2>
     <p>Items in Cart: <strong>{{cartCount}}</strong></p>
 
-    <div style="border: 1px solid #eee; padding: 15px; border-radius: 5px; margin-top: 10px;">
-        <h3>{{productName}}</h3>
-        <p>Price: ${{productPrice}}</p>
-        <!-- <p>Status: {{inStock ? "In Stock" : "Out of Stock"}}</p> -->
-        <button (click)="addToCart()"
-            style="background: #007bff; color: white; padding: 8px 12px; border: none; cursor: pointer;">
-            Add to Cart
-        </button>
+    <div style="display: flex; gap: 15px; flex-direction: column; margin-top: 15px;">
+        @for (product of products; track product.id) {
+        <div style="border: 1px solid #eee; padding: 15px; border-radius: 5px; margin-top: 10px;"
+            [style.opacity]="product.inStock ? '1' : '0.5'">
+            <h3>{{product.name}}</h3>
+            <p>Price: ${{product.price}}</p>
+            @if (product.inStock) {
+            <button (click)="addToCart()"
+                style="background: #007bff; color: white; padding: 8px 12px; border: none; cursor: pointer;">
+                Add to Cart
+            </button>
+
+            }
+            @else {
+            <span style="color: red; font-weight: bold;">Temporarily Out of Stock</span>
+            }
+        </div>
+        }
     </div>
 </div>
