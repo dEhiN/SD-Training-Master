@@ -28,9 +28,6 @@ export class ProductList {
       inStock: true,
     },
   ];
-  productName: string = 'Wireless Mechanical Keyboard';
-  productPrice: number = 129.99;
-  inStock: boolean = true;
 
   cartCount: number = 0;
 
