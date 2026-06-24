@@ -4,19 +4,10 @@
 
     <div class="prod-list-container">
         @for (product of products; track product.id) {
-        <div class="prod-item-container" [style.opacity]="product.inStock ? '1' : '0.5'">
-            <h3>{{product.name}}</h3>
-            <p>Price: ${{product.price}}</p>
-            @if (product.inStock) {
-            <button class="cart-add-btn" (click)="addToCart()">
-                Add to Cart
-            </button>
-
-            }
-            @else {
-            <span class="prod-item-oos">Temporarily Out of Stock</span>
-            }
-        </div>
+        <app-product-card [productData]="product"></app-product-card>
         }
+        <!-- <button class="cart-add-btn" (click)="addToCart()">
+                Add to Cart
+        </button> -->
     </div>
 </div>
