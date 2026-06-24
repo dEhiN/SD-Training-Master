@@ -10,5 +10,5 @@ import { DataList } from './data-list/data-list';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('angular-beginner-assessment');
+  protected readonly title = signal('angular-beginner-assignment');
 }
