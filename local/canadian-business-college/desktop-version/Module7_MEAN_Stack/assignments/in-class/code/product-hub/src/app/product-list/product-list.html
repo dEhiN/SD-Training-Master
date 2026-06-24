@@ -1,4 +1,8 @@
 <div style="padding: 20px; border: 1px solid #ddd; margin-top: 15px;">
     <h2>Available Items</h2>
-    <p>No products loaded yet.</p>
+    <div style="border: 1px solid #eee; padding: 15px; border-radius: 5px;">
+        <h3>{{productName}}</h3>
+        <p>Price: ${{productPrice}}</p>
+        <p>Status: {{inStock ? "In Stock" : "Out of Stock"}}</p>
+    </div>
 </div>
