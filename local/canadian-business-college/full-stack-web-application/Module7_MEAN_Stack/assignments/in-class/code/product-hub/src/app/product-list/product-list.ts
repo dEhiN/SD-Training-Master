@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
-export class ProductList {}
+export class ProductList {
+  productName: string = 'Wireless Mechanical Keyboard';
+  productPrice: number = 129.99;
+  inStock: boolean = true;
+}
