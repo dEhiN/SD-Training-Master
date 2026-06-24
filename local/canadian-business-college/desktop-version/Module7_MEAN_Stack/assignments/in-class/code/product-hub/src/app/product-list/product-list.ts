@@ -10,4 +10,10 @@ export class ProductList {
   productName: string = 'Wireless Mechanical Keyboard';
   productPrice: number = 129.99;
   inStock: boolean = true;
+
+  cartCount: number = 0;
+
+  addToCart() {
+    this.cartCount++;
+  }
 }
