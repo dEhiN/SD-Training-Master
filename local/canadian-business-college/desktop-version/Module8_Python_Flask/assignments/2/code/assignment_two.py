@@ -15,6 +15,7 @@ This section deals with lists and consists of the following instructions:
 5. Print the length of the list.
 """
 
+print("\nPart 1: Lists")
 fruits = ["apple", "banana", "cherry", "mango"]
 print(fruits[1])
 fruits.append("orange")
@@ -35,6 +36,7 @@ This section deals with sets and consists of the following instructions:
 4. Remove "blue" from the set.
 """
 
+print("\nPart 2: Sets")
 colors = {"red", "blue", "green", "yellow"}
 colors.add("purple")
 colors.add("red")
@@ -55,6 +57,7 @@ This section deals with tuples and consists of the following instructions:
 4. Use slicing to print the first three items of the tuple.
 """
 
+print("\nPart 3: Tuples")
 days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 print(days[2])
 # days[1] = "Tues"
@@ -76,6 +79,7 @@ This section deals with dictionaries and consists of the following instructions:
 5. Print all the keys and values using a loop.
 """
 
+print("\nPart 4: Dictionaries")
 student = {"name": "Alex", "age": 20, "grade": "A"}
 print(student["name"])
 student["city"] = "Toronto"
