@@ -86,3 +86,35 @@ student["city"] = "Toronto"
 student["grade"] = "B+"
 for key, value in student.items():
     print(key, ":", value)
+
+
+"""
+Part 5: If/Else Statements (Conditionals)
+This section deals with conditionals and consists of the following instructions:
+
+1. Create a variable called temperature and set it to 25.
+
+2. Write an if/elif/else block that checks the temperature:
+    
+    If it is greater than 30, print "It's a hot day."
+    
+    If it is between 15 and 30 (inclusive), print "It's a beautiful day."
+
+    If it is less than 15, print "It's a cold day."
+
+3. Create a boolean variable called is_raining and set it to True. Write an if/else statement that prints "Bring an umbrella" if true, and "Leave the umbrella at home" if false.
+"""
+
+print("\nPart 5: Conditionals")
+temperature = 25
+if temperature > 30:
+    print("It's a hot day.")
+elif temperature < 15:
+    print("It's a cold day.")
+else:
+    print("It's a beautiful day.")
+is_raining = True
+if is_raining:
+    print("Bring an umbrella")
+else:
+    print("Leave the umbrella at home")
