@@ -105,7 +105,7 @@ This section deals with conditionals and consists of the following instructions:
 3. Create a boolean variable called is_raining and set it to True. Write an if/else statement that prints "Bring an umbrella" if true, and "Leave the umbrella at home" if false.
 """
 
-print("\nPart 5: Conditionals")
+print("\nPart 5: If/Else Statements (Conditionals)")
 temperature = 25
 if temperature > 30:
     print("It's a hot day.")
@@ -118,3 +118,17 @@ if is_raining:
     print("Bring an umbrella")
 else:
     print("Leave the umbrella at home")
+
+
+"""
+Part 6: For Loops
+This section deals with for loops and consists of the following instructions:
+
+1. Create a list called numbers containing the integers 1, 2, 3, 4, 5.
+
+2. Write a for loop that iterates through the numbers list and prints each number multiplied by 2."""
+
+print("\nPart 6: For Loops")
+numbers = [x for x in range(1, 6)]
+for num in numbers:
+    print(num**2)
