@@ -21,6 +21,7 @@ fruits.append("orange")
 fruits[0] = "grape"
 print(len(fruits))
 
+
 """
 Part 2: Sets
 This section deals with sets and consists of the following instructions:
@@ -33,11 +34,13 @@ This section deals with sets and consists of the following instructions:
 
 4. Remove "blue" from the set.
 """
+
 colors = {"red", "blue", "green", "yellow"}
 colors.add("purple")
 colors.add("red")
 print(colors)
 colors.remove("blue")
+
 
 """
 Part 3: Tuples
@@ -51,7 +54,31 @@ This section deals with tuples and consists of the following instructions:
 
 4. Use slicing to print the first three items of the tuple.
 """
+
 days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 print(days[2])
 # days[1] = "Tues"
 print(days[:3])
+
+
+"""
+Part 4: Dictionaries
+This section deals with dictionaries and consists of the following instructions:
+
+1. Create a dictionary called student with keys: "name", "age", "grade" and values: "Alex", 20, "A".
+
+2. Print the student's name.
+
+3. Add a new key "city" with value "Toronto".
+
+4. Change the "grade" to "B+".
+
+5. Print all the keys and values using a loop.
+"""
+
+student = {"name": "Alex", "age": 20, "grade": "A"}
+print(student["name"])
+student["city"] = "Toronto"
+student["grade"] = "B+"
+for key, value in student.items():
+    print(key, ":", value)
