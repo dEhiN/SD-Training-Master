@@ -38,3 +38,20 @@ colors.add("purple")
 colors.add("red")
 print(colors)
 colors.remove("blue")
+
+"""
+Part 3: Tuples
+This section deals with tuples and consists of the following instructions:
+
+1. Create a tuple called days with values: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday".
+
+2. Print the third item from the tuple.
+
+3. Try changing "Tuesday" to "Tues" and see what error you get. - TypeError
+
+4. Use slicing to print the first three items of the tuple.
+"""
+days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+print(days[2])
+# days[1] = "Tues"
+print(days[:3])
