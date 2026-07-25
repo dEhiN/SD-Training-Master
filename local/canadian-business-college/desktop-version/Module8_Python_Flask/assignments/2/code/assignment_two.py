@@ -126,9 +126,34 @@ This section deals with for loops and consists of the following instructions:
 
 1. Create a list called numbers containing the integers 1, 2, 3, 4, 5.
 
-2. Write a for loop that iterates through the numbers list and prints each number multiplied by 2."""
+2. Write a for loop that iterates through the numbers list and prints each number multiplied by 2.
+"""
 
 print("\nPart 6: For Loops")
 numbers = [x for x in range(1, 6)]
 for num in numbers:
     print(num**2)
+
+
+"""
+Part 7: While Loops
+This section deals with while loops and consists of the following instructions:
+
+1. Create a variable called counter and set it to 0.
+
+2. Write a while loop that prints the value of counter as long as it is less than 5. (Don't forget to add 1 to the counter inside the loop so it doesn't run forever!)
+
+3. Create a new while loop that starts a variable at 10 and subtracts 1 each time. Use an if statement and the break keyword to stop the loop completely when the variable reaches 5. Print a "Loop ended!" message at the end.
+"""
+
+print("\nPart 7: While Loops")
+counter = 0
+while counter < 5:
+    print(counter)
+    counter += 1
+rev_counter = 10
+while rev_counter > 0:
+    rev_counter -= 1
+    if rev_counter == 5:
+        break
+print("Loop ended!")
