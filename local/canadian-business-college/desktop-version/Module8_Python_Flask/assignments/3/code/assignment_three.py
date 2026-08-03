@@ -102,3 +102,34 @@ def demonstrate_scope():
 print("\nPart 4: Variable Scope (Local vs. Global)")
 demonstrate_scope()
 print(f"Outside function: {coding_language}")
+
+
+"""
+Part 5: Exception Handling (try / except / finally))
+
+1. Write a function called safe_divide(num1, num2).
+
+2. Inside the function, use a try block to attempt to divide num1 by num2 and print the result.
+
+3. Use an except ZeroDivisionError: block to catch the error if someone tries to divide by zero. If this happens, print: Error: You cannot divide by zero!
+
+4. Use a finally block that prints: Division attempt completed. (This should print whether the division succeeded or failed).
+
+5. Test it:
+
+- Call safe_divide(10, 2) (This should succeed).
+
+- Call safe_divide(10, 0) (This should trigger the except block).
+"""
+
+def safe_divide(num1, num2):
+    try:
+        print(num1 / num2)
+    except ZeroDivisionError:
+        print("Error: You cannot divide by zero!")
+    finally:
+        print("Division attempt completed.")
+
+print("\nPart 5: Exception Handling (try / except / finally)")
+safe_divide(10, 2)
+safe_divide(10, 0)
