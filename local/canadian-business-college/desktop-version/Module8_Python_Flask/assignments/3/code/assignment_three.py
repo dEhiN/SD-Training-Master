@@ -16,6 +16,7 @@ def greet_user():
 def show_python_tip():
     print("Tip: Use clear variable names in your code.")
 
+print("Part 1: Functions Without Parameters")
 greet_user()
 show_python_tip()
 
@@ -36,6 +37,7 @@ def greet_by_name(name):
 def add_numbers(a, b):
     return (a + b)
 
+print("\nPart 2: Functions With Parameters")
 greet_by_name("David")
 sum_result = add_numbers(15, 20)
 print(sum_result)
