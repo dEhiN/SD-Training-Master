@@ -73,3 +73,32 @@ def roll_dice():
 print("\nPart 3: Using Built-in Packages")
 print(find_square_root(16))
 print(roll_dice())
+
+
+"""
+Part 4: Variable Scope (Local vs. Global)
+
+1. Create a global variable called coding_language and set it to "Python".
+
+2. Write a function called demonstrate_scope():
+
+3. Inside the function, create a local variable with the exact same name (coding_language) and set it to "JavaScript".
+
+4. Print the local variable from inside the function. (Example: Inside function: JavaScript)
+
+5. Test it:
+
+- Call demonstrate_scope().
+
+- Print the coding_language variable outside the function to prove that the global variable hasn't changed. (Example: Outside function: Python)
+"""
+
+coding_language = "Python"
+
+def demonstrate_scope():
+    coding_language = "JavaScript"
+    print(f"Inside function: {coding_language}")
+
+print("\nPart 4: Variable Scope (Local vs. Global)")
+demonstrate_scope()
+print(f"Outside function: {coding_language}")
