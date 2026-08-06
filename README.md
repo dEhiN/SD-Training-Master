@@ -20,7 +20,7 @@ The `git` history of each merged repository has been preserved and brought in as
 
 ## How was this accomplished?
 
-I used the `Python` package _git_filter_repo_ to rewrite the git histories of each merged repository. This tool `git_filter_repo` will take the existing `git` history and rewrite it so that it looks like the repository being manipulated was never on its own but always part of a larger repository.
+I used the `Python` package _git_filter_repo_ to rewrite the git histories of each merged repository. This tool takes the existing `git` history and rewrites it so that it looks like the repository being manipulated was never on its own but always part of a larger repository.
 
 This is done by passing in a directory name to filter, and the rewritten history will show that the repository being manipulated was only ever constrained to that directory.
 
