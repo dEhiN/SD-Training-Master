@@ -1,5 +1,5 @@
 # Getting Started with Git and GitHub -- Final Project
-This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project
+This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project.
 
 # Purpose
 A calculator that calculates simple interest given principal, annual rate of interest and time period in years.
