@@ -1,15 +1,20 @@
 # Getting Started with Git and GitHub -- Final Project
-This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project.
 
-# Purpose
+## Purpose
+
+This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project. It is a forked repo and the course is the 3rd course of the _IBM Full Stack Software Developer_ program on Coursera.
+
+## Simple Interest Calculator
+
 A calculator that calculates simple interest given principal, annual rate of interest and time period in years.
 
-# Details
+```
+Input:
+   p, principal amount
+   t, time period in years
+   r, annual rate of interest
+Output
+   simple interest = p*t*r
+```
 
-## Input
-<li>p, principal amount</li>
-<li>t, time period in years</li>
-<li>r, annual rate of interest</li>
-
-## Output
-<li>simple interest = p*t*r</li>
+_© 2022 XYZ, Inc._
