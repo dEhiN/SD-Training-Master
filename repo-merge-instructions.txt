@@ -1,0 +1,73 @@
+These are the instructions to merge existing repositories for software development courses and coursework into the new SD-Training-Master repository
+
+
+(IF APPLICABLE)
+Part 1 - Create the special-repo-course-merge structure and clone the SD-Training-Master repo:
+
+# Create a folder called "special-repo-course-merge" and change to it
+mkdir special-repo-course-merge
+cd special-repo-course-merge
+
+# Clone the Software Developer Training Master Repository into a folder called "master-repo"
+git clone https://github.com/dEhiN/SD-Training-Master.git master-repo
+
+# Create a second child folder called "staging"
+mkdir staging
+
+
+
+Part 2 - Clone each course repo and filter it:
+
+# Change to the "staging" folder
+cd staging
+
+# Clone the course repo
+git clone <course repo name>
+
+# Change to the course repo folder
+cd <course repo folder>
+
+# Run the filter-repo command using the desired path within the master-repo folder to the subfolder for the course repo and then the course repo name as the subfolder name 
+git filter-repo --to-subdirectory-filter <path to subfolder>/<course repo name>
+
+
+
+Part 3 - Merge the filtered course repo into the SD-Training-Master repo:
+
+# Change to the "master repo" folder from the course repo folder in "staging"
+cd ../../master-repo
+
+# Add the course repo folder in "staging" as a remote source using the course repo name as the remote source name
+git remote add <course repo name> ../staging/<course repo folder>
+
+# Run git fetch
+git fetch <course repo name>
+
+# Run git merge to bring up VS Code for the commit message
+git merge <course repo name>/main --allow-unrelated-histories
+
+# Use the following template for the commit message:
+
+Title:
+'Merging the coursework repo originally named "<course repo name>"'
+
+Body:
+'Original repo about:
+<course GH repo about section>'
+
+# Remove the remote source
+git remote remove <course repo name>
+
+
+
+Part 4 - Delete the course repo folder and update the course GH repo
+# Change to the "staging" folder
+cd ../staging
+
+# Delete the course repo folder
+rm -rf <course repo name>
+
+# Go to the course repo on GitHub and do the following:
+
+1) Change the repo to private
+2) Archive the repo
