@@ -1,5 +1,5 @@
-# github-final-project
-This is for the final project for course 3 of the IBM Full Stack Web Developer program on Coursera
+# CourseraCourse--IBMGettingStartedGitHub--FinalProject
+This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project
 
 # Purpose
 A calculator that calculates simple interest given principal, annual rate of interest and time period in years.
