@@ -1,0 +1,11 @@
+Copyright (c) 2026 David H. Watson. All rights reserved.
+
+This repository contains academic coursework, personal assignments, and project deliverables 
+created exclusively for educational, evaluation, and portfolio demonstration purposes.
+
+NO PERMISSION IS GRANTED to copy, reproduce, distribute, modify, publish, adapt, transmit, 
+or display any portion of this repository or its source code for any purpose, including 
+commercial, personal, educational, or academic submissions, without prior written permission 
+from the copyright owner.
+
+Unauthorized copying, plagiarism, or misuse of this source code is strictly prohibited.

@@ -28,7 +28,15 @@ This is done by passing in a directory name to filter, and the rewritten history
 
 If you are interested in further technical details, feel free to reach out.
 
+## 🔒 License & Usage Notice
+
+© 2026 David H. Watson. All rights reserved.
+
+This repository is made publicly visible **strictly for portfolio evaluation and demonstration purposes**. 
+The code and assets herein represent original academic coursework and may not be copied, reproduced, 
+or redistributed for personal, commercial, or educational submissions.
+
 <br>
 @dEhiN
 
-_Last updated: 2026-08-06_
+_Last updated: 2026-08-12_
