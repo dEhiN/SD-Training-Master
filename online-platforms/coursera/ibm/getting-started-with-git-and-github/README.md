@@ -1,4 +1,4 @@
-# CourseraCourse--IBMGettingStartedGitHub--FinalProject
+# Getting Started with Git and GitHub -- Final Project
 This is for the IBM "Getting Started with Git and GitHub" course on Coursera and specifically for the Module 3 > Final Project
 
 # Purpose
