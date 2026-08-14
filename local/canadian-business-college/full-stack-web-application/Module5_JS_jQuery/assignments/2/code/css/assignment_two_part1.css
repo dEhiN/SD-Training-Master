@@ -1,0 +1,71 @@
+/* This CSS file is for the assignment part 1 section of the document */
+
+/** List of relevant classes:
+- assign-part1
+- section-heading
+- section-paras-noiterable
+- section-paras-iterable
+- iterable-list
+- iterable-list-item
+- usr-obj-prop
+- usr-obj-prop-name
+- usr-obj-prop-value
+*/
+
+
+/** Set a column-based flex for the whole part 1 section (all 3 main divs). */
+.assign-part1 {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.5px #2f4f4f solid;
+}
+
+/** Set a row-based flex for the first paragraph section (the non-iterable variable paragraphs).
+    Ensure the child items are spaced evenly.
+*/
+.section-paras-noiterable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2% 0%;
+}
+
+/** Set a row-based flex for the second paragraph section (the iterable variable paragraphs).
+    Ensure the child items are spaced evenly.
+*/
+.section-paras-iterable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2% 0%;
+}
+
+/** Add some top padding to the lists to separate them a little from the paragraph text. */
+.iterable-list {
+    padding-top: 1%;
+}
+
+/** Add some left padding to the array list to create an indentation. */
+#para-part1-array-fruits>.iterable-list {
+    padding-left: 5%;
+}
+
+/** Remove list bullets and numbers. */
+.iterable-list-item {
+    list-style-type: none;
+}
+
+/** Add some colour to the user object properties. */
+.usr-obj-prop {
+    color: orangered;
+}
+
+/** Bold the user object property names. */
+.usr-obj-prop-name {
+    font-weight: bold;
+}
+
+/** Italicize the user object property values. */
+.usr-obj-prop-value {
+    font-style: italic;
+}
