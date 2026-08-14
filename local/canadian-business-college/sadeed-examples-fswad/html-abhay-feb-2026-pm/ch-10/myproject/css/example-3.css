@@ -1,0 +1,15 @@
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+color: #665544;
+padding: 20px
+}
+
+.page
+{
+
+    border: #665544 2px solid;
+    background-color: #efefef;
+    padding: 20px;
+}
+

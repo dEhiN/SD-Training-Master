@@ -1,0 +1,56 @@
+
+h1{
+
+    color: blue;
+}
+
+.first {
+
+    width: 100px;    
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;  
+    
+    background-color: yellow;
+    
+}
+
+
+.second {
+
+  width: 100px;    
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;  
+    
+    background-color: red;
+}
+
+.third{
+
+    width: 100px;    
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;  
+    
+    background-color: Green;
+
+}
+.fourth{
+
+     width: 100px;    
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;  
+    
+    background-color: violet;
+
+}
