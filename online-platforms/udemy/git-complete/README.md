@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is for the Udemy course "Git Complete - The definitive, step-by-step guide to Git" (shortened to "Git Complete") and specifically for the Starter Web exercise.
+This is for the Udemy course "Git Complete - The definitive, step-by-step guide to Git" (shortened to "Git Complete") and specifically for the Exercise > Starter Web.
 
 ## Starter Web Project
 
