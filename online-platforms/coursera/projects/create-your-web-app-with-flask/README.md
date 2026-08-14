@@ -2,4 +2,4 @@
 
 ## Purpose
 
-This is for the Coursera project _Create Your First Web App with Flask_.
+This is for the Coursera project: _Create Your First Web App with Flask_.
