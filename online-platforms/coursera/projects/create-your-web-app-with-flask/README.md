@@ -1,3 +1,5 @@
-# Purpose
+# Create Your First Web App with Flask
 
-This is a repo created for the Coursera project _Create Your First Web App with Flask_.
+## Purpose
+
+This is for the Coursera project _Create Your First Web App with Flask_.
