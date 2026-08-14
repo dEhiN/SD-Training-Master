@@ -1,6 +1,6 @@
-# CBCDiploma--FSWAD
+# Canadian Business College: Full Stack Web Application DIploma
 
-Master repository for all project work done for the <strong>Full-Stack Web Application Development Diploma</strong> by the <em>Canadian Business College</em>.
+This is for all work done for the <em>Full-Stack Web Application Development Diploma</em> program at <strong>Canadian Business College</strong>.
 
 ### Note:
 
