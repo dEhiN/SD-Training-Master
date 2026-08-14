@@ -24,7 +24,7 @@ activate_venv() {
 print_pwd() {
 	if [[ "$pwd_debug" == "true" ]]; then
 		printf "\nThe current directory is: %s\n" "$PWD"
-	fir
+	fi
 }
 
 set_dir() {	
