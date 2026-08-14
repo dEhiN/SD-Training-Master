@@ -1,11 +1,5 @@
-# Directories
-.github
-.vscode
-prev-files
-
 # Files
 .env
-*.gdoc
 
 # Node.js specific
 node_modules/
