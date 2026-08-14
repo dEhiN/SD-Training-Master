@@ -13,6 +13,8 @@ user_gh="https://github.com/dEhiN/"
 repo_dir_gh=""
 repo_dir_master=""
 
+pwd_debug="false"
+
 activate_venv() {
 	set_dir
 	printf "\nActivating the Python virtual environment...\n"
@@ -20,7 +22,9 @@ activate_venv() {
 }
 
 print_pwd() {
-	printf "\nThe current directory is: %s\n" "$PWD"
+	if [[ "$pwd_debug" == "true" ]]; then
+		printf "\nThe current directory is: %s\n" "$PWD"
+	fir
 }
 
 set_dir() {	
@@ -111,6 +115,10 @@ cleanup_repo() {
 	printf "Removing the %s folder from %s..." "$repo_dir_gh" "$staging_dir"
 	rm -rf "$repo_dir_gh"
 }
+
+if [[ -n "$1" && "$1" == "debug" ]]; then
+	pwd_debug="true"
+fi
 
 echo "Starting script..."
 
