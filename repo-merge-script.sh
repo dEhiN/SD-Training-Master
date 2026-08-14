@@ -5,7 +5,7 @@
 
 # set -x
 
-parent_dir="special-repo-course-merge"
+parent_dir="sd-repos-merge"
 master_dir="master-repo"
 staging_dir="staging"
 
