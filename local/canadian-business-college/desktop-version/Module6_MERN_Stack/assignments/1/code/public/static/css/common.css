@@ -1,0 +1,86 @@
+/* This is the CSS file for common page style rules */
+
+
+/** Set some rules for all elements, classes, and ids: no padding, a base font size, a base font family with fallback, and box sizing to be border-box.
+*/
+* {
+    padding: 0;
+    /* margin: 0; */
+    font-size: 20px;
+    font-family: "Forum", serif;
+    box-sizing: border-box;
+}
+
+/** Set a column-based flex for the whole body and the page background colour.
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(192, 128, 129, 0.4);
+    margin: 0;
+}
+
+/** Set up the header to be a flex container with default main axis, space in between the header elements to center the nav bar on the page, and a background color to complement the nav link colour scheme. */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #8b9ba6;
+}
+
+/** Set up the navigation list to not have any bullet points and be flex display with default main axis to make the links horizontal with a gap in between each link. */
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li {
+    padding: 5px 10px;
+}
+
+/** Adjusted the specific nav links to look better against the header backdrop */
+.nav-link {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/** Added decoration for on hover of nav links */
+.nav-link:hover {
+    background-color: #4682b4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/** Set a column-based flex for the each section.
+    Align items in the centre and add top padding.
+    Note: Percentage is used in padding for relative sizing.
+*/
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5%;
+}
+
+/** Add a background colour just for the page title part. */
+.doc-title {
+    background-color: #c08081;
+}
+
+/** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h1 size based on the base font size. */
+.doc-title__heading {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/** Note: Rem is used for relative font-sizing. The specific value sets the size to be the default h3 size based on the base font size. Also sets the display to column-based flex to break apart the h3 text in CSS without using a br element.*/
+.doc-title__subheading {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/** Inherit the font size from the parent so the text size stays the same and doesn't shrink. */
+.doc-title__subheading__text {
+    font-size: inherit;
+}

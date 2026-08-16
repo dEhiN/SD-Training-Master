@@ -1,0 +1,86 @@
+/* This CSS file is for the common aspects of the assignment sections of the document */
+
+
+/** List of relevant classes:
+- assignment-section
+- section-heading
+- section-user-select
+- button-label
+- api-data
+- user-button
+- button
+*/
+
+/** Set a column-based flex for each assignment section. */
+.assignment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/** Center the section heading and push it down from the document title. */
+.section-heading {
+    text-align: center;
+    padding-top: 2%;
+    color: #6b8fb8;
+}
+
+/** Increase the size of the section heading text. */
+.section-heading h4 {
+    font-size: 1.5rem;
+}
+
+/** Set a column-based flex for the user selection area.
+    Ensure the child items are spaced evenly.
+*/
+.section-user-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5% 0%;
+}
+
+.button-label {
+    padding-bottom: 5%;
+}
+
+.api-data {
+    padding: 5% 0%;
+}
+
+/** Remove text wrapping on the button but add the rule at the div level. */
+.user-button {
+    white-space: nowrap;
+}
+
+/** Style the submit button to have the following:
+ - no border
+ - border radius to make it slightly rounded
+ - different background and text colour scheme
+ - shadow effect to the top and left
+ - use a pointer as the cursor when the button is interacted with
+*/
+.button {
+    padding: 9%;
+    border: none;
+    background-color: rgb(176, 165, 226);
+    border-radius: 12%;
+    color: #2f4f4f;
+    cursor: pointer;
+    box-shadow: -2px -2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+/** Set the background and text colour scheme of the button to change when the user hovers over it.
+*/
+.button:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+/** Set the button to shrink and remove the shadow when the user clicks the button to give a visual "click".
+*/
+.button:active {
+    transform: scale(0.98);
+    box-shadow: none;
+}

@@ -1,0 +1,20 @@
+.prod-cart-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+.prod-list-container {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.cart-add-btn {
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Assignment two for Module 5">
+        <title>Module 5 - Assignment 2</title>
+        <link rel="stylesheet" href="css/assignment_two_main.css">
+        <link rel="stylesheet" href="css/assignment_two_title.css">
+        <link rel="stylesheet" href="css/assignment_two_part1.css">
+        <link rel="stylesheet" href="css/assignment_two_part2.css">
+        <script src="js/assignment_two.js" defer></script>
+    </head>
+
+    <body onload="partOne()">
+        <!-- Title section of site -->
+        <div class="doc-title">
+            <h1>
+                Module 5 - Assignment 2
+            </h1>
+            <h3>
+                JavaScript Fundamentals Assignment
+            </h3>
+        </div>
+        <!-- Part 1 of the assignment -->
+        <div class="assign-part1">
+            <div class="section-heading">
+                <h4>
+                    Part 1: Variables and Data Types
+                </h4>
+            </div>
+            <div class="section-paras-noiterable">
+                <p id="para-part1-string"></p>
+                <p id="para-part1-number"></p>
+                <p id="para-part1-boolean"></p>
+            </div>
+            <div class="section-paras-iterable">
+                <p id="para-part1-array-fruits"></p>
+                <p id="para-part1-object-user"></p>
+            </div>
+        </div>
+        <!-- Part 2 of the assignment -->
+        <div class="assign-part2">
+            <div class="section-heading">
+                <h4>
+                    Part 2: The Calculator
+                </h4>
+            </div>
+            <div class="section-calculator">
+                <div class="section-calc-input-num1">
+                    <label for="num1">Please enter the first number:</label>
+                    <input type="number" name="num1" id="input-num1">
+                </div>
+                <div class="section-calc-input-num2">
+                    <label for="num2">Please enter the second number:</label>
+                    <input type="number" name="num2" id="input-num2">
+                </div>
+                <div class="section-calc-buttons">
+                    <button onclick="partTwo(1)">Add</button>
+                    <button onclick="partTwo(2)">Subtract</button>
+                    <button onclick="partTwo(3)">Multiply</button>
+                    <button onclick="partTwo(4)">Divide</button>
+                    <button onclick="clearResults()">Clear Results</button>
+                </div>
+            </div>
+            <div class="section-results">
+                <p id="para-calc-results"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Assignment 4 for Module 5 of the Canadian Business College program Full Stack Web Application Development. The assignment focuses on using AJAX and jQuery to connect to two different public APIs. The goal is to use jQuery for the API calling and DOM manipulation.">
+        <meta name="keywords" content="Canadian Business College, CBC, full stack, web application, javascript, API">
+        <title>Module 5 - Assignment 4</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/title.css">
+        <link rel="stylesheet" href="css/section-common.css">
+        <link rel="stylesheet" href="css/section-doggie.css">
+        <link rel="stylesheet" href="css/section-human.css">
+        <!-- jQuery link code taken directly from https://releases.jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+            integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <script src="js/assignment_four.js" defer></script>
+    </head>
+
+    <body>
+        <!-- Title section of site -->
+        <div class="doc-title">
+            <h1>
+                Module 5 - Assignment 4
+            </h1>
+            <h3>
+                The Dynamic Data Dashboard
+            </h3>
+        </div>
+        <!-- Making this the section where the user can get a random dog image -->
+        <div class="assignment-section" id="assignment-section-doggie">
+            <div class="section-heading">
+                <h4>
+                    Random Dog
+                </h4>
+            </div>
+            <div class="section-user-select">
+                <div class="button-label">
+                    <label for="submit-btn">Click below to fetch an image of a random dog:</label>
+                </div>
+                <div class="user-button">
+                    <button type="button" id="submit-btn-dog" class="button">Fetch Doggie</button>
+                </div>
+                <div class="api-data" id="api-data-dog">
+                </div>
+            </div>
+        </div>
+        <!-- Making this the section where the user can get a random person -->
+        <div class="assignment-section">
+            <div class="section-heading">
+                <h4>
+                    Random Person
+                </h4>
+            </div>
+            <div class="section-user-select">
+                <div class="button-label">
+                    <label for="submit-btn">Click below to fetch a new random person:</label>
+                </div>
+                <div class="user-button">
+                    <button type="button" id="submit-btn-human" class="button">Fetch Human</button>
+                </div>
+                <div class="api-data" id="api-data-human">
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
