@@ -24,6 +24,10 @@ I used the `Python` package _git_filter_repo_ to rewrite the git histories of ea
 
 This is done by passing in a directory name to filter, and the rewritten history will show that the repository being manipulated was only ever constrained to that directory.
 
+## Contributors
+
+_Note that because some of the original course repositories were forked as part of the exercise, there are other contributors besides me that are listed for this repository. However, any work they "contributed" is related to the forked repository exercises. Specifically, their contributions only involve the work done to create the exercises in preparation for the course._
+
 ## Anything else?
 
 If you are interested in further technical details, feel free to reach out.
