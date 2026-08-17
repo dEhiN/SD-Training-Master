@@ -1,7 +1,0 @@
-<div class="prod-item-container" [style.opacity]="productData.inStock ? '1' : '0.5'">
-    <h3>{{productData.name}}</h3>
-    <p>Price: ${{productData.price}}</p>
-    @if (!productData.inStock) {
-    <span class="prod-item-oos">Out of Stock</span>
-    }
-</div>
