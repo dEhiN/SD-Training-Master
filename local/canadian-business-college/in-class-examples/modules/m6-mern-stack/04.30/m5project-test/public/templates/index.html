@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Module 5 - Final Project</title>
+        <!-- Meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Final project of Module 5 of the Canadian Business College program Full Stack Web Application Development. The project focuses on building a high-quality, responsive web application that combines the use of JS, HTML5, and CSS3.">
+        <meta name="keywords"
+            content="Canadian Business College, CBC, full stack, web application, html5, css3, javascript, API">
+        <!-- CSS file links -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/title.css">
+        <link rel="stylesheet" href="css/section-common.css">
+        <link rel="stylesheet" href="css/section-dog.css">
+        <link rel="stylesheet" href="css/section-university.css">
+        <link rel="stylesheet" href="css/section-weather.css">
+        <link rel="stylesheet" href="css/section-feature-chooser.css">
+        <!-- JS file links -->
+        <script src="js/main.js" type="module"></script>
+    </head>
+
+    <body>
+        <!-- Title section of site -->
+        <div class="doc-title">
+            <h1>
+                Module 5 - Final Project
+            </h1>
+            <h3>
+                Building a Dynamic Web Application
+            </h3>
+        </div>
+        <!-- Allow the user to select which API to play with -->
+        <div id="feature-chooser">
+            <div class="assignment-section section-feature-chooser">
+                <div class="section-heading">
+                    <h4>
+                        Pick Your API
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="user-button">
+                        <button type="button" id="feature-btn-weather" class="button">Weather</button>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="feature-btn-dog" class="button">Random Dog</button>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="feature-btn-university" class="button">University List</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- This is the weather API container -->
+        <div class="feature-container" id="weather-container">
+            <!-- Making this the section where the user can enter their API key and choose the details for the forecast (city and number of days between 1-5) -->
+            <div class="assignment-section section-weather-1">
+                <div class="section-heading">
+                    <h4>
+                        Weather Forecast
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="section-user-input">
+                        <div class="input-field-weather">
+                            <label for="weather-api-key">Please enter your Weather API key:</label>
+                            <input type="password" id="weather-api-key">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="search-city">Please enter a city to get the forecast:</label>
+                            <input type="input" id="search-city">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="forecast-days">Please choose the number of days to forecast (between 1 and
+                                5):</label>
+                            <input type="number" id="forecast-days" min="1" max="5">
+                        </div>
+                        <div class="input-field-weather">
+                            <label for="temperature-unit">Please choose which temperature unit to use:</label>
+                            <input type="radio" name="temperature-unit" id="temperature-unit-celsius" checked>
+                            <label for="temperature-unit-celsius">Celsius</label>
+                            <input type="radio" name="temperature-unit" id="temperature-unit-fahrenheit">
+                            <label for="temperature-unit-fahrenheit">Fahrenheit</label>
+                        </div>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-weather" class="button">Fetch Daily Forecast</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Making this the section where the actual forecast result is displayed -->
+            <div class="assignment-section section-weather-2">
+                <div class="section-heading">
+                    <h5 class="forecast-results">
+                    </h5>
+                </div>
+                <div class="section-forecast">
+                </div>
+            </div>
+        </div>
+        <!-- This is the random doggie API container -->
+        <div class="feature-container" id="dog-container">
+            <!-- Making this the section where the user can get a random dog image -->
+            <div class="assignment-section section-dog">
+                <div class="section-heading">
+                    <h4>
+                        Doggie Image
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="label-button-dog">
+                        <label for="submit-btn">Click below to fetch an image of a random doggie:</label>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-dog" class="button">Fetch Doggie Image</button>
+                    </div>
+                    <div class="section-dog-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- This is the university API container -->
+        <div class="feature-container" id="university-container">
+            <!-- Making this the section where the user can choose the country and "submit" -->
+            <div class="assignment-section section-university-1">
+                <div class="section-heading">
+                    <h4>
+                        Higher Institutions
+                    </h4>
+                </div>
+                <div class="section-user-select">
+                    <div class="drop-down-list">
+                        <div class="list-label">
+                            <label for="select-country">
+                                Please select a country to view all its universities and colleges:
+                            </label>
+                        </div>
+                        <div class="list-select">
+                            <select id="select-country">
+                                <option selected></option>
+                                <option value="Albania">Albania</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Barbados">Barbados</option>
+                                <option value="Bermuda">Bermuda</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Chile">Chile</option>
+                                <option value="China">China</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="France">France</option>
+                                <option value="French+Guiana">French Guiana</option>
+                                <option value="French+Polynesia">French Polynesia</option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia">Gambia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Greece">Greece</option>
+                                <option value="Grenada">Grenada</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti">Haiti</option>
+                                <option value="Honduras">Honduras</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Jamaica">Jamaica</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="New+Zealand">New Zealand</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Russian+Federation">Russia</option>
+                                <option value="Saint+Lucia">Saint Lucia</option>
+                                <option value="Saint+Vincent+and+the+Grenadines">Saint Vincent and the Grenadines
+                                </option>
+                                <option value="South+Africa">South Africa</option>
+                                <option value="Korea,+Republic+of">South Korea</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Sri+Lanka">Sri Lanka</option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Tunisia">Tunisia</option>
+                                <option value="Turkiye">Turkey</option>
+                                <option value="United+States">USA</option>
+                                <option value="United+Kingdom">UK</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="user-button">
+                        <button type="button" id="submit-btn-university" class="button">Fetch Schools
+                            List</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Making this the section where the list of universities is displayed -->
+            <div class="assignment-section section-university-2">
+                <div class="section-heading">
+                    <h5 class="university-total">
+                    </h5>
+                </div>
+                <div class="section-university-list">
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

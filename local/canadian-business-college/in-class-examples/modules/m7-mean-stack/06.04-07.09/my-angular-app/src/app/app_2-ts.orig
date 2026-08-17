@@ -1,0 +1,86 @@
+// app.ts - 06.10
+import { Component, signal, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
+})
+export class App implements OnInit {
+  protected readonly title = signal(' from the app ts file');
+
+  ngOnInit(): void {
+    // a typescript function that take string parameter and does not return anything
+    function my_function(user_name: string): void {
+      console.log('Hello ' + user_name);
+    }
+
+    my_function('Jacob');
+
+    // type script function that takes two number parameters and returns a number back
+    function num_sum(num_1: number, num_2: number): number {
+      return num_1 + num_2;
+    }
+
+    // creating a variable to store the output of the function
+    let my_func_return: number = num_sum(10, 20);
+
+    // console log the variable to see the output
+    console.log(my_func_return);
+
+    // generic data type in the function using <T> place holder
+    function my_func<T>(user_name: T): T {
+      return user_name;
+    }
+
+    // defining data type when calling the function to replace placeholder
+    let func_return = my_func<number>(123);
+    console.log(func_return);
+
+    // defining data type when calling the function to replace placeholder
+    let func_return_2 = my_func<string>('hello');
+    console.log(func_return_2);
+
+    // defining data type when calling the function to replace placeholder
+    let func_return_3 = my_func<boolean>(true);
+    console.log(func_return_3);
+  }
+}
+
+// separate class written outside of the component
+export class testing_class {
+  // constructor for the class to accept data
+  constructor(
+    public the_num: string,
+    private task_name: string,
+  ) {}
+
+  // function of the class that used the data
+  test_cons(): void {
+    console.log(this.the_num);
+  }
+
+  // function of the class that used the data
+  test_another_const(): void {
+    console.log(this.task_name);
+  }
+}
+
+// initiate a class
+let class_instance = new testing_class('test', 'world');
+// calling class method
+class_instance.test_cons();
+class_instance.test_another_const();
+
+// initiate the class with different value
+let another_class_instance = new testing_class('abc', 'xyz');
+// calling class method
+another_class_instance.test_cons();
+another_class_instance.test_another_const();
+
+// allowed as its public
+console.log(another_class_instance.the_num);
+// not allowed as its private
+// console.log(another_class_instance.task_name)

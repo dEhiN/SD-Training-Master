@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Home Page</title>
+        <meta name="description" content="This is a home page for my website where users will come first.">
+        <meta name="keywords" content="homepage, demo, fswad">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1 id="home_page_header" class="hp_heading_class">HTML Form</h1>
+                    <hr>
+                    <h4>Text, password, Submit, Radio button, checkbox, File picker, date picker</h4>
+                    <!-- a form that accepts file because of enctype selected here -->
+                    <form action="/path_to_my_server" method="GET" enctype="multipart/form-data">
+                        <label for="username_id">Please provide your Username:</label>
+                        <input type="text" name="user_name" id="username_id" maxlength="20" minlength="5">
+                        <br><br>
+                        <label for="pass_id">User password:</label>
+                        <input type="password" name="user_pass" id="pass_id">
+                        <br><br>
+                        <label>Is it Morning?</label>
+                        <label for="radio_tr_id"> True </label> <input id="radio_tr_id" type="radio" value="true"
+                            name="radio_option">
+                        <label for="radio_fl_id"> False </label> <input id="radio_fl_id" type="radio" value="false"
+                            name="radio_option" checked>
+                        <label for="radio_mb_id"> Maybe </label> <input id="radio_mb_id" type="radio" value="maybe"
+                            name="radio_option">
+                        <br><br>
+                        <label>What is your best front end tech?</label>
+                        <label for="html_id">HTML</label> <input id="html_id" type="checkbox" name="tech_check"
+                            value="html">
+                        <label for="css_id">CSS</label> <input id="css_id" type="checkbox" name="tech_check"
+                            value="css">
+                        <label for="js_id">JS</label> <input id="js_id" type="checkbox" name="tech_check" value="js">
+                        <br><br>
+                        <label for="profile_image_id"> Please upload your profile picture:</label>
+                        <input type="file" id="profile_image_id" accept=".png,.jpeg,.jpg" name="user_profile_image"
+                            multiple>
+                        <br><br>
+                        <label for="user_birth_date_id">Pick your date of birth:</label>
+                        <input type="date" id="user_birth_date_id" name="user_dob" min="2025-12-01" max="2026-02-20">
+                        <br><br>
+                        <input type="submit" value="Send!" id="submit_id">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,26 @@
+/* class as a selector */
+.group_my_text {
+    color: aqua;
+    background-color: brown;
+}
+
+.para_width {
+    width: 300px;
+}
+
+.para_font {
+    font-size: 30px;
+}
+
+/* pseudo classes */
+.hp_heading_class:hover {
+    color: green;
+    background-color: aqua;
+    width: 300px;
+    font-size: 20px;
+}
+
+.my_input:focus {
+    background-color: black;
+    color: white;
+}

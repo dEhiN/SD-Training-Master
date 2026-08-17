@@ -1,0 +1,103 @@
+/* The following rules are for the div section-university-1. */
+/** List of relevant classes:
+- drop-down-list
+- list-label
+- list-select
+- university-total
+*/
+
+
+/** Set a row-based flex for the drop-down list section.
+    Ensure the child items are spaced evenly.
+*/
+.drop-down-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Adjust the label to shape the text width and placement. */
+.list-label {
+    width: 50%;
+    text-align: center;
+}
+
+/** Give a little gap between the actual drop-down list and its label. */
+.list-select {
+    padding: 3% 0%;
+}
+
+.list-select select {
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    padding: 1%;
+    color: #2f1b14;
+}
+
+.university-total {
+    font-size: 1.34rem;
+    color: #567293;
+}
+
+
+
+/* The following rules are for the div section-university-2. */
+/** List of relevant classes:
+- section-university-list
+- university-card
+- green-card
+- blue-card
+*/
+
+
+/** Set a grid display with a gap between the rows and columns for the div container holding the university info. The default number of columns is set to 5 with media queries below for responsiveness. */
+.section-university-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(1%, 1fr));
+    padding: 2%;
+    gap: 5rem;
+}
+
+/** Set the styling for each university card which is just a div container wrapping the paragraph of information. */
+.university-card {
+    padding: 2%;
+    border-radius: 5%;
+    text-align: center;
+    color: white;
+}
+
+/** Set the background and text colour for the green university cards. */
+.green-card {
+    background-color: #2f4f4f;
+}
+
+/** Set the background and text colour for the blue university cards. */
+.blue-card {
+    background-color: steelblue;
+}
+
+
+/** The following media queries adjust the number of cards per row (or columns in total) for the grid. The range is from 1-4 with the breakpoints being 650px, 950px, 1250px, 1550px. The default (for everything above 1550px) is 5 columns. This allows for greater responsive design and visual aesthetics. */
+@media (max-width: 1550px) {
+    .section-university-list {
+        grid-template-columns: repeat(4, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 1250px) {
+    .section-university-list {
+        grid-template-columns: repeat(3, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 950px) {
+    .section-university-list {
+        grid-template-columns: repeat(2, minmax(1%, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .section-university-list {
+        grid-template-columns: 1fr;
+    }
+}

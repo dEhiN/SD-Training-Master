@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!-- html with internal jsvascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Home Page</title>
+        <meta name="description" content="This is a home page for my website where users will come first.">
+        <meta name="keywords" content="homepage, demo, fswad">
+
+        <!-- meta tag so that the media in css can work -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+        <script>
+            alert("welcome to the page!");
+            alert("welcome to the page again!");
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1 id="my_main_header"></h1>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("my_main_header").innerHTML = "Welcome to my home page";
+        </script>
+    </body>
+
+</html>

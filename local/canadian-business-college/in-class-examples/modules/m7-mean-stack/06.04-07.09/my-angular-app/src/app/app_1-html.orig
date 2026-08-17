@@ -1,0 +1,18 @@
+<!-- app.html -->
+<h1>Hello from the main app file</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nemo, consequatur aliquam eveniet blanditiis
+  aperiam iure numquam ab quo, libero eum non, corrupti iste minima maxime tempora distinctio iusto odit!</p>
+
+<!-- reuse component with different value for the inputs -->
+<app-column [heading_text]="'First Heading'" [para_text]="'First Para'"></app-column>
+
+
+<app-button [button_text]="'Submit!'"></app-button>
+
+<app-column [heading_text]="'Second Heading'" [para_text]="'Second Para'"></app-column>
+
+<app-button [button_text]="'Push!'"></app-button>
+
+<app-my-form></app-my-form>
+
+<app-users-list></app-users-list>

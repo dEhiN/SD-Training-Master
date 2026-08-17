@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Home Page</title>
+        <meta name="description" content="This is a home page for my website where users will come first.">
+        <meta name="keywords" content="homepage, demo, fswad">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1 id="home_page_header" class="hp_heading_class">HTML Form</h1>
+                    <hr>
+                    <h4>Text, password, Submit, Radio button</h4>
+                    <!-- a form that accepts file because of enctype selected here -->
+                    <form action="/path_to_my_server" method="POST" enctype="multipart/form-data">
+                        <label for="username_id">Please provide your Username:</label>
+                        <input type="text" name="user_name" id="username_id" maxlength="20" minlength="5">
+                        <br><br>
+                        <label for="pass_id">User password:</label>
+                        <input type="password" name="user_pass" id="pass_id">
+                        <br><br>
+                        <label>Is it Morning?</label>
+                        <label for="radio_tr_id"> True </label> <input id="radio_tr_id" type="radio" value="true"
+                            name="radio_option">
+                        <label for="radio_fl_id"> False </label> <input id="radio_fl_id" type="radio" value="false"
+                            name="radio_option" checked>
+                        <label for="radio_mb_id"> Maybe </label> <input id="radio_mb_id" type="radio" value="maybe"
+                            name="radio_option">
+                        <br><br>
+                        <input type="submit" value="Send!" id="submit_id">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

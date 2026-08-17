@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!-- html with external jsvascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Home Page</title>
+        <meta name="description" content="This is a home page for my website where users will come first.">
+        <meta name="keywords" content="homepage, demo, fswad">
+
+        <!-- meta tag so that the media in css can work -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1 id="my_main_header">Javascript variables</h1>
+                    <p class="my_para">hello</p>
+                    <p class="my_para">world</p>
+
+
+
+                    <input type="text" id="user_value" name="user_val" placeholder="User value">
+                    <!-- button with onclick attribute to call the javascript function -->
+                    <button id="sub_button" onclick="button_clicked_func()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <!-- adding external js where js code is dependent on the HTML to load completely -->
+        <script src="strings_length.js"></script>
+    </body>
+
+</html>

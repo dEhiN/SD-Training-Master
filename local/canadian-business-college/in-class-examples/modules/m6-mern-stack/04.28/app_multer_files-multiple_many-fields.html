@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!-- html with external jsvascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Home Page</title>
+        <meta name="description" content="This is a home page for my website where users will come first.">
+        <meta name="keywords" content="homepage, demo, fswad">
+
+        <!-- meta tag so that the media in css can work -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+
+        <!-- jquery included using the CDN -->
+        <!-- <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script> -->
+
+        <!-- jquery version 3.6 used -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- CSS files from the owl carousel -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <!-- jquery code from the owl carousel -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="myjs.js" defer></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="column" id="column_id">
+                    <h1 id="heading_ele">HTML Form to send data to node js server</h1>
+                    <form action="http://localhost:8000/data-transfer" method="post" enctype="multipart/form-data">
+                        <input type="text" placeholder="User Name" name="u_name">
+                        <br>
+                        <input type="number" placeholder="User Age" name="u_age">
+                        <br>
+                        <input type="text" placeholder="User City" name="u_city">
+                        <br>
+                        <input type="text" placeholder="Hobby" name="u_hobby">
+                        <br>
+                        <input type="file" placeholder="user Files" name="u_file" multiple>
+                        <br>
+                        <input type="file" placeholder="user Image" name="u_image">
+                        <br>
+                        <input type="file" placeholder="user data" name="u_data">
+                        <br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

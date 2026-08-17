@@ -1,0 +1,12 @@
+/* style.css */
+
+#home_page_header {
+    color: white;
+    background-color: black;
+}
+
+.group_my_text {
+    color: aquamarine;
+    background-color: blue;
+    font-size: 40px;
+}

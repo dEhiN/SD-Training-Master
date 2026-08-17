@@ -1,0 +1,30 @@
+/* hsl code colors */
+.group_my_text {
+    color: hsl(188 51.8% 76%);
+    background-color: hsl(72 84.3% 30.5%);
+}
+
+.para_width {
+    display: inline-block;
+    max-width: 49%;
+}
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}

@@ -1,0 +1,59 @@
+/* style.css */
+/* mobile first approach */
+/* hsl code for color */
+/* #home_page_header{
+    color: white;
+    background-color: black;
+}
+
+
+@media(min-width: 750px){
+
+    #home_page_header{
+    color: hsl(304, 48%, 69%);
+    background-color: #76823B;
+}
+
+.row{
+    width: 100%;
+}
+
+
+.c1{
+    background-color: yellow;
+    max-width: 50%;
+    display: inline-block;
+    min-height: 100vh;
+}
+
+.c2{
+    background-color: red;
+    max-width: 30%;
+    display: inline-block;
+    min-height: 100vh;
+}
+
+}
+ */
+
+.my_btn {
+    background-color: green;
+    width: 200px;
+}
+
+
+.my_col_div {
+    padding: 20px;
+}
+
+.col_div_1 {
+    background-color: aqua;
+}
+
+.col_div_2 {
+    background-color: greenyellow;
+}
+
+.col_div_3 {
+    background-color: blueviolet;
+}

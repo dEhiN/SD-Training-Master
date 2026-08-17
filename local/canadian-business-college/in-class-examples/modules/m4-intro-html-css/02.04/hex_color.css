@@ -1,0 +1,15 @@
+/* style.css */
+/* mobile first approach */
+/* hex code for color */
+#home_page_header {
+    color: white;
+    background-color: black;
+}
+
+
+@media(min-width: 750px) {
+    #home_page_header {
+        color: #204691;
+        background-color: #76823B;
+    }
+}

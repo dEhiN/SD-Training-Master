@@ -1,0 +1,48 @@
+/* hsl code colors */
+.group_my_text {
+    color: black;
+}
+
+.para_width {
+    display: inline-block;
+    max-width: 49%;
+}
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}
+
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* border for paragraph */
+.para_border {
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: aquamarine; */
+    border-radius: 4px;
+    /* border: 2px solid aquamarine;  border shorthand */
+    border-top: 2px solid aqua;
+    border-right: 4px dotted red;
+    border-bottom: 5px double black;
+    border-left: 2px solid aqua;
+}

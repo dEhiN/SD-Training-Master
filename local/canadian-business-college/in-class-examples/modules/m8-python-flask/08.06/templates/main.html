@@ -1,0 +1,40 @@
+<!-- Main.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Root</title>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <div>
+                    <h1>{{ main_heading }}</h1>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quam et reprehenderit
+                        ducimus necessitatibus odio cum quae a omnis maxime illum maiores hic, velit ullam, officiis
+                        iste adipisci architecto?</p>
+                    <hr>
+                    {% if is_active == True %}
+                    <p> The value for active is true</p>
+                    {% else %}
+                    <h2> the value for active is False</h2>
+                    {% endif %}
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus rem ab culpa nisi? Quia
+                        dolorem magnam veniam animi, placeat consequatur ducimus at sint excepturi, quis quas iure
+                        itaque? Harum, saepe?</p>
+                    <ol>
+                        {% for item in my_list %}
+                        <li> The fruit is - {{ item }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

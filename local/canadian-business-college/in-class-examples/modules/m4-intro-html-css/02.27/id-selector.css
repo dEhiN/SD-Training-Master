@@ -1,0 +1,16 @@
+/* element as a selector */
+/* p{
+    color: blue;
+    background-color: greenyellow;
+} */
+
+/* id as a selector */
+#first_para {
+    color: aquamarine;
+    background-color: blueviolet;
+}
+
+#second_para {
+    color: rebeccapurple;
+    background-color: bisque;
+}
