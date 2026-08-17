@@ -1,0 +1,13 @@
+<!-- users-list.html -->
+
+<h1>Users list from mongo db</h1>
+@for(user of users; track $index) {
+<p>The users name is - {{user.name}}, age is - {{user.age}}, city is - {{user.city}}, hobby is - {{user.hobby}}</p>
+}
+
+<ol>
+    @for(user of users; track $index) {
+    <li>The users name is - {{user.name}}, age is - {{user.age}}, city is - {{user.city}}, hobby is - {{user.hobby}}
+    </li>
+    }
+</ol>

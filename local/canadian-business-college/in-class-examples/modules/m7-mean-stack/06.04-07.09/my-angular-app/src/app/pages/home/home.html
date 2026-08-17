@@ -1,0 +1,20 @@
+<!-- home.html -->
+
+<app-container [classname]="'container'">
+    <app-container [classname]="'row'">
+        <app-container [classname]="'column'">
+            <nav>
+                <a routerLink="/">Home</a>
+                <br>
+                <a routerLink="/about">About Us</a>
+            </nav>
+
+            <h1>Hello From the home page</h1>
+
+            <app-column [heading_text]="'I am from column inside the home page'"
+                [para_text]="'Lorem ipsum from home'"></app-column>
+
+            <app-button [button_text]="'Home Push!'"></app-button>
+        </app-container>
+    </app-container>
+</app-container>

@@ -1,0 +1,63 @@
+/* eslint-disable no-unused-vars */
+// App.jsx
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
+// default import
+import My_column_component from './components/column'
+// named imports
+import { my_value_for_column, My_second_component, another_var } from './components/column'
+import My_button_component from './components/button_1'
+import My_form_component from './components/form'
+import Show_users_list from './components/user_list'
+
+function App() {
+
+  console.log(my_value_for_column);
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <My_column_component
+        my_column_heading="Hello my column"
+        my_column_para="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, natus explicabo vel unde nam placeat soluta aperiam nostrum. Libero assumenda impedit maxime consequatur necessitatibus temporibus distinctio labore. Quisquam, fugiat consequuntur!"
+        my_column_anchor_url="https://google.com"
+        my_column_anchor_text="Go to Google!" />
+
+
+      <My_column_component
+        my_column_heading="Hello from the same component again"
+        my_column_para="This para is to show a demo"
+        my_column_anchor_url="https://yahoo.com"
+        my_column_anchor_text="Go to Yahoo!" />
+
+      <My_button_component />
+
+      <My_second_component
+        my_s_heading="hello from second component"
+        my_s_para="hello para"
+        my_s_anchor_href="https://google.com"
+        my_s_anchor_text="Go to google"
+      />
+
+
+      <My_second_component
+        my_s_heading="new content for the heading"
+        my_s_para="new para"
+        my_s_anchor_href="https://spacex.com"
+        my_s_anchor_text="Go to Spacex"
+      />
+
+      <My_form_component />
+
+      <Show_users_list />
+      <Show_users_list />
+      <Show_users_list />
+
+    </>
+  )
+}
+
+export default App

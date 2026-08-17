@@ -1,0 +1,17 @@
+/* style.css */
+
+.heading {
+    color: goldenrod;
+    background-color: aqua;
+}
+
+.text_style {
+    color: white;
+    background-color: black;
+}
+
+.group_my_text {
+    color: aquamarine;
+    box-shadow: 2px;
+    background-color: bisque;
+}

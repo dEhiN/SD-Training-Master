@@ -1,0 +1,32 @@
+<!-- about.html -->
+
+<app-container [classname]="'container'">
+
+    <app-container [classname]="'row'">
+
+        <app-container [classname]="'column'">
+
+            <nav>
+                <a routerLink="/">Home</a>
+
+
+                <a routerLink="/about">About Us</a>
+            </nav>
+
+            <h1>Hello from the About us page</h1>
+
+            <app-my-form></app-my-form>
+
+            <app-users-list></app-users-list>
+
+        </app-container>
+
+        <app-container [classname]="'column'">
+
+            <p>Hello from the second column</p>
+
+        </app-container>
+
+    </app-container>
+
+</app-container>

@@ -1,0 +1,77 @@
+/* hsl code colors */
+.group_my_text {
+    color: black;
+}
+
+/* .para_width{
+    display: inline-block;
+    max-width: 49%;
+} */
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}
+
+.item {
+    height: 80%;
+    width: 100%;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 20px;
+    column-gap: 10px;
+    justify-content: center;
+}
+
+.column {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item_desc {
+    text-align: center;
+}
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .row {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 5px;
+        justify-content: center;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .row {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 20px;
+        justify-content: center;
+        padding: 10px;
+    }
+}

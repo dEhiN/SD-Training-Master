@@ -1,0 +1,14 @@
+<!-- my-form.html -->
+<h1>My Form</h1>
+<form (ngSubmit)="form_submit_func()">
+    <!-- name is required attribute for the ngmodel -->
+    <input type="text" name="user_name" placeholder="User Name" [(ngModel)]="user_data.user_name">
+    <br><br>
+    <input type="number" name="user_age" placeholder="User Age" [(ngModel)]="user_data.user_age">
+    <br><br>
+    <input type="text" name="user_city" placeholder="User City" [(ngModel)]="user_data.user_city">
+    <br><br>
+    <input type="text" name="user_hobby" placeholder="User hobby" [(ngModel)]="user_data.user_hobby">
+    <br><br>
+    <input type="submit" value="Send!">
+</form>

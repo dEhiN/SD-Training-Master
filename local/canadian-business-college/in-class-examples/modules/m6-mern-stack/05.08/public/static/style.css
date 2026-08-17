@@ -1,0 +1,14 @@
+/* style.css */
+h1{
+    background-color: black;
+    color: white;
+}
+
+p{
+    color: red;
+    border: 1px solid black;
+}
+
+img{
+    height: 200px;
+}

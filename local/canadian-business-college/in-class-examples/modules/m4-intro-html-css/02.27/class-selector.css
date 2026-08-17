@@ -1,0 +1,30 @@
+/* element as a selector */
+/* p{
+    color: blue;
+    background-color: greenyellow;
+} */
+
+/* id as a selector */
+/* #first_para{
+    color: aquamarine;
+    background-color: blueviolet;
+}
+
+#second_para{
+    color: rebeccapurple;
+    background-color: bisque;
+} */
+
+/* class as a selector */
+.group_my_text {
+    color: aqua;
+    background-color: brown;
+}
+
+.para_width {
+    width: 300px;
+}
+
+.para_font {
+    font-size: 30px;
+}

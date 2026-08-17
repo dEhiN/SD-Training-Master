@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indeed Job Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #e4e2e0;
+        }
+        .logo {
+            color: #2557a7;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+        .search-container {
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+        }
+        .search-container input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-container button {
+            background-color: #2557a7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filters {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .main-content {
+            display: flex;
+            max-width: 800px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+        .job-list {
+            flex-grow: 1;
+        }
+        .job-card {
+            background-color: #fff;
+            border: 1px solid #e4e2e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .job-details {
+            flex-basis: 40%;
+            background-color: #fff;
+            border: 1px solid #e4e2e0;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .apply-btn {
+            background-color: #2557a7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">indeed</span>
+            <ul>
+                <li>Home</li>
+                <li>Company reviews</li>
+                <li>Salary guide</li>
+            </ul>
+            <div>
+                <span>Sign in</span>
+                <span>En Fr</span>
+                <span>Employers / Post Job</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <input type="text" placeholder="software developer" value="software developer">
+        <input type="text" placeholder="toronto, on" value="toronto, on">
+        <button>Find jobs</button>
+    </div>
+
+    <div class="filters">
+        <span class="filter">Date posted</span>
+        <span class="filter">Remote</span>
+        <span class="filter">Within 50 kilometres</span>
+        <span class="filter">Pay</span>
+        <span class="filter">Job type</span>
+        <span class="filter">Programming language</span>
+        <span class="filter">Location</span>
+        <span class="filter">Company</span>
+        <span class="filter">Job Language</span>
+    </div>
+
+    <div class="main-content">
+        <div class="job-list">
+            <p>software developer jobs in Toronto, ON</p>
+            <p>Sort by: relevance - date</p>
+            <div class="job-card">
+                <h3>Salesforce Developer/Technical Architect</h3>
+                <p>OPUSING STAFFING</p>
+                <p>Toronto, ON</p>
+                <p>$87,069.39–$130,005.03 a year - Full-time</p>
+                <button>Easily apply</button>
+            </div>
+            <div class="job-card">
+                <h3>Senior Mobile Developer (Java/React Native) on Android</h3>
+                <p>Moneris Solutions 3.3 ★</p>
+                <p>Hybrid work in Toronto, ON</p>
+                <p>Full-time</p>
+            </div>
+        </div>
+        <div class="job-details">
+            <h2>Salesforce Developer/Technical Architect</h2>
+            <p>OPUSING STAFFING 3.7 ★</p>
+            <p>Toronto, ON</p>
+            <p>$87,069.39–$130,005.03 a year - Full-time</p>
+            <button class="apply-btn">Apply now</button>
+            <h3>Job details</h3>
+            <p>Pay: $87,069.39–$130,005.03 a year</p>
+            <p>Job type: Full-time</p>
+            <p>Shift and schedule: 8 hour shift - Day shift</p>
+            <h3>Location</h3>
+            <p>Toronto, ON</p>
+            <h3>Full job description</h3>
+        </div>
+    </div>
+</body>
+</html>

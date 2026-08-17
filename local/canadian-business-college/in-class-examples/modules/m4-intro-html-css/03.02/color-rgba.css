@@ -1,0 +1,30 @@
+/* rgba code colors */
+.group_my_text {
+    color: rgba(255, 200, 10, 0.5);
+    background-color: rgba(10, 100, 210, 0.8);
+}
+
+.para_width {
+    display: inline-block;
+    max-width: 49%;
+}
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}

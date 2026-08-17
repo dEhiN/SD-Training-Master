@@ -1,0 +1,29 @@
+/* class as a selector */
+.group_my_text {
+    color: aqua;
+    background-color: brown;
+}
+
+.para_width {
+    display: inline-block;
+    max-width: 49%;
+}
+
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}

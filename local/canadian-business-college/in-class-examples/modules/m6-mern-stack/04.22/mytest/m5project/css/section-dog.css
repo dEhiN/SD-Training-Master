@@ -1,0 +1,31 @@
+/* The following rules are for the div section-dog. */
+/** List of relevant classes:
+- section-dog
+- label-button-dog
+- section-dog-image
+- figure-dog
+- img-dog
+*/
+
+
+/** Add a little spacing between the button label and the button. */
+.label-button-dog {
+    padding-bottom: 5%;
+}
+
+/** Add spacing above and below the dog image. */
+.section-dog-image {
+    padding: 5% 0%;
+}
+
+/** Set the dog figure element to be a column flex display with centered items. */
+.figure-dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/** Give the actual dog image a fixed width. */
+.img-dog {
+    width: 500px;
+}

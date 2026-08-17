@@ -1,0 +1,9 @@
+.para{
+    background-color: black;
+    color: white;
+}
+
+.para_border{
+    border: 2px solid red;
+    border-radius: 5px;
+}

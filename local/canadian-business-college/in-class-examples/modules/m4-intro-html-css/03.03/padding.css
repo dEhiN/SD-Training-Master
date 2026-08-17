@@ -1,0 +1,71 @@
+/* hsl code colors */
+.group_my_text {
+    color: black;
+}
+
+.para_width {
+    display: inline-block;
+    max-width: 49%;
+}
+
+/* mobile media CSS */
+@media(max-width:800px) {
+
+    .para_width {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+/* tablet media CSS */
+@media(800px <=width <=1025px) {
+
+    .para_width {
+        display: inline-block;
+        max-width: 30%;
+    }
+
+}
+
+/* .row_bg_img{
+    background-color: aqua;
+    background-image: url("media/images/fuji_1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+} */
+
+/* shorthand background */
+.row_bg_img {
+    background: aqua url("fuji_1.png") no-repeat fixed center;
+}
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* vh - for height, vw - for width based on viewport (display screen) */
+.box_model_demo {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+/* width as percentage that goes according to parent */
+.para_width_percentage {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    min-width: 400px;
+    min-height: 40px;
+    max-height: 200px;
+    /* padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 20px; */
+    padding: 20px 40px 20px 20px;
+    /* padding shorthand */
+}

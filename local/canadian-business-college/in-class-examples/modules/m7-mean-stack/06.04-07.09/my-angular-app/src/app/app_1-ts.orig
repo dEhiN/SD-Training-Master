@@ -1,0 +1,67 @@
+// app.ts - 06.09
+import { Component, signal, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
+})
+export class App implements OnInit {
+  protected readonly title = signal(' from the app ts file');
+
+  ngOnInit(): void {
+    // declare variable as a string
+    let my_str: string = 'Hello Variable';
+    // keep value of the variable as a string
+    my_str = 'telling';
+
+    // declare variable as a number
+    let my_num: number = 100;
+    my_num = -10.0;
+
+    // declare variable as a boolean
+    let my_bool: boolean = true;
+    my_bool = false;
+
+    // declare a variable as a number only array
+    let my_arr: number[] = [100, 200, 0, -10, 0.95];
+
+    // declare a variable as an array but with limited size and data types
+    let my_mix_arr: [string, number, boolean] = ['hello', 20, true];
+
+    // declare a variable as an object
+    let my_obj: { name: string; age: number } = { name: 'hello', age: 20 };
+
+    // variable declared with type inference (ts figures out the data type)
+    let my_variable = 100;
+
+    my_variable = 0;
+
+    console.log('Hello from my app ts file to display variable - ' + my_str);
+    console.log(my_num);
+    console.log(my_mix_arr);
+    console.log(my_obj);
+
+    type hobbyTypes = 'reading' | 'coding' | 'Jogging';
+
+    type cities = 'toronto' | 'ottawa' | 'montreal';
+
+    interface userinfo {
+      user_name: string;
+      user_age: number;
+      user_city: cities;
+      user_hobby: hobbyTypes;
+    }
+
+    let my_user_object: userinfo = {
+      user_name: 'Jacob',
+      user_age: 40,
+      user_city: 'ottawa',
+      user_hobby: 'reading',
+    };
+
+    console.log(my_user_object);
+  }
+}
