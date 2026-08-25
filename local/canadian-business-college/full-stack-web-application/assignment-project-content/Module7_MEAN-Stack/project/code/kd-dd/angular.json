@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "m7p-ngfe": {
+    "kd-dd": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "m7p-ngfe:build:production"
+              "buildTarget": "kd-dd:build:production"
             },
             "development": {
-              "buildTarget": "m7p-ngfe:build:development"
+              "buildTarget": "kd-dd:build:development"
             }
           },
           "defaultConfiguration": "development"
