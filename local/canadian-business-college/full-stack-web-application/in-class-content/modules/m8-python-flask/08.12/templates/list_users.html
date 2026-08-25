@@ -1,0 +1,29 @@
+<!-- list_user.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List users</title>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <div>
+                    <h1>All users from the database</h1>
+                    <hr>
+                    {% for user in Users %}
+                    <p>User Name - {{user[1]}}</p>
+                    <p>User Age - {{user[2]}}</p>
+                    <p>User Hobby - {{user[3]}}</p>
+                    <p>User City - {{user[4]}}</p>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
