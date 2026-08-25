@@ -21,3 +21,6 @@ Insert into table:
 
 Select all from table:
     SELECT * FROM users_info_table;
+
+MySQL Python module:
+    mysql-connector-python
