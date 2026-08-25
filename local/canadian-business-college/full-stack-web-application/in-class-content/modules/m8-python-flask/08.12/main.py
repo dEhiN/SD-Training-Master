@@ -82,7 +82,19 @@ def data_path():
     # execute the final query in mysql db 
     db.commit()
 
-    return "Users name is - " + username + " , Users age is - " + userage + " , users city is - " + usercity
+    # send user to the list user page
+    return redirect(url_for("list_users"))
+
+@app.route('/list_users/') 
+def list_users(): 
+    # write the select query to get the data from db
+    select_query = "SELECT * FROM users_info_table;"
+    # execute the query in the db
+    db_cursor.execute(select_query)
+    # extract all data from the db
+    all_users = db_cursor.fetchall()
+    return render_template("list_user.html",Users = all_users )
+
 
 # defining a path that only accepts post request
 @app.route('/data_read_write/', methods = ['POST', 'GET']) 
