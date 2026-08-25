@@ -1,0 +1,23 @@
+Create DB:
+    CREATE DATABASE batch_8;
+
+Select DB to use:
+    USE batch_8;
+
+Create table:
+    CREATE TABLE users_info_table (
+	    id INT PRIMARY KEY AUTO_INCREMENT,
+        user_name VARCHAR(200),
+        age INT,
+        hobby VARCHAR(300),
+        city VARCHAR(200)
+    );
+
+Insert into table:
+    INSERT INTO users_info_table
+    (user_name, age, hobby, city)
+    VALUES
+    ('Jane', 30, 'Biking', 'Montreal');
+
+Select all from table:
+    SELECT * FROM users_info_table;
