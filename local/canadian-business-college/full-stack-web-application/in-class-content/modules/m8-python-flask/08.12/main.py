@@ -1,0 +1,130 @@
+# main.py
+# import flask module
+from flask import Flask, redirect, url_for, request, render_template
+import mysql.connector
+
+# create a flask application
+app = Flask(__name__) 
+
+# database connection credentials
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="qwerty123",
+    database="batch_8"
+)
+
+db_cursor = db.cursor()
+
+
+# route flask to a python function
+@app.route('/') 
+def root_page(): 
+    # render an html template with expression/placeholder value
+    # template having expression and statements (for loop, if/else) being used
+    return render_template("main.html", main_heading = "Root Heading",
+                            is_active = True,
+                            my_list = ["Apple", "Mango", "Cherry", "Banana"]
+                            ) 
+
+@app.route('/home/') 
+def home_page(): 
+    the_placeholders = {
+            "page_title": "Home",
+            "page_heading" : "Home Page",
+            "page_subheading": "A page to find the Home for our website",
+            "page_para" : "Hello from the Home page"
+        }
+    # pass the dictionary as data wit ** that does unpacking 
+    return render_template("common_page.html", **the_placeholders)
+
+@app.route('/contact/') 
+def contact_page(): 
+    the_placeholders = {
+        "page_title": "Contact",
+        "page_heading" : "Contact Page",
+        "page_subheading": "A page to find the contacts",
+        "page_para" : "Hello from the contact page"
+    }
+    return render_template("common_page.html", **the_placeholders)
+
+@app.route('/form/') 
+def form_method(): 
+    return render_template("form.html")
+
+# defining a path that only accepts post request
+@app.route('/data/', methods = ['POST']) 
+def data_path():
+    # handle file coming in the post request
+    user_file = request.files["user_file"]
+    user_file.save("./uploads/images/" + user_file.filename)
+    print(user_file)
+    
+    # extract data from the request using request.form
+    username = request.form["user_name"]
+    userage = request.form["user_age"]
+    # extract data using form.get method
+    usercity = request.form.get("user_city")
+    userhobby = request.form["user_hobby"]
+
+    # create insert query with place holders
+    insert_query = """INSERT INTO users_info_table
+                    (user_name, age, hobby, city)
+                    VALUES
+                    (%s, %s, %s, %s);"""
+
+    # prepare the values to be replaced in the insert query in same sequnce as expected
+    values = (username, userage, userhobby, usercity)
+
+    # prepare the final query for execution
+    db_cursor.execute(insert_query, values)
+
+    # execute the final query in mysql db 
+    db.commit()
+
+    # send user to the list user page
+    return redirect(url_for("list_users"))
+
+@app.route('/list_users/') 
+def list_users(): 
+    # write the select query to get the data from db
+    select_query = "SELECT * FROM users_info_table;"
+    # execute the query in the db
+    db_cursor.execute(select_query)
+    # extract all data from the db
+    all_users = db_cursor.fetchall()
+    return render_template("list_user.html",Users = all_users )
+
+
+# defining a path that only accepts post request
+@app.route('/data_read_write/', methods = ['POST', 'GET']) 
+def data_read_write_path(): 
+    return 'This path deals with data, it reads as well and send back as well'
+
+# response with list or dictionary
+@app.route('/send_data/') 
+def send_data(): 
+    the_data = [{
+        "name" : "John",
+        "age" : 40,
+        "city" : "Toronto",
+        "hobby" : "Coding" 
+    },
+    {
+        "name" : "Jane",
+        "age" : 20,
+        "city" : "Toronto",
+        "hobby" : "Coding" 
+    }]
+
+    return the_data
+
+# handle all other unknown paths
+@app.errorhandler(404)
+def page_not_found(e):
+    #  return "The page you are trying to find does not exist on our server, please check"
+    return redirect(url_for("root_page"))
+    
+# in main method run flask server
+if __name__ == '__main__': 
+    app.run(debug=True)
