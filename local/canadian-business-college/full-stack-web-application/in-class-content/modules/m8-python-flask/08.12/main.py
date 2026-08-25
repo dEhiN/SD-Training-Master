@@ -14,6 +14,8 @@ db = mysql.connector.connect(
     database="batch_8"
 )
 
+db_cursor = db.cursor()
+
 
 # route flask to a python function
 @app.route('/') 
@@ -52,16 +54,34 @@ def form_method():
 
 # defining a path that only accepts post request
 @app.route('/data/', methods = ['POST']) 
-def data_path(): 
+def data_path():
+    # handle file coming in the post request
+    user_file = request.files["user_file"]
+    user_file.save("./uploads/images/" + user_file.filename)
+    print(user_file)
+    
     # extract data from the request using request.form
     username = request.form["user_name"]
     userage = request.form["user_age"]
     # extract data using form.get method
     usercity = request.form.get("user_city")
-    # handle file coming in the post request
-    user_file = request.files["user_file"]
-    user_file.save("./uploads/images/" + user_file.filename)
-    print(user_file)
+    userhobby = request.form["user_hobby"]
+
+    # create insert query with place holders
+    insert_query = """INSERT INTO users_info_table
+                    (user_name, age, hobby, city)
+                    VALUES
+                    (%s, %s, %s, %s);"""
+
+    # prepare the values to be replaced in the insert query in same sequnce as expected
+    values = (username, userage, userhobby, usercity)
+
+    # prepare the final query for execution
+    db_cursor.execute(insert_query, values)
+
+    # execute the final query in mysql db 
+    db.commit()
+
     return "Users name is - " + username + " , Users age is - " + userage + " , users city is - " + usercity
 
 # defining a path that only accepts post request
@@ -95,4 +115,4 @@ def page_not_found(e):
     
 # in main method run flask server
 if __name__ == '__main__': 
-    app.run(debug=True) 
+    app.run(debug=True)
